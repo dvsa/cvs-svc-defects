@@ -11,7 +11,7 @@ plugins:
 
 functions:
   getDefects:
-    handler: handler.getDefects
+    handler: src/handler.getDefects
     events:
     - http:
         path: defects
@@ -22,7 +22,7 @@ resources:
     Users:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: Defects
+        TableName: cvs-${env:ENV}-defects
         AttributeDefinitions:
         - AttributeName: imNumber
           AttributeType: N
@@ -34,15 +34,15 @@ resources:
           WriteCapacityUnits: 1
 custom:
   serverless-offline:
-    port: ${env:SERVERLESS_PORT}
+    port: 3000
   dynamodb:
     start:
-      port: ${env:DYNAMO_PORT}
+      port: 8000
       inMemory: true
       migrate: true
-      seed: true
+      seed: false
     seed:
       defects:
         sources:
-        - table: Defects
-          sources: [./offline/migrations/defects.json]
+        - table: cvs-${env:ENV}-defects
+          sources: [./tests/resources/defects.json]

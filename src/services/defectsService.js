@@ -2,9 +2,10 @@
 
 const AWS = require('aws-sdk')
 const HTTPResponseStatus = require('../models/HTTPResponseStatus')
+const config = require('../config/config')
 
 const dbClient = new AWS.DynamoDB.DocumentClient(
-  process.env.IS_OFFLINE ? { region: 'localhost', endpoint: `http://localhost:${process.env.DYNAMO_PORT}` } : {}
+  (config.ENV === 'local') ? { region: config.OFFLINE.DYNAMODB_REGION, endpoint: config.OFFLINE.DYNAMODB_ENDPOINT } : {}
 )
 
 /**
@@ -13,7 +14,7 @@ const dbClient = new AWS.DynamoDB.DocumentClient(
  */
 const getDefectList = () => {
   const params = {
-    TableName: 'Defects'
+    TableName: `cvs-${config.ENV}-defects`
   }
 
   return dbClient.scan(params)
