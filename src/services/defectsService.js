@@ -14,7 +14,7 @@ const dbClient = new AWS.DynamoDB.DocumentClient(
  */
 const getDefectList = () => {
   const params = {
-    TableName: `cvs-${config.ENV}-defects`
+    TableName: `cvs-${config.ENV}-${config.COMPONENT}-defects`
   }
 
   return dbClient.scan(params)
