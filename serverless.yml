@@ -22,7 +22,7 @@ resources:
     Users:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: cvs-${env:ENV}-defects
+        TableName: cvs-${env:ENV}-dft-defects
         AttributeDefinitions:
         - AttributeName: imNumber
           AttributeType: N
@@ -44,5 +44,5 @@ custom:
     seed:
       defects:
         sources:
-        - table: cvs-${env:ENV}-defects
+        - table: cvs-${env:ENV}-dft-defects
           sources: [./tests/resources/defects.json]
