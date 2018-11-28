@@ -1,9 +1,14 @@
 const assert = require('assert')
-const defectsService = require('../../src/services/defectsService')
+const Defects = require('../../src/models/Defects')
+const DbClientMock = require('../../src/models/DbClientMock')
 
 describe('defectsService', () => {
   it('should fetch all defects from the database', async () => {
-    await defectsService()
+    var dbClientMock = new DbClientMock('DummyTable')
+
+    var defects = new Defects(dbClientMock)
+
+    await defects.getAll()
       .then(() => {
         assert.ok(true, 'Defects retrieved successfully.')
       })
