@@ -1,20 +1,30 @@
 'use strict'
-const AWS = require('aws-sdk')
-const Defects = require('../models/Defects')
-const config = require('../config/config')
-
-const dbClient = new AWS.DynamoDB.DocumentClient(
-  (config.ENV === 'local') ? { region: config.OFFLINE.DYNAMODB_REGION, endpoint: config.OFFLINE.DYNAMODB_ENDPOINT } : {}
-)
+const HTTPResponseStatus = require('../models/HTTPResponseStatus')
 
 /**
  * Fetches the entire list of Defects from the database.
  * @returns Promise
  */
-const getDefectList = () => {
-  var defects = new Defects(dbClient)
+class DefectsService {
+  constructor (defects) {
+    this.defects = defects
+  }
 
-  return defects.getAll()
+  getDefectList () {
+    return this.defects.getAll()
+      .then(data => {
+        if (data === undefined || data.Items === undefined || data.Count === 0) { throw new HTTPResponseStatus(404, 'No resources match the search criteria.') }
+        return data.Items
+      })
+      .catch(error => {
+        if (!error.statusCode) {
+          error.statusCode = 500
+          error.body = 'Internal Server Error'
+        }
+
+        throw new HTTPResponseStatus(error.statusCode, error.body)
+      })
+  }
 }
 
-module.exports = getDefectList
+module.exports = DefectsService

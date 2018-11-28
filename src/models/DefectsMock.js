@@ -1,7 +1,6 @@
 class DefectsMock {
-
   constructor (jsonMock) {
-    this.jsonMock = jsonMock;
+    this.jsonMock = jsonMock
   }
 
   getAll () {
