@@ -1,10 +1,14 @@
 class DefectsMock {
-  constructor (jsonMock) {
-    this.jsonMock = jsonMock
+  constructor (defectRecordsMock, numberOfrecords, numberOfScannedRecords) {
+    this.responseObject = {
+      Items: defectRecordsMock,
+      Count: numberOfrecords,
+      ScannedCount: numberOfScannedRecords
+    }
   }
 
   getAll () {
-    return Promise.resolve(this.jsonMock)
+    return Promise.resolve(this.responseObject)
   }
 }
 
