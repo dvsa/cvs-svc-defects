@@ -1,33 +1,61 @@
-const assert = require('assert')
+const expect = require('expect')
 const DefectsMock = require('../../src/models/DefectsMock')
 const DefectsService = require('../../src/services/DefectsService')
+const HTTPResponseStatus = require('../../src/models/HTTPResponseStatus')
 
-describe('DefectsService', () => {
-  it('should return populated payload when receiving data from db call', () => {
-    const populatedMockData = require('../resources/defects.json')
-    var defectsMock = new DefectsMock(populatedMockData)
-    var defectsService = new DefectsService(defectsMock)
+describe('getDefectList', () => {
+  
+  var defectsMock ;
+  var defectsService;
+  
+  function createMock(data) {
+    defectsMock = new DefectsMock(data);
+    defectsService = new DefectsService(defectsMock);
+  }
 
-    defectsService.getDefectList()
-      .then((data) => {
-        if (data.Items) { assert.ok(true, 'Defects retrieved successfully.') }
-      })
-      .catch((error) => {
-        assert.fail(error)
+  it('Data with items', () => {
+    createMock({Items: "myItems"});
+
+    return defectsService.getDefectList()
+      .then((items) => {
+        expect(items).toEqual("myItems");
       })
   })
 
-  it('should throw 404-No resources match the search criteria -- if no results are returned from db call', () => {
-    const emptyData = {}
-    var defectsMock = new DefectsMock(emptyData)
-    var defectsService = new DefectsService(defectsMock)
+  it('Undefined data', () => {
+    createMock({"": ""});
 
-    defectsService.getDefectList()
+    return defectsService.getDefectList()
       .then(() => {
-        assert.fail()
+      }).catch((errorResponse) => {
+        expect(errorResponse).toBeInstanceOf(HTTPResponseStatus);
+        expect(errorResponse.statusCode).toEqual(404);
+        expect(errorResponse.body).toEqual('No resources match the search criteria.');
       })
-      .catch((error) => {
-        if (error.statusCode === '404' && error.body === 'No resources match the search criteria.') { assert.ok() }
+  })
+
+  it('Undefined items', () => {
+    createMock({Items: ""});
+
+    return defectsService.getDefectList()
+      .then(() => {
+      }).catch((errorResponse) => {
+        expect(errorResponse).toBeInstanceOf(HTTPResponseStatus);
+        expect(errorResponse.statusCode).toEqual(404);
+        expect(errorResponse.body).toEqual('No resources match the search criteria.');
+      })
+  })
+
+  it('Empty data', () => {
+    createMock({});
+
+    return defectsService.getDefectList()
+      .then(() => {
+      }).catch((errorResponse) => {
+        expect(errorResponse).toBeInstanceOf(HTTPResponseStatus);
+        expect(errorResponse.statusCode).toEqual(404);
+        expect(errorResponse.body).toEqual('No resources match the search criteria.');
       })
   })
 })
+
