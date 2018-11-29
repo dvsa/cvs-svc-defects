@@ -6,12 +6,12 @@ const HTTPResponseStatus = require('../models/HTTPResponseStatus')
  * @returns Promise
  */
 class DefectsService {
-  constructor (defects) {
-    this.defects = defects
+  constructor (defectsDto) {
+    this.defectsDto = defectsDto
   }
 
   getDefectList () {
-    return this.defects.getAll()
+    return this.defectsDto.getAll()
       .then(data => {
         if (data === undefined || data.Items === undefined || data.Count === 0) { throw new HTTPResponseStatus(404, 'No resources match the search criteria.') }
         return data.Items
