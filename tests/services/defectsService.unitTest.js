@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const DefectsMock = require('../../src/models/DefectsMock')
+const DefectsMock = require('../models/DefectsMock')
 const DefectsService = require('../../src/services/DefectsService')
 const HTTPResponseStatus = require('../../src/models/HTTPResponseStatus')
 
