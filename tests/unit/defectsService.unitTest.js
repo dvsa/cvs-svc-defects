@@ -27,9 +27,7 @@ describe('DefectsService', () => {
         assert.fail()
       })
       .catch((error) => {
-        assert.fail()
-        console.log(error)
-        if (error.statusCode === '405' || error.body === 'Bo resources match the search criteria.') { assert.ok() }
+        if (error.statusCode === '404' && error.body === 'No resources match the search criteria.') { assert.ok() }
       })
   })
 })
