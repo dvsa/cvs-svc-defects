@@ -1,13 +1,13 @@
 const expect = require('chai').expect
-const DefectsMock = require('../models/DefectsMock')
+const DefectsDtoMock = require('../models/DefectsDtoMock')
 const DefectsService = require('../../src/services/DefectsService')
 const HTTPResponseStatus = require('../../src/models/HTTPResponseStatus')
 
 describe('getDefectList', () => {
   it('should return a populated response in case db call returns data', () => {
     const defectRecordsMock = { item: 'testItem' }
-    var defectsMock = new DefectsMock(defectRecordsMock, 1, 1, true)
-    var defectsService = new DefectsService(defectsMock)
+    var defectsDtoMock = new DefectsDtoMock(defectRecordsMock, 1, 1, true)
+    var defectsService = new DefectsService(defectsDtoMock)
 
     return defectsService.getDefectList()
       .then((returnedRecords) => {
@@ -20,8 +20,8 @@ describe('getDefectList', () => {
 
   it('should return 404-No resources match the search criteria if db returns empty data', () => {
     const defectRecordsMock = {}
-    var defectsMock = new DefectsMock(defectRecordsMock, 0, 0, true)
-    var defectsService = new DefectsService(defectsMock)
+    var defectsDtoMock = new DefectsDtoMock(defectRecordsMock, 0, 0, true)
+    var defectsService = new DefectsService(defectsDtoMock)
 
     return defectsService.getDefectList()
       .then(() => {
@@ -35,8 +35,8 @@ describe('getDefectList', () => {
 
   it('should return 404-No resources match the search criteria if db return null data', () => {
     const defectRecordsMock = undefined
-    var defectsMock = new DefectsMock(defectRecordsMock, 0, 0, true)
-    var defectsService = new DefectsService(defectsMock)
+    var defectsDtoMock = new DefectsDtoMock(defectRecordsMock, 0, 0, true)
+    var defectsService = new DefectsService(defectsDtoMock)
 
     return defectsService.getDefectList()
       .then(() => {
@@ -49,8 +49,8 @@ describe('getDefectList', () => {
   })
 
   it('should return 500-Internal Server Error if db not returning response', () => {
-    var defectsMock = new DefectsMock(null, 0, 0, false)
-    var defectsService = new DefectsService(defectsMock)
+    var defectsDtoMock = new DefectsDtoMock(null, 0, 0, false)
+    var defectsService = new DefectsService(defectsDtoMock)
 
     return defectsService.getDefectList()
       .then(() => {})
