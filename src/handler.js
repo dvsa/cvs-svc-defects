@@ -2,4 +2,4 @@
 
 const getDefects = require('./functions/getDefects')
 
-module.exports.getDefects = getDefects
+module.exports.handler = getDefects

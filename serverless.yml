@@ -11,7 +11,7 @@ plugins:
 
 functions:
   getDefects:
-    handler: src/handler.getDefects
+    handler: src/handler.handler
     events:
     - http:
         path: defects
