@@ -8,6 +8,7 @@ const HTTPResponseStatus = require('../models/HTTPResponseStatus')
 class DefectsService {
   constructor (defectsDto) {
     this.defectsDto = defectsDto
+
   }
 
   getDefectList () {
