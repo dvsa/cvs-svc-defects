@@ -1,18 +1,22 @@
-class DefectsMock {
-  constructor (defectRecordsMock, numberOfrecords, numberOfScannedRecords, isDatabaseOn) {
-    this.responseObject = {
-      Items: defectRecordsMock,
-      Count: numberOfrecords,
-      ScannedCount: numberOfScannedRecords
-    }
-    this.isDatabaseOn = isDatabaseOn
+class DefectsDtoMock {
+  constructor () {
+    this.defectRecordsMock = null
+    this.numberOfrecords = null
+    this.numberOfScannedRecords = null
+    this.isDatabaseOn = true
   }
 
   getAll () {
-    if (!this.isDatabaseOn) { return Promise.reject(this.responseObject) }
+    const responseObject = {
+      Items: this.defectRecordsMock,
+      Count: this.numberOfrecords,
+      ScannedCount: this.numberOfScannedRecords
+    }
 
-    return Promise.resolve(this.responseObject)
+    if (!this.isDatabaseOn) { return Promise.reject(responseObject) }
+
+    return Promise.resolve(responseObject)
   }
 }
 
-module.exports = DefectsMock
+module.exports = DefectsDtoMock

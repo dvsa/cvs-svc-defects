@@ -25,6 +25,26 @@ class DefectsService {
         throw new HTTPResponseStatus(error.statusCode, error.body)
       })
   }
+
+  insertDefectList (defectItems) {
+    return this.defectsDto.createMultiple(defectItems)
+      .then(data => {
+        if (data.UnprocessedItems) { return data.UnprocessedItems }
+      })
+      .catch(() => {
+        throw new HTTPResponseStatus(500, 'Internal Server Error')
+      })
+  }
+
+  deleteDefectList (defectItemKeys) {
+    return this.defectsDto.deleteDefectList(defectItemKeys)
+      .then((data) => {
+        if (data.UnprocessedItems) { return data.UnprocessedItems }
+      })
+      .catch(() => {
+        throw new HTTPResponseStatus(500, 'Internal ServerError')
+      })
+  }
 }
 
 module.exports = DefectsService
