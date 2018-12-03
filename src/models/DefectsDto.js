@@ -35,7 +35,14 @@ class DefectsDto {
   }
 
   deleteMultiple (primaryKeysToBeDeleted) {
-    var params = {}
+    var params =
+    {
+      RequestItems:
+      {
+        [this.tableName]: []
+      }
+    }
+
     primaryKeysToBeDeleted.forEach(key => {
       params.RequestItems[this.tableName].push(
         {
@@ -43,7 +50,7 @@ class DefectsDto {
           {
             Key:
             {
-              HashKey: primaryKeysToBeDeleted
+              imNumber: key
             }
           }
         }

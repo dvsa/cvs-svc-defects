@@ -31,18 +31,18 @@ class DefectsService {
       .then(data => {
         if (data.UnprocessedItems) { return data.UnprocessedItems }
       })
-      .catch(() => {
-        throw new HTTPResponseStatus(500, 'Internal Server Error')
+      .catch((error) => {
+        if (error) { throw new HTTPResponseStatus(500, 'Internal Server Error') }
       })
   }
 
   deleteDefectList (defectItemKeys) {
-    return this.defectsDto.deleteDefectList(defectItemKeys)
+    return this.defectsDto.deleteMultiple(defectItemKeys)
       .then((data) => {
         if (data.UnprocessedItems) { return data.UnprocessedItems }
       })
-      .catch(() => {
-        throw new HTTPResponseStatus(500, 'Internal ServerError')
+      .catch((error) => {
+        if (error) { throw new HTTPResponseStatus(500, 'Internal ServerError') }
       })
   }
 }
