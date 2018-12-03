@@ -17,7 +17,7 @@ describe('defects', () => {
         defectsDto = new DefectsDto()
         defectsService = new DefectsService(defectsDto)
         mockData = require('../resources/defects.json')
-        defectsService.insertDefectList(mockData).catch((error) => { console.log(error) })
+        defectsService.insertDefectList(mockData)
         done()
       })
 
@@ -33,8 +33,8 @@ describe('defects', () => {
 
       after((done) => {
         const mockDataKeys = [1, 3]
-        defectsService.deleteDefectList(mockDataKeys).catch((error) => { console.log(error) })
-        setTimeout(done)
+        defectsService.deleteDefectList(mockDataKeys)
+        done()
       })
     })
 
@@ -46,6 +46,9 @@ describe('defects', () => {
   })
 
   beforeEach((done) => {
+    setTimeout(done, 500)
+  })
+  afterEach((done) => {
     setTimeout(done, 500)
   })
 })

@@ -18,6 +18,7 @@ class DefectsService {
       })
       .catch(error => {
         if (!error.statusCode) {
+          console.log(error)
           error.statusCode = 500
           error.body = 'Internal Server Error'
         }
@@ -32,7 +33,10 @@ class DefectsService {
         if (data.UnprocessedItems) { return data.UnprocessedItems }
       })
       .catch((error) => {
-        if (error) { throw new HTTPResponseStatus(500, 'Internal Server Error') }
+        if (error) {
+          console.log(error)
+          throw new HTTPResponseStatus(500, 'Internal Server Error')
+        }
       })
   }
 
@@ -42,7 +46,10 @@ class DefectsService {
         if (data.UnprocessedItems) { return data.UnprocessedItems }
       })
       .catch((error) => {
-        if (error) { throw new HTTPResponseStatus(500, 'Internal ServerError') }
+        if (error) {
+          console.log(error)
+          throw new HTTPResponseStatus(500, 'Internal ServerError')
+        }
       })
   }
 }
