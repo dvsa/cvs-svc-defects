@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/handler.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dvsa/cvs-svc-defects.git"
+  },
   "scripts": {
     "start": "npm run eslint && ENV=local ./node_modules/serverless/bin/serverless offline start",
     "debug": "export SLS_DEBUG=* && ENV=local node --inspect ./node_modules/serverless/bin/serverless offline start",
