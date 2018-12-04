@@ -56,3 +56,10 @@ In order to test, you need to run the following:
 ### Environmental variables
 
 - The `ENV` environment variable indicates in which environment is this application running. Use `ENV=local` for local deployment. This variable is required when starting the application or running tests.
+
+
+### Seeding the database
+
+- From within the resource folder type the following:
+```cat defects.json | json-dynamo-putrequest cvs-ENV-dft-defects --beautify >test.json```
+```aws dynamodb batch-write-item --request-items file://test.json --region=eu-west-1```
