@@ -1,24 +1,20 @@
 'use strict'
 
-const DefectsDto = require('../models/DefectsDto')
-const DefectsService = require('../services/DefectsService')
+const getDefectList = require('../services/defectsService')
 
-const getDefects = () => {
-  const defects = new DefectsDto()
-  const defectsService = new DefectsService(defects)
-
-  return defectsService.getDefectList()
-    .then((data) => {
+const getDefects = async () => {
+  return getDefectList()
+    .then((result) => {
       return {
         statusCode: 200,
-        body: JSON.stringify(data)
+        body: JSON.stringify(result)
       }
     })
-    .catch((error) => {
+    .catch((e) => {
       return {
-        statusCode: error.statusCode,
-        headers: error.headers,
-        body: JSON.stringify(error.body)
+        statusCode: e.statusCode,
+        headers: e.headers,
+        body: JSON.stringify(e.body)
       }
     })
 }

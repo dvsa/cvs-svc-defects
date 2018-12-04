@@ -1,57 +1,37 @@
 'use strict'
+
+const AWS = require('aws-sdk')
 const HTTPResponseStatus = require('../models/HTTPResponseStatus')
+const config = require('../config/config')
+
+const dbClient = new AWS.DynamoDB.DocumentClient(
+  (config.ENV === 'local') ? { region: config.OFFLINE.DYNAMODB_REGION, endpoint: config.OFFLINE.DYNAMODB_ENDPOINT } : {}
+)
 
 /**
  * Fetches the entire list of Defects from the database.
  * @returns Promise
  */
-class DefectsService {
-  constructor (defectsDto) {
-    this.defectsDto = defectsDto
+const getDefectList = () => {
+  let TableName;
+  (config.ENV === 'local') ? (TableName = `cvs-${config.ENV}-${config.OFFLINE.COMPONENT}-defects`) : (TableName = `cvs-${config.ENV}-${config.COMPONENT}-defects`)
+  const params = {
+    TableName: TableName
   }
 
-  getDefectList () {
-    return this.defectsDto.getAll()
-      .then(data => {
-        if (data.Count === 0) { throw new HTTPResponseStatus(404, 'No resources match the search criteria.') }
-        return data.Items
-      })
-      .catch(error => {
-        if (!error.statusCode) {
-          console.log(error)
-          error.statusCode = 500
-          error.body = 'Internal Server Error'
-        }
+  return dbClient.scan(params)
+    .promise()
+    .then((result) => {
+      if (result.$response.error) {
+        throw new HTTPResponseStatus(result.$response.error.statusCode, result.$response.error.message)
+      }
 
-        throw new HTTPResponseStatus(error.statusCode, error.body)
-      })
-  }
+      if (result.Count === 0 || result.Items === undefined) {
+        throw new HTTPResponseStatus(404, { error: 'No resources match the search criteria.' })
+      }
 
-  insertDefectList (defectItems) {
-    return this.defectsDto.createMultiple(defectItems)
-      .then(data => {
-        if (data.UnprocessedItems) { return data.UnprocessedItems }
-      })
-      .catch((error) => {
-        if (error) {
-          console.log(error)
-          throw new HTTPResponseStatus(500, 'Internal Server Error')
-        }
-      })
-  }
-
-  deleteDefectList (defectItemKeys) {
-    return this.defectsDto.deleteMultiple(defectItemKeys)
-      .then((data) => {
-        if (data.UnprocessedItems) { return data.UnprocessedItems }
-      })
-      .catch((error) => {
-        if (error) {
-          console.log(error)
-          throw new HTTPResponseStatus(500, 'Internal ServerError')
-        }
-      })
-  }
+      return result.Items
+    })
 }
 
-module.exports = DefectsService
+module.exports = getDefectList
