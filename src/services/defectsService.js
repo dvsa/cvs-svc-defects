@@ -13,7 +13,7 @@ class DefectsService {
   getDefectList () {
     return this.defectsDto.getAll()
       .then(data => {
-        if (data === undefined || data.Items === undefined || data.Count === 0) { throw new HTTPResponseStatus(404, 'No resources match the search criteria.') }
+        if (data.Count === 0) { throw new HTTPResponseStatus(404, 'No resources match the search criteria.') }
         return data.Items
       })
       .catch(error => {

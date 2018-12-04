@@ -13,13 +13,7 @@ class DefectsDto {
   }
 
   createMultiple (defectItems) {
-    var params =
-    {
-      RequestItems:
-      {
-        [this.tableName]: []
-      }
-    }
+    var params = this.generatePartialParams()
 
     defectItems.forEach(defectItem => {
       params.RequestItems[this.tableName].push(
@@ -35,13 +29,7 @@ class DefectsDto {
   }
 
   deleteMultiple (primaryKeysToBeDeleted) {
-    var params =
-    {
-      RequestItems:
-      {
-        [this.tableName]: []
-      }
-    }
+    var params = this.generatePartialParams()
 
     primaryKeysToBeDeleted.forEach(key => {
       params.RequestItems[this.tableName].push(
@@ -58,6 +46,15 @@ class DefectsDto {
     })
 
     return dbClient.batchWrite(params).promise()
+  }
+
+  generatePartialParams () {
+    return {
+      RequestItems:
+      {
+        [this.tableName]: []
+      }
+    }
   }
 }
 
