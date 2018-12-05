@@ -3,7 +3,7 @@ const expect = require('chai').expect
 const url = 'http://localhost:3000/'
 const request = supertest(url)
 const DefectsService = require('../../src/services/DefectsService')
-const DefectsDto = require('../../src/models/DefectsDto')
+const DefectsDAO = require('../../src/models/DefectsDAO')
 var _ = require('lodash/core')
 
 describe('defects', () => {
@@ -11,11 +11,11 @@ describe('defects', () => {
     context('when database is populated', () => {
       var defectsService = null
       var mockData = null
-      var defectsDto = null
+      var defectsDAO = null
 
       before((done) => {
-        defectsDto = new DefectsDto()
-        defectsService = new DefectsService(defectsDto)
+        defectsDAO = new DefectsDAO()
+        defectsService = new DefectsService(defectsDAO)
         mockData = require('../resources/defects.json')
         defectsService.insertDefectList(mockData)
         done()

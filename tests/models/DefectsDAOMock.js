@@ -1,4 +1,4 @@
-class DefectsDtoMock {
+class DefectsDAOMock {
   constructor () {
     this.defectRecordsMock = null
     this.numberOfrecords = null
@@ -19,4 +19,4 @@ class DefectsDtoMock {
   }
 }
 
-module.exports = DefectsDtoMock
+module.exports = DefectsDAOMock
