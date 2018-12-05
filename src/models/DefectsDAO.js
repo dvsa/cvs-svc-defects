@@ -3,7 +3,7 @@ const config = require('../config/config')
 const dbClient = new AWS.DynamoDB.DocumentClient(
   (config.ENV === 'local') ? { region: config.OFFLINE.DYNAMODB_REGION, endpoint: config.OFFLINE.DYNAMODB_ENDPOINT } : {})
 
-class DefectsDto {
+class DefectsDAO {
   constructor () {
     (config.ENV === 'local') ? (this.tableName = `cvs-${config.ENV}-${config.OFFLINE.COMPONENT}-defects`) : (this.tableName = `cvs-${config.ENV}-${config.COMPONENT}-defects`)
   }
@@ -58,4 +58,4 @@ class DefectsDto {
   }
 }
 
-module.exports = DefectsDto
+module.exports = DefectsDAO

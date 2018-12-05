@@ -1,11 +1,11 @@
 'use strict'
 
-const DefectsDto = require('../models/DefectsDto')
+const DefectsDAO = require('../models/DefectsDAO')
 const DefectsService = require('../services/DefectsService')
 
 const getDefects = () => {
-  const defects = new DefectsDto()
-  const defectsService = new DefectsService(defects)
+  const defectsDAO = new DefectsDAO()
+  const defectsService = new DefectsService(defectsDAO)
 
   return defectsService.getDefectList()
     .then((data) => {

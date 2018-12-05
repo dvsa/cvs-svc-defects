@@ -6,12 +6,12 @@ const HTTPResponseStatus = require('../models/HTTPResponseStatus')
  * @returns Promise
  */
 class DefectsService {
-  constructor (defectsDto) {
-    this.defectsDto = defectsDto
+  constructor (defectsDAO) {
+    this.defectsDAO = defectsDAO
   }
 
   getDefectList () {
-    return this.defectsDto.getAll()
+    return this.defectsDAO.getAll()
       .then(data => {
         if (data.Count === 0) { throw new HTTPResponseStatus(404, 'No resources match the search criteria.') }
         return data.Items
@@ -28,7 +28,7 @@ class DefectsService {
   }
 
   insertDefectList (defectItems) {
-    return this.defectsDto.createMultiple(defectItems)
+    return this.defectsDAO.createMultiple(defectItems)
       .then(data => {
         if (data.UnprocessedItems) { return data.UnprocessedItems }
       })
@@ -41,7 +41,7 @@ class DefectsService {
   }
 
   deleteDefectList (defectItemKeys) {
-    return this.defectsDto.deleteMultiple(defectItemKeys)
+    return this.defectsDAO.deleteMultiple(defectItemKeys)
       .then((data) => {
         if (data.UnprocessedItems) { return data.UnprocessedItems }
       })
