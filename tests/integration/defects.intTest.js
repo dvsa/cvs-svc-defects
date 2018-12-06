@@ -15,7 +15,6 @@ describe('defects', () => {
       var defectsDAO = null
 
       before((done) => {
-        console.log(url)
         defectsDAO = new DefectsDAO()
         defectsService = new DefectsService(defectsDAO)
         mockData = require('../resources/defects.json')
