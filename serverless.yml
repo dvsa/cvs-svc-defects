@@ -3,7 +3,6 @@ service: cvs-svc-defect
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: dev
 
 plugins:
   - serverless-dynamodb-local
@@ -17,12 +16,27 @@ functions:
         path: defects
         method: get
 
+custom:
+  serverless-offline:
+    port: ${file(./src/config/config.json):APP_PORT}
+  dynamodb:
+    start:
+      port: ${file(./src/config/config.json):DYNAMODB_PORT}
+      inMemory: true
+      migrate: true
+      seed: false
+    seed:
+      seed_name:
+        sources:
+          - table: cvs-local-dft-defects
+            sources: [./tests/resources/defects.json]
+
 resources:
   Resources:
     Users:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: cvs-${env:ENV}-dft-defects
+        TableName: ${file(./src/config/config.json):DYNAMODB_TABLE_NAME}
         AttributeDefinitions:
         - AttributeName: imNumber
           AttributeType: N
@@ -32,17 +46,3 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-custom:
-  serverless-offline:
-    port: 3000
-  dynamodb:
-    start:
-      port: 8000
-      inMemory: true
-      migrate: true
-      seed: false
-    seed:
-      defects:
-        sources:
-        - table: cvs-${env:ENV}-dft-defects
-          sources: [./tests/resources/defects.json]

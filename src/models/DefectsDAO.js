@@ -1,11 +1,13 @@
 const AWS = require('aws-sdk')
-const config = require('../config/config')
+const config = require('../config/config.json')
 const dbClient = new AWS.DynamoDB.DocumentClient(
-  (config.ENV === 'local') ? { region: config.OFFLINE.DYNAMODB_REGION, endpoint: config.OFFLINE.DYNAMODB_ENDPOINT } : {})
+  { region: config.DYNAMODB_REGION,
+    endpoint: config.DYNAMODB_ENDPOINT
+  })
 
 class DefectsDAO {
   constructor () {
-    (config.ENV === 'local') ? (this.tableName = `cvs-${config.ENV}-${config.OFFLINE.COMPONENT}-defects`) : (this.tableName = `cvs-${config.ENV}-${config.COMPONENT}-defects`)
+    this.tableName = config.DYNAMODB_TABLE_NAME
   }
 
   getAll () {
