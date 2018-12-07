@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 function generateJsonFileConfig () {
-  var BRANCH = (process.env.BRANCH) ? process.env.BRANCH : 'local'
+  var BRANCH = process.env.BRANCH
 
   var localConfig = {}
   localConfig.COMPONENT = 'dft'
@@ -24,12 +24,11 @@ function generateJsonFileConfig () {
   var config = null
 
   switch (BRANCH) {
-    case 'local':
-      config = localConfig
-      break
-    case 'prod':
+    case 'pipeline':
       config = pipelineConfig
       break
+    default:
+      config = localConfig
   }
 
   fs.writeFile('./config.json', JSON.stringify(config), (err) => {
