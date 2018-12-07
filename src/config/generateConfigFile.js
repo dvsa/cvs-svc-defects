@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 function generateJsonFileConfig () {
-  var BRANCH = (process.env.BRANCH) ? process.env.ENV : 'local'
+  var BRANCH = (process.env.BRANCH) ? process.env.BRANCH : 'local'
 
   var localConfig = {}
   localConfig.COMPONENT = 'dft'
@@ -12,23 +12,14 @@ function generateJsonFileConfig () {
   localConfig.DYNAMODB_ENDPOINT = 'http://localhost:' + localConfig.DYNAMODB_PORT + '/'
   localConfig.DYNAMODB_TABLE_NAME = 'cvs-' + BRANCH + '-' + localConfig.COMPONENT + '-defects'
 
-  var prodConfig = {}
-  prodConfig.COMPONENT = 'dft'
-  prodConfig.APP_PORT = null
-  prodConfig.APP_ENDPOINT = null
-  prodConfig.DYNAMODB_REGION = null
-  prodConfig.DYNAMODB_PORT = null
-  prodConfig.DYNAMODB_ENDPOINT = null
-  prodConfig.DYNAMODB_TABLE_NAME = 'cvs-' + BRANCH + '-' + prodConfig.COMPONENT + '-defects'
-
-  var branchConfig = {}
-  branchConfig.COMPONENT = 'dft'
-  branchConfig.APP_PORT = null
-  branchConfig.APP_ENDPOINT = null
-  branchConfig.DYNAMODB_REGION = null
-  branchConfig.DYNAMODB_PORT = null
-  branchConfig.DYNAMODB_ENDPOINT = null
-  branchConfig.DYNAMODB_TABLE_NAME = 'cvs-' + BRANCH + '-' + branchConfig.COMPONENT + '-defects'
+  var pipelineConfig = {}
+  pipelineConfig.COMPONENT = 'dft'
+  pipelineConfig.APP_PORT = null
+  pipelineConfig.APP_ENDPOINT = null
+  pipelineConfig.DYNAMODB_REGION = null
+  pipelineConfig.DYNAMODB_PORT = null
+  pipelineConfig.DYNAMODB_ENDPOINT = null
+  pipelineConfig.DYNAMODB_TABLE_NAME = 'cvs-' + BRANCH + '-' + pipelineConfig.COMPONENT + '-defects'
 
   var config = null
 
@@ -37,10 +28,8 @@ function generateJsonFileConfig () {
       config = localConfig
       break
     case 'prod':
-      config = prodConfig
+      config = pipelineConfig
       break
-    default:
-      config = branchConfig
   }
 
   fs.writeFile('./config.json', JSON.stringify(config), (err) => {

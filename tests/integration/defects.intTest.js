@@ -3,7 +3,7 @@ const supertest = require('supertest')
 const expect = require('chai').expect
 const url = config.APP_ENDPOINT
 const request = supertest(url)
-const DefectsService = require('../../src/services/DefectsService')
+const DefectsService = require('../../src/services/defectsService')
 const DefectsDAO = require('../../src/models/DefectsDAO')
 var _ = require('lodash/core')
 
