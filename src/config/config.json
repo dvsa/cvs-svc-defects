@@ -1,1 +1,1 @@
-{"COMPONENT":"dft","APP_PORT":3001,"APP_ENDPOINT":"http://localhost:3001/","DYNAMODB_REGION":"localhost","DYNAMODB_PORT":8001,"DYNAMODB_ENDPOINT":"http://localhost:8001/","DYNAMODB_TABLE_NAME":"cvs-local-dft-defects"}
+{"COMPONENT":"dft","APP_PORT":null,"APP_ENDPOINT":null,"DYNAMODB_REGION":null,"DYNAMODB_PORT":null,"DYNAMODB_ENDPOINT":null,"DYNAMODB_TABLE_NAME":"cvs-pipeline-dft-defects"}

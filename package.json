@@ -8,7 +8,7 @@
     "url": "https://github.com/dvsa/cvs-svc-defects.git"
   },
   "scripts": {
-    "start": "npm run eslint && npm run generateConfigFile && ./node_modules/serverless/bin/serverless offline start",
+    "start": "npm run eslint && ./node_modules/serverless/bin/serverless offline start",
     "generateConfigFile" :"node ./src/config/generateConfigFile.js",
     "debug": "export SLS_DEBUG=* && node --inspect ./node_modules/serverless/bin/serverless offline start",
     "test": "node_modules/.bin/mocha tests/**/*.unitTest.js",
