@@ -31,7 +31,7 @@ function generateJsonFileConfig () {
       config = localConfig
   }
 
-  fs.writeFile('./config.json', JSON.stringify(config), (err) => {
+  fs.writeFile('config.json', JSON.stringify(config), (err) => {
     if (err) {
       console.log(err)
       return
