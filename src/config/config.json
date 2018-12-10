@@ -1,1 +1,1 @@
-{"COMPONENT":"dft","APP_PORT":null,"APP_ENDPOINT":null,"DYNAMODB_REGION":null,"DYNAMODB_PORT":null,"DYNAMODB_ENDPOINT":null,"DYNAMODB_TABLE_NAME":"cvs-pipeline-dft-defects"}
+{"COMPONENT":"dft","APP_PORT":null,"APP_ENDPOINT":null,"DYNAMODB_REGION":null,"DYNAMODB_PORT":null,"DYNAMODB_ENDPOINT":null,"DYNAMODB_TABLE_NAME":"cvs-cvsb-279-dft-defects"}
