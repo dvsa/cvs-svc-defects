@@ -18,17 +18,17 @@ functions:
 
 custom:
   serverless-offline:
-    port: ${file(./src/config/config.json):APP_PORT}
+    port: 3001
   dynamodb:
     start:
-      port: ${file(./src/config/config.json):DYNAMODB_PORT}
+      port: 8001
       inMemory: true
       migrate: true
       seed: false
     seed:
       seed_name:
         sources:
-          - table: cvs-local-dft-defects
+          - table: cvs-local-defects
             sources: [./tests/resources/defects.json]
 
 resources:
@@ -36,7 +36,7 @@ resources:
     Users:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: ${file(./src/config/config.json):DYNAMODB_TABLE_NAME}
+        TableName: cvs-local-defects
         AttributeDefinitions:
         - AttributeName: imNumber
           AttributeType: N

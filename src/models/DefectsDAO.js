@@ -1,5 +1,6 @@
 const AWS = require('aws-sdk')
-const config = require('../config/config.json')
+const generateConfig = require('../config/generateConfig')
+const config = generateConfig()
 const dbClient = new AWS.DynamoDB.DocumentClient(config.DYNAMODB_DOCUMENTCLIENT_PARAMS)
 
 class DefectsDAO {
