@@ -2,6 +2,7 @@
 
 const DefectsDAO = require('../models/DefectsDAO')
 const DefectsService = require('../services/DefectsService')
+const HTTPResponse = require('../models/HTTPResponse')
 
 const getDefects = () => {
   const defectsDAO = new DefectsDAO()
@@ -9,17 +10,10 @@ const getDefects = () => {
 
   return defectsService.getDefectList()
     .then((data) => {
-      return {
-        statusCode: 200,
-        body: JSON.stringify(data)
-      }
+      return new HTTPResponse(200, data)
     })
     .catch((error) => {
-      return {
-        statusCode: error.statusCode,
-        headers: error.headers,
-        body: JSON.stringify(error.body)
-      }
+      return new HTTPResponse(error.statusCode, error.body)
     })
 }
 

@@ -1,6 +1,6 @@
 'use strict'
-const HTTPResponseStatus = require('../models/HTTPResponseStatus')
 
+const HTTPError = require('../models/HTTPError')
 /**
  * Fetches the entire list of Defects from the database.
  * @returns Promise
@@ -13,7 +13,7 @@ class DefectsService {
   getDefectList () {
     return this.defectsDAO.getAll()
       .then(data => {
-        if (data.Count === 0) { throw new HTTPResponseStatus(404, 'No resources match the search criteria.') }
+        if (data.Count === 0) { throw new HTTPError(404, 'No resources match the search criteria.') }
         return data.Items
       })
       .catch(error => {
@@ -22,8 +22,7 @@ class DefectsService {
           error.statusCode = 500
           error.body = 'Internal Server Error'
         }
-
-        throw new HTTPResponseStatus(error.statusCode, error.body)
+        throw new HTTPError(error.statusCode, error.body)
       })
   }
 
@@ -35,7 +34,7 @@ class DefectsService {
       .catch((error) => {
         if (error) {
           console.log(error)
-          throw new HTTPResponseStatus(500, 'Internal Server Error')
+          throw new HTTPError(500, 'Internal Server Error')
         }
       })
   }
@@ -48,7 +47,7 @@ class DefectsService {
       .catch((error) => {
         if (error) {
           console.log(error)
-          throw new HTTPResponseStatus(500, 'Internal ServerError')
+          throw new HTTPError(500, 'Internal ServerError')
         }
       })
   }

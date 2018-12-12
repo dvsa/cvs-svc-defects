@@ -1,7 +1,7 @@
 const expect = require('chai').expect
 const DefectsDAOMock = require('../models/DefectsDAOMock')
-const DefectsService = require('../../src/services/DefectsService')
-const HTTPResponseStatus = require('../../src/models/HTTPResponseStatus')
+const DefectsService = require('../../src/services/defectsService')
+const HTTPError = require('../../src/models/HTTPError')
 
 describe('getDefectList', () => {
   var defectsDAOMock = new DefectsDAOMock()
@@ -34,7 +34,7 @@ describe('getDefectList', () => {
         .then(() => {
           expect.fail()
         }).catch((errorResponse) => {
-          expect(errorResponse).to.be.instanceOf(HTTPResponseStatus)
+          expect(errorResponse).to.be.instanceOf(HTTPError)
           expect(errorResponse.statusCode).to.equal(404)
           expect(errorResponse.body).to.equal('No resources match the search criteria.')
         })
@@ -51,7 +51,7 @@ describe('getDefectList', () => {
         .then(() => {
           expect.fail()
         }).catch((errorResponse) => {
-          expect(errorResponse).to.be.instanceOf(HTTPResponseStatus)
+          expect(errorResponse).to.be.instanceOf(HTTPError)
           expect(errorResponse.statusCode).to.equal(404)
           expect(errorResponse.body).to.equal('No resources match the search criteria.')
         })
@@ -68,7 +68,7 @@ describe('getDefectList', () => {
           expect.fail()
         })
         .catch((errorResponse) => {
-          expect(errorResponse).to.be.instanceOf(HTTPResponseStatus)
+          expect(errorResponse).to.be.instanceOf(HTTPError)
           expect(errorResponse.statusCode).to.be.equal(500)
           expect(errorResponse.body).to.equal('Internal Server Error')
         })

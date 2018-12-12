@@ -1,6 +1,6 @@
 const supertest = require('supertest')
 const expect = require('chai').expect
-const url = 'http://localhost:3000/'
+const url = 'http://localhost:3001/'
 const request = supertest(url)
 const DefectsService = require('../../src/services/DefectsService')
 const DefectsDAO = require('../../src/models/DefectsDAO')
@@ -24,8 +24,11 @@ describe('defects', () => {
       it('should return all defects in the database', (done) => {
         request.get('defects')
           .end((err, res) => {
-            if (err) { expect.fail() }
+            console.log()
+            if (err) { expect.fail(err) }
             expect(res.statusCode).to.equal(200)
+            expect(res.headers['access-control-allow-origin']).to.equal('*')
+            expect(res.headers['access-control-allow-credentials']).to.equal('true')
             expect(_.isEqual(mockData, res.body)).to.equal(true)
             done()
           })
