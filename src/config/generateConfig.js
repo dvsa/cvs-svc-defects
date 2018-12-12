@@ -1,7 +1,7 @@
 function generateConfig () {
   var BRANCH = process.env.BRANCH
 
-  var localConfig = 
+  var localConfig =
   {
     DYNAMODB_DOCUMENTCLIENT_PARAMS:
     {
@@ -18,7 +18,7 @@ function generateConfig () {
   }
 
   if (!BRANCH) {
-    console.log('Please define BRANCH environment variable')
+    console.error('Please define BRANCH environment variable')
   } else if (BRANCH === 'local') {
     return localConfig
   } else {
