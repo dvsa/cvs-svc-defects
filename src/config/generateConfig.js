@@ -1,7 +1,8 @@
 function generateConfig () {
   var BRANCH = process.env.BRANCH
 
-  var localConfig = {
+  var localConfig = 
+  {
     DYNAMODB_DOCUMENTCLIENT_PARAMS:
     {
       region: 'localhost',

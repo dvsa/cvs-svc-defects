@@ -17,8 +17,8 @@ class DefectsService {
         return data.Items
       })
       .catch(error => {
-        if (!error.statusCode) {
-          console.log(error)
+        if (!(error instanceof HTTPError)) {
+          console.error(error)
           error.statusCode = 500
           error.body = 'Internal Server Error'
         }
@@ -33,7 +33,7 @@ class DefectsService {
       })
       .catch((error) => {
         if (error) {
-          console.log(error)
+          console.error(error)
           throw new HTTPError(500, 'Internal Server Error')
         }
       })
@@ -46,7 +46,7 @@ class DefectsService {
       })
       .catch((error) => {
         if (error) {
-          console.log(error)
+          console.error(error)
           throw new HTTPError(500, 'Internal ServerError')
         }
       })
