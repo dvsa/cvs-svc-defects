@@ -24,7 +24,7 @@ custom:
       port: 8001
       inMemory: true
       migrate: true
-      seed: false
+      seed: true
     seed:
       seed_name:
         sources:
