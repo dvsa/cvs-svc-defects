@@ -8,7 +8,7 @@ podTemplate(label: label, containers: [
         stage('checkout') {
             checkout scm
             sh 'mkdir -p ${HOME}/.aws'
-            sh "aws dynamodb create-table --attribute-definitions AttributeName=imNumber,AttributeType=N --table-name cvs-local-defects --key-schema AttributeName=imNumber,KeyType=HASH --provisioned-throughput 1 --region eu-west-1  --endpoint-url http://localhost:8001"
+            sh "aws dynamodb create-table --attribute-definitions AttributeName=imNumber,AttributeType=N --table-name cvs-local-defects --key-schema AttributeName=imNumber,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --region eu-west-1  --endpoint-url http://localhost:8001"
         }            
         container('node'){
             stage('install-bash'){
