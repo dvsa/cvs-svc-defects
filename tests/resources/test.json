@@ -1,0 +1,1244 @@
+{
+  "cvs-ENV-dft-defects": [
+    {
+      "PutRequest": {
+        "Item": {
+          "imNumber": {
+            "N": "1"
+          },
+          "imDescription": {
+            "S": "Registration Plate"
+          },
+          "forVehicleType": {
+            "L": [
+              {
+                "S": "psv"
+              }
+            ]
+          },
+          "additionalInfo": {
+            "M": {
+              "psv": {
+                "M": {
+                  "location": {
+                    "M": {
+                      "vertical": {
+                        "L": []
+                      },
+                      "horizontal": {
+                        "L": []
+                      },
+                      "lateral": {
+                        "L": []
+                      },
+                      "longitudinal": {
+                        "L": [
+                          {
+                            "S": "front"
+                          }
+                        ]
+                      },
+                      "rowNumber": {
+                        "L": []
+                      },
+                      "seatNumber": {
+                        "L": []
+                      },
+                      "axleNumber": {
+                        "L": []
+                      }
+                    }
+                  },
+                  "notes": {
+                    "BOOL": false
+                  }
+                }
+              },
+              "hgv": {
+                "M": {}
+              },
+              "trl": {
+                "M": {}
+              }
+            }
+          },
+          "items": {
+            "L": [
+              {
+                "M": {
+                  "itemNumber": {
+                    "N": "1"
+                  },
+                  "itemDescription": {
+                    "S": "A registration plate:"
+                  },
+                  "forVehicleType": {
+                    "L": [
+                      {
+                        "S": "psv"
+                      }
+                    ]
+                  },
+                  "deficiencies": {
+                    "L": [
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "1.1.a"
+                          },
+                          "deficiencyId": {
+                            "S": "a"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "missing."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "1.1.b"
+                          },
+                          "deficiencyId": {
+                            "S": "b"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "insecure."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "M": {
+                  "itemNumber": {
+                    "N": "2"
+                  },
+                  "itemDescription": {
+                    "S": "A registration mark:"
+                  },
+                  "forVehicleType": {
+                    "L": [
+                      {
+                        "S": "psv"
+                      }
+                    ]
+                  },
+                  "deficiencies": {
+                    "L": [
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "1.2.a"
+                          },
+                          "deficiencyId": {
+                            "S": "a"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "missing."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "1.2.b"
+                          },
+                          "deficiencyId": {
+                            "S": "b"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "illegible."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "1.2.c"
+                          },
+                          "deficiencyId": {
+                            "S": "c"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "not in accordance with the requirements."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "imNumber": {
+            "N": "3"
+          },
+          "imDescription": {
+            "S": "Seat Belts & Supplementary Restraint Systems"
+          },
+          "forVehicleType": {
+            "L": [
+              {
+                "S": "psv"
+              }
+            ]
+          },
+          "additionalInfo": {
+            "M": {
+              "psv": {
+                "M": {
+                  "location": {
+                    "M": {
+                      "vertical": {
+                        "L": [
+                          {
+                            "S": "upper"
+                          }
+                        ]
+                      },
+                      "horizontal": {
+                        "L": []
+                      },
+                      "lateral": {
+                        "L": [
+                          {
+                            "S": "nearside"
+                          }
+                        ]
+                      },
+                      "longitudinal": {
+                        "L": []
+                      },
+                      "rowNumber": {
+                        "L": [
+                          {
+                            "N": "2"
+                          }
+                        ]
+                      },
+                      "seatNumber": {
+                        "L": [
+                          {
+                            "N": "2"
+                          }
+                        ]
+                      },
+                      "axleNumber": {
+                        "L": []
+                      }
+                    }
+                  },
+                  "notes": {
+                    "BOOL": true
+                  }
+                }
+              },
+              "hgv": {
+                "M": {}
+              },
+              "trl": {
+                "M": {}
+              }
+            }
+          },
+          "items": {
+            "L": [
+              {
+                "M": {
+                  "itemNumber": {
+                    "N": "1"
+                  },
+                  "itemDescription": {
+                    "S": "Obligatory Seat Belt:"
+                  },
+                  "forVehicleType": {
+                    "L": [
+                      {
+                        "S": "psv"
+                      },
+                      {
+                        "S": "hgv"
+                      }
+                    ]
+                  },
+                  "deficiencies": {
+                    "L": [
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.1.a"
+                          },
+                          "deficiencyId": {
+                            "S": "a"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "missing."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.1.b"
+                          },
+                          "deficiencyId": {
+                            "S": "b"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "of an incorrect type."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "M": {
+                  "itemNumber": {
+                    "N": "2"
+                  },
+                  "itemDescription": {
+                    "S": "Anchorages:"
+                  },
+                  "forVehicleType": {
+                    "L": [
+                      {
+                        "S": "psv"
+                      },
+                      {
+                        "S": "hgv"
+                      }
+                    ]
+                  },
+                  "deficiencies": {
+                    "L": [
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.2.a.i"
+                          },
+                          "deficiencyId": {
+                            "S": "a"
+                          },
+                          "deficiencySubId": {
+                            "S": "i"
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "with excessive corrosion, serious deterioration or a fracture in a load bearing member of the vehicle structure within 30cm of the anchorage (where a seat belt is attached to a seat frame this will apply to all seat mounting points)."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.2.a.ii"
+                          },
+                          "deficiencyId": {
+                            "S": "a"
+                          },
+                          "deficiencySubId": {
+                            "S": "ii"
+                          },
+                          "deficiencyCategory": {
+                            "S": "Dangerous"
+                          },
+                          "deficiencyText": {
+                            "S": "with excessive corrosion, serious deterioration or a fracture in a load bearing member of the vehicle structure within 30cm of the anchorage (where a seat belt is attached to a seat frame this will apply to all seat mounting points) and is likely to detach."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": true
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.2.b"
+                          },
+                          "deficiencyId": {
+                            "S": "b"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "a seat belt not securely fixed to the seat or to the vehicle structure."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "M": {
+                  "itemNumber": {
+                    "N": "3"
+                  },
+                  "itemDescription": {
+                    "S": "Locking Mechanism, Stalks, Retracting Mechanism and Fittings:"
+                  },
+                  "forVehicleType": {
+                    "L": [
+                      {
+                        "S": "psv"
+                      },
+                      {
+                        "S": "hgv"
+                      }
+                    ]
+                  },
+                  "deficiencies": {
+                    "L": [
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.3.a"
+                          },
+                          "deficiencyId": {
+                            "S": "a"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "locking mechanism of a seat belt does not secure or release as intended."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.3.b"
+                          },
+                          "deficiencyId": {
+                            "S": "b"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "an attachment or adjustment fitting fractured, badly deteriorated or not operating effectively."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.3.c"
+                          },
+                          "deficiencyId": {
+                            "S": "c"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "corrosion or deterioration of a flexible stalk likely to lead to failure under load."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.3.d"
+                          },
+                          "deficiencyId": {
+                            "S": "d"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "broken flexible stalk strands"
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.3.e"
+                          },
+                          "deficiencyId": {
+                            "S": "e"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "a retracting mechanism that does not retract the webbing sufficiently to remove all of the slack from the belt with the locking mechanism fastened and the seat unoccupied."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "M": {
+                  "itemNumber": {
+                    "N": "4"
+                  },
+                  "itemDescription": {
+                    "S": "Condition of Webbing:"
+                  },
+                  "forVehicleType": {
+                    "L": [
+                      {
+                        "S": "psv"
+                      },
+                      {
+                        "S": "hgv"
+                      }
+                    ]
+                  },
+                  "deficiencies": {
+                    "L": [
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.4.a.i"
+                          },
+                          "deficiencyId": {
+                            "S": "a"
+                          },
+                          "deficiencySubId": {
+                            "S": "i"
+                          },
+                          "deficiencyCategory": {
+                            "S": "Minor"
+                          },
+                          "deficiencyText": {
+                            "S": "a cut or damage or fluffing or fraying, which is not sufficient to obstruct correct operation of the belt or which has not clearly weakened the webbing."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.4.a.ii"
+                          },
+                          "deficiencyId": {
+                            "S": "a"
+                          },
+                          "deficiencySubId": {
+                            "S": "ii"
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "a cut or damage or fluffing or fraying or overstretching sufficient to obstruct correct operation of the belt or significantly weaken the webbing."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.4.b"
+                          },
+                          "deficiencyId": {
+                            "S": "a"
+                          },
+                          "deficiencySubId": {
+                            "S": "ii"
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "stitching badly frayed, insecure, incomplete or repaired."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "M": {
+                  "itemNumber": {
+                    "N": "5"
+                  },
+                  "itemDescription": {
+                    "S": "Obvious signs of structural weakness in a Seat belt; fitting, guide, stalk or pivot"
+                  },
+                  "forVehicleType": {
+                    "L": [
+                      {
+                        "S": "psv"
+                      },
+                      {
+                        "S": "hgv"
+                      }
+                    ]
+                  },
+                  "deficiencies": {
+                    "L": [
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.5"
+                          },
+                          "deficiencyId": {
+                            "NULL": true
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "such that failure is likely."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "M": {
+                  "itemNumber": {
+                    "N": "6"
+                  },
+                  "itemDescription": {
+                    "S": "Seats with seat belts attached to them:"
+                  },
+                  "forVehicleType": {
+                    "L": [
+                      {
+                        "S": "psv"
+                      },
+                      {
+                        "S": "hgv"
+                      }
+                    ]
+                  },
+                  "deficiencies": {
+                    "L": [
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.6.a"
+                          },
+                          "deficiencyId": {
+                            "S": "a"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Dangerous"
+                          },
+                          "deficiencyText": {
+                            "S": "insecure."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": true
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.6.b"
+                          },
+                          "deficiencyId": {
+                            "S": "b"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "with a cracked or fractured leg or frame."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "M": {
+                  "itemNumber": {
+                    "N": "7"
+                  },
+                  "itemDescription": {
+                    "S": "A seat belt:"
+                  },
+                  "forVehicleType": {
+                    "L": [
+                      {
+                        "S": "psv"
+                      },
+                      {
+                        "S": "hgv"
+                      }
+                    ]
+                  },
+                  "deficiencies": {
+                    "L": [
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.7.a"
+                          },
+                          "deficiencyId": {
+                            "S": "a"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "load limiter or pretensioner obviously missing where fitted as original equipment."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.7.b"
+                          },
+                          "deficiencyId": {
+                            "S": "b"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "pretensioner or a ‘folded type’ webbing load limiter obviously deployed."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "M": {
+                  "itemNumber": {
+                    "N": "8"
+                  },
+                  "itemDescription": {
+                    "S": "An airbag:"
+                  },
+                  "forVehicleType": {
+                    "L": [
+                      {
+                        "S": "psv"
+                      },
+                      {
+                        "S": "hgv"
+                      }
+                    ]
+                  },
+                  "deficiencies": {
+                    "L": [
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.8.a"
+                          },
+                          "deficiencyId": {
+                            "S": "a"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "missing."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.8.b"
+                          },
+                          "deficiencyId": {
+                            "S": "b"
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "deployed or disconnected."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "M": {
+                  "itemNumber": {
+                    "N": "9"
+                  },
+                  "itemDescription": {
+                    "S": "The SRS warning lamp"
+                  },
+                  "forVehicleType": {
+                    "L": [
+                      {
+                        "S": "psv"
+                      },
+                      {
+                        "S": "hgv"
+                      }
+                    ]
+                  },
+                  "deficiencies": {
+                    "L": [
+                      {
+                        "M": {
+                          "ref": {
+                            "S": "3.9"
+                          },
+                          "deficiencyId": {
+                            "NULL": true
+                          },
+                          "deficiencySubId": {
+                            "NULL": true
+                          },
+                          "deficiencyCategory": {
+                            "S": "Major"
+                          },
+                          "deficiencyText": {
+                            "S": "indicates any kind of failure of the system."
+                          },
+                          "stdForProhibition": {
+                            "BOOL": false
+                          },
+                          "forVehicleType": {
+                            "L": [
+                              {
+                                "S": "psv"
+                              },
+                              {
+                                "S": "hgv"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
