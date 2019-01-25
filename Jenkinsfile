@@ -4,6 +4,7 @@ podTemplate(label: label, containers: [
     containerTemplate(name: 'node', image: '086658912680.dkr.ecr.eu-west-1.amazonaws.com/cvs/nodejs-builder:latest', ttyEnabled: true, command: 'cat'),
     containerTemplate(name: 'dynamodb-local', image: 'amazon/dynamodb-local', command: 'java -jar /home/dynamodblocal/DynamoDBLocal.jar -inMemory -sharedDb -port 8001', ports: [portMapping(name: 'dynamodb-local', containerPort: 8001),])])
     containerTemplate(name: 'node', image: '086658912680.dkr.ecr.eu-west-1.amazonaws.com/cvs/nodejs-builder:latest', ttyEnabled: true, command: 'cat')],
+    containerTemplate(name: 'node', image: '086658912680.dkr.ecr.eu-west-1.amazonaws.com/cvs/nodejs-builder:latest', ttyEnabled: true, command: 'cat'),]
     {
     node(label) {
         stage('checkout') {
@@ -33,5 +34,6 @@ podTemplate(label: label, containers: [
         }
     }
 }
+
 
 
