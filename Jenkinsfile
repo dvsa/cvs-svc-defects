@@ -22,16 +22,17 @@ podTemplate(label: label, containers: [
                     sh "sls dynamodb seed --seed=cvs-local-defects"
                 }
 
-            //  stage("secrets-setup") {
-            //     sh "git secrets --register-aws"
-            //     sh "git secrets --scan"
-            // }
+                stage("secrets-setup") {
+                    sh "apk add --no-cache bash"
+                    sh "git secrets --register-aws"
+                    sh "git secrets --scan"
+                }
                 stage ("unit-test") {
                     sh "npm run test"
                 }
-                stage ("integration-test") {
-                    sh "npm run test-i"
-                }
+                // stage ("integration-test") {
+                //     sh "npm run test-i"
+                // }
         }
     }
 }
