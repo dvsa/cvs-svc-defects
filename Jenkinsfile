@@ -37,7 +37,7 @@ podTemplate(label: label, containers: [
                 --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --region=eu-west-1 --endpoint-url http://localhost:8001
                 '''
 
-                sh "sls dynamodb seed --seed=seed_name"
+                sh "sls dynamodb seed --seed=defects"
             }
 
             stage ("unit test") {
