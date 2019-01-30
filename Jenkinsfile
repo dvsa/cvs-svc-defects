@@ -19,10 +19,9 @@ podTemplate(label: label, containers: [
             }
 
             stage ("security") {
+                 sh "git secrets --register-aws"
+                 sh "git secrets --scan"
                  sh "git log -p | scanrepo"
-                 //sh "apk add --no-cache bash"
-                 //sh "git secrets --register-aws"
-                 //sh "git secrets --scan"
             }
 
             stage ("seed-table") {
@@ -52,7 +51,6 @@ podTemplate(label: label, containers: [
             }
             
             stage("zip dir"){
-                sh "apk --update add zip unzip"
                 sh "mkdir artefact"
                 sh "cp -r src/* artefact/"
                 sh "cp -r node_modules artefact/node_modules"
