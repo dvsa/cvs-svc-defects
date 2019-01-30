@@ -1,6 +1,6 @@
 const expect = require('chai').expect
 const DefectsDAOMock = require('../models/DefectsDAOMock')
-const DefectsService = require('../../src/services/defectsService')
+const DefectsService = require('../../src/services/DefectsService')
 const HTTPError = require('../../src/models/HTTPError')
 
 describe('getDefectList', () => {
