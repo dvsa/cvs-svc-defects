@@ -21,7 +21,7 @@ custom:
     port: 3001
   dynamodb:
     start:
-      port: 8000
+      port: 8001
       inMemory: true
       migrate: true
       seed: false
