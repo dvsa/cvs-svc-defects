@@ -4,10 +4,9 @@ podTemplate(label: label, containers: [
                       image: 'amazon/dynamodb-local',
                       command: 'java -jar /home/dynamodblocal/DynamoDBLocal.jar -inMemory -sharedDb -port 8001',
                       ports: [portMapping(name: 'dynamoport', containerPort: 8001, hostPort: 8001)]),
-    containerTemplate(name: 'node', image: '086658912680.dkr.ecr.eu-west-1.amazonaws.com/cvs/nodejs-builder:latest', ttyEnabled: true, command: 'cat'),]
-    )
-    {
+    containerTemplate(name: 'node', image: '086658912680.dkr.ecr.eu-west-1.amazonaws.com/cvs/nodejs-builder:latest', ttyEnabled: true, alwaysPullImage: true, command: 'cat'),]){
     node(label) {
+
         stage('checkout') {
             checkout scm
         }
@@ -40,21 +39,23 @@ podTemplate(label: label, containers: [
 
                 sh "sls dynamodb seed --seed=seed_name"
             }
-            
+
             stage ("unit test") {
                 sh "npm run test"
             }
-            
+
             stage ("integration test") {
                 sh "BRANCH=local node_modules/gulp/bin/gulp.js start-serverless"
                 sh "BRANCH=local node_modules/.bin/mocha tests/**/*.intTest.js"
             }
-            
+
             stage("zip dir"){
-                sh "mkdir artefact"
-                sh "cp -r src/* artefact/"
-                sh "cp -r node_modules artefact/node_modules"
-                sh "zip -r ${LBRANCH}.zip artefact"
+                sh "rm -rf ./node_modules"
+                sh "npm install --production"
+                sh "mkdir ${LBRANCH}"
+                sh "cp -r src/* ${LBRANCH}/"
+                sh "cp -r node_modules ${LBRANCH}/node_modules"
+                sh "zip -qr ${LBRANCH}.zip ${LBRANCH}"
             }
 
             stage("upload to s3") {
@@ -67,5 +68,5 @@ podTemplate(label: label, containers: [
                 }
             }
         }
-    } 
+    }
 }
