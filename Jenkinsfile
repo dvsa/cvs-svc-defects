@@ -4,7 +4,7 @@ podTemplate(label: label, containers: [
                       image: 'amazon/dynamodb-local',
                       command: 'java -jar /home/dynamodblocal/DynamoDBLocal.jar -inMemory -sharedDb -port 8001',
                       ports: [portMapping(name: 'dynamoport', containerPort: 8001, hostPort: 8001)]),
-    containerTemplate(name: 'node', image: '086658912680.dkr.ecr.eu-west-1.amazonaws.com/cvs/nodejs-builder:tanio', ttyEnabled: true, command: 'cat'),]
+    containerTemplate(name: 'node', image: '086658912680.dkr.ecr.eu-west-1.amazonaws.com/cvs/nodejs-builder:latest', ttyEnabled: true, command: 'cat'),]
     )
     {
     node(label) {
@@ -41,16 +41,16 @@ podTemplate(label: label, containers: [
 
                 sh "sls dynamodb seed --seed=seed_name"
             }
-
+            
             stage ("unit test") {
                 sh "npm run test"
             }
-
+            
             stage ("integration test") {
                 sh "BRANCH=local node_modules/gulp/bin/gulp.js start-serverless"
                 sh "BRANCH=local node_modules/.bin/mocha tests/**/*.intTest.js"
             }
-
+            
             stage("zip dir"){
                 sh "apk --update add zip unzip"
                 sh "mkdir artefact"
@@ -58,14 +58,15 @@ podTemplate(label: label, containers: [
                 sh "cp -r node_modules artefact/node_modules"
                 sh "zip -r ${LBRANCH}.zip artefact"
             }
-        }
-        stage("upload to s3") {
-            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding',
-                   accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-                       credentialsId: 'jenkins-iam',
-                   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+
+            stage("upload to s3") {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding',
+                       accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                           credentialsId: 'jenkins-iam',
+                       secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
 
                 sh "aws s3 cp ${LBRANCH}.zip s3://cvs-services/defects/${LBRANCH}.zip"
+                }
             }
         }
     }
