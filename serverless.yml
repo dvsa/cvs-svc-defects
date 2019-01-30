@@ -25,6 +25,7 @@ custom:
       inMemory: true
       migrate: true
       seed: false
+      noStart: true 
     seed:
       seed_name:
         sources:
