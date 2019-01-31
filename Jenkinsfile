@@ -23,10 +23,12 @@ podTemplate(label: label, containers: [
                  sh "git log -p | scanrepo"
             }
 
-            stage ("seed-table") {
+            stage ("credentials") {
                withCredentials([usernamePassword(credentialsId: 'dummy-credentials', passwordVariable: 'SECRET', usernameVariable: 'KEY')]) {
                    sh "sls config credentials --provider aws --key ${KEY} --secret ${SECRET}"
                 }
+            } 
+            stage ("create-seed-table") {
 
                 sh '''
                 aws dynamodb create-table \
