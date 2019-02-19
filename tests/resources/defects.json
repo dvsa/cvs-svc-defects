@@ -879,8 +879,7 @@
         "itemNumber": 3,
         "itemDescription": "Emission control equipment fitted by the manufacturer",
         "forVehicleType": [
-          "hgv",
-          "psv"
+          "hgv"
         ],
         "deficiencies": [
           {
@@ -893,7 +892,126 @@
             "forVehicleType": [
               "hgv"
             ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 4,
+        "itemDescription": "A vehicle equipped with a Diesel Particulate Filter",
+        "forVehicleType": [
+          "hgv"
+        ],
+        "deficiencies": [
+          {
+            "ref": "5.4",
+            "deficiencyId": null,
+            "deficiencySubId": null,
+            "deficiencyCategory": "Major",
+            "deficiencyText": "shows any visible signs of smoke.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "hgv"
+            ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 5,
+        "itemDescription": "Engine MIL",
+        "forVehicleType": [
+          "hgv"
+        ],
+        "deficiencies": [
+          {
+            "ref": "5.5",
+            "deficiencyId": null,
+            "deficiencySubId": null,
+            "deficiencyCategory": "Major",
+            "deficiencyText": "inoperative or indicating a malfunction.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "hgv"
+            ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 1,
+        "itemDescription": "Compression Ignition Engines Statutory Smoke Meter Test:",
+        "forVehicleType": [
+          "psv",
+          "hgv"
+        ],
+        "deficiencies": [
+          {
+            "ref": "5.1.a.i",
+            "deficiencyId": "a",
+            "deficiencySubId": "i",
+            "deficiencyCategory": "Major",
+            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles registered prior to 1 July 2008: 2.5m for non-turbocharged engines or the level specified on the manufacturer's plate, whichever is lower.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv",
+              "hgv"
+            ]
           },
+          {
+            "ref": "5.1.a.ii",
+            "deficiencyId": "a",
+            "deficiencySubId": "ii",
+            "deficiencyCategory": "Major",
+            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles registered prior to 1 July 2008: 3.0m for turbocharged engines or the level specified on the manufacturer's plate, whichever is lower.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv",
+              "hgv"
+            ]
+          },
+          {
+            "ref": "5.1.a.iii",
+            "deficiencyId": "a",
+            "deficiencySubId": "iii",
+            "deficiencyCategory": "Major",
+            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles first registered from 1 July 2008: 1.5m for all diesel engines or the level specified on the manufacturer's plate, whichever is lower.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv",
+              "hgv"
+            ]
+          },
+          {
+            "ref": "5.1.a.iv",
+            "deficiencyId": "a",
+            "deficiencySubId": "iv",
+            "deficiencyCategory": "Major",
+            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than:  For vehicles first registered from 1 January 2014: 0.7m for all diesel engines or the level specified on the manufacturer's plate, whichever is lower.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv",
+              "hgv"
+            ]
+          },
+          {
+            "ref": "5.1.b",
+            "deficiencyId": "b",
+            "deficiencySubId": null,
+            "deficiencyCategory": "Dangerous",
+            "deficiencyText": "The exhaust emits excessive smoke or vapour of any colour, to an extent likely to obscure vision.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv",
+              "hgv"
+            ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 3,
+        "itemDescription": "Spark Ignition Engines Visual Check:",
+        "forVehicleType": [
+          "psv"
+        ],
+        "deficiencies": [
           {
             "ref": "5.3.a",
             "deficiencyId": "a",
@@ -920,23 +1038,11 @@
       },
       {
         "itemNumber": 4,
-        "itemDescription": "A vehicle equipped with a Diesel Particulate Filter",
+        "itemDescription": "Spark Ignition Engines Exhaust Gas Analyser Check:",
         "forVehicleType": [
-          "hgv",
           "psv"
         ],
         "deficiencies": [
-          {
-            "ref": "5.4",
-            "deficiencyId": null,
-            "deficiencySubId": null,
-            "deficiencyCategory": "Major",
-            "deficiencyText": "shows any visible signs of smoke.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "hgv"
-            ]
-          },
           {
             "ref": "5.4.a.i",
             "deficiencyId": "a",
@@ -1018,23 +1124,11 @@
       },
       {
         "itemNumber": 5,
-        "itemDescription": "Engine MIL",
+        "itemDescription": "Emission control equipment fitted by the manufacturer",
         "forVehicleType": [
-          "hgv",
           "psv"
         ],
         "deficiencies": [
-          {
-            "ref": "5.5",
-            "deficiencyId": null,
-            "deficiencySubId": null,
-            "deficiencyCategory": "Major",
-            "deficiencyText": "inoperative or indicating a malfunction.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "hgv"
-            ]
-          },
           {
             "ref": "5.5",
             "deficiencyId": null,
@@ -1044,76 +1138,6 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "psv"
-            ]
-          }
-        ]
-      },
-      {
-        "itemNumber": 1,
-        "itemDescription": "Compression Ignition Engines Statutory Smoke Meter Test:",
-        "forVehicleType": [
-          "psv",
-          "hgv"
-        ],
-        "deficiencies": [
-          {
-            "ref": "5.1.a.i",
-            "deficiencyId": "a",
-            "deficiencySubId": "i",
-            "deficiencyCategory": "Major",
-            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles registered prior to 1 July 2008: 2.5m for non-turbocharged engines or the level specified on the manufacturer's plate, whichever is lower.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv",
-              "hgv"
-            ]
-          },
-          {
-            "ref": "5.1.a.ii",
-            "deficiencyId": "a",
-            "deficiencySubId": "ii",
-            "deficiencyCategory": "Major",
-            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles registered prior to 1 July 2008: 3.0m for turbocharged engines or the level specified on the manufacturer's plate, whichever is lower.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv",
-              "hgv"
-            ]
-          },
-          {
-            "ref": "5.1.a.iii",
-            "deficiencyId": "a",
-            "deficiencySubId": "iii",
-            "deficiencyCategory": "Major",
-            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles first registered from 1 July 2008: 1.5m for all diesel engines or the level specified on the manufacturer's plate, whichever is lower.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv",
-              "hgv"
-            ]
-          },
-          {
-            "ref": "5.1.a.iv",
-            "deficiencyId": "a",
-            "deficiencySubId": "iv",
-            "deficiencyCategory": "Major",
-            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than:  For vehicles first registered from 1 January 2014: 0.7m for all diesel engines or the level specified on the manufacturer's plate, whichever is lower.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv",
-              "hgv"
-            ]
-          },
-          {
-            "ref": "5.1.b",
-            "deficiencyId": "b",
-            "deficiencySubId": null,
-            "deficiencyCategory": "Dangerous",
-            "deficiencyText": "The exhaust emits excessive smoke or vapour of any colour, to an extent likely to obscure vision.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv",
-              "hgv"
             ]
           }
         ]
@@ -2457,8 +2481,7 @@
         "itemDescription": "A drawing hitch, bar, hook, eye, ball or ball socket; or a fifth wheel king pin and its mounting or a turntable which:",
         "forVehicleType": [
           "hgv",
-          "trl",
-          "psv"
+          "trl"
         ],
         "deficiencies": [
           {
@@ -2604,72 +2627,6 @@
               "hgv",
               "trl"
             ]
-          },
-          {
-            "ref": "11.1.a.i",
-            "deficiencyId": "a",
-            "deficiencySubId": "i",
-            "deficiencyCategory": "Major",
-            "deficiencyText": "insecure.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
-            ]
-          },
-          {
-            "ref": "11.1.a.ii",
-            "deficiencyId": "a",
-            "deficiencySubId": "ii",
-            "deficiencyCategory": "Dangerous",
-            "deficiencyText": "insecure to such an extent that detachment is likely.",
-            "stdForProhibition": true,
-            "forVehicleType": [
-              "psv"
-            ]
-          },
-          {
-            "ref": "11.1.b.i",
-            "deficiencyId": "b",
-            "deficiencySubId": "i",
-            "deficiencyCategory": "Major",
-            "deficiencyText": "excessively worn.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
-            ]
-          },
-          {
-            "ref": "11.1.b.ii",
-            "deficiencyId": "b",
-            "deficiencySubId": "ii",
-            "deficiencyCategory": "Dangerous",
-            "deficiencyText": "excessively worn with obvious risk of detachment.",
-            "stdForProhibition": true,
-            "forVehicleType": [
-              "psv"
-            ]
-          },
-          {
-            "ref": "11.1.c.i",
-            "deficiencyId": "c",
-            "deficiencySubId": "i",
-            "deficiencyCategory": "Major",
-            "deficiencyText": "load bearing member cracked or fractured (no trailer attached).",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
-            ]
-          },
-          {
-            "ref": "11.1.c.ii",
-            "deficiencyId": "c",
-            "deficiencySubId": "ii",
-            "deficiencyCategory": "Dangerous",
-            "deficiencyText": "load bearing member cracked or fractured (trailer attached).",
-            "stdForProhibition": true,
-            "forVehicleType": [
-              "psv"
-            ]
           }
         ]
       },
@@ -2678,8 +2635,7 @@
         "itemDescription": "A Fifth Wheel Coupling with:",
         "forVehicleType": [
           "hgv",
-          "trl",
-          "psv"
+          "trl"
         ],
         "deficiencies": [
           {
@@ -2813,7 +2769,91 @@
               "hgv",
               "trl"
             ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 1,
+        "itemDescription": "Articulated buses - Coupling articulating bracket, operating member or safety device:",
+        "forVehicleType": [
+          "psv"
+        ],
+        "deficiencies": [
+          {
+            "ref": "11.1.a.i",
+            "deficiencyId": "a",
+            "deficiencySubId": "i",
+            "deficiencyCategory": "Major",
+            "deficiencyText": "insecure.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
           },
+          {
+            "ref": "11.1.a.ii",
+            "deficiencyId": "a",
+            "deficiencySubId": "ii",
+            "deficiencyCategory": "Dangerous",
+            "deficiencyText": "insecure to such an extent that detachment is likely.",
+            "stdForProhibition": true,
+            "forVehicleType": [
+              "psv"
+            ]
+          },
+          {
+            "ref": "11.1.b.i",
+            "deficiencyId": "b",
+            "deficiencySubId": "i",
+            "deficiencyCategory": "Major",
+            "deficiencyText": "excessively worn.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          },
+          {
+            "ref": "11.1.b.ii",
+            "deficiencyId": "b",
+            "deficiencySubId": "ii",
+            "deficiencyCategory": "Dangerous",
+            "deficiencyText": "excessively worn with obvious risk of detachment.",
+            "stdForProhibition": true,
+            "forVehicleType": [
+              "psv"
+            ]
+          },
+          {
+            "ref": "11.1.c.i",
+            "deficiencyId": "c",
+            "deficiencySubId": "i",
+            "deficiencyCategory": "Major",
+            "deficiencyText": "load bearing member cracked or fractured (no trailer attached).",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          },
+          {
+            "ref": "11.1.c.ii",
+            "deficiencyId": "c",
+            "deficiencySubId": "ii",
+            "deficiencyCategory": "Dangerous",
+            "deficiencyText": "load bearing member cracked or fractured (trailer attached).",
+            "stdForProhibition": true,
+            "forVehicleType": [
+              "psv"
+            ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 2,
+        "itemDescription": "Articulated buses - Bellows:",
+        "forVehicleType": [
+          "psv"
+        ],
+        "deficiencies": [
           {
             "ref": "11.2.a.i",
             "deficiencyId": "a",
@@ -6033,8 +6073,7 @@
         "itemNumber": 2,
         "itemDescription": "Part of any required close proximity, front mirror or camera for an indirect visual device",
         "forVehicleType": [
-          "hgv",
-          "psv"
+          "hgv"
         ],
         "deficiencies": [
           {
@@ -6047,7 +6086,89 @@
             "forVehicleType": [
               "hgv"
             ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 3,
+        "itemDescription": "A required mirror or indirect vision device",
+        "forVehicleType": [
+          "hgv"
+        ],
+        "deficiencies": [
+          {
+            "ref": "22.3.i",
+            "deficiencyId": null,
+            "deficiencySubId": "i",
+            "deficiencyCategory": "Minor",
+            "deficiencyText": "with minor damage that does not obviously interfere with the view to the rear or nearside or front where required of anyone sitting in the driving seats.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "hgv"
+            ]
           },
+          {
+            "ref": "22.3.ii",
+            "deficiencyId": null,
+            "deficiencySubId": "ii",
+            "deficiencyCategory": "Major",
+            "deficiencyText": "in such a condition that anyone sitting in the driving seat cannot see clearly towards the rear or nearside or front where required.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "hgv"
+            ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 4,
+        "itemDescription": "A mirror/indirect vision device or its mounting bracket",
+        "forVehicleType": [
+          "hgv"
+        ],
+        "deficiencies": [
+          {
+            "ref": "22.4",
+            "deficiencyId": null,
+            "deficiencySubId": null,
+            "deficiencyCategory": "Major",
+            "deficiencyText": "insecure or structurally deteriorated.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "hgv"
+            ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 1,
+        "itemDescription": "Not fitted with the correct number or type(s)",
+        "forVehicleType": [
+          "psv",
+          "hgv"
+        ],
+        "deficiencies": [
+          {
+            "ref": "22.1",
+            "deficiencyId": null,
+            "deficiencySubId": null,
+            "deficiencyCategory": "Major",
+            "deficiencyText": "of mirror, or other indirect vision device.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv",
+              "hgv"
+            ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 2,
+        "itemDescription": "A required mirror or indirect vision device",
+        "forVehicleType": [
+          "psv"
+        ],
+        "deficiencies": [
           {
             "ref": "22.2.i",
             "deficiencyId": null,
@@ -6074,34 +6195,11 @@
       },
       {
         "itemNumber": 3,
-        "itemDescription": "A required mirror or indirect vision device",
+        "itemDescription": "A mirror/indirect vision device or its mounting bracket",
         "forVehicleType": [
-          "hgv",
           "psv"
         ],
         "deficiencies": [
-          {
-            "ref": "22.3.i",
-            "deficiencyId": null,
-            "deficiencySubId": "i",
-            "deficiencyCategory": "Minor",
-            "deficiencyText": "with minor damage that does not obviously interfere with the view to the rear or nearside or front where required of anyone sitting in the driving seats.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "hgv"
-            ]
-          },
-          {
-            "ref": "22.3.ii",
-            "deficiencyId": null,
-            "deficiencySubId": "ii",
-            "deficiencyCategory": "Major",
-            "deficiencyText": "in such a condition that anyone sitting in the driving seat cannot see clearly towards the rear or nearside or front where required.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "hgv"
-            ]
-          },
           {
             "ref": "22.3",
             "deficiencyId": null,
@@ -6117,23 +6215,11 @@
       },
       {
         "itemNumber": 4,
-        "itemDescription": "A mirror/indirect vision device or its mounting bracket",
+        "itemDescription": "A mirror/indirect vision device or periscope",
         "forVehicleType": [
-          "hgv",
           "psv"
         ],
         "deficiencies": [
-          {
-            "ref": "22.4",
-            "deficiencyId": null,
-            "deficiencySubId": null,
-            "deficiencyCategory": "Major",
-            "deficiencyText": "insecure or structurally deteriorated.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "hgv"
-            ]
-          },
           {
             "ref": "22.4",
             "deficiencyId": null,
@@ -6143,28 +6229,6 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "psv"
-            ]
-          }
-        ]
-      },
-      {
-        "itemNumber": 1,
-        "itemDescription": "Not fitted with the correct number or type(s)",
-        "forVehicleType": [
-          "psv",
-          "hgv"
-        ],
-        "deficiencies": [
-          {
-            "ref": "22.1",
-            "deficiencyId": null,
-            "deficiencySubId": null,
-            "deficiencyCategory": "Major",
-            "deficiencyText": "of mirror, or other indirect vision device.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv",
-              "hgv"
             ]
           }
         ]
@@ -7696,8 +7760,7 @@
         "itemNumber": 1,
         "itemDescription": "Steering column:",
         "forVehicleType": [
-          "hgv",
-          "psv"
+          "hgv"
         ],
         "deficiencies": [
           {
@@ -7710,7 +7773,17 @@
             "forVehicleType": [
               "hgv"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "itemNumber": 1,
+        "itemDescription": "Steering column:",
+        "forVehicleType": [
+          "psv",
+          "hgv"
+        ],
+        "deficiencies": [
           {
             "ref": "30.1.d.i",
             "deficiencyId": "d",
@@ -8003,8 +8076,7 @@
         "itemNumber": 2,
         "itemDescription": "Set Speed marked on Speed Limiter Plate greater than:",
         "forVehicleType": [
-          "hgv",
-          "psv"
+          "hgv"
         ],
         "deficiencies": [
           {
@@ -8028,28 +8100,6 @@
             "forVehicleType": [
               "hgv"
             ]
-          },
-          {
-            "ref": "33.2.a",
-            "deficiencyId": "a",
-            "deficiencySubId": null,
-            "deficiencyCategory": "Minor",
-            "deficiencyText": "70mph (113 km/h) for a vehicle described in paragraph A in the Applications section.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
-            ]
-          },
-          {
-            "ref": "33.2.b",
-            "deficiencyId": "b",
-            "deficiencySubId": null,
-            "deficiencyCategory": "Minor",
-            "deficiencyText": "100 km/h (62.14 mph) for a vehicle described in paragraph B, C, D, E, F, G & H in the Application section.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
-            ]
           }
         ]
       },
@@ -8057,8 +8107,7 @@
         "itemNumber": 3,
         "itemDescription": "Response speed of:",
         "forVehicleType": [
-          "hgv",
-          "psv"
+          "hgv"
         ],
         "deficiencies": [
           {
@@ -8081,39 +8130,6 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "hgv"
-            ]
-          },
-          {
-            "ref": "33.3.a",
-            "deficiencyId": "a",
-            "deficiencySubId": null,
-            "deficiencyCategory": "Major",
-            "deficiencyText": "107 km/h or more for a vehicle described in Paragraph B & D in the Application section.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
-            ]
-          },
-          {
-            "ref": "33.3.b",
-            "deficiencyId": "b",
-            "deficiencySubId": null,
-            "deficiencyCategory": "Major",
-            "deficiencyText": "118 km/h or more for a vehicle described in paragraph A in the Application section.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
-            ]
-          },
-          {
-            "ref": "33.3.c",
-            "deficiencyId": "c",
-            "deficiencySubId": null,
-            "deficiencyCategory": "Major",
-            "deficiencyText": "102 km/h or more for a vehicle described in paragraph C, E, F, G & H in the Applications section.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
             ]
           }
         ]
@@ -8245,6 +8261,79 @@
             ]
           }
         ]
+      },
+      {
+        "itemNumber": 2,
+        "itemDescription": "Set Speed marked on Speed Limiter Plate greater than:",
+        "forVehicleType": [
+          "psv"
+        ],
+        "deficiencies": [
+          {
+            "ref": "33.2.a",
+            "deficiencyId": "a",
+            "deficiencySubId": null,
+            "deficiencyCategory": "Minor",
+            "deficiencyText": "70mph (113 km/h) for a vehicle described in paragraph A in the Applications section.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          },
+          {
+            "ref": "33.2.b",
+            "deficiencyId": "b",
+            "deficiencySubId": null,
+            "deficiencyCategory": "Minor",
+            "deficiencyText": "100 km/h (62.14 mph) for a vehicle described in paragraph B, C, D, E, F, G & H in the Application section.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 3,
+        "itemDescription": "Response speed of:",
+        "forVehicleType": [
+          "psv"
+        ],
+        "deficiencies": [
+          {
+            "ref": "33.3.a",
+            "deficiencyId": "a",
+            "deficiencySubId": null,
+            "deficiencyCategory": "Major",
+            "deficiencyText": "107 km/h or more for a vehicle described in Paragraph B & D in the Application section.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          },
+          {
+            "ref": "33.3.b",
+            "deficiencyId": "b",
+            "deficiencySubId": null,
+            "deficiencyCategory": "Major",
+            "deficiencyText": "118 km/h or more for a vehicle described in paragraph A in the Application section.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          },
+          {
+            "ref": "33.3.c",
+            "deficiencyId": "c",
+            "deficiencySubId": null,
+            "deficiencyCategory": "Major",
+            "deficiencyText": "102 km/h or more for a vehicle described in paragraph C, E, F, G & H in the Applications section.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -8277,8 +8366,7 @@
         "itemNumber": 3,
         "itemDescription": "Time to reach minimum effective working pressure",
         "forVehicleType": [
-          "hgv",
-          "psv"
+          "hgv"
         ],
         "deficiencies": [
           {
@@ -8291,7 +8379,16 @@
             "forVehicleType": [
               "hgv"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "itemNumber": 3,
+        "itemDescription": "Time to reach minimum effective working pressure",
+        "forVehicleType": [
+          "psv"
+        ],
+        "deficiencies": [
           {
             "ref": "34.3",
             "deficiencyId": null,
@@ -8819,8 +8916,7 @@
         "itemDescription": "Vehicles and Trailers fitted with ABS or ABS/EBS or ESC:",
         "forVehicleType": [
           "trl",
-          "hgv",
-          "psv"
+          "hgv"
         ],
         "deficiencies": [
           {
@@ -8891,61 +8987,6 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "hgv"
-            ]
-          },
-          {
-            "ref": "38.6.a",
-            "deficiencyId": "a",
-            "deficiencySubId": null,
-            "deficiencyCategory": "Major",
-            "deficiencyText": "a system component obviously missing or excessively damaged.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
-            ]
-          },
-          {
-            "ref": "38.6.b",
-            "deficiencyId": "b",
-            "deficiencySubId": null,
-            "deficiencyCategory": "Major",
-            "deficiencyText": "system wiring excessively damaged.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
-            ]
-          },
-          {
-            "ref": "38.6.c.i",
-            "deficiencyId": "c",
-            "deficiencySubId": "i",
-            "deficiencyCategory": "Major",
-            "deficiencyText": "a system component with an inappropriate modification.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
-            ]
-          },
-          {
-            "ref": "38.6.c.ii",
-            "deficiencyId": "c",
-            "deficiencySubId": "ii",
-            "deficiencyCategory": "Dangerous",
-            "deficiencyText": "a system component with an unsafe modification which has seriously weakened the component, does not provide sufficient clearance to other vehicle parts or renders the component inoperative.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
-            ]
-          },
-          {
-            "ref": "38.6.d",
-            "deficiencyId": "d",
-            "deficiencySubId": null,
-            "deficiencyCategory": "Major",
-            "deficiencyText": "an ESC system switch insecure or faulty or which does not allow automatic resetting of the ESC function to “on” at system energisation.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
             ]
           }
         ]
@@ -8989,8 +9030,7 @@
         "itemDescription": "A mandatory ABS system",
         "forVehicleType": [
           "hgv",
-          "trl",
-          "psv"
+          "trl"
         ],
         "deficiencies": [
           {
@@ -9004,7 +9044,80 @@
               "hgv",
               "trl"
             ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 6,
+        "itemDescription": "Vehicles fitted with ABS or ABS/EBS or ESC:",
+        "forVehicleType": [
+          "psv"
+        ],
+        "deficiencies": [
+          {
+            "ref": "38.6.a",
+            "deficiencyId": "a",
+            "deficiencySubId": null,
+            "deficiencyCategory": "Major",
+            "deficiencyText": "a system component obviously missing or excessively damaged.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
           },
+          {
+            "ref": "38.6.b",
+            "deficiencyId": "b",
+            "deficiencySubId": null,
+            "deficiencyCategory": "Major",
+            "deficiencyText": "system wiring excessively damaged.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          },
+          {
+            "ref": "38.6.c.i",
+            "deficiencyId": "c",
+            "deficiencySubId": "i",
+            "deficiencyCategory": "Major",
+            "deficiencyText": "a system component with an inappropriate modification.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          },
+          {
+            "ref": "38.6.c.ii",
+            "deficiencyId": "c",
+            "deficiencySubId": "ii",
+            "deficiencyCategory": "Dangerous",
+            "deficiencyText": "a system component with an unsafe modification which has seriously weakened the component, does not provide sufficient clearance to other vehicle parts or renders the component inoperative.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          },
+          {
+            "ref": "38.6.d",
+            "deficiencyId": "d",
+            "deficiencySubId": null,
+            "deficiencyCategory": "Major",
+            "deficiencyText": "an ESC system switch insecure or faulty or which does not allow automatic resetting of the ESC function to “on” at system energisation.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 8,
+        "itemDescription": "A mandatory ABS system",
+        "forVehicleType": [
+          "psv"
+        ],
+        "deficiencies": [
           {
             "ref": "38.8",
             "deficiencyId": null,
@@ -9349,8 +9462,7 @@
         "itemDescription": "Any main or cross member or outrigger which has a load restraining device attached:",
         "forVehicleType": [
           "hgv",
-          "trl",
-          "psv"
+          "trl"
         ],
         "deficiencies": [
           {
@@ -9375,28 +9487,6 @@
             "forVehicleType": [
               "hgv",
               "trl"
-            ]
-          },
-          {
-            "ref": "41.1.a.i",
-            "deficiencyId": "a",
-            "deficiencySubId": "i",
-            "deficiencyCategory": "Major",
-            "deficiencyText": "fractured, cracked, corroded, or deformed.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "psv"
-            ]
-          },
-          {
-            "ref": "41.1.a.ii",
-            "deficiencyId": "a",
-            "deficiencySubId": "ii",
-            "deficiencyCategory": "Dangerous",
-            "deficiencyText": "fractured, cracked, with excessive corrosion, or deformed, so that the control of the vehicle is likely to be affected.",
-            "stdForProhibition": true,
-            "forVehicleType": [
-              "psv"
             ]
           }
         ]
@@ -9507,6 +9597,37 @@
               "psv",
               "hgv",
               "trl"
+            ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 1,
+        "itemDescription": "Any main or cross member:",
+        "forVehicleType": [
+          "psv"
+        ],
+        "deficiencies": [
+          {
+            "ref": "41.1.a.i",
+            "deficiencyId": "a",
+            "deficiencySubId": "i",
+            "deficiencyCategory": "Major",
+            "deficiencyText": "fractured, cracked, corroded, or deformed.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          },
+          {
+            "ref": "41.1.a.ii",
+            "deficiencyId": "a",
+            "deficiencySubId": "ii",
+            "deficiencyCategory": "Dangerous",
+            "deficiencyText": "fractured, cracked, with excessive corrosion, or deformed, so that the control of the vehicle is likely to be affected.",
+            "stdForProhibition": true,
+            "forVehicleType": [
+              "psv"
             ]
           }
         ]
@@ -10043,9 +10164,7 @@
         "itemNumber": 1,
         "itemDescription": "Any oil leak which can deposit",
         "forVehicleType": [
-          "psv",
-          "hgv",
-          "trl"
+          "psv"
         ],
         "deficiencies": [
           {
@@ -10068,30 +10187,6 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "psv"
-            ]
-          },
-          {
-            "ref": "44.1.i",
-            "deficiencyId": null,
-            "deficiencySubId": "i",
-            "deficiencyCategory": "Major",
-            "deficiencyText": "oil at a rate in excess of a 75mm diameter pool in 5 minutes or a number of leaks which collectively would deposit oil in excess of this.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "hgv",
-              "trl"
-            ]
-          },
-          {
-            "ref": "44.1.ii",
-            "deficiencyId": null,
-            "deficiencySubId": "ii",
-            "deficiencyCategory": "Dangerous",
-            "deficiencyText": "oil in a continuous flow or constitutes a serious risk of fire.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "hgv",
-              "trl"
             ]
           }
         ]
@@ -10132,6 +10227,40 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "psv"
+            ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 1,
+        "itemDescription": "Any oil leak which can deposit",
+        "forVehicleType": [
+          "hgv",
+          "trl"
+        ],
+        "deficiencies": [
+          {
+            "ref": "44.1.i",
+            "deficiencyId": null,
+            "deficiencySubId": "i",
+            "deficiencyCategory": "Major",
+            "deficiencyText": "oil at a rate in excess of a 75mm diameter pool in 5 minutes or a number of leaks which collectively would deposit oil in excess of this.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "hgv",
+              "trl"
+            ]
+          },
+          {
+            "ref": "44.1.ii",
+            "deficiencyId": null,
+            "deficiencySubId": "ii",
+            "deficiencyCategory": "Dangerous",
+            "deficiencyText": "oil in a continuous flow or constitutes a serious risk of fire.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "hgv",
+              "trl"
             ]
           }
         ]
@@ -13034,9 +13163,7 @@
         "itemNumber": 8,
         "itemDescription": "Inappropriate",
         "forVehicleType": [
-          "psv",
-          "hgv",
-          "trl"
+          "psv"
         ],
         "deficiencies": [
           {
@@ -13059,18 +13186,6 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "psv"
-            ]
-          },
-          {
-            "ref": "59.8",
-            "deficiencyId": null,
-            "deficiencySubId": null,
-            "deficiencyCategory": "Major",
-            "deficiencyText": "defective in operation.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "hgv",
-              "trl"
             ]
           }
         ]
@@ -13453,6 +13568,28 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
+              "hgv",
+              "trl"
+            ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 8,
+        "itemDescription": "Trailer Secondary Brake:",
+        "forVehicleType": [
+          "hgv",
+          "trl"
+        ],
+        "deficiencies": [
+          {
+            "ref": "59.8",
+            "deficiencyId": null,
+            "deficiencySubId": null,
+            "deficiencyCategory": "Major",
+            "deficiencyText": "defective in operation.",
+            "stdForProhibition": false,
+            "forVehicleType": [
               "hgv",
               "trl"
             ]
@@ -14316,18 +14453,6 @@
             ]
           },
           {
-            "ref": "63.7.b",
-            "deficiencyId": "b",
-            "deficiencySubId": null,
-            "deficiencyCategory": "Major",
-            "deficiencyText": "more than two (vehicles/trailers up to 6m in length) or four (vehicles/trailers over 6m in length) optional reversing lamps fitted.",
-            "stdForProhibition": false,
-            "forVehicleType": [
-              "hgv",
-              "trl"
-            ]
-          },
-          {
             "ref": "63.7.a",
             "deficiencyId": "a",
             "deficiencySubId": null,
@@ -14490,6 +14615,28 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
+              "hgv",
+              "trl"
+            ]
+          }
+        ]
+      },
+      {
+        "itemNumber": 7,
+        "itemDescription": "Reversing lamp:",
+        "forVehicleType": [
+          "hgv",
+          "trl"
+        ],
+        "deficiencies": [
+          {
+            "ref": "63.7.b",
+            "deficiencyId": "b",
+            "deficiencySubId": null,
+            "deficiencyCategory": "Major",
+            "deficiencyText": "more than two (vehicles/trailers up to 6m in length) or four (vehicles/trailers over 6m in length) optional reversing lamps fitted.",
+            "stdForProhibition": false,
+            "forVehicleType": [
               "hgv",
               "trl"
             ]
@@ -14799,8 +14946,7 @@
         "itemDescription": "Direction indicator:",
         "forVehicleType": [
           "hgv",
-          "trl",
-          "psv"
+          "trl"
         ],
         "deficiencies": [
           {
@@ -14814,7 +14960,18 @@
               "hgv",
               "trl"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "itemNumber": 1,
+        "itemDescription": "Direction indicator:",
+        "forVehicleType": [
+          "psv",
+          "hgv",
+          "trl"
+        ],
+        "deficiencies": [
           {
             "ref": "66.1.a",
             "deficiencyId": "a",
@@ -15721,8 +15878,7 @@
         "itemDescription": "A defect not described elsewhere in the manual such that:",
         "forVehicleType": [
           "hgv",
-          "trl",
-          "psv"
+          "trl"
         ],
         "deficiencies": [
           {
@@ -15736,7 +15892,16 @@
               "hgv",
               "trl"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "itemNumber": 1,
+        "itemDescription": "A defect not described elsewhere in the manual such that:",
+        "forVehicleType": [
+          "psv"
+        ],
+        "deficiencies": [
           {
             "ref": "74.1",
             "deficiencyId": null,
