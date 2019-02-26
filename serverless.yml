@@ -23,7 +23,7 @@ custom:
     start:
       port: 8001
       inMemory: true
-      migrate: true
+      migrate: false
       seed: false
       noStart: true
     seed:
