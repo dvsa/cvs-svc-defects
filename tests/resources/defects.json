@@ -814,22 +814,7 @@
       "hgv",
       "psv"
     ],
-    "additionalInfo": {
-      "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": false
-      },
-      "hgv": {},
-      "trl": {}
-    },
+    "additionalInfo": null,
     "items": [
       {
         "itemNumber": 2,
@@ -1977,7 +1962,25 @@
       "hgv",
       "trl"
     ],
-    "additionalInfo": null,
+    "additionalInfo": {
+      "psv": {
+        "location": {
+          "vertical": null,
+          "horizontal": null,
+          "lateral": null,
+          "longitudinal": [
+            "front",
+            "rear"
+          ],
+          "rowNumber": null,
+          "seatNumber": null,
+          "axleNumber": null
+        },
+        "notes": false
+      },
+      "hgv": {},
+      "trl": {}
+    },
     "items": [
       {
         "itemNumber": 1,
@@ -2316,22 +2319,7 @@
       "trl",
       "psv"
     ],
-    "additionalInfo": {
-      "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": false
-      },
-      "hgv": {},
-      "trl": {}
-    },
+    "additionalInfo": null,
     "items": [
       {
         "itemNumber": 2,
@@ -2441,22 +2429,7 @@
       "trl",
       "psv"
     ],
-    "additionalInfo": {
-      "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": false
-      },
-      "hgv": {},
-      "trl": {}
-    },
+    "additionalInfo": null,
     "items": [
       {
         "itemNumber": 1,
@@ -3484,7 +3457,37 @@
     "forVehicleType": [
       "psv"
     ],
-    "additionalInfo": null,
+    "additionalInfo": {
+      "psv": {
+        "location": {
+          "vertical": null,
+          "horizontal": null,
+          "lateral": [
+            "nearside",
+            "offside",
+            "centre"
+          ],
+          "longitudinal": null,
+          "rowNumber": null,
+          "seatNumber": null,
+          "axleNumber": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "notes": false
+      },
+      "hgv": {},
+      "trl": {}
+    },
     "items": [
       {
         "itemNumber": 1,
@@ -4055,22 +4058,7 @@
     "forVehicleType": [
       "hgv"
     ],
-    "additionalInfo": {
-      "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": false
-      },
-      "hgv": {},
-      "trl": {}
-    },
+    "additionalInfo": null,
     "items": [
       {
         "itemNumber": 1,
@@ -4247,22 +4235,7 @@
     "forVehicleType": [
       "psv"
     ],
-    "additionalInfo": {
-      "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": false
-      },
-      "hgv": {},
-      "trl": {}
-    },
+    "additionalInfo": null,
     "items": [
       {
         "itemNumber": 1,
@@ -6220,15 +6193,7 @@
     ],
     "additionalInfo": {
       "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
+        "location": null,
         "notes": true
       },
       "hgv": {},
@@ -6870,22 +6835,7 @@
       "psv",
       "hgv"
     ],
-    "additionalInfo": {
-      "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": false
-      },
-      "hgv": {},
-      "trl": {}
-    },
+    "additionalInfo": null,
     "items": [
       {
         "itemNumber": 1,
@@ -7143,15 +7093,7 @@
     ],
     "additionalInfo": {
       "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
+        "location": null,
         "notes": true
       },
       "hgv": {},
@@ -7274,15 +7216,7 @@
     ],
     "additionalInfo": {
       "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
+        "location": null,
         "notes": true
       },
       "hgv": {},
@@ -7489,15 +7423,7 @@
     ],
     "additionalInfo": {
       "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
+        "location": null,
         "notes": true
       },
       "hgv": {},
@@ -7803,22 +7729,7 @@
       "hgv",
       "psv"
     ],
-    "additionalInfo": {
-      "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": false
-      },
-      "hgv": {},
-      "trl": {}
-    },
+    "additionalInfo": null,
     "items": [
       {
         "itemNumber": 2,
@@ -8095,15 +8006,7 @@
     ],
     "additionalInfo": {
       "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
+        "location": null,
         "notes": true
       },
       "hgv": {},
@@ -8228,22 +8131,7 @@
       "psv",
       "hgv"
     ],
-    "additionalInfo": {
-      "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": false
-      },
-      "hgv": {},
-      "trl": {}
-    },
+    "additionalInfo": null,
     "items": [
       {
         "itemNumber": 1,
@@ -8487,22 +8375,7 @@
       "hgv",
       "psv"
     ],
-    "additionalInfo": {
-      "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": false
-      },
-      "hgv": {},
-      "trl": {}
-    },
+    "additionalInfo": null,
     "items": [
       {
         "itemNumber": 2,
@@ -8644,15 +8517,7 @@
     ],
     "additionalInfo": {
       "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
+        "location": null,
         "notes": true
       },
       "hgv": {},
@@ -9052,22 +8917,7 @@
       "hgv",
       "trl"
     ],
-    "additionalInfo": {
-      "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": false
-      },
-      "hgv": {},
-      "trl": {}
-    },
+    "additionalInfo": null,
     "items": [
       {
         "itemNumber": 1,
@@ -9393,15 +9243,7 @@
     ],
     "additionalInfo": {
       "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
+        "location": null,
         "notes": true
       },
       "hgv": {},
@@ -9893,15 +9735,7 @@
     ],
     "additionalInfo": {
       "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
+        "location": null,
         "notes": true
       },
       "hgv": {},
@@ -10026,15 +9860,7 @@
     ],
     "additionalInfo": {
       "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
+        "location": null,
         "notes": true
       },
       "hgv": {},
@@ -10271,15 +10097,7 @@
     ],
     "additionalInfo": {
       "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
+        "location": null,
         "notes": true
       },
       "hgv": {},
@@ -12729,15 +12547,7 @@
     ],
     "additionalInfo": {
       "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
+        "location": null,
         "notes": true
       },
       "hgv": {},
@@ -15587,15 +15397,7 @@
     ],
     "additionalInfo": {
       "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
+        "location": null,
         "notes": true
       },
       "hgv": {},
