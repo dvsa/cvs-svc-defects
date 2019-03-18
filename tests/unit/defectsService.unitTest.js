@@ -2,6 +2,8 @@ const expect = require('chai').expect
 const DefectsDAOMock = require('../models/DefectsDAOMock')
 const DefectsService = require('../../src/services/DefectsService')
 const HTTPError = require('../../src/models/HTTPError')
+const fs = require('fs')
+const path = require('path')
 
 describe('getDefectList', () => {
   var defectsDAOMock = new DefectsDAOMock()
@@ -71,6 +73,76 @@ describe('getDefectList', () => {
           expect(errorResponse).to.be.instanceOf(HTTPError)
           expect(errorResponse.statusCode).to.be.equal(500)
           expect(errorResponse.body).to.equal('Internal Server Error')
+        })
+    })
+  })
+})
+
+describe('insertDefectList', () => {
+  const defectsDAOMock = new DefectsDAOMock()
+
+  context('when db does not return response', () => {
+    it('should return 500-Internal Server Error', () => {
+      defectsDAOMock.isDatabaseOn = false
+      const defectsService = new DefectsService(defectsDAOMock)
+      const defectsData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../resources/defects.json'), 'utf8'))
+      const mockData = [defectsData[0]]
+
+      return defectsService.insertDefectList(mockData)
+        .catch((errorResponse) => {
+          expect(errorResponse).to.be.instanceOf(HTTPError)
+          expect(errorResponse.statusCode).to.be.equal(500)
+          expect(errorResponse.body).to.equal('Internal Server Error')
+        })
+    })
+  })
+
+  context('when inserting a valid defects array', () => {
+    it('should return 200', () => {
+      defectsDAOMock.isDatabaseOn = true
+      const defectsService = new DefectsService(defectsDAOMock)
+      const defectsData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../resources/defects.json'), 'utf8'))
+      const mockData = defectsData[0]
+
+      return defectsService.insertDefectList(mockData)
+        .then((result) => {
+          expect(Object.keys(result).length).to.equal(0)
+          expect(result.constructor).to.equal(Object)
+        })
+    })
+  })
+})
+
+describe('deleteDefectList', () => {
+  const defectsDAOMock = new DefectsDAOMock()
+
+  context('when db does not return response', () => {
+    it('should return 500-Internal Server Error', () => {
+      defectsDAOMock.isDatabaseOn = false
+      const defectsService = new DefectsService(defectsDAOMock)
+      const defectsData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../resources/defects.json'), 'utf8'))
+      const mockData = [defectsData[0]].id
+
+      return defectsService.deleteDefectList(mockData)
+        .catch((errorResponse) => {
+          expect(errorResponse).to.be.instanceOf(HTTPError)
+          expect(errorResponse.statusCode).to.be.equal(500)
+          expect(errorResponse.body).to.equal('Internal ServerError')
+        })
+    })
+  })
+
+  context('when deleting a valid defects array', () => {
+    it('should return 200', () => {
+      defectsDAOMock.isDatabaseOn = true
+      const defectsService = new DefectsService(defectsDAOMock)
+      const defectsData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../resources/defects.json'), 'utf8'))
+      const mockData = defectsData[0].id
+
+      return defectsService.deleteDefectList(mockData)
+        .then((result) => {
+          expect(Object.keys(result).length).to.equal(0)
+          expect(result.constructor).to.equal(Object)
         })
     })
   })

@@ -1,3 +1,5 @@
+const HTTPError = require('../../src/models/HTTPError')
+
 class DefectsDAOMock {
   constructor () {
     this.defectRecordsMock = null
@@ -16,6 +18,16 @@ class DefectsDAOMock {
     if (!this.isDatabaseOn) { return Promise.reject(responseObject) }
 
     return Promise.resolve(responseObject)
+  }
+
+  createMultiple (payload) {
+    if (!this.isDatabaseOn) { return Promise.reject(new HTTPError(500, 'Internal Server Error')) }
+    return Promise.resolve({ UnprocessedItems: {} })
+  }
+
+  deleteMultiple (payload) {
+    if (!this.isDatabaseOn) { return Promise.reject(new HTTPError(500, 'Internal Server Error')) }
+    return Promise.resolve({ UnprocessedItems: {} })
   }
 }
 
