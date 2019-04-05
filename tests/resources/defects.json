@@ -3484,7 +3484,37 @@
     "forVehicleType": [
       "psv"
     ],
-    "additionalInfo": null,
+    "additionalInfo": {
+      "psv": {
+        "location": {
+          "vertical": null,
+          "horizontal": null,
+          "lateral": [
+            "nearside",
+            "offside",
+            "centre"
+          ],
+          "longitudinal": null,
+          "rowNumber": null,
+          "seatNumber": null,
+          "axleNumber": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "notes": false
+      },
+      "hgv": {},
+      "trl": {}
+    },
     "items": [
       {
         "itemNumber": 1,
@@ -3739,7 +3769,26 @@
     "forVehicleType": [
       "psv"
     ],
-    "additionalInfo": null,
+    "additionalInfo": {
+      "psv": {
+        "location": {
+          "vertical": null,
+          "horizontal": null,
+          "lateral": [
+            "nearside",
+            "offside",
+            "centre"
+          ],
+          "longitudinal": null,
+          "rowNumber": null,
+          "seatNumber": null,
+          "axleNumber": null
+        },
+        "notes": false
+      },
+      "hgv": {},
+      "trl": {}
+    },
     "items": [
       {
         "itemNumber": 1,
@@ -4893,7 +4942,29 @@
     "forVehicleType": [
       "psv"
     ],
-    "additionalInfo": null,
+    "additionalInfo": {
+      "psv": {
+        "location": {
+          "vertical": null,
+          "horizontal": null,
+          "lateral": [
+            "nearside",
+            "offside",
+            "centre"
+          ],
+          "longitudinal": [
+            "front",
+            "rear"
+          ],
+          "rowNumber": null,
+          "seatNumber": null,
+          "axleNumber": null
+        },
+        "notes": false
+      },
+      "hgv": {},
+      "trl": {}
+    },
     "items": [
       {
         "itemNumber": 1,
@@ -13980,7 +14051,26 @@
     "forVehicleType": [
       "psv"
     ],
-    "additionalInfo": null,
+    "additionalInfo": {
+      "psv": {
+        "location": {
+          "vertical": null,
+          "horizontal": null,
+          "lateral": [
+            "nearside",
+            "offside",
+            "centre"
+          ],
+          "longitudinal": null,
+          "rowNumber": null,
+          "seatNumber": null,
+          "axleNumber": null
+        },
+        "notes": false
+      },
+      "hgv": {},
+      "trl": {}
+    },
     "items": [
       {
         "itemNumber": 1,
