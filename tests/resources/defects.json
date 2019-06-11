@@ -14994,7 +14994,7 @@
           "seatNumber": null,
           "axleNumber": null
         },
-        "notes": false
+        "notes": true
       },
       "trl": {}
     },
