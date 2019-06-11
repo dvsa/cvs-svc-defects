@@ -3232,6 +3232,7 @@
       "hgv"
     ],
     "additionalInfo": {
+      "psv": {},
       "hgv": {
         "location": {
           "vertical": null,
@@ -3443,9 +3444,11 @@
     "imNumber": 13,
     "imDescription": "Trailer Landing Legs",
     "forVehicleType": [
+      "hgv",
       "trl"
     ],
     "additionalInfo": {
+      "psv": {},
       "hgv": {
         "location": {
           "vertical": null,
@@ -3832,7 +3835,17 @@
       "hgv"
     ],
     "additionalInfo": {
+      "psv": {},
       "hgv": {
+        "location": {
+          "vertical": null,
+          "horizontal": null,
+          "lateral": null,
+          "longitudinal": null,
+          "rowNumber": null,
+          "seatNumber": null,
+          "axleNumber": null
+        },
         "notes": true
       },
       "trl": {}
@@ -4647,6 +4660,7 @@
       "hgv"
     ],
     "additionalInfo": {
+      "psv": {},
       "hgv": {
         "location": {
           "vertical": null,
@@ -4658,7 +4672,8 @@
           "axleNumber": null
         },
         "notes": false
-      }
+      },
+      "trl": {}
     },
     "items": [
       {
