@@ -5466,7 +5466,27 @@
         },
         "notes": true
       },
-      "hgv": {},
+      "hgv": {"location": {
+        "vertical": [
+          "upper",
+          "lower"
+        ],
+        "horizontal": null,
+        "lateral": [
+          "nearside",
+          "offside",
+          "centre"
+        ],
+        "longitudinal": [
+          "front",
+          "rear"
+        ],
+        "rowNumber": null,
+        "seatNumber": null,
+        "axleNumber": null
+      },
+        "notes": true
+      },
       "trl": {}
     },
     "items": [
