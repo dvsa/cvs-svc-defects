@@ -8,7 +8,7 @@ import {HTTPError} from "../../src/models/HTTPError";
 const sandbox = sinon.createSandbox();
 
 describe("getDefects Function", () => {
-    let ctx = mockContext();
+    const ctx = mockContext();
     afterEach(() => {sandbox.restore(); });
 
     context("on success of downstream services", () => {
