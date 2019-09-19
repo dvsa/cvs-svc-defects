@@ -6,10 +6,9 @@ import {expect} from "chai";
 import {HTTPResponse} from "../../src/models/HTTPResponse";
 import {HTTPError} from "../../src/models/HTTPError";
 const sandbox = sinon.createSandbox();
-const ctx = mockContext();
-
 
 describe("getDefects Function", () => {
+    let ctx = mockContext();
     afterEach(() => {sandbox.restore(); });
 
     context("on success of downstream services", () => {

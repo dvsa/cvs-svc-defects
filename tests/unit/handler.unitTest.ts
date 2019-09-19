@@ -6,10 +6,9 @@ import * as getDefects from "../../src/functions/getDefects";
 import {Configuration} from "../../src/utils/Configuration";
 import {HTTPResponse} from "../../src/models/HTTPResponse";
 import mockContext from "aws-lambda-mock-context";
-const ctx = mockContext();
-
 
 describe("The lambda function handler", () => {
+  const ctx = mockContext();
   context("With correct Config", () => {
     context("should correctly handle incoming events", () => {
       it("should call functions with correct event payload", async () => {
