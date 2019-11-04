@@ -2199,7 +2199,10 @@
         "location": {
           "vertical": null,
           "horizontal": null,
-          "lateral": null,
+          "lateral": [
+            "nearside",
+            "offside"
+          ],
           "longitudinal": [
             "front",
             "rear"
@@ -2214,7 +2217,10 @@
         "location": {
           "vertical": null,
           "horizontal": null,
-          "lateral": null,
+          "lateral": [
+            "nearside",
+            "offside"
+          ],
           "longitudinal": [
             "front",
             "rear"
@@ -13886,7 +13892,8 @@
     "imDescription": "Additional Braking Devices",
     "forVehicleType": [
       "psv",
-      "hgv"
+      "hgv",
+      "trl"
     ],
     "additionalInfo": {
       "psv": {
@@ -13913,7 +13920,18 @@
         },
         "notes": true
       },
-      "trl": {}
+      "trl": {
+          "location": {
+          "vertical": null,
+          "horizontal": null,
+          "lateral": null,
+          "longitudinal": null,
+          "rowNumber": null,
+          "seatNumber": null,
+          "axleNumber": null
+        },
+        "notes": true
+      }
     },
     "items": [
       {
@@ -13921,7 +13939,8 @@
         "itemDescription": "Additional Braking Device:",
         "forVehicleType": [
           "psv",
-          "hgv"
+          "hgv",
+          "trl"
         ],
         "deficiencies": [
           {
@@ -13977,7 +13996,8 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
-              "hgv"
+              "hgv",
+              "trl"
             ]
           },
           {
@@ -13989,7 +14009,8 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
-              "hgv"
+              "hgv",
+              "trl"
             ]
           },
           {
@@ -14001,7 +14022,8 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
-              "hgv"
+              "hgv",
+              "trl"
             ]
           },
           {
@@ -14013,7 +14035,8 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
-              "hgv"
+              "hgv",
+              "trl"
             ]
           },
           {
@@ -14025,7 +14048,8 @@
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
-              "hgv"
+              "hgv",
+              "trl"
             ]
           }
         ]
