@@ -2201,7 +2201,8 @@
           "horizontal": null,
           "lateral": [
             "nearside",
-            "offside"
+            "offside",
+            "centre"
           ],
           "longitudinal": [
             "front",
@@ -2219,7 +2220,8 @@
           "horizontal": null,
           "lateral": [
             "nearside",
-            "offside"
+            "offside",
+            "centre"
           ],
           "longitudinal": [
             "front",
