@@ -46,7 +46,7 @@ describe("when calling service method getDefectList", () => {
                 const defectsService: DefectsService = new DefectsService(mockDefectsDAO);
                 try {
                     await defectsService.getDefectList();
-                    expect.assertions(1); // should have thrown an error, test failed
+                    expect.assertions(3); // should have thrown an error, test failed
                 } catch (errorResponse) {
                     expect(errorResponse).toBeInstanceOf(HTTPError);
                     expect(errorResponse.statusCode).toBe(404);
@@ -72,9 +72,9 @@ describe("when calling service method getDefectList", () => {
 
                 const mockDefectsDAO = new MockDefectsDAO();
                 const defectsService: DefectsService = new DefectsService(mockDefectsDAO);
+                expect.assertions(3);
                 try {
                     await defectsService.getDefectList();
-                    expect.assertions(1); // should have thrown an error, test failed
                 } catch (errorResponse) {
                     expect(errorResponse).toBeInstanceOf(HTTPError);
                     expect(errorResponse.statusCode).toBe(404);
@@ -97,9 +97,9 @@ describe("when calling service method getDefectList", () => {
 
                 const mockDefectsDAO = new MockDefectsDAO();
                 const service: DefectsService = new DefectsService(mockDefectsDAO);
+                expect.assertions(3);
                 try {
                     await service.getDefectList();
-                    expect.assertions(1); // should have thrown an error, test failed
                 } catch (errorResponse) {
                     expect(errorResponse).toBeInstanceOf(HTTPError);
                     expect(errorResponse.statusCode).toBe(500);

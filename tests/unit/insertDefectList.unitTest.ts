@@ -15,9 +15,9 @@ describe("when service method insertDefectList is called", () => {
 
                 const mockDefectsDAO = new MockDefectsDAO();
                 const service: DefectsService = new DefectsService(mockDefectsDAO);
+                expect.assertions(3);
                 try {
                     await service.insertDefectList([]);
-                    expect.assertions(1); // should have thrown an error
                 } catch (errorResponse) {
                     expect(errorResponse).toBeInstanceOf(HTTPError);
                     expect(errorResponse.statusCode).toBe(500);

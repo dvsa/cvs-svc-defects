@@ -20,9 +20,9 @@ describe("ConfigurationUtil", () => {
             it("should throw error", () => {
                 process.env.BRANCH = "local";
                 const emptyConfig = new Configuration("../../tests/resources/EmptyConfig.yml");
+                expect.assertions(1);
                 try {
                     emptyConfig.getInvokeConfig();
-                    expect.assertions(1); // should have thrown an error, test failed
                 } catch (e) {
                     expect(e.message).toBe(ERRORS.LambdaInvokeConfigNotDefined);
                 }
@@ -66,9 +66,9 @@ describe("ConfigurationUtil", () => {
             process.env.BRANCH = "local";
             const emptyConfig: Configuration = new Configuration("../../tests/resources/EmptyConfig.yml");
             it("should throw error", () => {
+                expect.assertions(1);
                 try {
                     emptyConfig.getDynamoDBConfig();
-                    expect.assertions(1); // should have thrown an error, test failed
                 } catch (e) {
                     expect(e.message).toBe(ERRORS.DynamoDBConfigNotDefined);
                 }
@@ -109,9 +109,9 @@ describe("ConfigurationUtil", () => {
         context("the BRANCH environment variable is not defined", () => {
             it("should throw error", () => {
                 process.env.BRANCH = "";
+                expect.assertions(1);
                 try {
                     getMockedConfig().getDynamoDBConfig();
-                    expect.assertions(1); // should have thrown an error, test failed
                 } catch (e) {
                     expect(e.message).toEqual(ERRORS.NoBranch);
                 }
