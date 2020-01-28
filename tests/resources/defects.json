@@ -10124,7 +10124,7 @@
             "deficiencyId": "a",
             "deficiencySubId": "ii",
             "deficiencyCategory": "dangerous",
-            "deficiencyText": "insecure flitch plates and/or fastenings or welds breaking away so that the control of the vehicle is likely to be affected.",
+            "deficiencyText": "insecure flitch plates and/or fastenings or welds breaking away so that the control of the vehicle is likely to be affected or the load will become insecure.",
             "stdForProhibition": true,
             "forVehicleType": [
               "hgv",
