@@ -16318,7 +16318,7 @@
     "items": [
       {
         "itemNumber": 1,
-        "itemDescription": "In relation to the 0% Horizontal line, the beam horizontal cut-off line is not between the limits listed below.",
+        "itemDescription": "European checked on Dipped Beam: In relation to the 0% Horizontal line, the beam horizontal cut-off line is not between the limits listed below.",
         "forVehicleType": [
           "psv",
           "hgv"
@@ -16352,7 +16352,7 @@
       },
       {
         "itemNumber": 2,
-        "itemDescription": "The beam image contains:",
+        "itemDescription": "European checked on Dipped Beam: The beam image contains:",
         "forVehicleType": [
           "psv",
           "hgv"
@@ -16374,7 +16374,7 @@
       },
       {
         "itemNumber": 3,
-        "itemDescription": "White light:",
+        "itemDescription": "European checked on Dipped Beam: White light:",
         "forVehicleType": [
           "psv",
           "hgv"
@@ -16396,7 +16396,7 @@
       },
       {
         "itemNumber": 4,
-        "itemDescription": "In relation to the 0% Horizontal line, the upper edge of the “Hot Spot” is not between the limits listed below.",
+        "itemDescription": "British American Checked on Dipped Beam: In relation to the 0% Horizontal line, the upper edge of the “Hot Spot” is not between the limits listed below.",
         "forVehicleType": [
           "psv",
           "hgv"
@@ -16418,7 +16418,7 @@
       },
       {
         "itemNumber": 5,
-        "itemDescription": "The right hand edge of the “Hot Spot”:",
+        "itemDescription": "British American Checked on Dipped Beam: The right hand edge of the “Hot Spot”:",
         "forVehicleType": [
           "psv",
           "hgv"
@@ -16440,7 +16440,7 @@
       },
       {
         "itemNumber": 6,
-        "itemDescription": "A Headlamp",
+        "itemDescription": "British American Checked on Dipped Beam: A Headlamp",
         "forVehicleType": [
           "psv",
           "hgv"
@@ -16462,7 +16462,7 @@
       },
       {
         "itemNumber": 7,
-        "itemDescription": "In relation to the 0% Horizontal line, the Centre of the “Hot Spot” is not between the limits listed below.",
+        "itemDescription": "British American Checked on Main Beam: In relation to the 0% Horizontal line, the Centre of the “Hot Spot” is not between the limits listed below.",
         "forVehicleType": [
           "psv",
           "hgv"
@@ -16496,7 +16496,7 @@
       },
       {
         "itemNumber": 8,
-        "itemDescription": "In any case the centre of the “Hot Spot”",
+        "itemDescription": "British American Checked on Main Beam: In any case the centre of the “Hot Spot”",
         "forVehicleType": [
           "psv",
           "hgv"
@@ -16518,7 +16518,7 @@
       },
       {
         "itemNumber": 9,
-        "itemDescription": "A Headlamp",
+        "itemDescription": "British American Checked on Main Beam: A Headlamp",
         "forVehicleType": [
           "psv",
           "hgv"
