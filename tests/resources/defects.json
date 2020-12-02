@@ -991,7 +991,7 @@
             "deficiencyId": "a",
             "deficiencySubId": "i",
             "deficiencyCategory": "major",
-            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles registered prior to 1 July 2008: 2.5m for non-turbocharged engines or the level specified on the manufacturer's plate, whichever is lower.",
+            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles first used before 1 July 2008: The level specified on the manufacturer’s plate or 2.5m-1 for non-turbocharged engines, where the plate value is not available.",
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
@@ -1003,7 +1003,7 @@
             "deficiencyId": "a",
             "deficiencySubId": "ii",
             "deficiencyCategory": "major",
-            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles registered prior to 1 July 2008: 3.0m for turbocharged engines or the level specified on the manufacturer's plate, whichever is lower.",
+            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles first used before 1 July 2008: The level specified on the manufacturer’s plate or 3.0m-1  for turbocharged engines, where the plate value is not available.",
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
@@ -1015,7 +1015,7 @@
             "deficiencyId": "a",
             "deficiencySubId": "iii",
             "deficiencyCategory": "major",
-            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles first registered from 1 July 2008: 1.5m for all diesel engines or the level specified on the manufacturer's plate, whichever is lower.",
+            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles first used from 1 July 2008: The level specified on the manufacturer’s plate or 1.5m-1 for all CI engines, where the plate value is not available.",
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
@@ -1027,7 +1027,7 @@
             "deficiencyId": "a",
             "deficiencySubId": "iv",
             "deficiencyCategory": "major",
-            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than:  For vehicles first registered from 1 January 2014: 0.7m for all diesel engines or the level specified on the manufacturer's plate, whichever is lower.",
+            "deficiencyText": "After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles first used from 1 January 2014: The level specified on the manufacturer’s plate or 0.7m-1 for all CI engines, where the plate value is not available.",
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
@@ -2072,6 +2072,73 @@
               "psv",
               "hgv",
               "trl"
+            ]
+          },
+          {
+            "ref": "8.1.i",
+            "deficiencyId": "i",
+            "deficiencySubId": null,
+            "deficiencyCategory": "dangerous",
+            "deficiencyText": "in excess of ten years of age fitted to any front steered axle of a vehicle.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "hgv"
+            ]
+          },
+          {
+            "ref": "8.1.j.i",
+            "deficiencyId": "j",
+            "deficiencySubId": "i",
+            "deficiencyCategory": "minor",
+            "deficiencyText": "with a date of manufacture code illegible or not displayed on any axle (excluding a front steered axle).",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "hgv",
+              "trl"
+            ]
+          },
+          {
+            "ref": "8.1.j.ii",
+            "deficiencyId": "j",
+            "deficiencySubId": "ii",
+            "deficiencyCategory": "major",
+            "deficiencyText": "with a date of manufacture code illegible or not displayed to any front steered axle of a vehicle.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "hgv"
+            ]
+          },
+          {
+            "ref": "8.1.i",
+            "deficiencyId": "i",
+            "deficiencySubId": null,
+            "deficiencyCategory": "dangerous",
+            "deficiencyText": "in excess of ten years of age fitted to the front steered axle or any axle on a minibus with a single wheel fitment.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          },
+          {
+            "ref": "8.1.j.i",
+            "deficiencyId": "j",
+            "deficiencySubId": "i",
+            "deficiencyCategory": "minor",
+            "deficiencyText": "with a date of manufacture code illegible or not displayed (excluding a front steered axle or any axle on a minibus with single wheel fitment).",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
+            ]
+          },
+          {
+            "ref": "8.1.j.ii",
+            "deficiencyId": "j",
+            "deficiencySubId": "ii",
+            "deficiencyCategory": "major",
+            "deficiencyText": "with a date of manufacture code illegible or not displayed to any front steered axle or any axle on a minibus with single wheel fitment.",
+            "stdForProhibition": false,
+            "forVehicleType": [
+              "psv"
             ]
           }
         ]
@@ -14483,7 +14550,7 @@
             "deficiencyId": "a",
             "deficiencySubId": "i",
             "deficiencyCategory": "major",
-            "deficiencyText": "a brake disc or drum excessively worn.",
+            "deficiencyText": "a brake disc or drum excessively worn, or a brake disc cracked.",
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
@@ -14496,7 +14563,20 @@
             "deficiencyId": "a",
             "deficiencySubId": "ii",
             "deficiencyCategory": "dangerous",
-            "deficiencyText": "a brake back plate, disc or drum in such a condition that it is seriously weakened or insecure.",
+            "deficiencyText": "a brake back plate, disc or drum in such a condition that it is seriously weakened, fractured or insecure.",
+            "stdForProhibition": true,
+            "forVehicleType": [
+              "psv",
+              "hgv",
+              "trl"
+            ]
+          },
+          {
+            "ref": "59.3.b.i",
+            "deficiencyId": "b",
+            "deficiencySubId": "i",
+            "deficiencyCategory": "major",
+            "deficiencyText": "a brake back plate or calliper securing bolt loose or missing.",
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
@@ -14505,11 +14585,11 @@
             ]
           },
           {
-            "ref": "59.3.b",
+            "ref": "59.3.b.ii",
             "deficiencyId": "b",
-            "deficiencySubId": null,
-            "deficiencyCategory": "major",
-            "deficiencyText": "a brake back plate or calliper securing bolt loose or missing.",
+            "deficiencySubId": "ii",
+            "deficiencyCategory": "dangerous",
+            "deficiencyText": "a brake back plate or calliper securing bolt loose or missing to such an extent the back plate or calliper is insecure.",
             "stdForProhibition": false,
             "forVehicleType": [
               "psv",
