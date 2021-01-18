@@ -1,5 +1,6 @@
 service: cvs-svc-defect
-
+# from 3.0 warnings will be thrown as errors
+configValidationMode: warn
 plugins:
   - serverless-dynamodb-local
   - serverless-offline
@@ -7,26 +8,28 @@ plugins:
   - serverless-plugin-typescript
 
 provider:
+  lambdaHashingVersion: 20201221
   name: aws
-  runtime: nodejs8.10
-  tracing: true # enable tracing
-  iamRoleStatements:
-    - Effect: "Allow"
-      Action:
-        - "xray:PutTraceSegments"
-        - "xray:PutTelemetryRecords"
-      Resource:
-        - "*"
-
-
+  runtime: nodejs10.x
+  tracing:
+    apiGateway: true
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+            - "xray:PutTraceSegments"
+            - "xray:PutTelemetryRecords"
+          Resource:
+            - "*"
 
 functions:
   getDefects:
     handler: src/handler.handler
     events:
-    - http:
-        path: defects
-        method: get
+      - http:
+          path: defects
+          method: get
 
 custom:
   serverless-offline:
@@ -54,11 +57,11 @@ resources:
       Properties:
         TableName: cvs-local-defects
         AttributeDefinitions:
-        - AttributeName: id
-          AttributeType: N
+          - AttributeName: id
+            AttributeType: N
         KeySchema:
-        - AttributeName: id
-          KeyType: HASH
+          - AttributeName: id
+            KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
