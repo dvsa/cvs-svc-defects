@@ -66,5 +66,4 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
 serverless:
-  basePath: /${BRANCH}
   port: 3001
