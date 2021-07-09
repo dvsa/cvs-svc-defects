@@ -13,14 +13,14 @@ invoke:
       endpoint: http://localhost:3000
     functions:
       getDefects:
-          name: cvs-svc-defects
-          mock: tests/resources/defects.json
+        name: cvs-svc-defects
+        mock: tests/resources/defects.json
   remote:
     params:
       apiVersion: 2015-03-31
     functions:
       getDefects:
-          name: defects-${BRANCH}
+        name: defects-${BRANCH}
 dynamodb:
   local:
     params:
