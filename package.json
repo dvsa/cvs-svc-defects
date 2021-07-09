@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "BRANCH=local SLS_DEBUG=* serverless offline start",
-    "tools-setup": "sls dynamodb install",
+    "tools-setup": "node_modules/.bin/sls dynamodb install",
     "test": "npm run test:unit:coverage",
     "test:unit": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*.unitTest.ts\"",
     "test:unit:coverage": "npm run test:unit -- --coverage",
@@ -21,9 +21,10 @@
     "test:integration": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\" --runInBand",
     "build": "node_modules/typescript/bin/tsc --rootDir ./ --outDir .build --sourceMap false && npm run build:copy",
     "build:copy": "find src -type f \\( -name \"*.yml\" -or -name \"*.json\" \\) | cpio -pdm .build && find tests -type f \\( -name \"*.yml\" -or -name \"*.json\" \\)  | cpio -pdm .build",
-    "prepush": "npm t && npm run build",
+    "prepush": "npm t && npm run build && npm run test-i",
     "security-checks": "git secrets --scan && git log -p | scanrepo",
     "tslint": "tslint src/**/*.ts tests/**/*.ts --out .reports/lint_issues.json",
+    "format": "prettier --write .",
     "sonar-scanner": "npm t && sonar-scanner",
     "audit": "npm audit",
     "predeploy": "npm install && npm run prepush",
@@ -35,6 +36,8 @@
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-typescript": "^7.6.0",
+    "@commitlint/cli": "12.1.4",
+    "@commitlint/config-conventional": "12.1.4",
     "@types/jest": "^24.0.21",
     "@types/jest-plugin-context": "^2.9.2",
     "@types/lambda-tester": "^3.5.1",
@@ -44,13 +47,13 @@
     "audit-filter": "^0.5.0",
     "aws-lambda-mock-context": "^3.2.1",
     "babel-jest": "^26.6.3",
-    "gulp": "^4.0.2",
     "husky": "^3.0.9",
     "jest": "25.0.0",
     "jest-plugin-context": "^2.9.0",
     "jest-sonar-reporter": "^2.0.0",
     "lambda-tester": "^3.5.0",
     "lodash": "^4.17.21",
+    "prettier": "2.3.2",
     "serverless": "2.43.1",
     "serverless-dynamodb-local": "^0.2.37",
     "serverless-offline": "^5.12.0",
@@ -84,7 +87,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run security-checks && npm run audit && npm run tslint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run security-checks && npm run audit && npm run tslint && npm run format",
       "pre-push": "npm run prepush"
     }
   }
