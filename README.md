@@ -6,7 +6,7 @@ The cvs-defects microservice contains some reference data to be used for CVS ser
 
 ## Dependencies
 
-The project runs on node 10.x with typescript and serverless framework. For further details about project dependencies, please refer to the `package.json` file.
+The project runs on node >10.x with typescript and serverless framework. For further details about project dependencies, please refer to the `package.json` file.
 [nvm](https://github.com/nvm-sh/nvm/blob/master/README.md) is used to managed node versions and configuration explicitly done per project using an `.npmrc` file.
 
 ### Prerequisites
@@ -36,8 +36,8 @@ More information about technical designs can be found under the [Defects Microse
 
 Set up your nodejs environment running `nvm use` and once the dependencies are installed using `npm i`, you can run the scripts from `package.json` to build your project.
 This code repository uses [serverless framework](https://www.serverless.com/framework/docs/) to mock AWS capabilities for local development.
-You will also require to install dynamodb serverless to run your project with by running the following command `node_modules/.bin/sls dynamodb install` in your preferred shell.
-Please refer to the local development section to [configure your project locally](#developing-locally)
+You will also require to install dynamodb serverless to run your project with by running the following command `npm run tools-setup` in your preferred shell.
+Please refer to the local development section to [configure your project locally].(#developing-locally)
 
 ### Environmental variables
 
@@ -47,16 +47,16 @@ Please refer to the local development section to [configure your project locally
 
 The following scripts are available, however you can refer to the `package.json` to see the details:
 
-- `npm install`
-- `npm start`
-- `npm run build`
-- `npm t`
+- installing dependencies: `npm install`
+- local development by starting the service: `npm start`
+- building the project: `npm run build`
+- unit tests: `npm t`
+- integration tests: `npm run test-i`
 
 ### DynamoDB and seeding
 
-If you want the database to be populated with mock data on start, in your `serverless.yml` file, you need to set `seed` to `true`. You can find this setting under `custom > dynamodb > start`.
-
-By default, the `noStart` setting under `custom > dynamodb > start` is true. That means the DynamoDB instance will not be started automatically. To start the instance automatically on `npm run start`, you have to set this value to `false`.
+You won't need to change the configuration.
+However, if you want the database to be populated with mock data on start, in your `serverless.yml` file, you need to set `seed` to `true`. You can find this setting under `custom > dynamodb > start`.
 
 If you choose to run the DynamoDB instance separately, you can send the seed command with the following command:
 
@@ -76,12 +76,9 @@ custom:
 
 ### Developing locally
 
-The following configuration must be updated in your `serverless.yml` to be able to run the service locally.
-
-To run this locally, add the following environment variables to your run configuration(s):
+Default DynamoDB configuration for seeding the data:
 
 ```yml
-# **NB: Do not push these changes. They are for local running only**
 - migrate: true
   seed: true
   noStart: false
@@ -133,6 +130,8 @@ For the CI/CD and automation please refer to the following pages for further det
 - [Pipeline](https://wiki.dvsacloud.uk/pages/viewpage.action?pageId=36870584)
 
 ## Contributing
+
+Please familiarise yourself with [commitlint](https://commitlint.js.org/#/) and [conventional commits conventions](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) as a hook is in place to enforce standards.
 
 ### Hooks and code standards
 
