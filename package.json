@@ -24,6 +24,7 @@
     "prepush": "npm t && npm run build",
     "security-checks": "git secrets --scan && git log -p | scanrepo",
     "tslint": "tslint src/**/*.ts tests/**/*.ts --out .reports/lint_issues.json",
+    "format": "prettier --write .",
     "sonar-scanner": "sonar-scanner",
     "audit": "npm audit",
     "predeploy": "npm install && npm run prepush",
@@ -51,6 +52,7 @@
     "jest-sonar-reporter": "^2.0.0",
     "lambda-tester": "^3.5.0",
     "lodash": "^4.17.21",
+    "prettier": "2.3.2",
     "serverless": "2.43.1",
     "serverless-dynamodb-local": "^0.2.37",
     "serverless-offline": "^5.12.0",
@@ -84,7 +86,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run security-checks && npm run audit && npm run tslint",
+      "pre-commit": "npm run security-checks && npm run audit && npm run tslint && npm run format",
       "pre-push": "npm run prepush"
     }
   }
