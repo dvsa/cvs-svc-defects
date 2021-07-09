@@ -8,75 +8,68 @@ import { IDBConfig } from ".";
 https://github.com/aws/aws-xray-sdk-node/issues/14
 */
 /* tslint:disable */
-let AWS: { DynamoDB: { DocumentClient: new (arg0: any) => DocumentClient; }; };
+let AWS: { DynamoDB: { DocumentClient: new (arg0: any) => DocumentClient } };
 if (process.env._X_AMZN_TRACE_ID) {
   AWS = require("aws-xray-sdk").captureAWS(require("aws-sdk"));
 } else {
-  console.log("Serverless Offline detected; skipping AWS X-Ray setup")
+  console.log("Serverless Offline detected; skipping AWS X-Ray setup");
   AWS = require("aws-sdk");
 }
 /* tslint:enable */
 
-
 export class DefectsDAO {
-    private readonly tableName: string;
-    private static dbClient: DocumentClient;
+  private readonly tableName: string;
+  private static dbClient: DocumentClient;
 
-
-    constructor() {
-        const config: IDBConfig = Configuration.getInstance().getDynamoDBConfig();
-        this.tableName = config.table;
-        if (!DefectsDAO.dbClient) {
-            DefectsDAO.dbClient = new AWS.DynamoDB.DocumentClient(config.params);
-        }
+  constructor() {
+    const config: IDBConfig = Configuration.getInstance().getDynamoDBConfig();
+    this.tableName = config.table;
+    if (!DefectsDAO.dbClient) {
+      DefectsDAO.dbClient = new AWS.DynamoDB.DocumentClient(config.params);
     }
+  }
 
-    public getAll(): Promise<PromiseResult<DocumentClient.ScanOutput, AWS.AWSError>> {
-        return DefectsDAO.dbClient.scan({ TableName: this.tableName }).promise();
-    }
+  public getAll(): Promise<
+    PromiseResult<DocumentClient.ScanOutput, AWS.AWSError>
+  > {
+    return DefectsDAO.dbClient.scan({ TableName: this.tableName }).promise();
+  }
 
-    public generatePartialParams(): any {
-        return {
-            RequestItems:
-            {
-                [this.tableName]: []
-            }
-        };
-    }
+  public generatePartialParams(): any {
+    return {
+      RequestItems: {
+        [this.tableName]: [],
+      },
+    };
+  }
 
-    public createMultiple(defectItems: any[]): Promise<any> {
-        const params = this.generatePartialParams();
+  public createMultiple(defectItems: any[]): Promise<any> {
+    const params = this.generatePartialParams();
 
-        defectItems.map((defectItem: any) => {
-            params.RequestItems[this.tableName].push(
-                {
-                    PutRequest:
-                    {
-                        Item: defectItem
-                    }
-                });
-        });
+    defectItems.map((defectItem: any) => {
+      params.RequestItems[this.tableName].push({
+        PutRequest: {
+          Item: defectItem,
+        },
+      });
+    });
 
-        return DefectsDAO.dbClient.batchWrite(params).promise();
-    }
+    return DefectsDAO.dbClient.batchWrite(params).promise();
+  }
 
-    public deleteMultiple(primaryKeysToBeDeleted: string[]): Promise<any> {
-        const params = this.generatePartialParams();
+  public deleteMultiple(primaryKeysToBeDeleted: string[]): Promise<any> {
+    const params = this.generatePartialParams();
 
-        primaryKeysToBeDeleted.forEach((key) => {
-            params.RequestItems[this.tableName].push(
-                {
-                    DeleteRequest:
-                    {
-                        Key:
-                        {
-                            id: key
-                        }
-                    }
-                }
-            );
-        });
+    primaryKeysToBeDeleted.forEach((key) => {
+      params.RequestItems[this.tableName].push({
+        DeleteRequest: {
+          Key: {
+            id: key,
+          },
+        },
+      });
+    });
 
-        return DefectsDAO.dbClient.batchWrite(params).promise();
-    }
+    return DefectsDAO.dbClient.batchWrite(params).promise();
+  }
 }
