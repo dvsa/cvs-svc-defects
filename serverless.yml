@@ -41,9 +41,9 @@ custom:
     start:
       port: 8001
       inMemory: true
-      migrate: false
-      seed: false
-      noStart: true
+      migrate: true
+      seed: true
+      noStart: false
     seed:
       defects:
         sources:
