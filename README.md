@@ -37,7 +37,7 @@ More information about technical designs can be found under the [Defects Microse
 Set up your nodejs environment running `nvm use` and once the dependencies are installed using `npm i`, you can run the scripts from `package.json` to build your project.
 This code repository uses [serverless framework](https://www.serverless.com/framework/docs/) to mock AWS capabilities for local development.
 You will also require to install dynamodb serverless to run your project with by running the following command `npm run tools-setup` in your preferred shell.
-Please refer to the local development section to [configure your project locally].(#developing-locally)
+Please refer to the local development section to [configure your project locally](#developing-locally).
 
 ### Environmental variables
 
