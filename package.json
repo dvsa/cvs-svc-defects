@@ -13,9 +13,11 @@
   },
   "scripts": {
     "start": "BRANCH=local SLS_DEBUG=* serverless offline start",
+    "start:localstack": "BRANCH=localstack SLS_DEBUG=* serverless offline start",
     "startx": "npm run tslint && BRANCH=local SLS_DEBUG=* serverless offline start",
     "test": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*.unitTest.ts\" --coverage",
     "build": "node_modules/typescript/bin/tsc --rootDir ./ --outDir .build --sourceMap false && npm run build:copy",
+    "clean": "rm -rf localstack* .build",
     "build:copy": "find src -type f \\( -name \"*.yml\" -or -name \"*.json\" \\) | cpio -pdm .build && find tests -type f \\( -name \"*.yml\" -or -name \"*.json\" \\)  | cpio -pdm .build",
     "test-i": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\" --runInBand",
     "end:test": "node_modules/gulp/bin/gulp.js kill-serverless",

@@ -20,6 +20,7 @@ invoke:
       apiVersion: 2015-03-31
     functions:
       getDefects:
+        # will be defects-localstack
           name: defects-${BRANCH}
 dynamodb:
   local:
@@ -37,6 +38,11 @@ dynamodb:
   remote:
     params: {}
     table: cvs-${BRANCH}-defects
+  localstack:
+    params:
+      region: eu-west-1
+      endpoint: http://${LOCALSTACK_HOSTNAME}:4566
+    table: cvs-localstack-defects
 serverless:
   basePath: /${BRANCH}
   port: 3001
