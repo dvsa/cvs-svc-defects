@@ -1,0 +1,207 @@
+openapi: 3.0.0
+info:
+  description: >-
+    This is the API spec for retrieving all defects. These defects will be
+    stored locally on the VSAs mobile device. Authorization details will be
+    updated once we have confirmed the security scheme we are using.
+  version: 1.0.0
+  title: Defect Microservice
+  termsOfService: ''
+  contact:
+    email: mdclarke@deloitte.co.uk
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: Defects
+    description: Endpoints related to defects
+    externalDocs:
+      description: Find out more
+      url: 'https://wiki.i-env.net/display/HVT/Epic%3A+Add+a+defect'
+paths:
+  /defects:
+    get:
+      tags:
+        - Defects
+      summary: Return defects
+      description: Return defects
+      operationId: GetDefects
+      responses:
+        '200':
+          description: All defects returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/imNumbers'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Access token does not have the required scope
+        '404':
+          description: Defects not found
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://example.com/oauth/authorize'
+          tokenUrl: 'https://example.com/oauth/token'
+          scopes:
+            read: Grants read access
+  schemas:
+    deficiency:
+      type: object
+      properties:
+        ref:
+          type: string
+        deficiencyId:
+          type: string
+          nullable: true
+          pattern: '[a-z]'
+          minLength: 1
+          maxLength: 1
+        deficiencySubId:
+          type: string
+          nullable: true
+          pattern: '^[mdclxvi]+$'
+        deficiencyCategory:
+          type: string
+          enum:
+            - dangerous
+            - major
+            - minor
+        deficiencyText:
+          type: string
+        stdForProhibition:
+          type: boolean
+        forVehicleType:
+          type: array
+          items:
+            type: string
+            enum:
+              - psv
+              - hgv
+              - trl
+    item:
+      type: object
+      properties:
+        itemNumber:
+          type: number
+        itemDescription:
+          type: string
+        forVehicleType:
+          type: array
+          items:
+            type: string
+            enum:
+              - psv
+              - hgv
+              - trl
+        deficiencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/deficiency'
+    psvAdditionalInfo:
+      type: object
+      properties:
+        location:
+          type: object
+          properties:
+            vertical:
+              type: array
+              nullable: true
+              items:
+                type: string
+                enum:
+                  - upper
+                  - lower
+            horizontal:
+              type: array
+              nullable: true
+              items:
+                type: string
+                enum:
+                  - inner
+                  - outer
+            lateral:
+              type: array
+              nullable: true
+              items:
+                type: string
+                enum:
+                  - nearside
+                  - centre
+                  - offside
+            longitudinal:
+              type: array
+              nullable: true
+              items:
+                type: string
+                enum:
+                  - front
+                  - rear
+            rowNumber:
+              type: array
+              nullable: true
+              items:
+                type: number
+                minimum: 1
+                maximum: 20
+            seatNumber:
+              type: array
+              nullable: true
+              items:
+                type: number
+                minimum: 1
+                maximum: 6
+            axleNumber:
+              type: array
+              nullable: true
+              items:
+                type: number
+                minimum: 1
+                maximum: 10
+        notes:
+          type: boolean
+    imNumber:
+      type: object
+      properties:
+        imNumber:
+          type: number
+        imDescription:
+          type: string
+        forVehicleType:
+          type: array
+          items:
+            type: string
+            enum:
+              - psv
+              - hgv
+              - trl
+        additionalInfo:
+          type: object
+          properties:
+            psv:
+              $ref: '#/components/schemas/psvAdditionalInfo'
+            hgv:
+              type: object
+              nullable: true
+            trl:
+              type: object
+              nullable: true
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/item'
+    imNumbers:
+      type: array
+      items:
+        $ref: '#/components/schemas/imNumber'
+security:
+  - ApiKeyAuth: []
+  - OAuth2:
+      - read
+      - write
+servers:
+  - url: 'https://url/api/v1'
