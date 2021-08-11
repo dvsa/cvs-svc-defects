@@ -9,12 +9,14 @@ https://github.com/aws/aws-xray-sdk-node/issues/14
 */
 /* tslint:disable */
 let AWS: { DynamoDB: { DocumentClient: new (arg0: any) => DocumentClient; }; };
-if (process.env._X_AMZN_TRACE_ID) {
-  AWS = require("aws-xray-sdk").captureAWS(require("aws-sdk"));
-} else {
-  console.log("Serverless Offline detected; skipping AWS X-Ray setup")
-  AWS = require("aws-sdk");
-}
+// TODO temporarily disabluing xray as localstack pro would be required
+// if (process.env._X_AMZN_TRACE_ID) {
+//   AWS = require("aws-xray-sdk").captureAWS(require("aws-sdk"));
+// } else {
+//   console.log("Serverless Offline detected; skipping AWS X-Ray setup")
+//   AWS = require("aws-sdk");
+// }
+AWS = require("aws-sdk");
 /* tslint:enable */
 
 
