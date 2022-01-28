@@ -6,18 +6,18 @@ info:
     updated once we have confirmed the security scheme we are using.
   version: 1.0.0
   title: Defect Microservice
-  termsOfService: ''
+  termsOfService: ""
   contact:
     email: mdclarke@deloitte.co.uk
   license:
     name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 tags:
   - name: Defects
     description: Endpoints related to defects
     externalDocs:
       description: Find out more
-      url: 'https://wiki.i-env.net/display/HVT/Epic%3A+Add+a+defect'
+      url: "https://wiki.i-env.net/display/HVT/Epic%3A+Add+a+defect"
 paths:
   /defects:
     get:
@@ -27,17 +27,17 @@ paths:
       description: Return defects
       operationId: GetDefects
       responses:
-        '200':
+        "200":
           description: All defects returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/imNumbers'
-        '401':
+                $ref: "#/components/schemas/imNumbers"
+        "401":
           description: Not authenticated
-        '403':
+        "403":
           description: Access token does not have the required scope
-        '404':
+        "404":
           description: Defects not found
 components:
   securitySchemes:
@@ -45,8 +45,8 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: 'https://example.com/oauth/authorize'
-          tokenUrl: 'https://example.com/oauth/token'
+          authorizationUrl: "https://example.com/oauth/authorize"
+          tokenUrl: "https://example.com/oauth/token"
           scopes:
             read: Grants read access
   schemas:
@@ -58,13 +58,13 @@ components:
         deficiencyId:
           type: string
           nullable: true
-          pattern: '[a-z]'
+          pattern: "[a-z]"
           minLength: 1
           maxLength: 1
         deficiencySubId:
           type: string
           nullable: true
-          pattern: '^[mdclxvi]+$'
+          pattern: "^[mdclxvi]+$"
         deficiencyCategory:
           type: string
           enum:
@@ -101,7 +101,7 @@ components:
         deficiencies:
           type: array
           items:
-            $ref: '#/components/schemas/deficiency'
+            $ref: "#/components/schemas/deficiency"
     psvAdditionalInfo:
       type: object
       properties:
@@ -183,7 +183,7 @@ components:
           type: object
           properties:
             psv:
-              $ref: '#/components/schemas/psvAdditionalInfo'
+              $ref: "#/components/schemas/psvAdditionalInfo"
             hgv:
               type: object
               nullable: true
@@ -193,15 +193,15 @@ components:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/item'
+            $ref: "#/components/schemas/item"
     imNumbers:
       type: array
       items:
-        $ref: '#/components/schemas/imNumber'
+        $ref: "#/components/schemas/imNumber"
 security:
   - ApiKeyAuth: []
   - OAuth2:
       - read
       - write
 servers:
-  - url: 'https://url/api/v1'
+  - url: "https://url/api/v1"
