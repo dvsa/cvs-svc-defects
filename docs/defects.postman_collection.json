@@ -1,42 +1,33 @@
 {
-	"info": {
-		"_postman_id": "6b8ca95e-cca3-42f4-90dc-a24cca6e7810",
-		"name": "defects",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Get all Defects",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{bearer_token}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://api.{{api}}.cvs.dvsacloud.uk/{{branch}}/defects",
-					"protocol": "https",
-					"host": [
-						"api",
-						"{{api}}",
-						"cvs",
-						"dvsacloud",
-						"uk"
-					],
-					"path": [
-						"{{branch}}",
-						"defects"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "6b8ca95e-cca3-42f4-90dc-a24cca6e7810",
+    "name": "defects",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get all Defects",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{bearer_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.{{api}}.cvs.dvsacloud.uk/{{branch}}/defects",
+          "protocol": "https",
+          "host": ["api", "{{api}}", "cvs", "dvsacloud", "uk"],
+          "path": ["{{branch}}", "defects"]
+        }
+      },
+      "response": []
+    }
+  ]
 }
