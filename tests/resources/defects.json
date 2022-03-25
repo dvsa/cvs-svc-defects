@@ -2814,18 +2814,9 @@
             "forVehicleType": ["hgv", "trl"]
           },
           {
-            "ref": "14.2.b.i",
+            "ref": "14.2.b",
             "deficiencyId": "b",
-            "deficiencySubId": "i",
-            "deficiencyCategory": "major",
-            "deficiencyText": "not fitted where required.",
-            "stdForProhibition": false,
-            "forVehicleType": ["hgv", "trl"]
-          },
-          {
-            "ref": "14.2.b.ii",
-            "deficiencyId": "b",
-            "deficiencySubId": "ii",
+            "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "insufficient coverage of tread.",
             "stdForProhibition": false,
@@ -5892,22 +5883,13 @@
             "deficiencyId": "g",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
-            "deficiencyText": "an analogue or modular tachograph where the electronically indicated figure differs from prescribed ‘K’ factor by more than + or – 50.",
+            "deficiencyText": "unable to obtain a printout from a digital tachograph.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv"]
           },
           {
             "ref": "26.3.h",
             "deficiencyId": "h",
-            "deficiencySubId": null,
-            "deficiencyCategory": "major",
-            "deficiencyText": "unable to obtain a printout from a digital tachograph.",
-            "stdForProhibition": false,
-            "forVehicleType": ["psv", "hgv"]
-          },
-          {
-            "ref": "26.3.i",
-            "deficiencyId": "i",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "a digital tachograph that displays a ‘K’ factor reading different to that shown on the calibration plaque (there is no allowance/tolerance as with analogue type tachographs).",
@@ -6598,7 +6580,7 @@
         "forVehicleType": ["psv", "hgv"],
         "deficiencies": [
           {
-            "ref": "33.4.a",
+            "ref": "33.3.a",
             "deficiencyId": "a",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
@@ -6607,7 +6589,7 @@
             "forVehicleType": ["psv", "hgv"]
           },
           {
-            "ref": "33.4.b",
+            "ref": "33.3.b",
             "deficiencyId": "b",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
@@ -6616,7 +6598,7 @@
             "forVehicleType": ["psv", "hgv"]
           },
           {
-            "ref": "33.4.c",
+            "ref": "33.3.c",
             "deficiencyId": "c",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
@@ -6625,7 +6607,7 @@
             "forVehicleType": ["psv", "hgv"]
           },
           {
-            "ref": "33.4.d",
+            "ref": "33.3.d",
             "deficiencyId": "d",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
@@ -6634,7 +6616,7 @@
             "forVehicleType": ["psv", "hgv"]
           },
           {
-            "ref": "33.4.e",
+            "ref": "33.3.e",
             "deficiencyId": "e",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
@@ -7274,7 +7256,7 @@
             "deficiencyId": null,
             "deficiencySubId": null,
             "deficiencyCategory": "major",
-            "deficiencyText": "an ISO 7368 connecting lead not fitted or being used.",
+            "deficiencyText": "an ISO 7638 connecting lead not fitted or being used.",
             "stdForProhibition": false,
             "forVehicleType": ["hgv"]
           },
@@ -8954,7 +8936,7 @@
             "deficiencyId": "c",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
-            "deficiencyText": "movement in a spring fixing pin in excess of the prescribed limits.",
+            "deficiencyText": "with excessive movement in a spring fixing pin",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -9246,29 +9228,11 @@
         "forVehicleType": ["psv", "hgv", "trl"],
         "deficiencies": [
           {
-            "ref": "48.7.a",
-            "deficiencyId": "a",
+            "ref": "48.1.k",
+            "deficiencyId": "k",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "missing from a vehicle on which it is a standard component or any of its associated linkage/brackets or bushes missing.",
-            "stdForProhibition": false,
-            "forVehicleType": ["psv", "hgv", "trl"]
-          },
-          {
-            "ref": "48.7.b",
-            "deficiencyId": "b",
-            "deficiencySubId": null,
-            "deficiencyCategory": "major",
-            "deficiencyText": "insecure.",
-            "stdForProhibition": false,
-            "forVehicleType": ["psv", "hgv", "trl"]
-          },
-          {
-            "ref": "48.7.c",
-            "deficiencyId": "c",
-            "deficiencySubId": null,
-            "deficiencyCategory": "major",
-            "deficiencyText": "fractured, cracked, severely distorted or so corroded or worn that its strength is seriously reduced.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           }
@@ -10411,20 +10375,47 @@
             "forVehicleType": ["psv", "hgv", "trl"]
           },
           {
-            "ref": "58.1.c.i",
+            "ref": "58.1.c",
             "deficiencyId": "c",
-            "deficiencySubId": "i",
-            "deficiencyCategory": "minor",
-            "deficiencyText": "wiring insecure or damaged.",
+            "deficiencySubId": null,
+            "deficiencyCategory": "major",
+            "deficiencyText": "wiring insecure or damaged to such an extent the device is inoperative.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
           {
-            "ref": "58.1.c.ii",
-            "deficiencyId": "c",
-            "deficiencySubId": "ii",
+            "ref": "58.1.d",
+            "deficiencyId": "d",
+            "deficiencySubId": null,
             "deficiencyCategory": "major",
-            "deficiencyText": "wiring insecure or damaged to such an extent the device is inoperative.",
+            "deficiencyText": "with inadequate clearance with other components.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv", "hgv", "trl"]
+          },
+          {
+            "ref": "58.1.e",
+            "deficiencyId": "e",
+            "deficiencySubId": null,
+            "deficiencyCategory": "major",
+            "deficiencyText": "heat shield missing.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv", "hgv", "trl"]
+          },
+          {
+            "ref": "58.1.f",
+            "deficiencyId": "f",
+            "deficiencySubId": null,
+            "deficiencyCategory": "major",
+            "deficiencyText": "component or its surroundings overheating. ",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv", "hgv", "trl"]
+          },
+          {
+            "ref": "58.1.g",
+            "deficiencyId": "g",
+            "deficiencySubId": null,
+            "deficiencyCategory": "major",
+            "deficiencyText": "with exhaust gas or oil leaks from the device.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           }
@@ -11480,7 +11471,7 @@
             "deficiencyId": "b",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
-            "deficiencyText": "more than two (vehicles/trailers up to 6m in length) or four (vehicles/trailers over 6m in length) optional reversing lamps fitted.",
+            "deficiencyText": "more than two (vehicles up to 6m in length) or four (vehicles over 6m in length) optional reversing lamps fitted.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
