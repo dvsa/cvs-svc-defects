@@ -10297,7 +10297,7 @@
             "deficiencyCategory": "major",
             "deficiencyText": "heat shield missing.",
             "stdForProhibition": false,
-            "forVehicleType": ["hgv", "trl"]
+            "forVehicleType": ["psv", "hgv", "trl"]
           },
           {
             "ref": "58.1.f",
