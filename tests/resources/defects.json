@@ -6505,126 +6505,126 @@
             "forVehicleType": ["hgv"]
           }
         ]
-      }
-    ]
-  },
-  {
-    "itemNumber": 1,
-    "itemDescription": "Speed Limiter Plate:",
-    "forVehicleType": ["psv", "hgv"],
-    "deficiencies": [
-      {
-        "ref": "33.1.a",
-        "deficiencyId": "a",
-        "deficiencySubId": null,
-        "deficiencyCategory": "major",
-        "deficiencyText": "missing.",
-        "stdForProhibition": false,
-        "forVehicleType": ["psv", "hgv"]
       },
       {
-        "ref": "33.1.b",
-        "deficiencyId": "b",
-        "deficiencySubId": null,
-        "deficiencyCategory": "minor",
-        "deficiencyText": "insecure.",
-        "stdForProhibition": false,
-        "forVehicleType": ["psv", "hgv"]
+        "itemNumber": 1,
+        "itemDescription": "Speed Limiter Plate:",
+        "forVehicleType": ["psv", "hgv"],
+        "deficiencies": [
+          {
+            "ref": "33.1.a",
+            "deficiencyId": "a",
+            "deficiencySubId": null,
+            "deficiencyCategory": "major",
+            "deficiencyText": "missing.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv", "hgv"]
+          },
+          {
+            "ref": "33.1.b",
+            "deficiencyId": "b",
+            "deficiencySubId": null,
+            "deficiencyCategory": "minor",
+            "deficiencyText": "insecure.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv", "hgv"]
+          },
+          {
+            "ref": "33.1.c",
+            "deficiencyId": "c",
+            "deficiencySubId": null,
+            "deficiencyCategory": "minor",
+            "deficiencyText": "not in a conspicuous position.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv", "hgv"]
+          },
+          {
+            "ref": "33.1.d",
+            "deficiencyId": "d",
+            "deficiencySubId": null,
+            "deficiencyCategory": "major",
+            "deficiencyText": "not clearly and indelibly marked with the set speed.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv", "hgv"]
+          }
+        ]
       },
       {
-        "ref": "33.1.c",
-        "deficiencyId": "c",
-        "deficiencySubId": null,
-        "deficiencyCategory": "minor",
-        "deficiencyText": "not in a conspicuous position.",
-        "stdForProhibition": false,
-        "forVehicleType": ["psv", "hgv"]
+        "itemNumber": 3,
+        "itemDescription": "Speed Limiter:",
+        "forVehicleType": ["psv", "hgv"],
+        "deficiencies": [
+          {
+            "ref": "33.3.a",
+            "deficiencyId": "a",
+            "deficiencySubId": null,
+            "deficiencyCategory": "major",
+            "deficiencyText": "not fitted or obviously inoperative.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv", "hgv"]
+          },
+          {
+            "ref": "33.3.b",
+            "deficiencyId": "b",
+            "deficiencySubId": null,
+            "deficiencyCategory": "major",
+            "deficiencyText": "insecure.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv", "hgv"]
+          },
+          {
+            "ref": "33.3.c",
+            "deficiencyId": "c",
+            "deficiencySubId": null,
+            "deficiencyCategory": "major",
+            "deficiencyText": "actuating rods/cables disconnected or damaged so that the operation is obviously affected.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv", "hgv"]
+          },
+          {
+            "ref": "33.3.d",
+            "deficiencyId": "d",
+            "deficiencySubId": null,
+            "deficiencyCategory": "major",
+            "deficiencyText": "wiring disconnected or can easily be disconnected by unauthorised means.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv", "hgv"]
+          },
+          {
+            "ref": "33.3.e",
+            "deficiencyId": "e",
+            "deficiencySubId": null,
+            "deficiencyCategory": "major",
+            "deficiencyText": "tamperproof device missing or defective or showing obvious signs of interference.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv", "hgv"]
+          }
+        ]
       },
       {
-        "ref": "33.1.d",
-        "deficiencyId": "d",
-        "deficiencySubId": null,
-        "deficiencyCategory": "major",
-        "deficiencyText": "not clearly and indelibly marked with the set speed.",
-        "stdForProhibition": false,
-        "forVehicleType": ["psv", "hgv"]
-      }
-    ]
-  },
-  {
-    "itemNumber": 3,
-    "itemDescription": "Speed Limiter:",
-    "forVehicleType": ["psv", "hgv"],
-    "deficiencies": [
-      {
-        "ref": "33.3.a",
-        "deficiencyId": "a",
-        "deficiencySubId": null,
-        "deficiencyCategory": "major",
-        "deficiencyText": "not fitted or obviously inoperative.",
-        "stdForProhibition": false,
-        "forVehicleType": ["psv", "hgv"]
-      },
-      {
-        "ref": "33.3.b",
-        "deficiencyId": "b",
-        "deficiencySubId": null,
-        "deficiencyCategory": "major",
-        "deficiencyText": "insecure.",
-        "stdForProhibition": false,
-        "forVehicleType": ["psv", "hgv"]
-      },
-      {
-        "ref": "33.3.c",
-        "deficiencyId": "c",
-        "deficiencySubId": null,
-        "deficiencyCategory": "major",
-        "deficiencyText": "actuating rods/cables disconnected or damaged so that the operation is obviously affected.",
-        "stdForProhibition": false,
-        "forVehicleType": ["psv", "hgv"]
-      },
-      {
-        "ref": "33.3.d",
-        "deficiencyId": "d",
-        "deficiencySubId": null,
-        "deficiencyCategory": "major",
-        "deficiencyText": "wiring disconnected or can easily be disconnected by unauthorised means.",
-        "stdForProhibition": false,
-        "forVehicleType": ["psv", "hgv"]
-      },
-      {
-        "ref": "33.3.e",
-        "deficiencyId": "e",
-        "deficiencySubId": null,
-        "deficiencyCategory": "major",
-        "deficiencyText": "tamperproof device missing or defective or showing obvious signs of interference.",
-        "stdForProhibition": false,
-        "forVehicleType": ["psv", "hgv"]
-      }
-    ]
-  },
-  {
-    "itemNumber": 2,
-    "itemDescription": "Set Speed marked on Speed Limiter Plate greater than:",
-    "forVehicleType": ["psv"],
-    "deficiencies": [
-      {
-        "ref": "33.2.a",
-        "deficiencyId": "a",
-        "deficiencySubId": null,
-        "deficiencyCategory": "minor",
-        "deficiencyText": "70mph (113 km/h) for a vehicle described in paragraph A in the Applications section.",
-        "stdForProhibition": false,
-        "forVehicleType": ["psv"]
-      },
-      {
-        "ref": "33.2.b",
-        "deficiencyId": "b",
-        "deficiencySubId": null,
-        "deficiencyCategory": "minor",
-        "deficiencyText": "100 km/h (62.14 mph) for a vehicle described in paragraph B, C, D, E, F, G & H in the Application section.",
-        "stdForProhibition": false,
-        "forVehicleType": ["psv"]
+        "itemNumber": 2,
+        "itemDescription": "Set Speed marked on Speed Limiter Plate greater than:",
+        "forVehicleType": ["psv"],
+        "deficiencies": [
+          {
+            "ref": "33.2.a",
+            "deficiencyId": "a",
+            "deficiencySubId": null,
+            "deficiencyCategory": "minor",
+            "deficiencyText": "70mph (113 km/h) for a vehicle described in paragraph A in the Applications section.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv"]
+          },
+          {
+            "ref": "33.2.b",
+            "deficiencyId": "b",
+            "deficiencySubId": null,
+            "deficiencyCategory": "minor",
+            "deficiencyText": "100 km/h (62.14 mph) for a vehicle described in paragraph B, C, D, E, F, G & H in the Application section.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv"]
+          }
+        ]
       }
     ]
   },
