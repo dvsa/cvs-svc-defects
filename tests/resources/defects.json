@@ -10246,42 +10246,6 @@
         "forVehicleType": ["psv", "hgv", "trl"],
         "deficiencies": [
           {
-            "ref": "58.1.d",
-            "deficiencyId": "d",
-            "deficiencySubId": null,
-            "deficiencyCategory": "major",
-            "deficiencyText": "with inadequate clearance with other components",
-            "stdForProhibition": false,
-            "forVehicleType": ["psv"]
-          },
-          {
-            "ref": "58.1.e",
-            "deficiencyId": "e",
-            "deficiencySubId": null,
-            "deficiencyCategory": "major",
-            "deficiencyText": "heat shield missing.",
-            "stdForProhibition": false,
-            "forVehicleType": ["psv"]
-          },
-          {
-            "ref": "58.1.f",
-            "deficiencyId": "f",
-            "deficiencySubId": null,
-            "deficiencyCategory": "major",
-            "deficiencyText": "component or its surroundings overheating.",
-            "stdForProhibition": false,
-            "forVehicleType": ["psv"]
-          },
-          {
-            "ref": "58.1.g",
-            "deficiencyId": "g",
-            "deficiencySubId": null,
-            "deficiencyCategory": "major",
-            "deficiencyText": "with exhaust gas or oil leaks from the device.",
-            "stdForProhibition": false,
-            "forVehicleType": ["psv"]
-          },
-          {
             "ref": "58.1.a",
             "deficiencyId": "a",
             "deficiencySubId": null,
@@ -10333,7 +10297,7 @@
             "deficiencyCategory": "major",
             "deficiencyText": "heat shield missing.",
             "stdForProhibition": false,
-            "forVehicleType": ["psv", "hgv", "trl"]
+            "forVehicleType": ["hgv", "trl"]
           },
           {
             "ref": "58.1.f",
