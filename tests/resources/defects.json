@@ -11369,7 +11369,7 @@
             "deficiencyId": "b",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
-            "deficiencyText": "more than two (vehicles up to 6m in length) or four (vehicles over 6m in length) optional reversing lamps fitted.",
+            "deficiencyText": "more than two (motor vehicles up to 6m in length) or four (motor vehicles over 6m in length) optional reversing lamps fitted.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
