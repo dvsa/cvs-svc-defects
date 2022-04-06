@@ -11371,7 +11371,7 @@
             "deficiencyCategory": "major",
             "deficiencyText": "more than two (motor vehicles up to 6m in length) or four (motor vehicles over 6m in length) optional reversing lamps fitted.",
             "stdForProhibition": false,
-            "forVehicleType": ["psv", "hgv", "trl"]
+            "forVehicleType": ["hgv"]
           },
           {
             "ref": "63.7.a",
