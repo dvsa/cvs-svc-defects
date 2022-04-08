@@ -11362,7 +11362,7 @@
       {
         "itemNumber": 7,
         "itemDescription": "Reversing lamp (in addition to 1 above):",
-        "forVehicleType": ["psv", "hgv", "trl"],
+        "forVehicleType": ["psv", "hgv"],
         "deficiencies": [
           {
             "ref": "63.7.b",
