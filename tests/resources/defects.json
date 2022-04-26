@@ -2818,7 +2818,7 @@
             "deficiencyId": "b",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
-            "deficiencyText": "not fitted where required",
+            "deficiencyText": "not fitted where required.",
             "stdForProhibition": false,
             "forVehicleType": ["hgv", "trl"]
           },
