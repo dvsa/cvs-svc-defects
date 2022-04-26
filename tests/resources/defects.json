@@ -2818,7 +2818,7 @@
             "deficiencyId": "b",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
-            "deficiencyText": "insufficient coverage of tread.",
+            "deficiencyText": "not fitted where required.",
             "stdForProhibition": false,
             "forVehicleType": ["hgv", "trl"]
           },
