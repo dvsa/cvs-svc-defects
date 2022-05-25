@@ -11003,7 +11003,7 @@
         "location": {
           "vertical": null,
           "horizontal": null,
-          "lateral": ["nearside", "offside", "centre"],
+          "lateral": ["nearside", "offside", "rear"],
           "longitudinal": null,
           "rowNumber": null,
           "seatNumber": null,
@@ -11015,7 +11015,7 @@
         "location": {
           "vertical": null,
           "horizontal": null,
-          "lateral": ["nearside", "offside", "centre"],
+          "lateral": ["nearside", "offside", "rear"],
           "longitudinal": null,
           "rowNumber": null,
           "seatNumber": null,
@@ -11027,7 +11027,7 @@
         "location": {
           "vertical": null,
           "horizontal": null,
-          "lateral": ["nearside", "offside", "centre"],
+          "lateral": ["nearside", "offside", "rear"],
           "longitudinal": null,
           "rowNumber": null,
           "seatNumber": null,
@@ -11164,7 +11164,7 @@
         "location": {
           "vertical": null,
           "horizontal": null,
-          "lateral": ["nearside", "offside", "centre"],
+          "lateral": ["nearside", "offside", "rear"],
           "longitudinal": null,
           "rowNumber": null,
           "seatNumber": null,
@@ -11176,7 +11176,7 @@
         "location": {
           "vertical": ["upper", "lower"],
           "horizontal": null,
-          "lateral": ["nearside", "offside", "centre"],
+          "lateral": ["nearside", "offside", "rear"],
           "longitudinal": ["front", "rear"],
           "rowNumber": null,
           "seatNumber": null,
@@ -11188,7 +11188,7 @@
         "location": {
           "vertical": ["upper", "lower"],
           "horizontal": null,
-          "lateral": ["nearside", "offside", "centre"],
+          "lateral": ["nearside", "offside", "rear"],
           "longitudinal": ["front", "rear"],
           "rowNumber": null,
           "seatNumber": null,
