@@ -133,6 +133,7 @@ components:
                   - nearside
                   - centre
                   - offside
+                  - rear
             longitudinal:
               type: array
               nullable: true
