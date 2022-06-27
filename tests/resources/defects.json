@@ -11003,8 +11003,8 @@
         "location": {
           "vertical": null,
           "horizontal": null,
-          "lateral": ["nearside", "offside", "rear"],
-          "longitudinal": null,
+          "lateral": ["nearside", "offside", "centre"],
+          "longitudinal": ["front", "rear"],
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": null
@@ -11015,8 +11015,8 @@
         "location": {
           "vertical": null,
           "horizontal": null,
-          "lateral": ["nearside", "offside", "rear"],
-          "longitudinal": null,
+          "lateral": ["nearside", "offside", "centre"],
+          "longitudinal": ["front", "rear"],
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": null
@@ -11027,8 +11027,8 @@
         "location": {
           "vertical": null,
           "horizontal": null,
-          "lateral": ["nearside", "offside", "rear"],
-          "longitudinal": null,
+          "lateral": ["nearside", "offside", "centre"],
+          "longitudinal": ["front", "rear"],
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": null
@@ -11164,8 +11164,8 @@
         "location": {
           "vertical": null,
           "horizontal": null,
-          "lateral": ["nearside", "offside", "rear"],
-          "longitudinal": null,
+          "lateral": ["nearside", "offside", "centre"],
+          "longitudinal": ["front", "rear"],
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": null
@@ -11176,7 +11176,7 @@
         "location": {
           "vertical": ["upper", "lower"],
           "horizontal": null,
-          "lateral": ["nearside", "offside", "rear"],
+          "lateral": ["nearside", "offside", "centre"],
           "longitudinal": ["front", "rear"],
           "rowNumber": null,
           "seatNumber": null,
@@ -11188,7 +11188,7 @@
         "location": {
           "vertical": ["upper", "lower"],
           "horizontal": null,
-          "lateral": ["nearside", "offside", "rear"],
+          "lateral": ["nearside", "offside", "centre"],
           "longitudinal": ["front", "rear"],
           "rowNumber": null,
           "seatNumber": null,
