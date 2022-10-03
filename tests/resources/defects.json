@@ -11004,7 +11004,7 @@
           "vertical": null,
           "horizontal": null,
           "lateral": ["nearside", "offside", "centre"],
-          "longitudinal": null,
+          "longitudinal": ["front", "rear"],
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": null
@@ -11016,7 +11016,7 @@
           "vertical": null,
           "horizontal": null,
           "lateral": ["nearside", "offside", "centre"],
-          "longitudinal": null,
+          "longitudinal": ["front", "rear"],
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": null
@@ -11028,7 +11028,7 @@
           "vertical": null,
           "horizontal": null,
           "lateral": ["nearside", "offside", "centre"],
-          "longitudinal": null,
+          "longitudinal": ["front", "rear"],
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": null
@@ -11165,7 +11165,7 @@
           "vertical": null,
           "horizontal": null,
           "lateral": ["nearside", "offside", "centre"],
-          "longitudinal": null,
+          "longitudinal": ["front", "rear"],
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": null
