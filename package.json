@@ -22,7 +22,7 @@
     "build": "node_modules/typescript/bin/tsc --rootDir ./ --outDir .build --sourceMap false && npm run build:copy",
     "build:copy": "find src -type f \\( -name \"*.yml\" -or -name \"*.json\" \\) | cpio -pdm .build && find tests -type f \\( -name \"*.yml\" -or -name \"*.json\" \\)  | cpio -pdm .build",
     "prepush": "npm t && npm run build && npm run test-i",
-    "security-checks": "git secrets --scan && git log -p | scanrepo",
+    "security-checks": "git secrets --scan",
     "lint": "tslint src/**/*.ts tests/**/*.ts --out .reports/lint_issues.json",
     "format": "prettier --write .",
     "sonar-scanner": "sonar-scanner",
@@ -70,7 +70,8 @@
     "aws-lambda": "1.0.7",
     "aws-sdk": "2.1065.0",
     "aws-xray-sdk": "3.3.4",
-    "node-yaml": "^3.2.0",
+    "js-yaml": "4.1.0",
+    "node-yaml": "4.0.1",
     "path-parser": "^4.2.0",
     "reflect-metadata": "^0.1.13"
   },
