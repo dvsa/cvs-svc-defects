@@ -4,15 +4,15 @@
   "description": "Microservice that stores and serves the defects data",
   "main": "src/handler.js",
   "engines": {
-    "node": "14.*",
-    "npm": "5.6.0"
+    "node": "16.*",
+    "npm": "8.*"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/dvsa/cvs-svc-defects.git"
   },
   "scripts": {
-    "start": "BRANCH=local SLS_DEBUG=* serverless offline start",
+    "start": "cross-env API_VERSION=${npm_package_version} NODE_ENV=local BRANCH=local SLS_DEBUG=* serverless offline start --noPrependStageInUrl ",
     "tools-setup": "node_modules/.bin/sls dynamodb install",
     "test": "npm run test:unit:coverage",
     "test:unit": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*.unitTest.ts\"",
@@ -49,16 +49,17 @@
     "babel-jest": "^26.6.3",
     "husky": "^3.0.9",
     "jest": "25.0.0",
+    "cross-env": "7.0.3",
     "jest-plugin-context": "^2.9.0",
     "jest-sonar-reporter": "^2.0.0",
     "lambda-tester": "^3.5.0",
     "lodash": "^4.17.21",
     "prettier": "2.3.2",
-    "serverless": "2.43.1",
+    "serverless": "2.66.1",
+    "serverless-offline": "8.8.0",
     "serverless-dynamodb-local": "^0.2.37",
-    "serverless-offline": "^5.12.0",
     "serverless-plugin-tracing": "^2.0.0",
-    "serverless-plugin-typescript": "^1.1.9",
+    "serverless-plugin-typescript": "2.1.0",
     "supertest": "^4.0.2",
     "ts-jest": "25.0.0",
     "ts-node": "^8.4.1",

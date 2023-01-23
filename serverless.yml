@@ -8,9 +8,19 @@ plugins:
   - serverless-plugin-typescript
 
 provider:
-  lambdaHashingVersion: 20201221
+  profile: ${env:AWS_PROVIDER_PROFILE, 'default'}
   name: aws
-  runtime: nodejs10.x
+  region: ${env:AWS_REGION, 'local'}
+  runtime: nodejs16.x
+  stage: ${env:NODE_ENV, 'local'}
+  # To load environment variables externally
+  # copy ./.env.example to ./.env.local.
+  environment:
+    SERVICE_VERSION: ${env:API_VERSION}
+    AWS_REGION: ${self:provider.region}
+    AWS_STAGE: ${self:provider.stage}
+    SERVICE: ${self:service}
+
   tracing:
     apiGateway: true
   iam:
@@ -33,11 +43,12 @@ functions:
 
 custom:
   serverless-offline:
-    port: 3001
+    httpPort: ${env:AWS_SERVER_PORT, 3001}
   dynamodb:
     stages:
       - dev
       - test
+      - local
     start:
       port: 8001
       inMemory: true
@@ -65,5 +76,3 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-serverless:
-  port: 3001
