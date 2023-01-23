@@ -12,7 +12,7 @@
     "url": "https://github.com/dvsa/cvs-svc-defects.git"
   },
   "scripts": {
-    "start": "cross-env API_VERSION=${npm_package_version} NODE_ENV=local BRANCH=local SLS_DEBUG=* serverless offline start --noPrependStageInUrl ",
+    "start": "cross-env API_VERSION=${npm_package_version} NODE_ENV=local BRANCH=local SLS_DEBUG=* serverless offline start --noPrependStageInUrl",
     "tools-setup": "node_modules/.bin/sls dynamodb install",
     "test": "npm run test:unit:coverage",
     "test:unit": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*.unitTest.ts\"",
