@@ -27,10 +27,6 @@ class Configuration {
   private readonly config: any;
 
   constructor(configPath: string) {
-    if (!process.env.BRANCH) {
-      throw new Error(ERRORS.NoBranch);
-    }
-
     const config = yml.readSync(configPath);
     // **Reinstate if the project has secrets**
     // const secrets = yml.readSync(secretsPath);
