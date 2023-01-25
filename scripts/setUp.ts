@@ -1,7 +1,7 @@
 import { spawn } from "child_process";
 
 // We hook to serverless offline when firing its process
-const SERVER_OK = `Offline [HTTP] listening on http://localhost:3001`;
+const SERVER_OK = `HTTP`;
 // Serverless fires a local dynamo-db instance which is killed once the parent process is terminated
 // the current serverless script checks whether a local instance is running but does not error when binding fails
 // we force throwing an error so we always start from a clean slate if java.io.IOException: Failed to bind to 0.0.0.0/0.0.0.0:8006
@@ -10,7 +10,6 @@ const DYNAMO_LOCAL_ERROR_THREAD = `Exception in thread "main"`;
 const setupServer = (process: any) => {
   return new Promise((resolve, reject) => {
     process.stdout.setEncoding("utf-8").on("data", (stream: any) => {
-      console.log(stream);
       if (stream.includes(SERVER_OK)) {
         resolve(process);
       }

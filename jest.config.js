@@ -4,6 +4,8 @@ module.exports = {
   roots: ["<rootDir>/src", "<rootDir>/tests"],
   setupFiles: ["jest-plugin-context/setup"],
   moduleFileExtensions: ["js", "ts"],
-  testResultsProcessor: "jest-sonar-reporter",
   testMatch: ["<rootDir>/tests/**/*.test.ts"],
+  "coverageDirectory": "./coverage",
+  "collectCoverage": true,
+  "testResultsProcessor": "jest-sonar-reporter",
 };
