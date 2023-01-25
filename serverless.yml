@@ -1,16 +1,9 @@
 service: cvs-svc-defect
-# from 3.0 warnings will be thrown as errors
-configValidationMode: warn
-plugins:
-  - serverless-dynamodb-local
-  - serverless-offline
-  - serverless-plugin-tracing
-  - serverless-plugin-typescript
 
 provider:
-  lambdaHashingVersion: 20201221
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs14.x
+  lambdaHashingVersion: 20201221
   tracing:
     apiGateway: true
   iam:
@@ -28,7 +21,7 @@ functions:
     handler: src/handler.handler
     events:
       - http:
-          path: defects
+          path: "defects"
           method: get
 
 custom:
@@ -65,5 +58,10 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-serverless:
-  port: 3001
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-plugin-tracing
+  - serverless-plugin-typescript
+  - serverless-dynamodb-local
+  - serverless-offline

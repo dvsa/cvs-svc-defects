@@ -20,7 +20,8 @@ describe("when service method deleteDefectList is called", () => {
         expect.assertions(3);
         try {
           await defectsService.deleteDefectList([]);
-        } catch (errorResponse) {
+        } catch (errorResponse: any) {
+          // @TODO: Determine Error type thrown
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toBe(500);
           expect(errorResponse.body).toBe("Internal ServerError");
