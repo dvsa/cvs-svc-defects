@@ -49,7 +49,7 @@ describe("when calling service method getDefectList", () => {
         try {
           await defectsService.getDefectList();
           expect.assertions(3); // should have thrown an error, test failed
-        } catch (errorResponse) {
+        } catch (errorResponse: any) { // @TODO: Consider casting
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toBe(404);
           expect(errorResponse.body).toBe(
@@ -83,7 +83,7 @@ describe("when calling service method getDefectList", () => {
           expect.assertions(3);
           try {
             await defectsService.getDefectList();
-          } catch (errorResponse) {
+          } catch (errorResponse: any) { // @TODO: Consider casting
             expect(errorResponse).toBeInstanceOf(HTTPError);
             expect(errorResponse.statusCode).toBe(404);
             expect(errorResponse.body).toBe(
@@ -111,7 +111,7 @@ describe("when calling service method getDefectList", () => {
         expect.assertions(3);
         try {
           await service.getDefectList();
-        } catch (errorResponse) {
+        } catch (errorResponse: any) { // @TODO: Consider casting
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toBe(500);
           expect(errorResponse.body).toBe("Internal Server Error");

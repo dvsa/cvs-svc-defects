@@ -18,7 +18,7 @@ describe("when service method insertDefectList is called", () => {
         expect.assertions(3);
         try {
           await service.insertDefectList([]);
-        } catch (errorResponse) {
+        } catch (errorResponse: any) { // @TODO: Consider casting
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect(errorResponse.statusCode).toBe(500);
           expect(errorResponse.body).toBe("Internal Server Error");
