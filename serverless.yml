@@ -33,7 +33,7 @@ functions:
 
 custom:
   serverless-offline:
-    port: 3001
+    httpPort: 3001
   dynamodb:
     stages:
       - dev
@@ -48,7 +48,7 @@ custom:
       defects:
         sources:
           - table: cvs-local-defects
-            sources: [./tests/resources/defects.json]
+            sources: [ ./tests/resources/defects.json ]
 
 resources:
   Resources:
@@ -65,5 +65,3 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-serverless:
-  port: 3001

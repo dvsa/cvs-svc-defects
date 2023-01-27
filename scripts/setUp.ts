@@ -1,29 +1,41 @@
-import { spawn } from "child_process";
+import { ChildProcessWithoutNullStreams, spawn } from "child_process";
 
 // We hook to serverless offline when firing its process
-const SERVER_OK = `Offline [HTTP] listening on http://localhost:3001`;
+const SERVER_OK = `[length]: 2`;
+// const SERVER_OK = `offline: [HTTP] sever ready http://localhost:3001`;
+// offline: [HTTP] server ready: http://localhost:3000
 // Serverless fires a local dynamo-db instance which is killed once the parent process is terminated
 // the current serverless script checks whether a local instance is running but does not error when binding fails
 // we force throwing an error so we always start from a clean slate if java.io.IOException: Failed to bind to 0.0.0.0/0.0.0.0:8006
 const DYNAMO_LOCAL_ERROR_THREAD = `Exception in thread "main"`;
 
-const setupServer = (process: any) => {
+const setupServer = (pro: ChildProcessWithoutNullStreams) => {
   return new Promise((resolve, reject) => {
-    process.stdout.setEncoding("utf-8").on("data", (stream: any) => {
-      console.log(stream);
+
+    pro.stdout?.pipe(process.stdout);
+    // process.stdout.setEncoding("utf-8").on("data", (stream) => {
+    //   console.log("matt", stream);
+    //   if (stream.includes(SERVER_OK)) {
+    //     // resolve(pro);
+    //   }
+    // });
+
+
+    pro.stdout.setEncoding("utf-8").on("data", (stream) => {
+      console.log("stream", stream);
       if (stream.includes(SERVER_OK)) {
-        resolve(process);
+        resolve(pro);
       }
     });
 
-    process.stderr.setEncoding("utf-8").on("data", (stream: any) => {
+    pro.stderr.setEncoding("utf-8").on("data", (stream) => {
       if (stream.includes(DYNAMO_LOCAL_ERROR_THREAD)) {
         throw new Error("Internal Java process crashed");
       }
       reject(stream);
     });
 
-    process.on("exit", (code: any, signal: any) => {
+    pro.on("exit", (code: number | null, signal) => {
       if (code !== 137) {
         console.info(
           `process terminated with code: ${code} and signal: ${signal}`
@@ -33,7 +45,7 @@ const setupServer = (process: any) => {
   });
 };
 
-const server = spawn("npm", ["run", "start"], {});
+const server = spawn("npm", ["run", "start"]);
 
 module.exports = async () => {
   console.log(`\nSetting up Integration tests...\n\n`);
