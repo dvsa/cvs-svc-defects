@@ -1092,7 +1092,7 @@
             "deficiencyId": "a",
             "deficiencySubId": "i",
             "deficiencyCategory": "major",
-            "deficiencyText": "cracked, badly damaged, or with a half shaft or wheel flange bolts, studs or nuts loose or missing.",
+            "deficiencyText": "cracked, badly damaged, or with a half shaft or wheel flange bolt, stud or nut loose or missing.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
