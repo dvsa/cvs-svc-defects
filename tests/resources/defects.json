@@ -1092,7 +1092,7 @@
             "deficiencyId": "a",
             "deficiencySubId": "i",
             "deficiencyCategory": "major",
-            "deficiencyText": "cracked, badly damaged, or with a half shaft bolt, stud or nut loose or missing.",
+            "deficiencyText": "cracked, badly damaged, or with a half shaft or wheel flange bolt, stud or nut loose or missing.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1101,7 +1101,7 @@
             "deficiencyId": "a",
             "deficiencySubId": "ii",
             "deficiencyCategory": "dangerous",
-            "deficiencyText": "cracked, badly damaged, or with a half shaft bolt, stud or nut loose or missing where secure fixing of the wheel is affected.",
+            "deficiencyText": "cracked, badly damaged, or with half shaft or wheel flange bolts, studs or nuts loose or missing where secure fixing of the wheel is affected.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -10774,7 +10774,7 @@
       },
       {
         "itemNumber": 5,
-        "itemDescription": "Air actuators, hydraulic master & wheel cylinders, valves and servos:",
+        "itemDescription": "Actuators, hydraulic master & wheel cylinders, valves and servos:",
         "forVehicleType": ["psv", "hgv", "trl"],
         "deficiencies": [
           {
@@ -11526,15 +11526,24 @@
       },
       {
         "itemNumber": 3,
-        "itemDescription": "No stop lamps (in addition to 1 above)",
+        "itemDescription": "Stop lamps: (in addition to 1 above)",
         "forVehicleType": ["psv", "hgv", "trl"],
         "deficiencies": [
           {
-            "ref": "63.3",
-            "deficiencyId": null,
+            "ref": "63.3.a",
+            "deficiencyId": "a",
+            "deficiencySubId": null,
+            "deficiencyCategory": "major",
+            "deficiencyText": "Any stop lamp not showing a steady red light when the brakes are applied.",
+            "stdForProhibition": false,
+            "forVehicleType": ["psv", "hgv", "trl"]
+          },
+          {
+            "ref": "63.3.b",
+            "deficiencyId": "b",
             "deficiencySubId": null,
             "deficiencyCategory": "dangerous",
-            "deficiencyText": "show a steady red light when the brakes are applied, or all lamps do not go out when the brakes are released.",
+            "deficiencyText": "No stop lamps show a steady red light when the brakes are applied, or all lamps do not go out when the brakes are released.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           }
@@ -12367,7 +12376,7 @@
             "deficiencySubId": "ii",
             "deficiencyCategory": "dangerous",
             "deficiencyText": "there is no braking effort at all on any wheel equipped with a brake operated by the parking brake system.",
-            "stdForProhibition": false,
+            "stdForProhibition": true,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
           {
