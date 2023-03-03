@@ -56,7 +56,7 @@
     "lodash": "^4.17.21",
     "patch-package": "6.5.1",
     "prettier": "2.3.2",
-    "serverless": "2.43.1",
+    "serverless": "3.28.1",
     "serverless-dynamodb-local": "^0.2.37",
     "serverless-offline": "^5.12.0",
     "serverless-plugin-tracing": "^2.0.0",
