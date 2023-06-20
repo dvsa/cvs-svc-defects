@@ -15,7 +15,7 @@
           "lateral": null,
           "lateralWelsh": null,
           "longitudinal": ["front", "rear"],
-          "longitudinalWelsh": ["", ""],
+          "longitudinalWelsh": ["blaen", "cefn"],
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": null
