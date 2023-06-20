@@ -3,14 +3,19 @@
     "id": 1,
     "imNumber": 1,
     "imDescription": "Registration Plate",
+    "imDescriptionWelsh": "Plât Cofrestru",
     "forVehicleType": ["psv", "hgv"],
     "additionalInfo": {
       "psv": {
         "location": {
           "vertical": null,
+          "verticalWelsh": null,
           "horizontal": null,
+          "horizontalWelsh": null,
           "lateral": null,
+          "lateralWelsh": null,
           "longitudinal": ["front", "rear"],
+          "longitudinalWelsh": ["", ""],
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": null
@@ -20,9 +25,13 @@
       "hgv": {
         "location": {
           "vertical": null,
+          "verticalWelsh": null,
           "horizontal": null,
+          "horizontalWelsh": null,
           "lateral": null,
+          "lateralWelsh": null,
           "longitudinal": ["front", "rear"],
+          "longitudinalWelsh": ["blaen", "cefn"],
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": null
@@ -35,6 +44,7 @@
       {
         "itemNumber": 1,
         "itemDescription": "A registration plate:",
+        "itemDescriptionWelsh": "Plât cofrestru:",
         "forVehicleType": ["psv", "hgv"],
         "deficiencies": [
           {
@@ -43,6 +53,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "missing.",
+            "deficiencyTextWelsh": "ar goll.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv"]
           },
@@ -52,6 +63,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "insecure.",
+            "deficiencyTextWelsh": "yn anniogel.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv"]
           }
@@ -60,6 +72,7 @@
       {
         "itemNumber": 2,
         "itemDescription": "A registration mark:",
+        "itemDescriptionWelsh": "Marc cofrestru",
         "forVehicleType": ["psv", "hgv"],
         "deficiencies": [
           {
@@ -68,6 +81,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "missing.",
+            "deficiencyTextWelsh": "ar goll.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv"]
           },
@@ -77,6 +91,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "illegible.",
+            "deficiencyTextWelsh": "annarllenadwy.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv"]
           },
@@ -86,6 +101,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "not in accordance with the requirements.",
+            "deficiencyTextWelsh": "ddim yn unol â'r gofynion.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv"]
           }
@@ -938,14 +954,19 @@
     "id": 4,
     "imNumber": 6,
     "imDescription": "Road Wheels and Hubs",
+    "imDescriptionWelsh": "Olwynion Ffyrdd a Hybiau",
     "forVehicleType": ["psv", "hgv", "trl"],
     "additionalInfo": {
       "psv": {
         "location": {
           "vertical": null,
+          "verticalWelsh": null,
           "horizontal": ["inner", "outer"],
+          "horizontalWelsh": ["Mewnol", "Allanol"],
           "lateral": ["nearside", "offside", "centre"],
+          "lateralWelsh": ["ochr mewnol", "allanol", "canol"],
           "longitudinal": null,
+          "longitudinalWelsh": null,
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -955,9 +976,13 @@
       "hgv": {
         "location": {
           "vertical": null,
+          "verticalWelsh": null,
           "horizontal": ["inner", "outer"],
+          "horizontalWelsh": ["Mewnol", "Allanol"],
           "lateral": ["nearside", "offside", "centre"],
+          "lateralWelsh": ["ochr mewnol", "allanol", "canol"],
           "longitudinal": null,
+          "longitudinalWelsh": null,
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -967,9 +992,13 @@
       "trl": {
         "location": {
           "vertical": null,
+          "verticalWelsh": null,
           "horizontal": ["inner", "outer"],
+          "horizontalWelsh": ["Mewnol", "Allanol"],
           "lateral": ["nearside", "offside", "centre"],
+          "lateralWelsh": ["ochr mewnol", "allanol", "canol"],
           "longitudinal": null,
+          "longitudinalWelsh": null,
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -981,6 +1010,7 @@
       {
         "itemNumber": 1,
         "itemDescription": "A tyre retaining ring:",
+        "itemDescriptionWelsh": "Cylch cadw teiar:",
         "forVehicleType": ["psv", "hgv", "trl"],
         "deficiencies": [
           {
@@ -989,6 +1019,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "dangerous",
             "deficiencyText": "fractured or not properly fitted such that detachment is likely.",
+            "deficiencyTextWelsh": "wedi torri neu heb ei ffitio'n iawn fel bod datgysylltiad yn debygol.",
             "stdForProhibition": true,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -998,6 +1029,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "butting causing the flange to lift more than 1.5mm from the rim and/or not properly fitted.",
+            "deficiencyTextWelsh": "bytio yn achosi i'r fflans godi mwy na 1.5mm o'r ymyl a/neu heb ei osod yn iawn.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           }
@@ -1006,6 +1038,7 @@
       {
         "itemNumber": 2,
         "itemDescription": "A wheel:",
+        "itemDescriptionWelsh": "Olwyn:",
         "forVehicleType": ["psv", "hgv", "trl"],
         "deficiencies": [
           {
@@ -1014,6 +1047,7 @@
             "deficiencySubId": "i",
             "deficiencyCategory": "major",
             "deficiencyText": "with any visible elongation of a stud hole.",
+            "deficiencyTextWelsh": "gydag unrhyw ehangiad gweladwy o dwll styden.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1023,6 +1057,7 @@
             "deficiencySubId": "ii",
             "deficiencyCategory": "dangerous",
             "deficiencyText": "with any visible elongation of a stud hole where secure fixing of a wheel is affected.",
+            "deficiencyTextWelsh": "gydag unrhyw ehangiad gweladwy o dwll styden lle effeithir ar osod olwyn yn ddiogel.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1032,6 +1067,7 @@
             "deficiencySubId": "i",
             "deficiencyCategory": "major",
             "deficiencyText": "badly damaged or distorted (including damaged by the corners of a wheel nut cutting into the material of the wheel).",
+            "deficiencyTextWelsh": "difrodi neu ystumio'n ddrwg (gan gynnwys difrodi gan gorneli nytiau olwyn yn torri i mewn i ddeunydd yr olwyn).",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1041,6 +1077,7 @@
             "deficiencySubId": "ii",
             "deficiencyCategory": "dangerous",
             "deficiencyText": "badly damaged or distorted (including damaged by the corners of a wheel nut cutting into the material of the wheel) where secure fixing of the wheel is affected.",
+            "deficiencyTextWelsh": "difrodi neu ystumio'n ddrwg (gan gynnwys difrodi gan gorneli nytiau olwyn yn torri i mewn i ddeunydd yr olwyn) lle effeithir ar osod yr olwyn yn ddiogel.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1050,6 +1087,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "not compatible with its fixings.",
+            "deficiencyTextWelsh": "ddim yn gydnaws â'i osodiadau.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1059,6 +1097,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "dangerous",
             "deficiencyText": "cracked (except at the bridge over the valve), weld breaking away or an inadequate repair.",
+            "deficiencyTextWelsh": "wedi cracio (ac eithrio wrth y bont dros y falf), weldiad yn torri i ffwrdd neu atgyweiriad annigonol.",
             "stdForProhibition": true,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1068,6 +1107,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "made of aluminium alloy repaired by welding.",
+            "deficiencyTextWelsh": "wedi'i wneud o aloi alwminiwm wedi'i atgyweirio gan weldio.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1077,6 +1117,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "with a load rating less than that required to support the maximum permissible (GB) axle load.",
+            "deficiencyTextWelsh": "gyda sgôr llwyth yn llai na'r hyn sydd ei angen i gynnal y llwyth echel mwyaf a ganiateir (GB).",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           }
@@ -1085,6 +1126,7 @@
       {
         "itemNumber": 3,
         "itemDescription": "A hub:",
+        "itemDescriptionWelsh": "Hyb:",
         "forVehicleType": ["psv", "hgv", "trl"],
         "deficiencies": [
           {
@@ -1093,6 +1135,7 @@
             "deficiencySubId": "i",
             "deficiencyCategory": "major",
             "deficiencyText": "cracked, badly damaged, or with a half shaft or wheel flange bolt, stud or nut loose or missing.",
+            "deficiencyTextWelsh": "cracio, difrodi'n ddrwg, neu gyda bollt hanner siafft, gre neu gneuen yn rhydd neu ar goll.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1102,6 +1145,7 @@
             "deficiencySubId": "ii",
             "deficiencyCategory": "dangerous",
             "deficiencyText": "cracked, badly damaged, or with half shaft or wheel flange bolts, studs or nuts loose or missing where secure fixing of the wheel is affected.",
+            "deficiencyTextWelsh": "wedi cracio, wedi'i ddifrodi'n ddrwg, neu gyda bollt hanner siafft, styd neu gneuen yn rhydd neu ar goll pan effeithir ar osod yr olwyn yn ddiogel.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1111,6 +1155,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "with clearance between a spigot mounted wheel and the hub spigots that exceeds 3mm across the diameter.",
+            "deficiencyTextWelsh": "gyda chliriad rhwng olwyn wedi'i osod ar sbigot a'r hyb sbigots sy'n fwy na 3mm ar draws y diamedr.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1120,6 +1165,7 @@
             "deficiencySubId": "i",
             "deficiencyCategory": "major",
             "deficiencyText": "with a wheel retaining nut or stud missing or loose or obviously not fulfilling the function of clamping the wheel to the hub.",
+            "deficiencyTextWelsh": "gydag olwyn yn cadw cneuen neu gre ar goll neu'n rhydd neu'n amlwg ddim yn cyflawni swyddogaeth clampio'r olwyn i'r hyb.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1129,6 +1175,7 @@
             "deficiencySubId": "ii",
             "deficiencyCategory": "dangerous",
             "deficiencyText": "with multiple wheel retaining nuts or studs missing or loose or obviously not fulfilling the function of clamping the wheel to the hub.",
+            "deficiencyTextWelsh": "gyda chneuen neu greoedd cadw olwyn lluosog ar goll neu'n rhydd neu'n amlwg ddim yn cyflawni swyddogaeth clampio'r olwyn i'r hyb.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1138,6 +1185,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "with a spigot wheel nut washer cracked.",
+            "deficiencyTextWelsh": "gyda golchwr cnau olwyn sbigot wedi cracio.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1147,6 +1195,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "with a wheel locating spigot or dowel missing.",
+            "deficiencyTextWelsh": "gydag olwyn yn lleoli sbigot neu hoelbren ar goll.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           }
