@@ -9,13 +9,9 @@
       "psv": {
         "location": {
           "vertical": null,
-          "verticalWelsh": null,
           "horizontal": null,
-          "horizontalWelsh": null,
           "lateral": null,
-          "lateralWelsh": null,
           "longitudinal": ["front", "rear"],
-          "longitudinalWelsh": ["blaen", "cefn"],
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": null
@@ -25,13 +21,9 @@
       "hgv": {
         "location": {
           "vertical": null,
-          "verticalWelsh": null,
           "horizontal": null,
-          "horizontalWelsh": null,
           "lateral": null,
-          "lateralWelsh": null,
           "longitudinal": ["front", "rear"],
-          "longitudinalWelsh": ["blaen", "cefn"],
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": null
@@ -960,13 +952,9 @@
       "psv": {
         "location": {
           "vertical": null,
-          "verticalWelsh": null,
           "horizontal": ["inner", "outer"],
-          "horizontalWelsh": ["Mewnol", "Allanol"],
           "lateral": ["nearside", "offside", "centre"],
-          "lateralWelsh": ["ochr mewnol", "allanol", "canol"],
           "longitudinal": null,
-          "longitudinalWelsh": null,
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -976,13 +964,9 @@
       "hgv": {
         "location": {
           "vertical": null,
-          "verticalWelsh": null,
           "horizontal": ["inner", "outer"],
-          "horizontalWelsh": ["Mewnol", "Allanol"],
           "lateral": ["nearside", "offside", "centre"],
-          "lateralWelsh": ["ochr mewnol", "allanol", "canol"],
           "longitudinal": null,
-          "longitudinalWelsh": null,
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -992,13 +976,9 @@
       "trl": {
         "location": {
           "vertical": null,
-          "verticalWelsh": null,
           "horizontal": ["inner", "outer"],
-          "horizontalWelsh": ["Mewnol", "Allanol"],
           "lateral": ["nearside", "offside", "centre"],
-          "lateralWelsh": ["ochr mewnol", "allanol", "canol"],
           "longitudinal": null,
-          "longitudinalWelsh": null,
           "rowNumber": null,
           "seatNumber": null,
           "axleNumber": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
