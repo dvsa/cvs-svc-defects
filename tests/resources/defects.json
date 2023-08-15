@@ -246,7 +246,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "broken flexible stalk strands",
-            "deficiencyTextWelsh": "broken flexible stalk strands",
+            "deficiencyTextWelsh": "Edafedd coesynnau hyblyg wedi torri",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv"]
           },
@@ -1207,7 +1207,7 @@
             "deficiencySubId": "i",
             "deficiencyCategory": "major",
             "deficiencyText": "cracked, badly damaged, or with a half shaft or wheel flange bolt, stud or nut loose or missing.",
-            "deficiencyTextWelsh": "cracio, difrodi'n ddrwg, neu gyda bollt hanner siafft, gre neu gneuen yn rhydd neu ar goll.",
+            "deficiencyTextWelsh": "cracio, difrodi'n ddrwg, neu â bollt hanner siafft neu gantel olwyn, hoelen neu nyten yn rhydd neu ar goll.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -1217,7 +1217,7 @@
             "deficiencySubId": "ii",
             "deficiencyCategory": "dangerous",
             "deficiencyText": "cracked, badly damaged, or with half shaft or wheel flange bolts, studs or nuts loose or missing where secure fixing of the wheel is affected.",
-            "deficiencyTextWelsh": "wedi cracio, wedi'i ddifrodi'n ddrwg, neu gyda bollt hanner siafft, styd neu gneuen yn rhydd neu ar goll pan effeithir ar osod yr olwyn yn ddiogel.",
+            "deficiencyTextWelsh": "wedi cracio, wedi'i ddifrodi'n ddrwg, neu â bolltau hanner siafft neu gantel olwyn, hoelion neu nytiau yn rhydd neu ar goll pan effeithir ar osod yr olwyn yn ddiogel.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -2563,7 +2563,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "dangerous",
             "deficiencyText": "so damaged or deteriorated that injury to passengers or other persons is likely.",
-            "deficiencyTextWelsh": "difrodi neu waethygu cymaint fel bod anaf i deithwyr neu bobl eraill yn debygol.",
+            "deficiencyTextWelsh": "wedi'i ddifrodi neu wedi dirywio cymaint fel bod anaf i deithwyr neu bobl eraill yn debygol.",
             "stdForProhibition": true,
             "forVehicleType": ["psv"]
           }
@@ -8100,7 +8100,7 @@
             "deficiencyId": null,
             "deficiencySubId": "ii",
             "deficiencyCategory": "dangerous",
-            "deficiencyText": "does not dip when engine started, indicating lack of assistance for brake systems assisted by engine vacuum.",
+            "deficiencyText": "pedal does not dip when engine started, indicating lack of assistance for brake systems assisted by engine vacuum.",
             "deficiencyTextWelsh": "nad yw'n dipio pan ddechreuodd yr injan, gan ddangos diffyg cymorth ar gyfer systemau brêc gyda chymorth gwactod injan.",
             "stdForProhibition": true,
             "forVehicleType": ["psv", "hgv"]
@@ -11403,8 +11403,8 @@
     "items": [
       {
         "itemNumber": 8,
-        "itemDescription": "Inappropriate",
-        "itemDescriptionWelsh": "Anaddas",
+        "itemDescription": "Inappropriate:",
+        "itemDescriptionWelsh": "Anaddas:",
         "forVehicleType": ["psv"],
         "deficiencies": [
           {
@@ -11416,7 +11416,15 @@
             "deficiencyTextWelsh": "addasu unrhyw ran o'r system frecio.",
             "stdForProhibition": false,
             "forVehicleType": ["psv"]
-          },
+          }
+        ]
+      },
+      {
+        "itemNumber": 8,
+        "itemDescription": "Unsafe:",
+        "itemDescriptionWelsh": "Anniogel:",
+        "forVehicleType": ["psv"],
+        "deficiencies": [
           {
             "ref": "59.8.ii",
             "deficiencyId": null,
@@ -11858,7 +11866,7 @@
       {
         "itemNumber": 5,
         "itemDescription": "Actuators, hydraulic master & wheel cylinders, valves and servos:",
-        "itemDescriptionWelsh": "Ysgogiadau aer, meistr hydrolig a silindrau olwyn, falfiau a serfos:",
+        "itemDescriptionWelsh": "Ysgogiadau, meistr hydrolig a silindrau olwyn, falfiau a serfos:",
         "forVehicleType": ["psv", "hgv", "trl"],
         "deficiencies": [
           {
@@ -12683,6 +12691,7 @@
       {
         "itemNumber": 3,
         "itemDescription": "Stop lamps: (in addition to 1 above)",
+        "itemDescriptionWelsh": "Lampau stopio (yn ogystal ag 1 uchod)",
         "forVehicleType": ["psv", "hgv", "trl"],
         "deficiencies": [
           {
@@ -12691,6 +12700,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "major",
             "deficiencyText": "Any stop lamp not showing a steady red light when the brakes are applied.",
+            "deficiencyTextWelsh": "Unrhyw lamp stopio nad yw'n dangos golau coch cyson pan gymhwysir y breciau.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           },
@@ -12700,6 +12710,7 @@
             "deficiencySubId": null,
             "deficiencyCategory": "dangerous",
             "deficiencyText": "No stop lamps show a steady red light when the brakes are applied, or all lamps do not go out when the brakes are released.",
+            "deficiencyTextWelsh": "Nid oes unrhyw lampau stopio yn dangos golau coch cyson pan fydd y breciau yn cael eu cymhwyso, neu nid yw pob lamp yn mynd allan pan ryddheir y breciau.",
             "stdForProhibition": false,
             "forVehicleType": ["psv", "hgv", "trl"]
           }
