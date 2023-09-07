@@ -2,7 +2,7 @@ import supertest from "supertest";
 import { emptyDatabase, populateDatabase } from "../util/dbOperations";
 import defectsData from "../resources/defects.json";
 
-const url = "http://localhost:3001/";
+const url = "http://127.0.0.1:3001/";
 const request = supertest(url);
 
 describe("Defects Service", () => {
