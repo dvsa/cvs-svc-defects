@@ -10,7 +10,7 @@ invoke:
   local:
     params:
       apiVersion: 2015-03-31
-      endpoint: http://127.0.0.1:3000
+      endpoint: http://localhost:3000
     functions:
       getDefects:
         name: cvs-svc-defects
