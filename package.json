@@ -4,8 +4,8 @@
   "description": "Microservice that stores and serves the defects data",
   "main": "src/handler.js",
   "engines": {
-    "node": "16.*",
-    "npm": "8.*"
+    "node": "18.*",
+    "npm": "9.*"
   },
   "repository": {
     "type": "git",
@@ -17,8 +17,8 @@
     "test": "npm run test:unit:coverage",
     "test:unit": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*.unitTest.ts\"",
     "test:unit:coverage": "npm run test:unit -- --coverage",
-    "test-i": "npm run test:integration -- --globalSetup='./scripts/setUp.ts' --globalTeardown='./scripts/tearDown.ts'",
     "test:integration": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\" --runInBand",
+    "test-i": "AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE=1 npm run test:integration -- --globalSetup='./scripts/setUp.ts' --globalTeardown='./scripts/tearDown.ts'",
     "build": "node_modules/typescript/bin/tsc --rootDir ./ --outDir .build --sourceMap false && npm run build:copy",
     "build:copy": "find src -type f \\( -name \"*.yml\" -or -name \"*.json\" \\) | cpio -pdm .build && find tests -type f \\( -name \"*.yml\" -or -name \"*.json\" \\)  | cpio -pdm .build",
     "prepush": "npm t && npm run build && npm run test-i",
@@ -56,21 +56,21 @@
     "lodash": "^4.17.21",
     "patch-package": "6.5.1",
     "prettier": "2.3.2",
-    "serverless": "2.43.1",
-    "serverless-dynamodb-local": "^0.2.37",
-    "serverless-offline": "^5.12.0",
+    "serverless": "3.28.1",
+    "serverless-dynamodb-local": "0.2.40",
+    "serverless-offline": "^12.0.4",
     "serverless-plugin-tracing": "^2.0.0",
-    "serverless-plugin-typescript": "^1.1.9",
+    "serverless-plugin-typescript": "2.1.4",
     "supertest": "^4.0.2",
     "ts-jest": "25.0.0",
     "ts-node": "^8.4.1",
     "tslint": "^5.20.0",
     "tslint-jsdoc-rules": "^0.2.0",
-    "typescript": "^3.6.4"
+    "typescript": "^4.9.5"
   },
   "dependencies": {
     "aws-lambda": "1.0.7",
-    "aws-sdk": "2.1065.0",
+    "aws-sdk": "^2.1354.0",
     "aws-xray-sdk": "3.3.4",
     "node-yaml": "4.0.1",
     "path-parser": "^4.2.0",

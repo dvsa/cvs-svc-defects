@@ -20,8 +20,10 @@ describe("when service method insertDefectList is called", () => {
           await service.insertDefectList([]);
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
-          expect(errorResponse.statusCode).toBe(500);
-          expect(errorResponse.body).toBe("Internal Server Error");
+          expect((errorResponse as HTTPError).statusCode).toBe(500);
+          expect((errorResponse as HTTPError).body).toBe(
+            "Internal Server Error"
+          );
         }
       });
     });

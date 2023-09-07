@@ -3,14 +3,14 @@ service: cvs-svc-defect
 configValidationMode: warn
 plugins:
   - serverless-dynamodb-local
-  - serverless-offline
-  - serverless-plugin-tracing
   - serverless-plugin-typescript
+  - serverless-plugin-tracing
+  - serverless-offline
 
 provider:
   lambdaHashingVersion: 20201221
   name: aws
-  runtime: nodejs16.x
+  runtime: nodejs18.x
   tracing:
     apiGateway: true
   iam:
@@ -44,6 +44,7 @@ custom:
       migrate: true
       seed: true
       noStart: false
+      host: 127.0.0.1
     seed:
       defects:
         sources:

@@ -139,7 +139,7 @@ describe("The configuration service", () => {
       try {
         config.getFunctions();
       } catch (e) {
-        expect(e.message).toBe(
+        expect((e as Error).message).toBe(
           "Functions were not defined in the config file."
         );
       }
@@ -150,7 +150,7 @@ describe("The configuration service", () => {
       try {
         config.getDynamoDBConfig();
       } catch (e) {
-        expect(e.message).toBe(
+        expect((e as Error).message).toBe(
           "DynamoDB config is not defined in the config file."
         );
       }

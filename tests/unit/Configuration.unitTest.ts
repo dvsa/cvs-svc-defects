@@ -34,7 +34,9 @@ describe("ConfigurationUtil", () => {
         try {
           emptyConfig.getInvokeConfig();
         } catch (e) {
-          expect(e.message).toBe(ERRORS.LambdaInvokeConfigNotDefined);
+          expect((e as Error).message).toBe(
+            ERRORS.LambdaInvokeConfigNotDefined
+          );
         }
       });
     });
@@ -87,7 +89,7 @@ describe("ConfigurationUtil", () => {
         try {
           emptyConfig.getDynamoDBConfig();
         } catch (e) {
-          expect(e.message).toBe(ERRORS.DynamoDBConfigNotDefined);
+          expect((e as Error).message).toBe(ERRORS.DynamoDBConfigNotDefined);
         }
       });
     });
@@ -140,7 +142,7 @@ describe("ConfigurationUtil", () => {
         try {
           getMockedConfig().getDynamoDBConfig();
         } catch (e) {
-          expect(e.message).toEqual(ERRORS.NoBranch);
+          expect((e as Error).message).toEqual(ERRORS.NoBranch);
         }
       });
     });
