@@ -20,9 +20,8 @@ const setupServer = (process: any) => {
       console.log(`stdout: ${stream}`);
       if (stream.includes(DYNAMO_LOCAL_ERROR_THREAD)) {
         throw new Error("Internal Java process crashed");
-      } else if (stream.includes(SERVER_OK)) {
-        resolve(process);
       }
+      reject(stream);
     });
 
     process.on("exit", (code: any, signal: any) => {
