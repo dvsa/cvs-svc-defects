@@ -25,7 +25,7 @@ dynamodb:
   local:
     params:
       region: localhost
-      endpoint: http://127.0.0.1:8001
+      endpoint: http://127.0.0.1:8003
     table: cvs-local-defects
     keys:
       - defects

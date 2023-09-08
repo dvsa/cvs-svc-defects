@@ -39,7 +39,7 @@ custom:
       - dev
       - test
     start:
-      port: 8001
+      port: 8003
       inMemory: true
       migrate: true
       seed: true
