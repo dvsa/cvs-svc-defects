@@ -4,8 +4,8 @@
   "description": "Microservice that stores and serves the defects data",
   "main": "src/handler.js",
   "engines": {
-    "node": "14.*",
-    "npm": "5.6.0"
+    "node": "18.*",
+    "npm": "9.*"
   },
   "repository": {
     "type": "git",
@@ -72,7 +72,6 @@
     "aws-lambda": "1.0.7",
     "aws-sdk": "2.1065.0",
     "aws-xray-sdk": "3.3.4",
-    "js-yaml": "4.1.0",
     "node-yaml": "4.0.1",
     "path-parser": "^4.2.0",
     "reflect-metadata": "^0.1.13"
