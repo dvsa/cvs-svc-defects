@@ -3,7 +3,7 @@ import event from "../resources/event.json";
 import * as getDefects from "../../src/functions/getDefects";
 import { Configuration } from "../../src/utils/Configuration";
 import { HTTPResponse } from "../../src/models/HTTPResponse";
-import mockContext, { Context } from 'aws-lambda';
+import mockContext, { Context } from "aws-lambda";
 
 describe("The lambda function handler", () => {
   const ctx = mockContext as Context;

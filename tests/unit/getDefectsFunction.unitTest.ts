@@ -1,6 +1,6 @@
 import { getDefects } from "../../src/functions/getDefects";
 import { DefectsService } from "../../src/services/DefectsService";
-import mockContext, { Context } from 'aws-lambda';
+import mockContext, { Context } from "aws-lambda";
 import { HTTPResponse } from "../../src/models/HTTPResponse";
 import { HTTPError } from "../../src/models/HTTPError";
 
