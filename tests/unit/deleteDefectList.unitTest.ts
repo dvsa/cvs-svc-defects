@@ -15,15 +15,17 @@ describe("when service method deleteDefectList is called", () => {
 
         const mockDefectsDAO = new MockDefectsDAO();
         const defectsService: DefectsService = new DefectsService(
-          mockDefectsDAO
+          mockDefectsDAO,
         );
         expect.assertions(3);
         try {
           await defectsService.deleteDefectList([]);
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
-          expect(errorResponse.statusCode).toBe(500);
-          expect(errorResponse.body).toBe("Internal ServerError");
+          expect((errorResponse as HTTPError).statusCode).toBe(500);
+          expect((errorResponse as HTTPError).body).toBe(
+            "Internal ServerError",
+          );
         }
       });
     });
@@ -49,7 +51,7 @@ describe("when service method deleteDefectList is called", () => {
 
           const mockDefectsDAO = new MockDefectsDAO();
           const defectsService: DefectsService = new DefectsService(
-            mockDefectsDAO
+            mockDefectsDAO,
           );
           const returnedRecords = await defectsService.deleteDefectList(["1"]);
           expect(Object.keys(returnedRecords).length).toBe(1);
@@ -57,13 +59,13 @@ describe("when service method deleteDefectList is called", () => {
           expect(returnedRecords).not.toBe(undefined);
           expect(returnedRecords).not.toEqual({});
           expect(returnedRecords).toEqual(
-            expectedUnprocessedDefects.UnprocessedItems
+            expectedUnprocessedDefects.UnprocessedItems,
           );
           expect(returnedRecords.length).toBe(
-            expectedUnprocessedDefects.UnprocessedItems.length
+            expectedUnprocessedDefects.UnprocessedItems.length,
           );
         });
-      }
+      },
     );
 
     context(
@@ -80,12 +82,12 @@ describe("when service method deleteDefectList is called", () => {
 
           const mockDefectsDAO = new MockDefectsDAO();
           const defectsService: DefectsService = new DefectsService(
-            mockDefectsDAO
+            mockDefectsDAO,
           );
           const returnedRecords = await defectsService.deleteDefectList(["1"]);
           expect(returnedRecords).toBe(undefined);
         });
-      }
+      },
     );
   });
 });

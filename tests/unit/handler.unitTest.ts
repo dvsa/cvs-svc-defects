@@ -3,10 +3,10 @@ import event from "../resources/event.json";
 import * as getDefects from "../../src/functions/getDefects";
 import { Configuration } from "../../src/utils/Configuration";
 import { HTTPResponse } from "../../src/models/HTTPResponse";
-import mockContext from "aws-lambda-mock-context";
+import mockContext, { Context } from "aws-lambda";
 
 describe("The lambda function handler", () => {
-  const ctx = mockContext();
+  const ctx = mockContext as Context;
 
   afterEach(() => {
     jest.restoreAllMocks();
@@ -35,7 +35,7 @@ describe("The lambda function handler", () => {
         expect(result).toBeInstanceOf(HTTPResponse);
         expect(result.statusCode).toBe(400);
         expect(result.body).toEqual(
-          JSON.stringify("AWS event is empty. Check your test event.")
+          JSON.stringify("AWS event is empty. Check your test event."),
         );
       });
 
@@ -48,7 +48,7 @@ describe("The lambda function handler", () => {
         expect(result).toBeInstanceOf(HTTPResponse);
         expect(result.statusCode).toBe(400);
         expect(result.body).toEqual(
-          JSON.stringify("Body is not a valid JSON.")
+          JSON.stringify("Body is not a valid JSON."),
         );
       });
 
@@ -63,7 +63,7 @@ describe("The lambda function handler", () => {
         expect(result.body).toEqual(
           JSON.stringify({
             error: `Route ${invalidPathEvent.httpMethod} ${invalidPathEvent.path} was not found.`,
-          })
+          }),
         );
       });
     });
@@ -83,7 +83,7 @@ describe("The lambda function handler", () => {
       expect(result.body).toEqual(
         JSON.stringify({
           error: `Route ${event.httpMethod} ${event.path} was not found.`,
-        })
+        }),
       );
     });
   });
@@ -113,7 +113,7 @@ describe("The configuration service", () => {
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(
-        configService.getConfig().dynamodb["local-global"]
+        configService.getConfig().dynamodb["local-global"],
       );
 
       // No Endpoints for this service
@@ -139,8 +139,8 @@ describe("The configuration service", () => {
       try {
         config.getFunctions();
       } catch (e) {
-        expect(e.message).toBe(
-          "Functions were not defined in the config file."
+        expect((e as Error).message).toBe(
+          "Functions were not defined in the config file.",
         );
       }
     });
@@ -150,8 +150,8 @@ describe("The configuration service", () => {
       try {
         config.getDynamoDBConfig();
       } catch (e) {
-        expect(e.message).toBe(
-          "DynamoDB config is not defined in the config file."
+        expect((e as Error).message).toBe(
+          "DynamoDB config is not defined in the config file.",
         );
       }
     });

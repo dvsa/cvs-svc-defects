@@ -8,13 +8,13 @@ describe("ConfigurationUtil", () => {
     it("returns the full config object", () => {
       const conf = Configuration.getInstance().getConfig();
       expect(Object.keys(conf)).toEqual(
-        expect.arrayContaining(["invoke", "dynamodb"])
+        expect.arrayContaining(["invoke", "dynamodb"]),
       );
       expect(Object.keys(conf.invoke)).toEqual(
-        expect.arrayContaining(["local", "remote"])
+        expect.arrayContaining(["local", "remote"]),
       );
       expect(Object.keys(conf.dynamodb)).toEqual(
-        expect.arrayContaining(["local", "local-global", "remote"])
+        expect.arrayContaining(["local", "local-global", "remote"]),
       );
     });
   });
@@ -28,13 +28,15 @@ describe("ConfigurationUtil", () => {
       it("should throw error", () => {
         process.env.BRANCH = "local";
         const emptyConfig = new Configuration(
-          "../../tests/resources/EmptyConfig.yml"
+          "../../tests/resources/EmptyConfig.yml",
         );
         expect.assertions(1);
         try {
           emptyConfig.getInvokeConfig();
         } catch (e) {
-          expect(e.message).toBe(ERRORS.LambdaInvokeConfigNotDefined);
+          expect((e as Error).message).toBe(
+            ERRORS.LambdaInvokeConfigNotDefined,
+          );
         }
       });
     });
@@ -80,14 +82,14 @@ describe("ConfigurationUtil", () => {
     context("the config is empty", () => {
       process.env.BRANCH = "local";
       const emptyConfig: Configuration = new Configuration(
-        "../../tests/resources/EmptyConfig.yml"
+        "../../tests/resources/EmptyConfig.yml",
       );
       it("should throw error", () => {
         expect.assertions(1);
         try {
           emptyConfig.getDynamoDBConfig();
         } catch (e) {
-          expect(e.message).toBe(ERRORS.DynamoDBConfigNotDefined);
+          expect((e as Error).message).toBe(ERRORS.DynamoDBConfigNotDefined);
         }
       });
     });
@@ -97,7 +99,7 @@ describe("ConfigurationUtil", () => {
         Configuration.getInstance().getDynamoDBConfig();
       it("should return the local invoke config", () => {
         expect(Object.keys(dbConfig)).toEqual(
-          expect.arrayContaining(["params", "table", "keys"])
+          expect.arrayContaining(["params", "table", "keys"]),
         );
         expect(dbConfig.table).toBe("cvs-local-defects");
       });
@@ -109,12 +111,12 @@ describe("ConfigurationUtil", () => {
         Configuration.getInstance().getDynamoDBConfig();
       it("should return the local invoke config", () => {
         expect(Object.keys(dbConfig)).toEqual(
-          expect.arrayContaining(["params", "table"])
+          expect.arrayContaining(["params", "table"]),
         );
         expect(Object.keys(dbConfig)).not.toContain("keys");
         expect(dbConfig.table).toBe("cvs-local-global-defects");
         expect(Object.keys(dbConfig.params)).toEqual(
-          expect.arrayContaining(["region", "endpoint"])
+          expect.arrayContaining(["region", "endpoint"]),
         );
       });
     });
@@ -125,7 +127,7 @@ describe("ConfigurationUtil", () => {
         // Switch to mockedConfig to simplify environment mocking
         const dbConfig: IDBConfig = getMockedConfig().getDynamoDBConfig();
         expect(Object.keys(dbConfig)).toEqual(
-          expect.arrayContaining(["params", "table"])
+          expect.arrayContaining(["params", "table"]),
         );
         expect(Object.keys(dbConfig)).not.toContain("keys");
         expect(dbConfig.table).toBe("cvs-develop-defects");
@@ -140,7 +142,7 @@ describe("ConfigurationUtil", () => {
         try {
           getMockedConfig().getDynamoDBConfig();
         } catch (e) {
-          expect(e.message).toEqual(ERRORS.NoBranch);
+          expect((e as Error).message).toEqual(ERRORS.NoBranch);
         }
       });
     });
