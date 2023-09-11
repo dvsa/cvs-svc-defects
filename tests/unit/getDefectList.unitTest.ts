@@ -44,7 +44,7 @@ describe("when calling service method getDefectList", () => {
 
         const mockDefectsDAO = new MockDefectsDAO();
         const defectsService: DefectsService = new DefectsService(
-          mockDefectsDAO
+          mockDefectsDAO,
         );
         try {
           await defectsService.getDefectList();
@@ -53,7 +53,7 @@ describe("when calling service method getDefectList", () => {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect((errorResponse as HTTPError).statusCode).toBe(404);
           expect((errorResponse as HTTPError).body).toBe(
-            "No resources match the search criteria."
+            "No resources match the search criteria.",
           );
         }
       });
@@ -78,7 +78,7 @@ describe("when calling service method getDefectList", () => {
 
           const mockDefectsDAO = new MockDefectsDAO();
           const defectsService: DefectsService = new DefectsService(
-            mockDefectsDAO
+            mockDefectsDAO,
           );
           expect.assertions(3);
           try {
@@ -87,11 +87,11 @@ describe("when calling service method getDefectList", () => {
             expect(errorResponse).toBeInstanceOf(HTTPError);
             expect((errorResponse as HTTPError).statusCode).toBe(404);
             expect((errorResponse as HTTPError).body).toBe(
-              "No resources match the search criteria."
+              "No resources match the search criteria.",
             );
           }
         });
-      }
+      },
     );
   });
 
@@ -115,7 +115,7 @@ describe("when calling service method getDefectList", () => {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect((errorResponse as HTTPError).statusCode).toBe(500);
           expect((errorResponse as HTTPError).body).toBe(
-            "Internal Server Error"
+            "Internal Server Error",
           );
         }
       });

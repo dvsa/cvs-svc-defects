@@ -35,7 +35,7 @@ describe("The lambda function handler", () => {
         expect(result).toBeInstanceOf(HTTPResponse);
         expect(result.statusCode).toBe(400);
         expect(result.body).toEqual(
-          JSON.stringify("AWS event is empty. Check your test event.")
+          JSON.stringify("AWS event is empty. Check your test event."),
         );
       });
 
@@ -48,7 +48,7 @@ describe("The lambda function handler", () => {
         expect(result).toBeInstanceOf(HTTPResponse);
         expect(result.statusCode).toBe(400);
         expect(result.body).toEqual(
-          JSON.stringify("Body is not a valid JSON.")
+          JSON.stringify("Body is not a valid JSON."),
         );
       });
 
@@ -63,7 +63,7 @@ describe("The lambda function handler", () => {
         expect(result.body).toEqual(
           JSON.stringify({
             error: `Route ${invalidPathEvent.httpMethod} ${invalidPathEvent.path} was not found.`,
-          })
+          }),
         );
       });
     });
@@ -83,7 +83,7 @@ describe("The lambda function handler", () => {
       expect(result.body).toEqual(
         JSON.stringify({
           error: `Route ${event.httpMethod} ${event.path} was not found.`,
-        })
+        }),
       );
     });
   });
@@ -113,7 +113,7 @@ describe("The configuration service", () => {
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(
-        configService.getConfig().dynamodb["local-global"]
+        configService.getConfig().dynamodb["local-global"],
       );
 
       // No Endpoints for this service
@@ -140,7 +140,7 @@ describe("The configuration service", () => {
         config.getFunctions();
       } catch (e) {
         expect((e as Error).message).toBe(
-          "Functions were not defined in the config file."
+          "Functions were not defined in the config file.",
         );
       }
     });
@@ -151,7 +151,7 @@ describe("The configuration service", () => {
         config.getDynamoDBConfig();
       } catch (e) {
         expect((e as Error).message).toBe(
-          "DynamoDB config is not defined in the config file."
+          "DynamoDB config is not defined in the config file.",
         );
       }
     });

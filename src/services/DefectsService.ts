@@ -22,10 +22,10 @@ export class DefectsService {
         }).sort(
           (
             first: { imNumber: number },
-            second: { imNumber: number }
+            second: { imNumber: number },
           ): number => {
             return first.imNumber - second.imNumber;
-          }
+          },
         );
       })
       .catch((error) => {

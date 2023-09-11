@@ -22,7 +22,7 @@ describe("when service method insertDefectList is called", () => {
           expect(errorResponse).toBeInstanceOf(HTTPError);
           expect((errorResponse as HTTPError).statusCode).toBe(500);
           expect((errorResponse as HTTPError).body).toBe(
-            "Internal Server Error"
+            "Internal Server Error",
           );
         }
       });
@@ -49,13 +49,13 @@ describe("when service method insertDefectList is called", () => {
 
           const mockDefectsDAO = new MockDefectsDAO();
           const defectsService: DefectsService = new DefectsService(
-            mockDefectsDAO
+            mockDefectsDAO,
           );
           const result = await defectsService.insertDefectList(["1"]);
           expect(Object.keys(result).length).toBe(1);
           expect(result).toEqual(expectedUnprocessedDefects.UnprocessedItems);
         });
-      }
+      },
     );
 
     context(
@@ -72,12 +72,12 @@ describe("when service method insertDefectList is called", () => {
 
           const mockDefectsDAO = new MockDefectsDAO();
           const defectsService: DefectsService = new DefectsService(
-            mockDefectsDAO
+            mockDefectsDAO,
           );
           const returnedRecords = await defectsService.insertDefectList(["1"]);
           expect(returnedRecords).toBe(undefined);
         });
-      }
+      },
     );
   });
 });

@@ -7,7 +7,7 @@ import { HTTPResponse } from "./models/HTTPResponse";
 const handler: Handler = async (
   event: any,
   context: Context,
-  callback: Callback
+  callback: Callback,
 ): Promise<APIGatewayProxyResult> => {
   // Request integrity checks
   if (!event) {
@@ -40,7 +40,7 @@ const handler: Handler = async (
       // Find λ with matching path
       const localPath: Path = new Path(fn.path);
       const remotePath: Path = new Path(
-        `${serverlessConfig.basePath}${fn.path}`
+        `${serverlessConfig.basePath}${fn.path}`,
       ); // Remote paths also have environment
 
       return localPath.test(event.path) || remotePath.test(event.path);
@@ -53,7 +53,7 @@ const handler: Handler = async (
 
     const localPath: Path = new Path(lambdaEvent.path);
     const remotePath: Path = new Path(
-      `${serverlessConfig.basePath}${lambdaEvent.path}`
+      `${serverlessConfig.basePath}${lambdaEvent.path}`,
     ); // Remote paths also have environment
 
     const lambdaPathParams: any =
@@ -62,7 +62,7 @@ const handler: Handler = async (
     Object.assign(event, { pathParameters: lambdaPathParams });
 
     console.log(
-      `HTTP ${event.httpMethod} ${event.path} -> λ ${lambdaEvent.name}`
+      `HTTP ${event.httpMethod} ${event.path} -> λ ${lambdaEvent.name}`,
     );
 
     // Explicit conversion because typescript can't figure it out
