@@ -84,12 +84,5 @@
     "reportPath": ".reports",
     "reportFile": "test-report.xml",
     "indent": 4
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "npm run security-checks && npm run audit && npm run lint && npm run format",
-      "pre-push": "npm run prepush"
-    }
   }
 }
