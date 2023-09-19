@@ -44,16 +44,16 @@ describe("when calling service method getDefectList", () => {
 
         const mockDefectsDAO = new MockDefectsDAO();
         const defectsService: DefectsService = new DefectsService(
-          mockDefectsDAO
+          mockDefectsDAO,
         );
         try {
           await defectsService.getDefectList();
           expect.assertions(3); // should have thrown an error, test failed
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
-          expect(errorResponse.statusCode).toBe(404);
-          expect(errorResponse.body).toBe(
-            "No resources match the search criteria."
+          expect((errorResponse as HTTPError).statusCode).toBe(404);
+          expect((errorResponse as HTTPError).body).toBe(
+            "No resources match the search criteria.",
           );
         }
       });
@@ -78,20 +78,20 @@ describe("when calling service method getDefectList", () => {
 
           const mockDefectsDAO = new MockDefectsDAO();
           const defectsService: DefectsService = new DefectsService(
-            mockDefectsDAO
+            mockDefectsDAO,
           );
           expect.assertions(3);
           try {
             await defectsService.getDefectList();
           } catch (errorResponse) {
             expect(errorResponse).toBeInstanceOf(HTTPError);
-            expect(errorResponse.statusCode).toBe(404);
-            expect(errorResponse.body).toBe(
-              "No resources match the search criteria."
+            expect((errorResponse as HTTPError).statusCode).toBe(404);
+            expect((errorResponse as HTTPError).body).toBe(
+              "No resources match the search criteria.",
             );
           }
         });
-      }
+      },
     );
   });
 
@@ -113,8 +113,10 @@ describe("when calling service method getDefectList", () => {
           await service.getDefectList();
         } catch (errorResponse) {
           expect(errorResponse).toBeInstanceOf(HTTPError);
-          expect(errorResponse.statusCode).toBe(500);
-          expect(errorResponse.body).toBe("Internal Server Error");
+          expect((errorResponse as HTTPError).statusCode).toBe(500);
+          expect((errorResponse as HTTPError).body).toBe(
+            "Internal Server Error",
+          );
         }
       });
     });

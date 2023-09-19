@@ -32,7 +32,7 @@ describe("Defects Service", () => {
           })
           .sort(
             (first: { imNumber: number }, second: { imNumber: number }) =>
-              first.imNumber - second.imNumber
+              first.imNumber - second.imNumber,
           );
 
         await request.get("defects").then((res: any) => {

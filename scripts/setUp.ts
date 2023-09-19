@@ -26,7 +26,7 @@ const setupServer = (process: any) => {
     process.on("exit", (code: any, signal: any) => {
       if (code !== 137) {
         console.info(
-          `process terminated with code: ${code} and signal: ${signal}`
+          `process terminated with code: ${code} and signal: ${signal}`,
         );
       }
     });

@@ -45,13 +45,13 @@ class Configuration {
       matches.forEach((match: string) => {
         envRegex.lastIndex = 0;
         const captureGroups: RegExpExecArray = envRegex.exec(
-          match
+          match,
         ) as RegExpExecArray;
 
         // Insert the environment variable if available. If not, insert placeholder. If no placeholder, leave it as is.
         stringifiedConfig = stringifiedConfig.replace(
           match,
-          process.env[captureGroups[1]] || captureGroups[2] || captureGroups[1]
+          process.env[captureGroups[1]] || captureGroups[2] || captureGroups[1],
         );
       });
     }
