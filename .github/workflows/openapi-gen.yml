@@ -1,0 +1,26 @@
+name: OPENAPI-GEN
+
+on:
+  push:
+    branches: ["develop", "feature/VTMDEV-1"]
+  pull_request:
+    branches: ["develop", "feature/VTMDEV-1"]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-java@v3
+        with:
+          distribution: "zulu" # See 'Supported distributions' for available options
+          java-version: "17"
+
+      - name: Generate Services
+        run: |
+          java -jar .github/workflows/openapi-generator-cli.jar generate \
+          -i ./docs/defects-api.yml \
+          -g typescript-angular -o \
+          ./typescript_api_client
