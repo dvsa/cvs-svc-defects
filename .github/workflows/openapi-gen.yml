@@ -7,7 +7,7 @@ on:
     branches: ["develop", "feature/VTMDEV-1"]
 
 jobs:
-  build-test:
+  generate:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,5 +22,5 @@ jobs:
         run: |
           java -jar .github/workflows/openapi-generator-cli.jar generate \
           -i ./docs/defects-api.yml \
-          -g typescript-angular -o \
-          ./typescript_api_client
+          -g typescript-angular \
+          -o ./defects
