@@ -38,7 +38,7 @@ jobs:
       - name: Package changes
         run: |
           rm -rf vtm/src/api/defects
-          mkdir -p /vtm/src/app/api 
+          mkdir -p vtm/src/app/api 
           cp -r defects vtm/src/app/api
 
       - name: Raise PR
