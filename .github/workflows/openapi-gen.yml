@@ -23,7 +23,7 @@ jobs:
       - name: Generate Services
         run: |
           java -jar main/.github/workflows/openapi-generator-cli.jar generate \
-          -i ./docs/defects-api.yml \
+          -i ./main/docs/defects-api.yml \
           -g typescript-angular \
           -o ./defects
 
