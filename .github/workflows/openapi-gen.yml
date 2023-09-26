@@ -34,3 +34,16 @@ jobs:
 
       - name: Debug
         run: ls
+
+      - name: Package changes
+        run: |
+          rm -rf vtm/src/api/defects
+          cp -r defects vtm/src/api/defects
+
+      - name: Raise PR
+        run: |
+          cd vtm
+          git checkout -b open-api-gen$GITHUB_SHA
+          git add .
+          git commit -am "chore: update open api services"
+          gh pr create -t "chore: update open api services" -b "Create a PR to update services"
