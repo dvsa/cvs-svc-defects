@@ -50,3 +50,5 @@ jobs:
           git add .
           git commit -am "chore: update open api services"
           gh pr create -t "chore: update open api services" -b "Create a PR to update services"
+        env:
+          GH_TOKEN: ${{github.token}}
