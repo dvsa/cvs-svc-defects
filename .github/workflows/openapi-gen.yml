@@ -12,6 +12,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          path: main
 
       - uses: actions/setup-java@v3
         with:
@@ -20,7 +22,15 @@ jobs:
 
       - name: Generate Services
         run: |
-          java -jar .github/workflows/openapi-generator-cli.jar generate \
+          java -jar main/.github/workflows/openapi-generator-cli.jar generate \
           -i ./docs/defects-api.yml \
           -g typescript-angular \
           -o ./defects
+
+      - uses: actions/checkout@v3
+        with:
+          repository: dvsa/cvs-app-vtm
+          path: vtm
+
+      - name: Debug
+        run: ls
