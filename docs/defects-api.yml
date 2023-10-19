@@ -273,10 +273,14 @@ components:
           type: string
         sectionDescription:
           type: string
-        vehicleType:
-          $ref: "#/components/schemas/vehicleType"
-        manualType:
-          $ref: "#/components/schemas/euVehicleCategory"
+        vehicleTypes:
+          type: array
+          items:
+            $ref: "#/components/schemas/vehicleTypes"
+        euVehicleCategories:
+          type: array
+          items:
+            $ref: "#/components/schemas/euVehicleCategories"
         requiredStandards:
           type: array
           items:
@@ -292,11 +296,16 @@ components:
           type: number
         additionalInfo:
           type: string
-        basic:
-          type: boolean
-        normal:
-          type: boolean  
-  
+        inspectionTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/inspectionType'
+
+    vehicleTypes:
+      type: array
+      items:
+        $ref: '#/components/schemas/vehicleType'  
+
     vehicleType:
       type: string
       enum:
@@ -307,6 +316,11 @@ components:
         - hgv
         - trl
     
+    euVehicleCategories:
+      type: array
+      items:
+        $ref: '#/components/schemas/euVehicleCategory'
+
     euVehicleCategory:
       type: string
       enum:
@@ -320,6 +334,11 @@ components:
         - o2
         - o3
         - o4
+
+    inspectionTypes:
+      type: array
+      items:
+        $ref: '#/components/schemas/inspectionType'
 
     inspectionType:
       type: string
