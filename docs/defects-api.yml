@@ -320,14 +320,6 @@ components:
         - o2
         - o3
         - o4
-        - l1e-a
-        - l1e
-        - l2e
-        - l3e
-        - l4e
-        - l5e
-        - l6e
-        - l7e
 
     inspectionType:
       type: string
