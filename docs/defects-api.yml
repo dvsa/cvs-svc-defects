@@ -279,20 +279,24 @@ components:
           $ref: "#/components/schemas/euVehicleCategory"
         requiredStandards:
           type: array
-          properties:
-            rsNumber:
-              type: integer
-            requiredStandard:
-              type: string
-            refCalculation:
-              type: number
-            additionalInfo:
-              type: string
-            basic:
-              type: boolean
-            normal:
-              type: boolean
-      
+          items:
+            $ref: '#/components/schemas/requiredStandard'
+
+    requiredStandard:
+      properties:
+        rsNumber:
+          type: integer
+        requiredStandard:
+          type: string
+        refCalculation:
+          type: number
+        additionalInfo:
+          type: string
+        basic:
+          type: boolean
+        normal:
+          type: boolean  
+  
     vehicleType:
       type: string
       enum:
