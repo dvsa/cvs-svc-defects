@@ -278,11 +278,11 @@ components:
         manualType:
           $ref: "#/components/schemas/euVehicleCategory"
         requiredStandards:
-          type: object
+          type: array
           properties:
             rsNumber:
               type: integer
-            requiredStandards:
+            requiredStandard:
               type: string
             refCalculation:
               type: number
