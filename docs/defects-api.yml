@@ -276,11 +276,11 @@ components:
         vehicleTypes:
           type: array
           items:
-            $ref: "#/components/schemas/vehicleTypes"
+            $ref: "#/components/schemas/vehicleType"
         euVehicleCategories:
           type: array
           items:
-            $ref: "#/components/schemas/euVehicleCategories"
+            $ref: "#/components/schemas/euVehicleCategory"
         requiredStandards:
           type: array
           items:
@@ -295,7 +295,8 @@ components:
         refCalculation:
           type: number
         additionalInfo:
-          type: string
+          type: boolean
+          default: false
         inspectionTypes:
           type: array
           items:
