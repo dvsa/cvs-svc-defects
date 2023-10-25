@@ -4,7 +4,7 @@ info:
     This is the API spec for retrieving all defects. These defects will be
     stored locally on the VSAs mobile device. Authorization details will be
     updated once we have confirmed the security scheme we are using.
-  version: 1.0.0
+  version: 1.1.0
   title: Defect Microservice
   contact:
     email: mdclarke@deloitte.co.uk
@@ -302,11 +302,6 @@ components:
           items:
             $ref: '#/components/schemas/inspectionType'
 
-    vehicleTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/vehicleType'  
-
     vehicleType:
       type: string
       enum:
@@ -316,11 +311,6 @@ components:
         - psv
         - hgv
         - trl
-    
-    euVehicleCategories:
-      type: array
-      items:
-        $ref: '#/components/schemas/euVehicleCategory'
 
     euVehicleCategory:
       type: string
@@ -336,11 +326,6 @@ components:
         - o3
         - o4
 
-    inspectionTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/inspectionType'
-
     inspectionType:
       type: string
       enum:
@@ -348,7 +333,6 @@ components:
         - normal
 
 security:
-  - ApiKeyAuth: []
   - OAuth2:
       - read
       - write
