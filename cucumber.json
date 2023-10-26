@@ -1,0 +1,17 @@
+{
+    "default":{
+        "formatOptions":{
+            "snippetInterface":"async-await"
+        },
+        "paths":[
+            "tests/integration/M1taxonomy/features/"
+        ],
+        "dyrRun":true,
+        "require":[
+            "tests/integration/M1taxonomy/steps/*.ts"
+        ],
+        "requireModule":[
+            "ts-node/register"
+        ]
+    }
+}

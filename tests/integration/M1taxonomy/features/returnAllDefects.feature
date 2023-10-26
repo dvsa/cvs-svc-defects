@@ -10,8 +10,8 @@ Scenario Outline: Return all the defects for M1 taxonomy
         And should return all defects in the database
 
         Examples:
-        |endpoint                  |statuscode|
-        |VNPSV1?searchCriteria=all |200       |
-        |cars                   |400       |
+        |endpoint            |statuscode|
+        |defects/iva         |200       |
+        |defects/iva/manual  |400       |
 
     

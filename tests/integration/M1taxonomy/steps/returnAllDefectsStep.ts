@@ -4,7 +4,7 @@ import { generateToken } from "./common"
 const {expect}=chai;
 var token : string;
 
-var baseURL="https://api.integration.cvs.dvsacloud.uk/integration/v3/technical-records/search/"
+var baseURL="https://api.integration.cvs.dvsacloud.uk/integration/v3/"
 
 Given('A token is generated for authorization', async function () {
   token=await generateToken()
