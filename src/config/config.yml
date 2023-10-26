@@ -7,10 +7,9 @@ functions:
       event: apigateway
   - getIvaDefectsByManual:
       method: GET
-      path: /defects/iva/manual
-      proxy: null
+      path: /defects/iva/manual/{+proxy}
+      proxy: :id
       function: getIvaDefectsByManual
-      event: apigateway
 
 invoke:
   local:
