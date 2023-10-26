@@ -5,6 +5,12 @@ functions:
       proxy: null
       function: getDefects
       event: apigateway
+  - getIvaDefectsByManual:
+      method: GET
+      path: /defects/iva/manual
+      proxy: null
+      function: getIvaDefectsByManual
+      event: apigateway
 
 invoke:
   local:

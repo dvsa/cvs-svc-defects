@@ -30,6 +30,12 @@ functions:
       - http:
           path: defects
           method: get
+  getIvaDefectsByManual:
+    handler: src/handler.handler
+    events:
+      - http:
+          path: /defects/iva/manual
+          method: get
 
 custom:
   serverless-offline:
