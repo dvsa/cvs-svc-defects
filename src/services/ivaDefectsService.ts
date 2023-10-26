@@ -7,15 +7,15 @@ export class IvaDefectsService {
         {
           sectionNumber: "01",
           sectionDescription: "Noise",
-          vehicleTypes: "hgv",
-          euVehicleCategories: "m1",
+          vehicleTypes: ["hgv"],
+          euVehicleCategories: ["m1"],
           requiredStandards: [
             {
               rsNumber: 1,
               requiredStandard: "A mock standard",
               refCalculation: "1.1",
               additionalInfo: true,
-              inspectionTypes: "basic",
+              inspectionTypes: ["basic"],
             },
           ],
         },
