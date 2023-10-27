@@ -19,7 +19,6 @@ When('I hit the M1 taxonomy {string}', async function (endpoint:string) {
       'Authorization':`Bearer ${token}`,
     }
   }
-  console.log(options.headers)
   const response= await fetch(url, options);
   this.response= response;
 });
@@ -31,7 +30,7 @@ Then('status code should be {int}',async function (statuscode:number) {
 
 Then('should return all defects in the database', async function () {
   const responseData= await this.response.json()
- expect(responseData).to.have.property('Defects')
+ expect(responseData).to.have.length(1)
 });
 
 

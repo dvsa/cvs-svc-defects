@@ -24,7 +24,7 @@ throw error;
 
 export async function generateToken(){
    
-    const settings =readSettingsFile(`src/config/settings.json`)
+    const settings =readSettingsFile(`tests/integration/config/settings.json`)
     const{tokenKey,tokenURL,username,password}=settings;
 
     const headers: Headers = new Headers({
