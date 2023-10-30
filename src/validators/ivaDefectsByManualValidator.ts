@@ -1,7 +1,7 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { addHttpHeaders } from "../utils/httpHeaders";
 
-export const validateIvaDefectErrors = (
+export const validateIvaDefectManualQuery = (
   event: APIGatewayProxyEvent,
 ): APIGatewayProxyResult | undefined => {
   if (!event.pathParameters?.id) {

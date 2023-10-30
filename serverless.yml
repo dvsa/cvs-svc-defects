@@ -34,7 +34,13 @@ functions:
     handler: src/handler.handler
     events:
       - http:
-          path: /defects/iva/manual
+          path: /defects/iva/manual/{id}
+          method: get
+  getIvaDefects:
+    handler: src/handler.handler
+    events:
+      - http:
+          path: /defects/iva
           method: get
 
 custom:
