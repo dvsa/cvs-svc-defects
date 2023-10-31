@@ -5,6 +5,18 @@ functions:
       proxy: null
       function: getDefects
       event: apigateway
+  - getIvaDefectsByManual:
+      method: GET
+      path: /defects/iva/manual/{+proxy}
+      proxy: :id
+      function: getIvaDefectsByManual
+      event: apigateway
+  - getIvaDefects:
+      method: GET
+      path: /defects/iva
+      proxy: null
+      function: getIvaDefects
+      event: apigateway
 
 invoke:
   local:
@@ -15,6 +27,10 @@ invoke:
       getDefects:
         name: cvs-svc-defects
         mock: tests/resources/defects.json
+      getIvaDefectsByManual:
+        name: cvs-svc-defects
+      getIvaDefects:
+        name: cvs-svc-defects
   remote:
     params:
       apiVersion: 2015-03-31
