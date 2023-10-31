@@ -29,6 +29,8 @@ invoke:
         mock: tests/resources/defects.json
       getIvaDefectsByManual:
         name: cvs-svc-defects
+      IvaDefectService:
+        name: cvs-svc-defects
   remote:
     params:
       apiVersion: 2015-03-31
