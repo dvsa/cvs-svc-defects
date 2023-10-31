@@ -3,11 +3,11 @@ import { addHttpHeaders } from "../../utils/httpHeaders";
 
 export const validateIvaDefectManualQuery = (
   event: APIGatewayProxyEvent,
-): APIGatewayProxyResult | undefined => {  
+): APIGatewayProxyResult | undefined => {
   if (!event.headers.Authorization) {
     return {
       statusCode: 400,
-      body: 'Missing authorization header',
+      body: "Missing authorization header",
     };
   }
 
