@@ -37,7 +37,6 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@dvsa/cvs-type-definitions": "^3.3.1",
     "@babel/core": "^7.22.15",
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-typescript": "^7.22.15",
@@ -73,7 +72,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@dvsa/cvs-type-definitions": "3.3.0",
+    "@dvsa/cvs-type-definitions": "3.4.0",
     "aws-lambda": "1.0.7",
     "aws-sdk": "^2.1452.0",
     "aws-xray-sdk": "3.5.1",
