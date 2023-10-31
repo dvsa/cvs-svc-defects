@@ -7,11 +7,19 @@ import {
   InspectionType,
   VehicleType,
 } from "@dvsa/cvs-type-definitions/types/iva/defects/get";
+import { addHttpHeaders } from "../utils/httpHeaders";
+import { validateIvaDefectGetQuery } from "../validators/iva/ivaDefectsGetValidator";
 
 export const getIvaDefects: Handler = async (
   event: APIGatewayProxyEvent,
 ): Promise<APIGatewayProxyResult> => {
   const defectsService = new IvaDefectsService();
+
+  const defectErrors = validateIvaDefectGetQuery(event);
+
+  if (defectErrors) {
+    return addHttpHeaders(defectErrors);
+  }
 
   const vehicleType = event?.queryStringParameters?.vehicleType as VehicleType;
   const euVehicleCategory = event?.queryStringParameters

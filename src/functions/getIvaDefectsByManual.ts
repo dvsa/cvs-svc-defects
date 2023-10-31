@@ -2,7 +2,7 @@ import { Handler } from "aws-lambda";
 import { HTTPResponse } from "../models/HTTPResponse";
 import { IvaDefectsService } from "../services/ivaDefectsService";
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
-import { validateIvaDefectManualQuery } from "../validators/ivaDefectsByManualValidator";
+import { validateIvaDefectManualQuery } from "../validators/iva/ivaDefectsByManualValidator";
 import { addHttpHeaders } from "../utils/httpHeaders";
 
 export const getIvaDefectsByManual: Handler = async (
@@ -12,11 +12,11 @@ export const getIvaDefectsByManual: Handler = async (
 
   const defectErrors = validateIvaDefectManualQuery(event);
 
-  const manualId = event?.pathParameters?.id ?? "";
-
   if (defectErrors) {
     return addHttpHeaders(defectErrors);
   }
+
+  const manualId = event?.pathParameters?.id ?? "";
 
   return defectsService
     .getIvaDefectsByManualId(manualId)
