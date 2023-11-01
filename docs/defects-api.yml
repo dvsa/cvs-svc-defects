@@ -25,6 +25,14 @@ paths:
       summary: Return defects
       description: Return defects
       operationId: GetDefects
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestTemplates:
+          application/json: "{\"statusCode\": 200}"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
       responses:
         "200":
           description: All defects returned
@@ -47,7 +55,7 @@ paths:
       parameters:
         - in: query
           name: vehicleType
-          schema: 
+          schema:
             $ref: "#/components/schemas/vehicleType"
         - in: query
           name: euVehicleCategory
@@ -57,6 +65,14 @@ paths:
           name: inspectionType
           schema:
             $ref: "#/components/schemas/inspectionType"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestTemplates:
+          application/json: "{\"statusCode\": 200}"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
       responses:
         "200":
           description: All defects for the query returned
@@ -69,9 +85,9 @@ paths:
         "403":
           description: Access token does not have the required scope
         "404":
-          description: Defects not found        
+          description: Defects not found
 
-  /defects/iva/manual:{id}:
+  /defects/iva/manual/{id}:
     get:
       summary: Search the IVA defect manuals by Manual ID.
       tags:
@@ -87,6 +103,14 @@ paths:
           schema:
             type: string
           required: true
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestTemplates:
+          application/json: "{\"statusCode\": 200}"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
       responses:
         "200":
           description: All defects for the query returned
@@ -99,18 +123,18 @@ paths:
         "403":
           description: Access token does not have the required scope
         "404":
-          description: Defects not found      
+          description: Defects not found
 
 components:
-  securitySchemes:
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: "https://example.com/oauth/authorize"
-          tokenUrl: "https://example.com/oauth/token"
-          scopes:
-            read: Grants read access
+  #securitySchemes:
+    #OAuth2:
+      #type: oauth2
+      #flows:
+        #authorizationCode:
+          #authorizationUrl: "https://example.com/oauth/authorize"
+          #tokenUrl: "https://example.com/oauth/token"
+          #scopes:
+            #read: Grants read access
   schemas:
     deficiency:
       type: object
@@ -332,9 +356,9 @@ components:
         - basic
         - normal
 
-security:
-  - OAuth2:
-      - read
-      - write
+#security:
+  #- OAuth2:
+      #- read
+      #- write
 servers:
   - url: "https://url/api/v1"
