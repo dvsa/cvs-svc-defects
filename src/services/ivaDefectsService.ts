@@ -1,9 +1,9 @@
 import {
   DefectGETIVA,
-  EUVehicleCategory,
   InspectionType,
   VehicleType,
 } from "@dvsa/cvs-type-definitions/types/iva/defects/get";
+import {EUVehicleCategory} from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
 
 export class IvaDefectsService {
   public getIvaDefects(
@@ -17,7 +17,7 @@ export class IvaDefectsService {
           sectionNumber: "01",
           sectionDescription: "Noise",
           vehicleTypes: ["hgv"],
-          euVehicleCategories: ["m1"],
+          euVehicleCategories: [EUVehicleCategory.M1],
           requiredStandards: [
             {
               rsNumber: 1,
@@ -41,7 +41,7 @@ export class IvaDefectsService {
           sectionNumber: "01",
           sectionDescription: "Noise",
           vehicleTypes: ["hgv"],
-          euVehicleCategories: ["m1"],
+          euVehicleCategories: [EUVehicleCategory.M1],
           requiredStandards: [
             {
               rsNumber: 1,
