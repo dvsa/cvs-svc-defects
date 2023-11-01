@@ -3,7 +3,7 @@ import {
   EUVehicleCategory,
   InspectionType,
   VehicleType,
-} from "@dvsa/cvs-type-definitions/types/iva/defects/get/index";
+} from "@dvsa/cvs-type-definitions/types/iva/defects/get";
 
 export class IvaDefectsService {
   public getIvaDefects(
