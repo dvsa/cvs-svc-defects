@@ -308,7 +308,7 @@ components:
         requiredStandards:
           type: array
           items:
-            $ref: '#/components/schemas/requiredStandard'
+            $ref: "#/components/schemas/requiredStandard"
 
     requiredStandard:
       properties:
@@ -324,7 +324,7 @@ components:
         inspectionTypes:
           type: array
           items:
-            $ref: '#/components/schemas/inspectionType'
+            $ref: "#/components/schemas/inspectionType"
 
     vehicleType:
       type: string
