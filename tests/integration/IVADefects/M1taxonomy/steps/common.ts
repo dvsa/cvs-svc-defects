@@ -1,7 +1,4 @@
-import { readFileSync } from "fs";
-
-//export var token:string;
-
+import * as data from "../../../config/settings.json";
 
 interface RequestBody{
     username:string;
@@ -11,30 +8,16 @@ interface RequestBody{
 interface TokenResponse{
   token: string;
 }
-    function readSettingsFile(filePath: string){
-    try{
-        const settings=JSON.parse(readFileSync(filePath,'utf-8'))
-        return settings
-    }catch(error){
-console.error("Error reading settings file:",error);
-throw error;
-    }
-    
-}
 
 export async function generateToken(){
-   
-    const settings =readSettingsFile(`tests/integration/config/settings.json`)
-    const{tokenKey,tokenURL,username,password}=settings;
-
     const headers: Headers = new Headers({
       'Content-Type': 'application/json',
-      'x-api-key': `${tokenKey}`, 
+      'x-api-key': `${data.tokenKey}`, 
     });
 
     const requestBody:RequestBody={
-        "username": username,
-        "password": password
+        "username": data.username,
+        "password": data.password
     }
 
     const requestOptions: RequestInit = {
@@ -44,12 +27,12 @@ export async function generateToken(){
     };
 
     try {
-      const response = await fetch(tokenURL, requestOptions);
+      const response = await fetch(data.tokenURL, requestOptions);
       if (!response.ok) {
         throw new Error(`Token request fails : ${response.status}`);
       }
-      const data:TokenResponse= await response.json() as TokenResponse;
-      const token: string=data.token;
+      const responseData:TokenResponse= await response.json() as TokenResponse;
+      const token: string=responseData.token;
       return token;
     } catch (error) {
       console.error('API request error:', error);

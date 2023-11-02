@@ -1,6 +1,7 @@
 import {Given, When, Then} from "@cucumber/cucumber"
 import chai from "chai"
 import { generateToken } from "./common"
+import * as expectedJson from "../data/m1taxomomy.json";
 const {expect}=chai;
 var token : string;
 
@@ -19,7 +20,7 @@ When('I hit the M1 taxonomy {string}', async function (endpoint:string) {
       'Authorization':`Bearer ${token}`,
     }
   }
-  const response= await fetch(url, options);
+  const response= await fetch(url, options)
   this.response= response;
 });
 
@@ -30,7 +31,13 @@ Then('status code should be {int}',async function (statuscode:number) {
 
 Then('should return all defects in the database', async function () {
   const responseData= await this.response.json()
- expect(responseData).to.have.length(1)
+
+  expect(responseData).to.be.an('array')
+ expect(responseData).to.have.lengthOf(expectedJson.length)
+
+ for(let i=0;i<expectedJson.length;i++){
+  expect(responseData[i].to.deep.include(expectedJson[i]))
+ }
 });
 
 
