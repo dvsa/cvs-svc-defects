@@ -3,58 +3,88 @@ import {
   InspectionType,
   VehicleType,
 } from "@dvsa/cvs-type-definitions/types/iva/defects/get";
-import {EUVehicleCategory} from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
+import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
+import { IvaDatabaseService } from "./IvaDatabaseService";
+import { HTTPError } from "../models/HTTPError";
 
 export class IvaDefectsService {
+  public readonly ivaDatabaseService: IvaDatabaseService;
+
+  constructor(ivaDatabaseService: IvaDatabaseService) {
+    this.ivaDatabaseService = ivaDatabaseService;
+  }
+
   public getIvaDefects(
     vehicleType: VehicleType | null,
     euVehicleCategory: EUVehicleCategory | null,
     inspectionType: InspectionType | null,
   ): Promise<DefectGETIVA[]> {
-    return new Promise((resolve) => {
-      const mockIvaDefects: DefectGETIVA[] = [
-        {
-          sectionNumber: "01",
-          sectionDescription: "Noise",
-          vehicleTypes: ["hgv"],
-          euVehicleCategories: [EUVehicleCategory.M1],
-          requiredStandards: [
-            {
-              rsNumber: 1,
-              requiredStandard: "A mock standard",
-              refCalculation: "1.1",
-              additionalInfo: true,
-              inspectionTypes: ["basic"],
-            },
-          ],
-        },
-      ];
+    return this.ivaDatabaseService
+      .getDefectsByCriteria(vehicleType, euVehicleCategory, inspectionType)
+      .then((data: any) => {
+        // Do actual mapping here...
+        const mockIvaDefects: DefectGETIVA[] = [
+          {
+            sectionNumber: "01",
+            sectionDescription: "Noise",
+            vehicleTypes: ["hgv"],
+            euVehicleCategories: [EUVehicleCategory.M1],
+            requiredStandards: [
+              {
+                rsNumber: 1,
+                requiredStandard: "A mock standard",
+                refCalculation: "1.1",
+                additionalInfo: true,
+                inspectionTypes: ["basic"],
+              },
+            ],
+          },
+        ];
 
-      resolve(mockIvaDefects);
-    });
+        return mockIvaDefects;
+      })
+      .catch((error) => {
+        if (!(error instanceof HTTPError)) {
+          console.error(error);
+          error.statusCode = 500;
+          error.body = "Internal Server Error";
+        }
+        throw new HTTPError(error.statusCode, error.body);
+      });
   }
 
   public getIvaDefectsByManualId(manualId: string): Promise<DefectGETIVA[]> {
-    return new Promise((resolve) => {
-      const mockIvaDefects: DefectGETIVA[] = [
-        {
-          sectionNumber: "01",
-          sectionDescription: "Noise",
-          vehicleTypes: ["hgv"],
-          euVehicleCategories: [EUVehicleCategory.M1],
-          requiredStandards: [
-            {
-              rsNumber: 1,
-              requiredStandard: "A mock standard",
-              refCalculation: "1.1",
-              additionalInfo: true,
-              inspectionTypes: ["basic"],
-            },
-          ],
-        },
-      ];
+    return this.ivaDatabaseService
+      .getDefectsByManualId(manualId)
+      .then((data: any) => {
+        // Do actual mapping here...
+        const mockIvaDefects: DefectGETIVA[] = [
+          {
+            sectionNumber: "01",
+            sectionDescription: "Noise",
+            vehicleTypes: ["hgv"],
+            euVehicleCategories: [EUVehicleCategory.M1],
+            requiredStandards: [
+              {
+                rsNumber: 1,
+                requiredStandard: "A mock standard",
+                refCalculation: "1.1",
+                additionalInfo: true,
+                inspectionTypes: ["basic"],
+              },
+            ],
+          },
+        ];
 
-      resolve(mockIvaDefects);
-    });
+        return mockIvaDefects;
+      })
+      .catch((error) => {
+        if (!(error instanceof HTTPError)) {
+          console.error(error);
+          error.statusCode = 500;
+          error.body = "Internal Server Error";
+        }
+        throw new HTTPError(error.statusCode, error.body);
+      });
   }
 }

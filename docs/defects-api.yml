@@ -30,7 +30,7 @@ paths:
           default:
             statusCode: "200"
         requestTemplates:
-          application/json: "{\"statusCode\": 200}"
+          application/json: '{"statusCode": 200}'
         passthroughBehavior: "when_no_match"
         type: "mock"
       responses:
@@ -70,7 +70,7 @@ paths:
           default:
             statusCode: "200"
         requestTemplates:
-          application/json: "{\"statusCode\": 200}"
+          application/json: '{"statusCode": 200}'
         passthroughBehavior: "when_no_match"
         type: "mock"
       responses:
@@ -108,7 +108,7 @@ paths:
           default:
             statusCode: "200"
         requestTemplates:
-          application/json: "{\"statusCode\": 200}"
+          application/json: '{"statusCode": 200}'
         passthroughBehavior: "when_no_match"
         type: "mock"
       responses:
@@ -127,14 +127,14 @@ paths:
 
 components:
   #securitySchemes:
-    #OAuth2:
-      #type: oauth2
-      #flows:
-        #authorizationCode:
-          #authorizationUrl: "https://example.com/oauth/authorize"
-          #tokenUrl: "https://example.com/oauth/token"
-          #scopes:
-            #read: Grants read access
+  #OAuth2:
+  #type: oauth2
+  #flows:
+  #authorizationCode:
+  #authorizationUrl: "https://example.com/oauth/authorize"
+  #tokenUrl: "https://example.com/oauth/token"
+  #scopes:
+  #read: Grants read access
   schemas:
     deficiency:
       type: object
@@ -357,8 +357,8 @@ components:
         - normal
 
 #security:
-  #- OAuth2:
-      #- read
-      #- write
+#- OAuth2:
+#- read
+#- write
 servers:
   - url: "https://url/api/v1"

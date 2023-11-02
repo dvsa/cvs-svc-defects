@@ -9,11 +9,13 @@ import {
 } from "@dvsa/cvs-type-definitions/types/iva/defects/get";
 import { addHttpHeaders } from "../utils/httpHeaders";
 import { validateIvaDefectGetQuery } from "../validators/iva/ivaDefectsGetValidator";
+import { IvaDatabaseService } from "../services/IvaDatabaseService";
 
 export const getIvaDefects: Handler = async (
   event: APIGatewayProxyEvent,
 ): Promise<APIGatewayProxyResult> => {
-  const defectsService = new IvaDefectsService();
+  const ivaDatabaseService = new IvaDatabaseService();
+  const defectsService = new IvaDefectsService(ivaDatabaseService);
 
   const defectErrors = validateIvaDefectGetQuery(event);
 

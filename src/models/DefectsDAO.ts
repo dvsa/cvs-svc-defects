@@ -23,9 +23,11 @@ export class DefectsDAO {
 
   constructor() {
     const config: IDBConfig = Configuration.getInstance().getDynamoDBConfig();
-    this.tableName = config.table;
+    this.tableName = config.defects.table;
     if (!DefectsDAO.dbClient) {
-      DefectsDAO.dbClient = new AWS.DynamoDB.DocumentClient(config.params);
+      DefectsDAO.dbClient = new AWS.DynamoDB.DocumentClient(
+        config.defects.params,
+      );
     }
   }
 

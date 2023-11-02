@@ -62,6 +62,8 @@ custom:
         sources:
           - table: cvs-local-defects
             sources: [./tests/resources/defects.json]
+          - table: cvs-local-iva-defects
+            sources: [./tests/resources/defects.json]
 
 resources:
   Resources:
@@ -69,6 +71,19 @@ resources:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: cvs-local-defects
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: N
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+    IvaDefects:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: cvs-local-iva-defects
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: N
