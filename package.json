@@ -19,7 +19,6 @@
     "test:unit:coverage": "npm run test:unit -- --coverage",
     "test:integration": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\" && cucumber-js test",
     "test-i": "AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE=1 npm run test:integration -- --runInBand --globalSetup='./scripts/setUp.ts' --globalTeardown='./scripts/tearDown.ts'",
-    "test-int":"cucumber-js test",
     "build": "node_modules/typescript/bin/tsc --rootDir ./ --outDir .build --sourceMap false && npm run build:copy",
     "build:copy": "find src -type f \\( -name \"*.yml\" -or -name \"*.json\" \\) | cpio -pdm .build && find tests -type f \\( -name \"*.yml\" -or -name \"*.json\" \\)  | cpio -pdm .build",
     "prepush": "npm run test && npm run build && npm run test-i",
