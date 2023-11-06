@@ -41,35 +41,34 @@ invoke:
         name: defects-${BRANCH}
 dynamodb:
   local:
-    params:
-      defects:
-        region: localhost
-        endpoint: http://127.0.0.1:8003
-        table: cvs-local-defects
-        keys:
-          - defects
-      iva-defects:
-        region: localhost
-        endpoint: http://127.0.0.1:8003
-        table: cvs-local-iva-defects
-        keys:
-          - IVA defects
+    defects:
+      region: localhost
+      endpoint: http://127.0.0.1:8003
+      table: cvs-local-defects
+    iva-defects:
+      region: localhost
+      endpoint: http://127.0.0.1:8003
+      table: cvs-local-iva-defects
+    keys:
+      - Defects
+      - IVA defects
   local-global:
-    params:
+    defects:
       region: localhost
       endpoint: http://127.0.0.1:8000
-      table: cvs-local-global-defects
-      keys:
-        - defects      
+      table: cvs-local-global-defects   
     iva-defects:
       region: localhost
       endpoint: http://127.0.0.1:8003
       table: cvs-local-global-iva-defects
-      keys:
-        - IVA defects
+    keys:
+      - Defects
+      - IVA defects
   remote:
-    params: {}
-    table: cvs-${BRANCH}-defects
+    defects:
+      table: cvs-${BRANCH}-defects
+    iva-defects:
+      table: cvs-${BRANCH}-iva-defects
 serverless:
   basePath: /${BRANCH}
   port: 3001

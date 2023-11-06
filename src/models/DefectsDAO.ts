@@ -3,6 +3,7 @@ import { Configuration } from "../utils/Configuration";
 import { PromiseResult } from "aws-sdk/lib/request";
 import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
 import { IDBConfig } from ".";
+import { error } from "console";
 
 /* workaround AWSXRay.captureAWS(...) call obscures types provided by the AWS sdk.
 https://github.com/aws/aws-xray-sdk-node/issues/14
@@ -26,7 +27,7 @@ export class DefectsDAO {
     this.tableName = config.defects.table;
     if (!DefectsDAO.dbClient) {
       DefectsDAO.dbClient = new AWS.DynamoDB.DocumentClient(
-        config.defects.params,
+        config.defects,
       );
     }
   }

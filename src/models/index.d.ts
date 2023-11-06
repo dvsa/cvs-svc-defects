@@ -8,13 +8,17 @@ interface IInvokeConfig {
 
 interface IDBConfig {
   defects: {
-    params: { region: string; endpoint: string; convertEmptyValues: boolean };
+    region: string; 
+    endpoint: string;
+    convertEmptyValues: boolean; 
     table: string;
-  };
+  }
   ivaDefects: {
-    params: { region: string; endpoint: string; convertEmptyValues: boolean };
+    region: string; 
+    endpoint: string; 
+    convertEmptyValues: boolean;
     table: string;
-  };
+  }
 }
 
 export { IInvokeConfig, IDBConfig };

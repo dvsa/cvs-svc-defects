@@ -17,7 +17,7 @@ export class IvaDatabaseService {
     this.tableName = config.ivaDefects.table;
     if (!IvaDatabaseService.dbClient) {
       IvaDatabaseService.dbClient = new DynamoDB.DocumentClient(
-        config.ivaDefects.params,
+        config.ivaDefects,
       );
     }
   }
