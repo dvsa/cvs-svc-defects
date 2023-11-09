@@ -98,7 +98,11 @@ describe("ConfigurationUtil", () => {
       const dbConfig: IDBConfig =
         Configuration.getInstance().getDynamoDBConfig();
       it("should return the local invoke config", () => {
-        expect(Object.keys(dbConfig)).toEqual(["defects", "ivaDefects", "keys"]);
+        expect(Object.keys(dbConfig)).toEqual([
+          "defects",
+          "ivaDefects",
+          "keys",
+        ]);
         expect(dbConfig.defects.table).toBe("cvs-local-defects");
       });
     });
@@ -108,7 +112,11 @@ describe("ConfigurationUtil", () => {
       const dbConfig: IDBConfig =
         Configuration.getInstance().getDynamoDBConfig();
       it("should return the local invoke config", () => {
-        expect(Object.keys(dbConfig)).toEqual(["defects", "ivaDefects", "keys"]);
+        expect(Object.keys(dbConfig)).toEqual([
+          "defects",
+          "ivaDefects",
+          "keys",
+        ]);
         expect(Object.keys(dbConfig.defects)).not.toContain("keys");
         expect(dbConfig.defects.table).toBe("cvs-local-global-defects");
         expect(Object.keys(dbConfig.defects)).toEqual(
