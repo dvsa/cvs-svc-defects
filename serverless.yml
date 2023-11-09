@@ -63,7 +63,7 @@ custom:
           - table: cvs-local-defects
             sources: [./tests/resources/defects.json]
           - table: cvs-local-iva-defects
-            sources: [./tests/resources/defects.json]
+            sources: [./output_json/M1_flattened.json]
 
 resources:
   Resources:
@@ -85,11 +85,15 @@ resources:
       Properties:
         TableName: cvs-local-iva-defects
         AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: N
+          - AttributeName: sectionNumber
+            AttributeType: S
+          - AttributeName: euVehicleCategories_0
+            AttributeType: S
         KeySchema:
-          - AttributeName: id
+          - AttributeName: sectionNumber
             KeyType: HASH
+          - AttributeName: euVehicleCategories_0
+            KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1

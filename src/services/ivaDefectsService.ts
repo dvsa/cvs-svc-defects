@@ -57,26 +57,30 @@ export class IvaDefectsService {
     return this.ivaDatabaseService
       .getDefectsByManualId(manualId)
       .then((data: any) => {
-        // Do actual mapping here...
-        const mockIvaDefects: DefectGETIVA[] = [
-          {
-            sectionNumber: "01",
-            sectionDescription: "Noise",
-            vehicleTypes: ["hgv"],
-            euVehicleCategories: [EUVehicleCategory.M1],
-            requiredStandards: [
-              {
-                rsNumber: 1,
-                requiredStandard: "A mock standard",
-                refCalculation: "1.1",
-                additionalInfo: true,
-                inspectionTypes: ["basic"],
-              },
-            ],
-          },
-        ];
+        if (data.Count === 0) {
+          throw new HTTPError(404, "No iva defects match the search criteria.");
+        }
 
-        return mockIvaDefects;
+        // Do actual mapping here...
+        // const mockIvaDefects: DefectGETIVA[] = [
+        //   {
+        //     sectionNumber: "01",
+        //     sectionDescription: "Noise",
+        //     vehicleTypes: ["hgv"],
+        //     euVehicleCategories: [EUVehicleCategory.M1],
+        //     requiredStandards: [
+        //       {
+        //         rsNumber: 1,
+        //         requiredStandard: "A mock standard",
+        //         refCalculation: "1.1",
+        //         additionalInfo: true,
+        //         inspectionTypes: ["basic"],
+        //       },
+        //     ],
+        //   },
+        // ];
+
+        return data;
       })
       .catch((error) => {
         if (!(error instanceof HTTPError)) {

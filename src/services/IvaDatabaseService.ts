@@ -25,9 +25,14 @@ export class IvaDatabaseService {
   public getDefectsByManualId(
     manualId: string,
   ): Promise<PromiseResult<DocumentClient.ScanOutput, AWS.AWSError>> {
-    // This should be a query or scan
     return IvaDatabaseService.dbClient
-      .get({ TableName: this.tableName, Key: { manualId } })
+      .scan({
+        TableName: this.tableName,
+        FilterExpression: "euVehicleCategories_0 = :manualId",
+        ExpressionAttributeValues: {
+          ":manualId": manualId,
+        },
+      })
       .promise();
   }
 
@@ -38,9 +43,15 @@ export class IvaDatabaseService {
   ): Promise<PromiseResult<DocumentClient.ScanOutput, AWS.AWSError>> {
     // This should be a query, how do we build up the query attributes?
     return IvaDatabaseService.dbClient
-      .get({
+      .scan({
         TableName: this.tableName,
-        Key: { vehicleType, euVehicleCategory, inspectionType },
+        ExpressionAttributeValues: {
+          ":vt": vehicleType,
+          ":vc": euVehicleCategory,
+          ":it": inspectionType,
+        },
+        FilterExpression:
+          "vehicleTypes_0 = :vt and euVehicleCategories_0 = :vc and requiredStandards_1_inspectionTypes_0 = :it",
       })
       .promise();
   }
