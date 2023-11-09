@@ -98,9 +98,7 @@ describe("ConfigurationUtil", () => {
       const dbConfig: IDBConfig =
         Configuration.getInstance().getDynamoDBConfig();
       it("should return the local invoke config", () => {
-        expect(Object.keys(dbConfig)).toEqual(
-          expect.arrayContaining(["defects", "iva-defects", "keys"]),
-        );
+        expect(Object.keys(dbConfig)).toEqual(["defects", "ivaDefects", "keys"]);
         expect(dbConfig.defects.table).toBe("cvs-local-defects");
       });
     });
@@ -110,9 +108,7 @@ describe("ConfigurationUtil", () => {
       const dbConfig: IDBConfig =
         Configuration.getInstance().getDynamoDBConfig();
       it("should return the local invoke config", () => {
-        expect(Object.keys(dbConfig)).toEqual(
-          expect.arrayContaining(["defects", "iva-defects", "keys"]),
-        );
+        expect(Object.keys(dbConfig)).toEqual(["defects", "ivaDefects", "keys"]);
         expect(Object.keys(dbConfig.defects)).not.toContain("keys");
         expect(dbConfig.defects.table).toBe("cvs-local-global-defects");
         expect(Object.keys(dbConfig.defects)).toEqual(
@@ -126,9 +122,7 @@ describe("ConfigurationUtil", () => {
         process.env.BRANCH = "develop";
         // Switch to mockedConfig to simplify environment mocking
         const dbConfig: IDBConfig = getMockedConfig().getDynamoDBConfig();
-        expect(Object.keys(dbConfig)).toEqual(
-          expect.arrayContaining(["defects", "iva-defects"]),
-        );
+        expect(Object.keys(dbConfig)).toEqual(["defects", "ivaDefects"]);
         expect(Object.keys(dbConfig)).not.toContain("keys");
         expect(dbConfig.defects.table).toBe("cvs-develop-defects");
       });
