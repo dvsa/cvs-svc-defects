@@ -22,18 +22,34 @@ export class IvaDatabaseService {
     }
   }
 
-  public getDefectsByManualId(
+  public async getDefectsByManualId(
     manualId: string,
-  ): Promise<PromiseResult<DocumentClient.ScanOutput, AWS.AWSError>> {
-    return IvaDatabaseService.dbClient
-      .scan({
+  ): Promise<Record<string, any>[]> {
+      return await this.queryAllData({
         TableName: this.tableName,
         FilterExpression: "euVehicleCategories_0 = :manualId",
         ExpressionAttributeValues: {
           ":manualId": manualId,
         },
-      })
-      .promise();
+      });
+  }
+
+  private async queryAllData(
+    params: any,
+    allData: any = [],
+  ): Promise<Record<string, any>[]> {
+    const data: PromiseResult<DocumentClient.QueryOutput, AWS.AWSError> =
+      await IvaDatabaseService.dbClient.scan(params).promise();
+
+    if (data.Items && data.Items.length > 0) {
+      allData = [...allData, ...(data.Items)];
+    }
+
+    if (data.LastEvaluatedKey) {
+      params.ExclusiveStartKey = data.LastEvaluatedKey;
+      return this.queryAllData(params, allData);
+    }
+    return allData;
   }
 
   public getDefectsByCriteria(
