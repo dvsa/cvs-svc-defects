@@ -24,25 +24,25 @@ export class IvaDatabaseService {
 
   public async getDefectsByManualId(
     manualId: string,
-  ): Promise<Record<string, any>[]> {
-      return await this.queryAllData({
-        TableName: this.tableName,
-        FilterExpression: "euVehicleCategories_0 = :manualId",
-        ExpressionAttributeValues: {
-          ":manualId": manualId,
-        },
-      });
+  ): Promise<Array<Record<string, any>>> {
+    return await this.queryAllData({
+      TableName: this.tableName,
+      FilterExpression: "euVehicleCategories_0 = :manualId",
+      ExpressionAttributeValues: {
+        ":manualId": manualId,
+      },
+    });
   }
 
   private async queryAllData(
     params: any,
-    allData: any = [],
-  ): Promise<Record<string, any>[]> {
+    allData: Array<Record<string, any>> = [],
+  ): Promise<Array<Record<string, any>>> {
     const data: PromiseResult<DocumentClient.QueryOutput, AWS.AWSError> =
       await IvaDatabaseService.dbClient.scan(params).promise();
 
     if (data.Items && data.Items.length > 0) {
-      allData = [...allData, ...(data.Items)];
+      allData = [...allData, ...data.Items];
     }
 
     if (data.LastEvaluatedKey) {

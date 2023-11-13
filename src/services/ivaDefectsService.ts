@@ -37,23 +37,24 @@ export class IvaDefectsService {
       });
   }
 
-  public async getIvaDefectsByManualId(manualId: string): Promise<DefectGETIVA[]> {
+  public async getIvaDefectsByManualId(
+    manualId: string,
+  ): Promise<DefectGETIVA[]> {
     try {
-      const results = await this.ivaDatabaseService
-        .getDefectsByManualId(manualId);
+      const results =
+        await this.ivaDatabaseService.getDefectsByManualId(manualId);
 
-        if (results.length === 0) {
-          throw new HTTPError(404, "No iva defects match the search criteria.");
-        }
-        return convertFlatDataToProperJSON(results) as unknown as DefectGETIVA[];
-    }
-    catch(error: any) {
+      if (results.length === 0) {
+        throw new HTTPError(404, "No iva defects match the search criteria.");
+      }
+      return convertFlatDataToProperJSON(results) as unknown as DefectGETIVA[];
+    } catch (error: any) {
       if (!(error instanceof HTTPError)) {
         console.error(error);
         error.statusCode = 500;
         error.body = "Internal Server Error";
       }
       throw new HTTPError(error.statusCode, error.body);
-    };
+    }
   }
 }
