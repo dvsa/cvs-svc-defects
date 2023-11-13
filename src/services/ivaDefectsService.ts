@@ -6,6 +6,7 @@ import {
 import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
 import { IvaDatabaseService } from "./IvaDatabaseService";
 import { HTTPError } from "../models/HTTPError";
+import { convertFlatDataToProperJSON } from "../utils/formatDefects";
 
 export class IvaDefectsService {
   public readonly ivaDatabaseService: IvaDatabaseService;
@@ -60,27 +61,8 @@ export class IvaDefectsService {
         if (data.Count === 0) {
           throw new HTTPError(404, "No iva defects match the search criteria.");
         }
-
-        // Do actual mapping here...
-        // const mockIvaDefects: DefectGETIVA[] = [
-        //   {
-        //     sectionNumber: "01",
-        //     sectionDescription: "Noise",
-        //     vehicleTypes: ["hgv"],
-        //     euVehicleCategories: [EUVehicleCategory.M1],
-        //     requiredStandards: [
-        //       {
-        //         rsNumber: 1,
-        //         requiredStandard: "A mock standard",
-        //         refCalculation: "1.1",
-        //         additionalInfo: true,
-        //         inspectionTypes: ["basic"],
-        //       },
-        //     ],
-        //   },
-        // ];
-
-        return data;
+        
+        return convertFlatDataToProperJSON(data.Items) as unknown as DefectGETIVA[];
       })
       .catch((error) => {
         if (!(error instanceof HTTPError)) {
