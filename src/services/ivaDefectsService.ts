@@ -61,8 +61,9 @@ export class IvaDefectsService {
         if (data.Count === 0) {
           throw new HTTPError(404, "No iva defects match the search criteria.");
         }
-        
-        return convertFlatDataToProperJSON(data.Items) as unknown as DefectGETIVA[];
+        return convertFlatDataToProperJSON(
+          data.Items,
+        ) as unknown as DefectGETIVA[];
       })
       .catch((error) => {
         if (!(error instanceof HTTPError)) {
