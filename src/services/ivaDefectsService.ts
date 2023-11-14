@@ -4,7 +4,7 @@ import {
   VehicleType,
 } from "@dvsa/cvs-type-definitions/types/iva/defects/get";
 import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
-import { IvaDatabaseService } from "./IvaDatabaseService";
+import { IvaDatabaseService } from "./ivaDatabaseService";
 import { HTTPError } from "../models/HTTPError";
 import { convertFlatDataToProperJSON } from "../utils/formatDefects";
 

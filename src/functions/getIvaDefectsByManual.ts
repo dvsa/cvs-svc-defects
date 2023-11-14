@@ -4,7 +4,7 @@ import { IvaDefectsService } from "../services/ivaDefectsService";
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { validateIvaDefectManualQuery } from "../validators/iva/ivaDefectsByManualValidator";
 import { addHttpHeaders } from "../utils/httpHeaders";
-import { IvaDatabaseService } from "../services/IvaDatabaseService";
+import { IvaDatabaseService } from "../services/ivaDatabaseService";
 
 export const getIvaDefectsByManual: Handler = async (
   event: APIGatewayProxyEvent,
