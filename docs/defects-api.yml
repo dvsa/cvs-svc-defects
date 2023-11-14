@@ -25,6 +25,8 @@ paths:
       summary: Return defects
       description: Return defects
       operationId: GetDefects
+      security:
+      - ${lambda_auth_name}: []
       x-amazon-apigateway-integration:
         responses:
           default:
@@ -33,6 +35,9 @@ paths:
           application/json: "{\"statusCode\": 200}"
         passthroughBehavior: "when_no_match"
         type: "mock"
+        responses:
+          default:
+            statusCode: "200"
       responses:
         "200":
           description: All defects returned
@@ -65,6 +70,8 @@ paths:
           name: inspectionType
           schema:
             $ref: "#/components/schemas/inspectionType"
+      security:
+      - ${lambda_auth_name}: []
       x-amazon-apigateway-integration:
         responses:
           default:
@@ -103,6 +110,8 @@ paths:
           schema:
             type: string
           required: true
+      security:
+      - ${lambda_auth_name}: []
       x-amazon-apigateway-integration:
         responses:
           default:
@@ -126,15 +135,6 @@ paths:
           description: Defects not found
 
 components:
-  #securitySchemes:
-    #OAuth2:
-      #type: oauth2
-      #flows:
-        #authorizationCode:
-          #authorizationUrl: "https://example.com/oauth/authorize"
-          #tokenUrl: "https://example.com/oauth/token"
-          #scopes:
-            #read: Grants read access
   schemas:
     deficiency:
       type: object
@@ -356,9 +356,18 @@ components:
         - basic
         - normal
 
-#security:
-  #- OAuth2:
-      #- read
-      #- write
+  securitySchemes:
+    ${lambda_auth_name}:
+      type: "apiKey"
+      name: "Authorization"
+      in: "header"
+      x-amazon-apigateway-authtype: "custom"
+      x-amazon-apigateway-authorizer:
+        authorizerUri: ${authorizerUri}
+        authorizerCredentials: ${authorizerCredentials}
+        # authorizerUri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:006106226016:function:authoriser-cb2-9126/invocations"
+        # authorizerCredentials: "arn:aws:iam::006106226016:role/lambda_exec_role-cb2-9126"
+        authorizerResultTtlInSeconds: 0
+        type: "token"
 servers:
   - url: "https://url/api/v1"
