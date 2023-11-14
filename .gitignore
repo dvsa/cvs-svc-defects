@@ -42,3 +42,6 @@ report.json
 
 #Build directories
 .build/*
+
+# IaC
+.terraform*
