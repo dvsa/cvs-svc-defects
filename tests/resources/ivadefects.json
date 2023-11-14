@@ -1,18 +1,18 @@
 [
-    {
-        "sectionNumber": "01",
-        "sectionDescription": "Noise",
-        "vehicleTypes_0": "Cars",
-        "euVehicleCategories_0": "M1",
-        "requiredStandards_0_rsNumber": 1,
-        "requiredStandards_0_requiredStandard": "The exhaust must be securely mounted.",
-        "requiredStandards_0_refCalculation": "1.1",
-        "requiredStandards_0_additionalInfo": true,
-        "requiredStandards_0_inspectionTypes_0": "basic",
-        "requiredStandards_1_rsNumber": 2,
-        "requiredStandards_1_requiredStandard": "The exhaust must have all components secure.",
-        "requiredStandards_1_refCalculation": "1.2",
-        "requiredStandards_1_additionalInfo": true,
-        "requiredStandards_1_inspectionTypes_0": "basic"
-    }
+  {
+    "sectionNumber": "01",
+    "sectionDescription": "Noise",
+    "vehicleTypes_0": "Cars",
+    "euVehicleCategories_0": "M1",
+    "requiredStandards_0_rsNumber": 1,
+    "requiredStandards_0_requiredStandard": "The exhaust must be securely mounted.",
+    "requiredStandards_0_refCalculation": "1.1",
+    "requiredStandards_0_additionalInfo": true,
+    "requiredStandards_0_inspectionTypes_0": "basic",
+    "requiredStandards_1_rsNumber": 2,
+    "requiredStandards_1_requiredStandard": "The exhaust must have all components secure.",
+    "requiredStandards_1_refCalculation": "1.2",
+    "requiredStandards_1_additionalInfo": true,
+    "requiredStandards_1_inspectionTypes_0": "basic"
+  }
 ]
