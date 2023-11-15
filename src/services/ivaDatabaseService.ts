@@ -42,7 +42,7 @@ export class IvaDatabaseService {
     // This should be a query, how do we build up the query attributes?
     return IvaDatabaseService.dbClient
       .scan({
-        TableName: this.tableName
+        TableName: this.tableName,
       })
       .promise();
   }
@@ -53,11 +53,9 @@ export class IvaDatabaseService {
   ): Promise<Array<Record<string, any>>> {
     const data: PromiseResult<DocumentClient.QueryOutput, AWS.AWSError> =
       await IvaDatabaseService.dbClient.scan(params).promise();
-    
     if (data.Items && data.Items.length > 0) {
       allData = [...allData, ...data.Items];
     }
-    
     if (data.LastEvaluatedKey) {
       params.ExclusiveStartKey = data.LastEvaluatedKey;
       return this.queryAllData(params, allData);
