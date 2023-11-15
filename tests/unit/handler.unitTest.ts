@@ -14,19 +14,19 @@ describe("The lambda function handler", () => {
 
   context("With correct Config", () => {
     context("should correctly handle incoming events", () => {
-      // it("should call functions with correct event payload", async () => {
-      //   // Specify your event, with correct path, payload etc
-      //   const vehicleRecordEvent = event;
+      it("should call functions with correct event payload", async () => {
+        // Specify your event, with correct path, payload etc
+        const vehicleRecordEvent = event;
 
-      //   // Stub out the actual functions
-      //   jest.spyOn(getDefects, "getDefects").mockImplementation(() => {
-      //     return Promise.resolve(new HTTPResponse(200, {}));
-      //   });
-      //   // @ts-ignore
-      //   const result = await handler(vehicleRecordEvent, ctx);
-      //   // expect(getDefects.getDefects).toHaveBeenCalled();
-      //   // expect(result.statusCode).toBe(200);
-      // });
+        // Stub out the actual functions
+        jest.spyOn(getDefects, "getDefects").mockImplementation(() => {
+          return Promise.resolve(new HTTPResponse(200, {}));
+        });
+        // @ts-ignore
+        const result = await handler(vehicleRecordEvent, ctx);
+        expect(getDefects.getDefects).toHaveBeenCalled();
+        expect(result.statusCode).toBe(200);
+      });
 
       it("should return error on empty event", async () => {
         // @ts-ignore
@@ -39,33 +39,33 @@ describe("The lambda function handler", () => {
         );
       });
 
-      // it("should return error on invalid body json", async () => {
-      //   const invalidBodyEvent = Object.assign({}, event);
-      //   invalidBodyEvent.body = '{"hello":}';
+      it("should return error on invalid body json", async () => {
+        const invalidBodyEvent = Object.assign({}, event);
+        invalidBodyEvent.body = '{"hello":}';
 
-      //   // @ts-ignore
-      //   const result = await handler(invalidBodyEvent, ctx, null);
-      //   expect(result).toBeInstanceOf(HTTPResponse);
-      //   expect(result.statusCode).toBe(400);
-      //   expect(result.body).toEqual(
-      //     JSON.stringify("Body is not a valid JSON."),
-      //   );
-      // });
+        // @ts-ignore
+        const result = await handler(invalidBodyEvent, ctx, null);
+        expect(result).toBeInstanceOf(HTTPResponse);
+        expect(result.statusCode).toBe(400);
+        expect(result.body).toEqual(
+          JSON.stringify("Body is not a valid JSON."),
+        );
+      });
 
-      // it("should return a Route Not Found error on invalid path", async () => {
-      //   const invalidPathEvent = Object.assign({}, event);
-      //   // invalidPathEvent.body = ""
-      //   invalidPathEvent.path = "/vehicles/123/doesntExist";
+      it("should return a Route Not Found error on invalid path", async () => {
+        const invalidPathEvent = Object.assign({}, event);
+        // invalidPathEvent.body = ""
+        invalidPathEvent.path = "/vehicles/123/doesntExist";
 
-      //   // @ts-ignore
-      //   const result = await handler(invalidPathEvent, ctx);
-      //   // expect(result.statusCode).toBe(400);
-      //   // expect(result.body).toEqual(
-      //   //   JSON.stringify({
-      //   //     error: `Route ${invalidPathEvent.httpMethod} ${invalidPathEvent.path} was not found.`,
-      //   //   }),
-      //   // );
-      // });
+        // @ts-ignore
+        const result = await handler(invalidPathEvent, ctx);
+        expect(result.statusCode).toBe(400);
+        expect(result.body).toEqual(
+          JSON.stringify({
+            error: `Route ${invalidPathEvent.httpMethod} ${invalidPathEvent.path} was not found.`,
+          }),
+        );
+      });
     });
   });
 
