@@ -34,24 +34,6 @@ export class IvaDatabaseService {
     });
   }
 
-  private async queryAllData(
-    params: any,
-    allData: Array<Record<string, any>> = [],
-  ): Promise<Array<Record<string, any>>> {
-    const data: PromiseResult<DocumentClient.QueryOutput, AWS.AWSError> =
-      await IvaDatabaseService.dbClient.scan(params).promise();
-
-    if (data.Items && data.Items.length > 0) {
-      allData = [...allData, ...data.Items];
-    }
-
-    if (data.LastEvaluatedKey) {
-      params.ExclusiveStartKey = data.LastEvaluatedKey;
-      return this.queryAllData(params, allData);
-    }
-    return allData;
-  }
-
   public getDefectsByCriteria(
     vehicleType: VehicleType | null,
     euVehicleCategory: EUVehicleCategory | null,
@@ -60,15 +42,27 @@ export class IvaDatabaseService {
     // This should be a query, how do we build up the query attributes?
     return IvaDatabaseService.dbClient
       .scan({
-        TableName: this.tableName,
-        ExpressionAttributeValues: {
-          ":vt": vehicleType,
-          ":vc": euVehicleCategory,
-          ":it": inspectionType,
-        },
-        FilterExpression:
-          "vehicleTypes_0 = :vt and euVehicleCategories_0 = :vc and requiredStandards_1_inspectionTypes_0 = :it",
+        TableName: this.tableName
       })
       .promise();
+  }
+
+  private async queryAllData(
+    params: any,
+    allData: Array<Record<string, any>> = [],
+  ): Promise<Array<Record<string, any>>> {
+    const data: PromiseResult<DocumentClient.QueryOutput, AWS.AWSError> =
+      await IvaDatabaseService.dbClient.scan(params).promise();
+    
+    if (data.Items && data.Items.length > 0) {
+      allData = [...allData, ...data.Items];
+    }
+    
+    if (data.LastEvaluatedKey) {
+      params.ExclusiveStartKey = data.LastEvaluatedKey;
+      return this.queryAllData(params, allData);
+    }
+
+    return allData;
   }
 }
