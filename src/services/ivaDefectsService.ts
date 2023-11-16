@@ -11,10 +11,21 @@ import { formatIvaDefects } from "../utils/formatDefects";
 export class IvaDefectsService {
   public readonly ivaDatabaseService: IvaDatabaseService;
 
+  /**
+   * Constructor for the HTTPResponse class
+   * @param ivaDatabaseService the IVA database service
+   */
   constructor(ivaDatabaseService: IvaDatabaseService) {
     this.ivaDatabaseService = ivaDatabaseService;
   }
 
+  /**
+   * Retrieves IVA Defects based on the optionally provided vehicleType, euVehicleCategory and inspectionType and formats the response
+   * @param vehicleType the type of Vehicle e.g psv, lgv
+   * @param euVehicleCategory the EU Vehicle Category, synonymous with Manual ID
+   * @param inspectionType the Inspection Type e.g basic, normal
+   * @returns Array of IVA Defects
+   */
   public async getIvaDefects(
     vehicleType: VehicleType | null,
     euVehicleCategory: EUVehicleCategory | null,
@@ -44,6 +55,11 @@ export class IvaDefectsService {
     }
   }
 
+  /**
+   * Retrieves IVA Defects based on the provided manualId and formats the response
+   * @param manualId the manual ID, e.g M1, N1, MSVA
+   * @returns Array of IVA Defects
+   */
   public async getIvaDefectsByManualId(
     manualId: string,
   ): Promise<DefectGETIVA[]> {

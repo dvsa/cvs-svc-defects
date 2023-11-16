@@ -12,6 +12,9 @@ export class IvaDatabaseService {
   private readonly tableName: string;
   private static dbClient: DocumentClient;
 
+  /**
+   * Constructor for the HTTPResponse class, configures and instantiates DynamoDB config
+   */
   constructor() {
     const config: IDBConfig = Configuration.getInstance().getDynamoDBConfig();
     this.tableName = config.ivaDefects.table;
@@ -22,6 +25,11 @@ export class IvaDatabaseService {
     }
   }
 
+  /**
+   * Retrieves IVA Defects based on the provided manualID
+   * @param manualId the manual ID, e.g M1, N1, MSVA
+   * @returns Array of Records containing raw IVA defects
+   */
   public async getDefectsByManualId(
     manualId: string,
   ): Promise<Array<Record<string, any>>> {
@@ -34,6 +42,13 @@ export class IvaDatabaseService {
     });
   }
 
+  /**
+   * Retrieves IVA Defects based on the optionally provided vehicleType, euVehicleCategory and inspectionType
+   * @param vehicleType the type of Vehicle e.g psv, lgv
+   * @param euVehicleCategory the EU Vehicle Category, synonymous with Manual ID
+   * @param inspectionType the Inspection Type e.g basic, normal
+   * @returns Array of Records containing raw IVA defects
+   */
   public async getDefectsByCriteria(
     vehicleType: VehicleType | null,
     euVehicleCategory: EUVehicleCategory | null,
@@ -45,6 +60,11 @@ export class IvaDatabaseService {
     });
   }
 
+  /**
+   * Generic method used to query all data in the IVA Defects table
+   * @param params the parameters to configure the scan with
+   * @returns Array of Records containing raw IVA defects
+   */
   private async queryAllData(
     params: any,
     allData: Array<Record<string, any>> = [],
