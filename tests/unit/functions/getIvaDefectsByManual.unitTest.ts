@@ -9,7 +9,7 @@ import mockContext, { Context } from "aws-lambda";
 import { IvaDefectsService } from "../../../src/services/ivaDefectsService";
 import { HTTPResponse } from "../../../src/models/HTTPResponse";
 import { HTTPError } from "../../../src/models/HTTPError";
-import IvaDefects from "../../resources/ivadefects.json"
+import IvaDefects from "../../resources/ivadefects.json";
 
 describe("getIvaDefectsByManualId Function", () => {
   const ctx = mockContext as Context;

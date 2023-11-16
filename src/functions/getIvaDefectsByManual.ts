@@ -23,7 +23,7 @@ export const getIvaDefectsByManual: Handler = async (
   return ivaDefectsService
     .getIvaDefectsByManualId(manualId)
     .then((data: any) => {
-      if(!data || data.length === 0){
+      if (!data || data.length === 0) {
         return new HTTPResponse(204, []);
       }
 
