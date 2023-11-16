@@ -95,6 +95,7 @@ describe("The configuration service", () => {
       process.env.BRANCH = "local";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
+      expect(functions.length).toBe(3);
 
       expect(functions[0].name).toBe("getDefects");
       expect(functions[1].name).toBe("getIvaDefectsByManual");

@@ -15,7 +15,7 @@ export const getIvaDefects: Handler = async (
   event: APIGatewayProxyEvent,
 ): Promise<APIGatewayProxyResult> => {
   const ivaDatabaseService = new IvaDatabaseService();
-  const defectsService = new IvaDefectsService(ivaDatabaseService);
+  const ivaDefectsService = new IvaDefectsService(ivaDatabaseService);
 
   const defectErrors = validateIvaDefectGetQuery(event);
 
@@ -29,7 +29,7 @@ export const getIvaDefects: Handler = async (
   const inspectionType = event?.queryStringParameters
     ?.inspectionType as InspectionType;
 
-  return defectsService
+  return ivaDefectsService
     .getIvaDefects(vehicleType, euVehicleCategory, inspectionType)
     .then((data: any) => {
       return new HTTPResponse(200, data);

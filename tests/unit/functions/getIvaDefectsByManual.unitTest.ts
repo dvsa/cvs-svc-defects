@@ -9,12 +9,32 @@ import mockContext, { Context } from "aws-lambda";
 import { IvaDefectsService } from "../../../src/services/ivaDefectsService";
 import { HTTPResponse } from "../../../src/models/HTTPResponse";
 import { HTTPError } from "../../../src/models/HTTPError";
+import IvaDefects from "../../resources/ivadefects.json"
 
-describe("getDefects Function", () => {
+describe("getIvaDefectsByManualId Function", () => {
   const ctx = mockContext as Context;
 
   context("on successful retrieval of results", () => {
     it("returns 200 with data", async () => {
+      console.log(IvaDefects);
+      mockValidateIvaDefectManualQuery.mockReturnValueOnce(undefined);
+      jest
+        .spyOn(IvaDefectsService.prototype, "getIvaDefectsByManualId")
+        .mockReturnValue(Promise.resolve(IvaDefects as any));
+      const event = {
+        pathParameters: {
+          id: "M1",
+        },
+      };
+
+      const res = await getIvaDefectsByManual(event, ctx, () => {
+        return;
+      });
+      expect(res).toEqual(new HTTPResponse(200, IvaDefects));
+    });
+
+    it("returns 204 when no data was found", async () => {
+      console.log(IvaDefects);
       mockValidateIvaDefectManualQuery.mockReturnValueOnce(undefined);
       jest
         .spyOn(IvaDefectsService.prototype, "getIvaDefectsByManualId")
@@ -28,7 +48,7 @@ describe("getDefects Function", () => {
       const res = await getIvaDefectsByManual(event, ctx, () => {
         return;
       });
-      expect(res).toEqual(new HTTPResponse(200, []));
+      expect(res).toEqual(new HTTPResponse(204, []));
     });
   });
 

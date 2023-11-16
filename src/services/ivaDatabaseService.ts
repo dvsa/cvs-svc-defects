@@ -34,17 +34,15 @@ export class IvaDatabaseService {
     });
   }
 
-  public getDefectsByCriteria(
+  public async getDefectsByCriteria(
     vehicleType: VehicleType | null,
     euVehicleCategory: EUVehicleCategory | null,
     inspectionType: InspectionType | null,
-  ): Promise<PromiseResult<DocumentClient.ScanOutput, AWS.AWSError>> {
-    // This should be a query, how do we build up the query attributes?
-    return IvaDatabaseService.dbClient
-      .scan({
-        TableName: this.tableName,
-      })
-      .promise();
+  ): Promise<Array<Record<string, any>>> {
+    // TODO: This should be a query, how do we build up the query attributes?
+    return await this.queryAllData({
+      TableName: this.tableName,
+    });
   }
 
   private async queryAllData(

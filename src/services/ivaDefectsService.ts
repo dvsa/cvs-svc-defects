@@ -7,6 +7,7 @@ import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-reco
 import { IvaDatabaseService } from "./ivaDatabaseService";
 import { HTTPError } from "../models/HTTPError";
 import { convertFlatDataToProperJSON } from "../utils/formatDefects";
+import { format } from "path";
 
 export class IvaDefectsService {
   public readonly ivaDatabaseService: IvaDatabaseService;
@@ -15,26 +16,30 @@ export class IvaDefectsService {
     this.ivaDatabaseService = ivaDatabaseService;
   }
 
-  public getIvaDefects(
+  public async getIvaDefects(
     vehicleType: VehicleType | null,
     euVehicleCategory: EUVehicleCategory | null,
     inspectionType: InspectionType | null,
   ): Promise<DefectGETIVA[]> {
-    return this.ivaDatabaseService
-      .getDefectsByCriteria(vehicleType, euVehicleCategory, inspectionType)
-      .then((data: any) => {
-        return convertFlatDataToProperJSON(
-          data.Items,
-        ) as unknown as DefectGETIVA[];
-      })
-      .catch((error) => {
+      try {
+        const results =
+          await this.ivaDatabaseService
+          .getDefectsByCriteria(vehicleType, euVehicleCategory, inspectionType);
+
+          let formattedResults: DefectGETIVA[] = [];
+          if (results.length > 0) {
+            formattedResults = convertFlatDataToProperJSON(results) as unknown as DefectGETIVA[];
+          }
+          return formattedResults;
+      }
+      catch(error: any) {
         if (!(error instanceof HTTPError)) {
           console.error(error);
           error.statusCode = 500;
           error.body = "Internal Server Error";
         }
         throw new HTTPError(error.statusCode, error.body);
-      });
+      }
   }
 
   public async getIvaDefectsByManualId(
@@ -44,10 +49,11 @@ export class IvaDefectsService {
       const results =
         await this.ivaDatabaseService.getDefectsByManualId(manualId);
 
-      if (results.length === 0) {
-        throw new HTTPError(404, "No iva defects match the search criteria.");
-      }
-      return convertFlatDataToProperJSON(results) as unknown as DefectGETIVA[];
+        let formattedResults: DefectGETIVA[] = [];
+        if (results.length > 0) {
+          formattedResults = convertFlatDataToProperJSON(results) as unknown as DefectGETIVA[];
+        }
+        return formattedResults;
     } catch (error: any) {
       if (!(error instanceof HTTPError)) {
         console.error(error);

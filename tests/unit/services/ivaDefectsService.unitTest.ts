@@ -27,15 +27,12 @@ describe("IVA Defects Service", () => {
       expect(result?.length == 1);
     });
 
-    it("should throw a 404 http error upon successfully finding no search results", async () => {
+    it("should return an empty array upon successfully finding no search results", async () => {
       mockGetDefectsByManualId.mockResolvedValueOnce([]);
-      const actualError = new HTTPError(
-        404,
-        "No iva defects match the search criteria.",
-      );
-      expect(async () => {
-        await target.getIvaDefectsByManualId("M1");
-      }).rejects.toEqual(actualError);
+      const result = await target.getIvaDefectsByManualId("M1");
+
+      expect(mockGetDefectsByManualId).toHaveBeenCalledTimes(1);
+      expect(result?.length == 0);
     });
 
     it("should throw a 500 http error upon encountering a generic error", async () => {
