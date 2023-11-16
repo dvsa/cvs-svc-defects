@@ -7,7 +7,6 @@ import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-reco
 import { IvaDatabaseService } from "./ivaDatabaseService";
 import { HTTPError } from "../models/HTTPError";
 import { convertFlatDataToProperJSON } from "../utils/formatDefects";
-import { format } from "path";
 
 export class IvaDefectsService {
   public readonly ivaDatabaseService: IvaDatabaseService;
