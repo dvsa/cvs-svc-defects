@@ -6,7 +6,7 @@ import {
 import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
 import { IvaDatabaseService } from "./ivaDatabaseService";
 import { HTTPError } from "../models/HTTPError";
-import { convertFlatDataToProperJSON } from "../utils/formatDefects";
+import { formatIvaDefects } from "../utils/formatDefects";
 
 export class IvaDefectsService {
   public readonly ivaDatabaseService: IvaDatabaseService;
@@ -29,7 +29,7 @@ export class IvaDefectsService {
 
       let formattedResults: DefectGETIVA[] = [];
       if (results.length > 0) {
-        formattedResults = convertFlatDataToProperJSON(
+        formattedResults = formatIvaDefects(
           results,
         ) as unknown as DefectGETIVA[];
       }
@@ -53,7 +53,7 @@ export class IvaDefectsService {
 
       let formattedResults: DefectGETIVA[] = [];
       if (results.length > 0) {
-        formattedResults = convertFlatDataToProperJSON(
+        formattedResults = formatIvaDefects(
           results,
         ) as unknown as DefectGETIVA[];
       }

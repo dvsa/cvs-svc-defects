@@ -1,7 +1,7 @@
-import { convertFlatDataToProperJSON } from "../../src/utils/formatDefects";
+import { formatIvaDefects } from "../../src/utils/formatDefects";
 import { DefectGETIVA } from "@dvsa/cvs-type-definitions/types/iva/defects/get";
 
-describe("convertFlatDataToProperJSON", () => {
+describe("formatIvaDefects", () => {
   it("should convert flat data to proper JSON", () => {
     const flatData = [
       {
@@ -49,13 +49,13 @@ describe("convertFlatDataToProperJSON", () => {
       },
     ];
 
-    const result = convertFlatDataToProperJSON(flatData);
+    const result = formatIvaDefects(flatData);
     expect(result).toEqual(expectedResult);
   });
 
   it("should handle empty input data", () => {
     const flatData: Array<Record<string, any>> = [];
-    const result = convertFlatDataToProperJSON(flatData);
+    const result = formatIvaDefects(flatData);
     expect(result).toEqual([]);
   });
 
@@ -69,7 +69,7 @@ describe("convertFlatDataToProperJSON", () => {
       },
     ];
 
-    const result = convertFlatDataToProperJSON(flatData);
+    const result = formatIvaDefects(flatData);
 
     expect(result).toEqual([
       {
@@ -93,7 +93,7 @@ describe("convertFlatDataToProperJSON", () => {
       },
     ];
 
-    const result = convertFlatDataToProperJSON(flatData);
+    const result = formatIvaDefects(flatData);
 
     expect(result).toEqual([
       {
@@ -107,7 +107,7 @@ describe("convertFlatDataToProperJSON", () => {
 
   it("should handle a flat object with no data", () => {
     const flatData = [{}];
-    const result = convertFlatDataToProperJSON(flatData);
+    const result = formatIvaDefects(flatData);
 
     expect(result).toEqual([{}]);
   });
@@ -122,7 +122,7 @@ describe("convertFlatDataToProperJSON", () => {
       },
     ];
 
-    const result = convertFlatDataToProperJSON(flatData);
+    const result = formatIvaDefects(flatData);
 
     expect(result).toEqual([
       {
@@ -143,7 +143,7 @@ describe("convertFlatDataToProperJSON", () => {
       },
     ];
 
-    const result = convertFlatDataToProperJSON(flatData);
+    const result = formatIvaDefects(flatData);
 
     expect(result).toEqual([
       {
@@ -156,7 +156,7 @@ describe("convertFlatDataToProperJSON", () => {
 
   it("should handle an empty input array", () => {
     const flatData: Array<Record<string, any>> = [];
-    const result = convertFlatDataToProperJSON(flatData);
+    const result = formatIvaDefects(flatData);
 
     expect(result).toEqual([]);
   });
@@ -175,7 +175,7 @@ describe("convertFlatDataToProperJSON", () => {
       },
     ];
 
-    const result = convertFlatDataToProperJSON(
+    const result = formatIvaDefects(
       flatData,
     ) as unknown as DefectGETIVA[];
 
