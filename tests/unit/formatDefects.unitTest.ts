@@ -175,9 +175,7 @@ describe("formatIvaDefects", () => {
       },
     ];
 
-    const result = formatIvaDefects(
-      flatData,
-    ) as unknown as DefectGETIVA[];
+    const result = formatIvaDefects(flatData) as unknown as DefectGETIVA[];
 
     expect(result).toEqual([
       {
