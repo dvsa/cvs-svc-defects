@@ -10,7 +10,7 @@ interface INestedObject<T> {
  * @returns An array of nested objects
  * @template T - The type of values in the resulting nested object
  */
-export const convertFlatDataToProperJSON = <T extends DefectGETIVA>(
+export const formatIvaDefects = <T extends DefectGETIVA>(
   flatData: Array<Record<string, any>>,
 ): Array<INestedObject<T>> =>
   flatData.map((flatObject) => {
