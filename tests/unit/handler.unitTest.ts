@@ -96,6 +96,7 @@ describe("The configuration service", () => {
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
       expect(functions.length).toBe(3);
+
       expect(functions[0].name).toBe("getDefects");
       expect(functions[1].name).toBe("getIvaDefectsByManual");
       expect(functions[2].name).toBe("getIvaDefects");

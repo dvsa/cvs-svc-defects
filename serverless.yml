@@ -62,6 +62,8 @@ custom:
         sources:
           - table: cvs-local-defects
             sources: [./tests/resources/defects.json]
+          - table: cvs-local-iva-defects
+            sources: [./output_json/M1_flattened.json]
 
 resources:
   Resources:
@@ -75,6 +77,23 @@ resources:
         KeySchema:
           - AttributeName: id
             KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+    IvaDefects:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: cvs-local-iva-defects
+        AttributeDefinitions:
+          - AttributeName: sectionNumber
+            AttributeType: S
+          - AttributeName: euVehicleCategories_0
+            AttributeType: S
+        KeySchema:
+          - AttributeName: sectionNumber
+            KeyType: HASH
+          - AttributeName: euVehicleCategories_0
+            KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
