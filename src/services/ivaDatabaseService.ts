@@ -13,7 +13,7 @@ export class IvaDatabaseService {
   private static dbClient: DocumentClient;
 
   /**
-   * Constructor for the HTTPResponse class, configures and instantiates DynamoDB config
+   * Constructor for the IvaDatabaseService class, configures and instantiates DynamoDB config
    */
   constructor() {
     const config: IDBConfig = Configuration.getInstance().getDynamoDBConfig();
