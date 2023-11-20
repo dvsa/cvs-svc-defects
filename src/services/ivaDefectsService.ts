@@ -12,7 +12,7 @@ export class IvaDefectsService {
   public readonly ivaDatabaseService: IvaDatabaseService;
 
   /**
-   * Constructor for the HTTPResponse class
+   * Constructor for the IvaDefectsService class
    * @param ivaDatabaseService the IVA database service
    */
   constructor(ivaDatabaseService: IvaDatabaseService) {
