@@ -4,7 +4,7 @@
 
 import { HTTPError } from "../../../src/models/HTTPError";
 import { IvaDefectsService } from "../../../src/services/ivaDefectsService";
-import IvaDefects from "../../resources/ivadefects.json";
+import IvaDefects from "../../resources/iva-defects.json";
 
 const mockGetDefectsByManualId = jest.fn();
 const mockGetDefectsByCriteria = jest.fn();
