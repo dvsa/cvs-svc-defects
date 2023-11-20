@@ -27,62 +27,40 @@ describe("getIvaDefects Function", () => {
       });
       expect(res).toEqual(new HTTPResponse(200, IvaDefects));
     });
+  });
 
-    //   it("returns 204 when no data was found", async () => {
-    //     console.log(IvaDefects);
-    //     mockValidateIvaDefectManualQuery.mockReturnValueOnce(undefined);
-    //     jest
-    //       .spyOn(IvaDefectsService.prototype, "getIvaDefectsByManualId")
-    //       .mockReturnValue(Promise.resolve([]));
-    //     const event = {
-    //       pathParameters: {
-    //         id: "M1",
-    //       },
-    //     };
+  context(
+    "on validation failure returns expected client error status code",
+    () => {
+      it("returns 400 with errors", async () => {
+        mockValidateIvaDefectGetQuery.mockReturnValueOnce({
+          statusCode: 400,
+          body: JSON.stringify({ errors: ["Fake Error"] }),
+        });
+        jest
+          .spyOn(IvaDefectsService.prototype, "getIvaDefects")
+          .mockReturnValue(Promise.resolve([]));
+        const event = {};
 
-    //     const res = await getIvaDefects(event, ctx, () => {
-    //       return;
-    //     });
-    //     expect(res).toEqual(new HTTPResponse(204, []));
-    //   });
-    // });
-
-    // context(
-    //   "on validation failure returns expected client error status code",
-    //   () => {
-    //     it("returns 400 with errors", async () => {
-    //       mockValidateIvaDefectManualQuery.mockReturnValueOnce({
-    //         statusCode: 400,
-    //         body: JSON.stringify({ errors: ["Fake Error"] }),
-    //       });
-    //       jest
-    //         .spyOn(IvaDefectsService.prototype, "getIvaDefectsByManualId")
-    //         .mockReturnValue(Promise.resolve([]));
-    //       const event = {
-    //         pathParameters: {
-    //           id: "M1",
-    //         },
-    //       };
-
-    //       const res = await getIvaDefectsByManual(event, ctx, () => {
-    //         return;
-    //       });
-    //       expect(res.statusCode).toEqual(400);
-    //     });
-    //   },
-    // );
-    // context("on an internal server error returns expected error code", () => {
-    //   it("returns 500 with error", async () => {
-    //     mockValidateIvaDefectManualQuery.mockReturnValueOnce(undefined);
-    //     jest
-    //       .spyOn(IvaDefectsService.prototype, "getIvaDefectsByManualId")
-    //       .mockReturnValue(
-    //         Promise.reject(new HTTPError(500, "Internal Server Error")),
-    //       );
-    //     const res = await getIvaDefectsByManual(null, ctx, () => {
-    //       return;
-    //     });
-    //     expect(res).toEqual(new HTTPResponse(500, "Internal Server Error"));
-    //   });
+        const res = await getIvaDefects(event, ctx, () => {
+          return;
+        });
+        expect(res.statusCode).toEqual(400);
+      });
+    },
+  );
+  context("on an internal server error returns expected error code", () => {
+    it("returns 500 with error", async () => {
+      mockValidateIvaDefectGetQuery.mockReturnValueOnce(undefined);
+      jest
+        .spyOn(IvaDefectsService.prototype, "getIvaDefects")
+        .mockReturnValue(
+          Promise.reject(new HTTPError(500, "Internal Server Error")),
+        );
+      const res = await getIvaDefects(null, ctx, () => {
+        return;
+      });
+      expect(res).toEqual(new HTTPResponse(500, "Internal Server Error"));
+    });
   });
 });
