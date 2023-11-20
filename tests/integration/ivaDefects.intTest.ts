@@ -1,6 +1,6 @@
 import supertest from "supertest";
 import { emptyDatabase, populateDatabase } from "../util/dbOperations";
-import ivaDefectsData from "../resources/ivadefects.json";
+import ivaDefectsData from "../resources/iva-defects.json";
 import { mockToken } from "../util/mockToken";
 
 const url = "http://localhost:3001/";

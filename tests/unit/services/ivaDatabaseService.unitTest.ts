@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
 import AWS from "aws-sdk";
-import IvaDefects from "../../resources/ivadefects.json";
+import IvaDefects from "../../resources/iva-defects.json";
 import { IvaDatabaseService } from "../../../src/services/ivaDatabaseService";
 
 describe("IVA Database Service", () => {

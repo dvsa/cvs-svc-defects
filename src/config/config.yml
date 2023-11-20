@@ -29,10 +29,10 @@ invoke:
         mock: tests/resources/defects.json
       getIvaDefectsByManual:
         name: cvs-svc-iva-defects
-        mock: tests/resources/ivadefects.json
+        mock: tests/resources/iva-defects.json
       getIvaDefects:
         name: cvs-svc-iva-defects
-        mock: tests/resources/ivadefects.json
+        mock: tests/resources/iva-defects.json
   remote:
     params:
       apiVersion: 2015-03-31
