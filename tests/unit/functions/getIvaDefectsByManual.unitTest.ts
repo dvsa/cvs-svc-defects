@@ -16,7 +16,6 @@ describe("getIvaDefectsByManualId Function", () => {
 
   context("on successful retrieval of results", () => {
     it("returns 200 with data", async () => {
-      console.log(IvaDefects);
       mockValidateIvaDefectManualQuery.mockReturnValueOnce(undefined);
       jest
         .spyOn(IvaDefectsService.prototype, "getIvaDefectsByManualId")
