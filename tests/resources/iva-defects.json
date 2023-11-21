@@ -1860,7 +1860,7 @@
     "requiredStandards_4_inspectionTypes_1": "normal",
     "requiredStandards_5_rsNumber": 6,
     "requiredStandards_5_requiredStandard": "When every door, tailgate, boot lid, or other movable part is in the fixed open position (any movable component, with or without a light-signalling device installed on it, in any fixed position different from the ‘normal position of use’) each of the:\n• front and rear position lamps\n• front and rear indicators\n• rear retro reflectors\nmust fulfil one of the following conditions:",
-    "requiredStandards_5_refCalculation": "",
+    "requiredStandards_5_refCalculation": null,
     "requiredStandards_5_additionalInfo": true,
     "requiredStandards_5_inspectionTypes_0": "basic",
     "requiredStandards_5_inspectionTypes_1": "normal",
@@ -3370,5 +3370,4 @@
     "requiredStandards_8_inspectionTypes_0": "basic",
     "requiredStandards_8_inspectionTypes_1": "normal"
   }
-
 ]
