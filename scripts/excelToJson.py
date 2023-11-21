@@ -16,17 +16,24 @@ logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
 
 
 class CustomEncoder(json.JSONEncoder):
+    """
+    Custom json encoder to handle types and Pandas NaN values during serialization
+    """
+
     def default(self, obj):
-        if isinstance(obj, (np.integer, np.int64)):
+        if pd.isna(obj):
+            return None
+        elif isinstance(obj, (np.integer, np.int64)):
             return int(obj)
         elif isinstance(obj, (np.floating, np.float64)):
             return float(obj)
-        elif pd.isna(obj):
-            return None
         return super().default(obj)
 
 
 def keys_to_lower_camel_case(data: Union[Dict, List]) -> Union[Dict, List]:
+    """
+    Convert dict keys to lower camel case
+    """
     if isinstance(data, dict):
         return {convert_key_to_camel_case(k): keys_to_lower_camel_case(v) for k, v in data.items()}
     if isinstance(data, list):
@@ -35,17 +42,79 @@ def keys_to_lower_camel_case(data: Union[Dict, List]) -> Union[Dict, List]:
 
 
 def convert_key_to_camel_case(key: str) -> str:
+    """
+    Convert a string to lower camel case
+    """
     return re.sub(r'[\s_]+', '', key.title()).replace(' ', '') or key
 
 
 def parse_category_keys(category_key: str) -> List[str]:
+    """
+    Parse category keys using specified delimiters
+    """
+
     delimiters = ' ', '-', ','
     regex_pattern = '|'.join(map(re.escape, delimiters))
     return re.split(regex_pattern, category_key)
 
 
+def remove_unnamed_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """
+     Remove columns starting called unnamed from a dataframe
+    """
+    cols_to_drop = [col for col in df.columns if col.startswith('Unnamed')]
+    return df.drop(columns=cols_to_drop)
+
+
+def stringify(value, column_name):
+    """
+    Convert values to a format based on column name
+    """
+    if pd.isna(value):
+        return None
+    if column_name == 'rsNumber':
+        return int(value)
+    elif column_name == 'additionalInfo':
+        return bool(value)
+    return str(value)
+
+
+def prepare_section_json(group: pd.DataFrame, vehicle_type: str, eu_vehicle_category: str) -> Dict[str, Any]:
+    """
+    Prepare a JSON representation of a section in the taxonomy.
+    """
+    required_standards = []
+    for _, row in group.iterrows():
+        inspection_types = [inspection_type.lower() for inspection_type in ['Basic', 'Normal'] if row[inspection_type]]
+        required_standard = {
+            "rsNumber": stringify(row['RS Number'], 'rsNumber'),
+            "requiredStandard": stringify(row['Required Standard'], 'requiredStandard'),
+            "refCalculation": stringify(row['Ref Calculation'], 'refCalculation'),
+            "additionalInfo": stringify(row['Additional info'], 'additionalInfo'),
+            "inspectionTypes": inspection_types
+        }
+        required_standards.append(required_standard)
+
+    section_data = {
+        "sectionNumber": stringify(group['Section Number'].iloc[0], 'sectionNumber'),
+        "sectionDescription": stringify(group['Section Description'].iloc[0], 'sectionDescription'),
+        "vehicleTypes": [vehicle_type],
+        "euVehicleCategories": [eu_vehicle_category],
+        "requiredStandards": required_standards
+    }
+    return section_data
+
+
 def generate_process_function(sheet_name, category_map):
+    """
+    Generate a processing function for a specific Excel sheet.
+    """
+
     def process(xls, output_dir):
+        """
+        The processing function reads the specified sheet from an excel file, applies data transformations,
+        and generates json files based on the provided manual
+        """
         try:
             df = pd.read_excel(xls, sheet_name=sheet_name, skiprows=[0]).dropna(axis=1, how='all')
             vehicle_type = category_map.get(sheet_name, "Unknown")
@@ -89,6 +158,9 @@ def generate_process_function(sheet_name, category_map):
 
 
 def process_excel_file(file_path: str, output_dir: str, category_map: Dict[str, str], max_workers: int = 5) -> None:
+    """
+    Process an excel file and generate JSON files based on the specified manual
+    """
     Path(output_dir).mkdir(parents=True, exist_ok=True)
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         processes = [generate_process_function(sheet_name, category_map) for sheet_name in category_map.keys()]
@@ -101,49 +173,6 @@ def process_excel_file(file_path: str, output_dir: str, category_map: Dict[str, 
                 logging.error(f"Error processing sheet: {e}", exc_info=True)
 
     logging.info("JSON files generated in the output directory.")
-
-
-def remove_unnamed_columns(df: pd.DataFrame) -> pd.DataFrame:
-    cols_to_drop = [col for col in df.columns if col.startswith('Unnamed')]
-    return df.drop(columns=cols_to_drop)
-
-
-def stringify(value, column_name):
-    if pd.isna(value):
-        return None
-    if column_name == 'rsNumber':
-        return int(value)
-    elif column_name == 'additionalInfo':
-        return bool(value)
-    return str(value)
-
-
-def prepare_section_json(group: pd.DataFrame, vehicle_type: str, eu_vehicle_category: str) -> Dict[str, Any]:
-    required_standards = []
-    for _, row in group.iterrows():
-        inspection_types = []
-        if row['Basic']:
-            inspection_types.append("basic")
-        if row['Normal']:
-            inspection_types.append("normal")
-
-        required_standard = {
-            "rsNumber": stringify(row['RS Number'], 'rsNumber'),
-            "requiredStandard": stringify(row['Required Standard'], 'requiredStandard'),
-            "refCalculation": stringify(row['Ref Calculation'], 'refCalculation'),
-            "additionalInfo": stringify(row['Additional info'], 'additionalInfo'),
-            "inspectionTypes": inspection_types
-        }
-        required_standards.append(required_standard)
-
-    section_data = {
-        "sectionNumber": stringify(group['Section Number'].iloc[0], 'sectionNumber'),
-        "sectionDescription": stringify(group['Section Description'].iloc[0], 'sectionDescription'),
-        "vehicleTypes": [vehicle_type],
-        "euVehicleCategories": [eu_vehicle_category],
-        "requiredStandards": required_standards
-    }
-    return section_data
 
 
 if __name__ == "__main__":
