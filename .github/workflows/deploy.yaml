@@ -1,0 +1,50 @@
+name: 🚀 Deploy
+run-name: "${{ github.actor }} - ${{ github.ref_name }} - ${{ github.head_ref }} - ${{ github.run_id }}"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feature/CB2-9827
+
+permissions:
+  id-token: write
+
+env:
+  BUCKET_NAME: "cvs-services"
+  BUCKEY_KEY: "defects-iva"
+  ZIP_NAME: ${{ github.sha }}
+  AWS_REGION: "eu-west-1"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Package
+        run: npm run package
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.CVS_MGMT_AWS_ROLE }}
+          aws-region: eu-west-1
+          role-session-name: Terraform-GHA
+
+      - name: Upload to S3
+        run: |
+          aws s3 cp ${{ env.ZIP_NAME }} s3://${{ env.BUCKET_NAME }}/${{ env.BUCKEY_KEY }}
+        env:
+          AWS_DEFAULT_REGION: ${{ env.AWS_REGION }}
+
+      - run: npm run tf:workspace
+      - run: npm run tf:plan && terraform show terraform/ref-data.tfplan -no-colour > plan.txt
