@@ -15,21 +15,6 @@ LOG_FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
 logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
 
 
-class CustomEncoder(json.JSONEncoder):
-    """
-    Custom json encoder to handle types and Pandas NaN values during serialization
-    """
-
-    def default(self, obj):
-        if pd.isna(obj):
-            return None
-        elif isinstance(obj, (np.integer, np.int64)):
-            return int(obj)
-        elif isinstance(obj, (np.floating, np.float64)):
-            return float(obj)
-        return super().default(obj)
-
-
 def keys_to_lower_camel_case(data: Union[Dict, List]) -> Union[Dict, List]:
     """
     Convert dict keys to lower camel case
@@ -144,11 +129,11 @@ def generate_process_function(sheet_name, category_map):
                 ]
 
                 with open(Path(output_dir) / json_filename, 'w', encoding='utf-8') as f:
-                    json.dump(sheet_json_content, f, indent=4, cls=CustomEncoder, ensure_ascii=False)
+                    json.dump(sheet_json_content, f, indent=4, ensure_ascii=False)
 
                 with open(Path(output_dir) / json_flattened_filename, 'w', encoding='utf-8') as f:
                     flat_data = [flatten(item, separator='_') for item in sheet_json_content]
-                    json.dump(flat_data, f, indent=4, cls=CustomEncoder, ensure_ascii=False)
+                    json.dump(flat_data, f, indent=4, ensure_ascii=False)
 
         except Exception as e:
             logging.error(f"Failed to process sheet {sheet_name}: {e}", exc_info=True)
