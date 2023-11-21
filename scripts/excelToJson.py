@@ -54,7 +54,6 @@ def generate_process_function(sheet_name, category_map):
             for col in missing_cols:
                 df[col] = None
 
-            df['Ref Calculation'] = df['Ref Calculation'].apply(stringify)
             df[["Basic", "Normal", "Additional info"]] = df[["Basic", "Normal", "Additional info"]].map(
                 lambda x: x.lower() if isinstance(x, str) else x).replace({'yes': True, 'no': False}).fillna(False)
 
@@ -109,7 +108,9 @@ def remove_unnamed_columns(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def stringify(value):
-    return str(value) if not pd.isna(value) else ""
+    if pd.isna(value):
+        return None
+    return str(value)
 
 
 def prepare_section_json(group: pd.DataFrame, vehicle_type: str, eu_vehicle_category: str) -> Dict[str, Any]:
@@ -122,17 +123,17 @@ def prepare_section_json(group: pd.DataFrame, vehicle_type: str, eu_vehicle_cate
             inspection_types.append("normal")
 
         required_standard = {
-            "rsNumber": row['RS Number'],
-            "requiredStandard": row['Required Standard'],
-            "refCalculation": row['Ref Calculation'],
-            "additionalInfo": row['Additional info'],
+            "rsNumber": stringify(row['RS Number']),
+            "requiredStandard": stringify(row['Required Standard']),
+            "refCalculation": stringify(row['Ref Calculation']),
+            "additionalInfo": stringify(row['Additional info']),
             "inspectionTypes": inspection_types
         }
         required_standards.append(required_standard)
 
     section_data = {
-        "sectionNumber": group['Section Number'].iloc[0],
-        "sectionDescription": group['Section Description'].iloc[0],
+        "sectionNumber": stringify(group['Section Number'].iloc[0]),
+        "sectionDescription": stringify(group['Section Description'].iloc[0]),
         "vehicleTypes": [vehicle_type],
         "euVehicleCategories": [eu_vehicle_category],
         "requiredStandards": required_standards
