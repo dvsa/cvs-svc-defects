@@ -27,13 +27,13 @@ paths:
       description: Return defects
       operationId: GetDefects
       security:
-      - ${lambda_auth_name}: []
+        - ${lambda_auth_name}: []
       x-amazon-apigateway-integration:
         responses:
           default:
             statusCode: "200"
         requestTemplates:
-          application/json: "{\"statusCode\": 200}"
+          application/json: '{"statusCode": 200}'
         passthroughBehavior: "when_no_match"
         type: "mock"
       responses:
@@ -69,13 +69,13 @@ paths:
           schema:
             $ref: "#/components/schemas/inspectionType"
       security:
-      - ${lambda_auth_name}: []
+        - ${lambda_auth_name}: []
       x-amazon-apigateway-integration:
         responses:
           default:
             statusCode: "200"
         requestTemplates:
-          application/json: "{\"statusCode\": 200}"
+          application/json: '{"statusCode": 200}'
         passthroughBehavior: "when_no_match"
         type: "mock"
       responses:
@@ -109,13 +109,13 @@ paths:
             type: string
           required: true
       security:
-      - ${lambda_auth_name}: []
+        - ${lambda_auth_name}: []
       x-amazon-apigateway-integration:
         responses:
           default:
             statusCode: "200"
         requestTemplates:
-          application/json: "{\"statusCode\": 200}"
+          application/json: '{"statusCode": 200}'
         passthroughBehavior: "when_no_match"
         type: "mock"
       responses:
