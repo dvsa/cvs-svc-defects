@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - develop
+      - feature/CB2-9827
   workflow_dispatch:
   workflow_call:
 
