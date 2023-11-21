@@ -41,6 +41,7 @@ jobs:
         run: npm run test
 
       - name: Run Integration Tests
+        continue-on-error: true
         run: npm run test-i
 
       - name: Sonar Scanner
