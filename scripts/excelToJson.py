@@ -9,7 +9,8 @@ import numpy as np
 import pandas as pd
 from flatten_json import flatten
 
-EXPECTED_COLUMNS = ["RS Number", "Required Standard", "Ref Calculation", "Additional info", "Basic", "Normal"]
+EXPECTED_COLUMNS = ["Section Number", "Section Description", "RS Number", "Required Standard", "Ref Calculation",
+                    "Additional info", "Basic", "Normal"]
 LOG_FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
 logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
 
@@ -107,9 +108,13 @@ def remove_unnamed_columns(df: pd.DataFrame) -> pd.DataFrame:
     return df.drop(columns=cols_to_drop)
 
 
-def stringify(value):
+def stringify(value, column_name):
     if pd.isna(value):
         return None
+    if column_name == 'rsNumber':
+        return int(value)
+    elif column_name == 'additionalInfo':
+        return bool(value)
     return str(value)
 
 
@@ -123,17 +128,17 @@ def prepare_section_json(group: pd.DataFrame, vehicle_type: str, eu_vehicle_cate
             inspection_types.append("normal")
 
         required_standard = {
-            "rsNumber": stringify(row['RS Number']),
-            "requiredStandard": stringify(row['Required Standard']),
-            "refCalculation": stringify(row['Ref Calculation']),
-            "additionalInfo": stringify(row['Additional info']),
+            "rsNumber": stringify(row['RS Number'], 'rsNumber'),
+            "requiredStandard": stringify(row['Required Standard'], 'requiredStandard'),
+            "refCalculation": stringify(row['Ref Calculation'], 'refCalculation'),
+            "additionalInfo": stringify(row['Additional info'], 'additionalInfo'),
             "inspectionTypes": inspection_types
         }
         required_standards.append(required_standard)
 
     section_data = {
-        "sectionNumber": stringify(group['Section Number'].iloc[0]),
-        "sectionDescription": stringify(group['Section Description'].iloc[0]),
+        "sectionNumber": stringify(group['Section Number'].iloc[0], 'sectionNumber'),
+        "sectionDescription": stringify(group['Section Description'].iloc[0], 'sectionDescription'),
         "vehicleTypes": [vehicle_type],
         "euVehicleCategories": [eu_vehicle_category],
         "requiredStandards": required_standards
