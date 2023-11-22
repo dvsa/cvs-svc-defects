@@ -33,7 +33,6 @@ describe("getIvaDefectsByManualId Function", () => {
     });
 
     it("returns 204 when no data was found", async () => {
-      console.log(IvaDefects);
       mockValidateIvaDefectManualQuery.mockReturnValueOnce(undefined);
       jest
         .spyOn(IvaDefectsService.prototype, "getIvaDefectsByManualId")
