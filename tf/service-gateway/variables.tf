@@ -9,3 +9,21 @@ variable "open_api_spec_file" {
   type        = string
   default     = ""
 }
+
+variable "project" {
+  type        = string
+  description = "The name of the tfscaffold project"
+  default     = "cvs"
+}
+
+variable "component" {
+  type        = string
+  description = "The name of the tfscaffold component"
+  default     = "tf"
+}
+
+variable "csi" {
+  type = string
+  description = "CSI for use in resources with a global namespace, i.e. S3 Buckets"
+  default = ""
+}

@@ -10,6 +10,31 @@ data "terraform_remote_state" "current_or_dev" {
   }
 }
 
+# data "aws_iam_policy_document" "defects_policy_document" {
+#   statement {
+#     sid     = "AllowAPIGAssumeRole"
+#     effect  = "Allow"
+#     actions = ["sts:AssumeRole"]
+
+#     principals {
+#       type        = "Service"
+#       identifiers = ["apigateway.amazonaws.com"]
+#     }
+#   }
+# }
+
+# resource "aws_iam_role" "defects_role" {
+#   name = "${var.csi}-defects-apigw"
+
+#   assume_role_policy = data.aws_iam_policy_document.defects_policy_document.json
+
+#   tags = merge(
+#     {
+#       "Name" = "${var.csi}-defects-apigw",
+#     },
+#   )
+# }
+
 data "aws_api_gateway_rest_api" "primary_api_gateway" {
   name = local.base_api_gateway_name
 }

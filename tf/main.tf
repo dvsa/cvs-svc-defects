@@ -17,9 +17,30 @@ terraform {
   }
 }
 
+provider "aws" {
+  region = "eu-west-1"
+  default_tags {
+    tags = local.tags
+  }
+}
+
+data "aws_caller_identity" "current" {}
+
 module "service_gateway" {
   source              = "./service-gateway"
 
   service_name        = "defects"
   open_api_spec_file  = "./../docs/defects-api.yml"
+}
+
+module "service_lambda_get_iva_defects" {
+  source              = "./service-lambda"
+  service_name        = "defects-iva-get"
+  bucket_key          = "defects-iva/cb2-9827.zip"
+  handler             = "handler.handler"
+  description         = "Defects IVA handler"
+  component           = "${local.component}"
+  csi                 = "${local.csi}"
+  csi_name            = "${local.csi_name}"
+  invoker_arn         = module.service_gateway.apigw_arn
 }
