@@ -14,7 +14,7 @@
   "scripts": {
     "start": "BRANCH=local SLS_DEBUG=* serverless offline start",
     "tools-setup": "sls dynamodb install",
-    "test": "npm run test:unit:coverage ",
+    "test": "npm run test:unit:coverage",
     "test:unit": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*.unitTest.ts\"",
     "test:unit:coverage": "npm run test:unit -- --coverage --runInBand",
     "test:integration": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\"",
