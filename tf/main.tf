@@ -19,6 +19,15 @@ terraform {
 
 provider "aws" {
   region = "eu-west-1"
+  alias  = "mgmt"
+
+  default_tags {
+    tags = local.tags
+  }
+}
+
+provider "aws" {
+  region = "eu-west-1"
   assume_role {
     role_arn = "arn:aws:iam::${local.acct_ids[local.provider_profile]}:role/TerraformRole"
   }
