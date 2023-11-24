@@ -1,6 +1,6 @@
 data "terraform_remote_state" "current_or_dev" {
   backend   = "s3"
-  workspace = terraform.workspace
+  workspace = local.is_feature ? "develop" : terraform.workspace
   config = {
     bucket         = "cvs-tf-environment"
     key            = "tf_state"

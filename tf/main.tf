@@ -19,12 +19,25 @@ terraform {
 
 provider "aws" {
   region = "eu-west-1"
+  assume_role {
+    role_arn = "arn:aws:iam::${local.acct_ids[local.provider_profile]}:role/TerraformRole"
+  }
   default_tags {
     tags = local.tags
   }
 }
 
-data "aws_caller_identity" "current" {}
+provider "aws" {
+  region = "us-east-1"
+  alias  = "us-east-1"
+
+  assume_role {
+    role_arn = "arn:aws:iam::${local.acct_ids[local.provider_profile]}:role/TerraformRole"
+  }
+  default_tags {
+    tags = local.tags
+  }
+}
 
 module "service_gateway" {
   source              = "./service-gateway"
