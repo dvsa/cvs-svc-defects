@@ -1,6 +1,8 @@
 locals {
   project = "cvs"
   component = "dft"
+  service_name = "defects-iva"
+  service_description = "Defects IVA service"
 
   main_envs     = concat(local.prod_envs, local.non_prod_envs)
   non_prod_envs = ["develop", "devops", "integration"]

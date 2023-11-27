@@ -47,4 +47,9 @@ jobs:
           AWS_DEFAULT_REGION: ${{ env.AWS_REGION }}
 
       - run: npm run tf:workspace
-      - run: npm run tf:plan && terraform show tf/ref-data.tfplan -no-colour > plan.txt
+      - run: npm run tf:plan && terraform show tf/defects.tfplan -no-colour > plan.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{github.run_id }}-${{ github.ref_name }}-defects.txt
+          path: plan.txt
+      # - run: npm run tf:apply

@@ -57,10 +57,10 @@ module "service_gateway" {
 
 module "service_lambda_get_iva_defects" {
   source              = "./service-lambda"
-  service_name        = "defects-iva-get"
-  bucket_key          = "defects-iva/cb2-9827.zip"
+  service_name        = "${local.service_name}-get"
+  bucket_key          = "${var.bucket_key}"
   handler             = "handler.handler"
-  description         = "Defects IVA handler"
+  description         = "${local.service_description} Get"
   component           = "${local.component}"
   csi                 = "${local.csi}"
   csi_name            = "${local.csi_name}"
