@@ -47,4 +47,4 @@ jobs:
           AWS_DEFAULT_REGION: ${{ env.AWS_REGION }}
 
       - run: npm run tf:workspace
-      - run: npm run tf:plan && terraform show terraform/ref-data.tfplan -no-colour > plan.txt
+      - run: npm run tf:plan && terraform show tf/ref-data.tfplan -no-colour > plan.txt
