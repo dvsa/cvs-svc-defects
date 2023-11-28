@@ -48,8 +48,4 @@ jobs:
 
       - run: npm run tf:workspace
       - run: npm run tf:plan
-      - uses: actions/upload-artifact@v3
-        with:
-          name: ${{github.run_id }}-${{ github.ref_name }}-defects.txt
-          path: tf/plan.txt
-      # - run: npm run tf:apply
+      - run: npm run tf:apply
