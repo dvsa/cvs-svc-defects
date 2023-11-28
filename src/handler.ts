@@ -9,8 +9,9 @@ const handler: Handler = async (
   context: Context,
   callback: Callback,
 ): Promise<APIGatewayProxyResult> => {
-
-  return new HTTPResponse(200, { "message": "Successfully executed lambda instance" })
+  return new HTTPResponse(200, {
+    message: "Successfully executed lambda instance",
+  });
 
   // Request integrity checks
   if (!event) {
