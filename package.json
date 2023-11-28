@@ -34,7 +34,7 @@
     "commit-msg": "commitlint --edit $1",
     "prepare": "husky install",
     "tf:workspace": "cd tf && bash ./workspace.sh",
-    "tf:plan": "cd tf && terraform init && terraform plan -var 'bucket_key=${BUCKET_KEY}/${ZIP_NAME}.zip' -out defects.tfplan",
+    "tf:plan": "cd tf && terraform init && terraform plan -out defects.tfplan",
     "tf:apply": "cd tf && terraform apply defects.tfplan"
   },
   "author": "",
