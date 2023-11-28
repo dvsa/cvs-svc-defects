@@ -53,6 +53,9 @@ resource "aws_api_gateway_rest_api" "service_api" {
       lambda_auth_name        = "${local.base_lambda_auth_name}"
       authorizerUri           = "${local.base_lambda_auth_uri}"
       authorizerCredentials   = "${local.base_lambda_auth_credentials}"
+      lambdas                 = tomap({
+        for key, value in var.lambdas : key => value
+      })
     }
   )
   policy              = data.aws_api_gateway_rest_api.primary_api_gateway.policy

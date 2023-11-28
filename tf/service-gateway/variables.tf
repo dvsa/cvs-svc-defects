@@ -27,3 +27,8 @@ variable "csi" {
   description = "CSI for use in resources with a global namespace, i.e. S3 Buckets"
   default = ""
 }
+
+variable "lambdas" {
+  type        = map(string)
+  description = "The arns for the lambda functions of this gateway"
+}

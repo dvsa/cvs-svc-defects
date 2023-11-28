@@ -29,13 +29,11 @@ paths:
       security:
         - ${lambda_auth_name}: []
       x-amazon-apigateway-integration:
-        responses:
-          default:
-            statusCode: "200"
-        requestTemplates:
-          application/json: '{"statusCode": 200}'
+        type: "aws_proxy"
+        httpMethod: "GET"
+        uri: '${lambdas["get_defects"]}'
         passthroughBehavior: "when_no_match"
-        type: "mock"
+        timeoutInMillis: 29000
       responses:
         "200":
           description: All defects returned
