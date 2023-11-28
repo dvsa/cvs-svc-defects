@@ -35,7 +35,7 @@
     "prepare": "husky install",
     "tf:workspace": "cd tf && bash ./workspace.sh",
     "tf:plan": "cd tf && terraform init && terraform plan -var 'bucket_key=${BUCKET_KEY}/${ZIP_NAME}.zip' -out defects.tfplan",
-    "tf:apply": "cd tf && terraform apply defects.tfplan -var 'bucket_key=${BUCKET_KEY}/${ZIP_NAME}.zip'"
+    "tf:apply": "cd tf && terraform apply -var 'bucket_key=${BUCKET_KEY}/${ZIP_NAME}.zip' defects.tfplan"
   },
   "author": "",
   "license": "MIT",
