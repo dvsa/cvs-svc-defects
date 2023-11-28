@@ -46,6 +46,11 @@ jobs:
         env:
           AWS_DEFAULT_REGION: ${{ env.AWS_REGION }}
 
-      - run: npm run tf:workspace
-      - run: npm run tf:plan
-      - run: npm run tf:apply
+      - name: Set workspace
+        run: npm run tf:workspace
+
+      - name: Terraform plan
+        run: npm run tf:plan
+
+      - name: Terraform apply
+        run: npm run tf:apply
