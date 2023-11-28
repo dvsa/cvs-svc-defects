@@ -11,7 +11,7 @@ permissions:
 
 env:
   BUCKET_NAME: "cvs-services"
-  BUCKEY_KEY: "defects-iva"
+  BUCKET_KEY: "defects-iva"
   ZIP_NAME: ${{ github.sha }}
   AWS_REGION: "eu-west-1"
 
