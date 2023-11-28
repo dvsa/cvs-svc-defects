@@ -5,9 +5,9 @@ name: PR-checks
 
 on:
   push:
-    branches: ["*"]
+    branches: ["develop", "feature/VTMDEV-1"]
   pull_request:
-    branches: ["*"]
+    branches: ["develop", "feature/VTMDEV-1"]
 
 jobs:
   build-test:
