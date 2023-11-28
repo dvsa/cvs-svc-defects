@@ -21,9 +21,3 @@ variable "bucket_key" {
     description = "The name of the service artefact"
     default = ""
 }
-
-variable "zip_name" {
-    type = string
-    description = "The name of the zip artefact"
-    default = ""
-}

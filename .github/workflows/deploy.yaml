@@ -50,7 +50,7 @@ jobs:
         run: npm run tf:workspace
 
       - name: Terraform plan
-        run: TF_VAR_bucket_key=${{ env.BUCKET_KEY }}/${{ env.ZIP_NAME }} npm run tf:plan
+        run: TF_VAR_bucket_key=${{ env.BUCKET_KEY }}/${{ env.ZIP_NAME }}.zip npm run tf:plan
 
       - name: Terraform apply
         run: npm run tf:apply
