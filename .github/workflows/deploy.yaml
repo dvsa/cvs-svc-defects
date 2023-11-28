@@ -48,4 +48,4 @@ jobs:
 
       - run: npm run tf:workspace
       - run: npm run tf:plan
-      # - run: npm run tf:apply
+      - run: npm run tf:apply
