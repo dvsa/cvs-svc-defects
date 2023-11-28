@@ -36,7 +36,7 @@ describe("Defects Service", () => {
           );
 
         await request.get("defects").then((res: any) => {
-          expect(res.statusCode).toBe(3223);
+          expect(res.statusCode).toBe(200);
           expect(res.headers["access-control-allow-origin"]).toBe("*");
           expect(res.headers["access-control-allow-credentials"]).toBe("true");
           expect(res.body.length).toBe(expectedResponse.length);
