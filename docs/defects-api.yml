@@ -30,7 +30,7 @@ paths:
         - ${lambda_auth_name}: []
       x-amazon-apigateway-integration:
         type: "aws_proxy"
-        httpMethod: "GET"
+        httpMethod: "POST"
         uri: '${lambdas["get_defects"]}'
         passthroughBehavior: "when_no_match"
         timeoutInMillis: 29000
