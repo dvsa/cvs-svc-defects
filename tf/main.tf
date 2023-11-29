@@ -68,5 +68,5 @@ module "service_lambda_get_iva_defects" {
   component           = "${local.component}"
   csi                 = "${local.csi}"
   csi_name            = "${local.csi_name}"
-  invoker_arn         = module.service_gateway.apigw_arn
+  invoker_arn         = "${module.service_gateway.apigw_arn}/*/*/*"
 }
