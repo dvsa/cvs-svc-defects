@@ -39,7 +39,7 @@ locals {
       local.project,
       terraform.workspace,
       local.component,
-      "defects-iva",
+      local.service_name,
     ),
     "_",
     "",
