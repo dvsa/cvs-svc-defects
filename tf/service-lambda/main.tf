@@ -1,30 +1,3 @@
-data "aws_lambda_function" "template_lambda" {
-  function_name = "defects-${terraform.workspace}"
-}
-
-data "aws_iam_policy_document" "assumerole" {
-  statement {
-    sid     = "AllowLambdaAssumeRole"
-    effect  = "Allow"
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["lambda.amazonaws.com"]
-    }
-  }
-}
-
-# data "aws_s3_object" "service_hash" {
-#   bucket = var.bucket_name
-#   key    = "${var.service_name}/latestHash_${terraform.workspace}.txt"
-# }
-
-# data "aws_s3_object" "service" {
-#   bucket = var.bucket_name
-#   key    = "${var.service_name}/${data.aws_s3_object.service_hash.body}.zip"
-# }
-
 resource "aws_lambda_function" "service" {
   function_name = "${var.service_name}-${terraform.workspace}"
   s3_bucket     = "${var.bucket_name}"
@@ -54,17 +27,6 @@ resource "aws_lambda_function" "service" {
     mode = "Active"
   }
 
-  # environment {
-  #   variables = merge(local.default_env_vars, var.additional_env_vars)
-  # }
-
-  # dynamic "dead_letter_config" {
-  #   for_each = var.dlq_arn == "" ? [] : [var.dlq_arn]
-  #   content {
-  #     target_arn = var.dlq_arn
-  #   }
-  # }
-
   tags = {
     Component   = var.component
     Module      = "cvs-tf-service"
@@ -79,7 +41,6 @@ resource "aws_lambda_alias" "main" {
   function_name    = aws_lambda_function.service.arn
   function_version = "$LATEST"
 }
-
 
 resource "aws_lambda_permission" "allow_invoke" {
   statement_id  = "AllowApiGatewayInvokeLambdaFunction"
