@@ -46,6 +46,13 @@ jobs:
         env:
           AWS_DEFAULT_REGION: ${{ env.AWS_REGION }}
 
+      - name: Upload latest hash to S3
+        run: |
+          current=$(git branch --show-current |  tr '[:upper:]' '[:lower:]')
+          branch=${current#feature/}
+          echo ${{ github.sha }} >> latestHash_${branch}.txt
+          aws s3 cp latestHash_${branch}.txt s3://${{ env.BUCKET_NAME }}/${{ env.BUCKET_KEY }}/
+
       - name: Set workspace
         run: npm run tf:workspace
 
