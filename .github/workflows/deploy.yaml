@@ -53,11 +53,16 @@ jobs:
           echo ${{ github.sha }} >> latestHash_${branch}.txt
           aws s3 cp latestHash_${branch}.txt s3://${{ env.BUCKET_NAME }}/${{ env.BUCKET_KEY }}/
 
+      - name: Set github token
+        run: |
+          git config --add --global url."https://oauth2:${{ secrets.GITHUB_TOKEN }}@github.com".insteadOf "https://github.com"
+
       - name: Set workspace
         run: npm run tf:workspace
 
       - name: Terraform plan
-        run: TF_VAR_bucket_key=${{ env.BUCKET_KEY }}/${{ env.ZIP_NAME }}.zip npm run tf:plan
+        run: |
+          TF_VAR_bucket_key=${{ env.BUCKET_KEY }}/${{ env.ZIP_NAME }}.zip npm run tf:plan
 
       - name: Terraform apply
         run: npm run tf:apply
