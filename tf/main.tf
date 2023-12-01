@@ -55,7 +55,6 @@ module "service_gateway" {
   open_api_spec_file  = "./../docs/defects-api.yml"
   lambdas = {
     get_defects     = module.service_lambda_get_iva_defects.lambda_arn
-    # get_iva_defects = ""
   }
 }
 
