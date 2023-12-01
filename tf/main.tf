@@ -47,9 +47,9 @@ provider "aws" {
     tags = local.tags
   }
 }
-
+# github.com/org/repo//path/to/module?ref=branch-name
 module "service_gateway" {
-  source              = "github.com/dvsa/cvs-tf-modules/tree/feature/cb2-9827/service-gateway"
+  source              = "git::https://github.com/dvsa/cvs-tf-modules/service-gateway?ref=feature/cb2-9827"
 
   service_name        = "defects"
   open_api_spec_file  = "./../docs/defects-api.yml"
@@ -59,7 +59,7 @@ module "service_gateway" {
 }
 
 module "service_lambda_get_iva_defects" {
-  source              = "github.com/dvsa/cvs-tf-modules/tree/feature/cb2-9827/service-lambda"
+  source              = "git::https://github.com/dvsa/cvs-tf-modules/service-lambda?ref=feature/cb2-9827"
   service_name        = "${local.service_name}-get"
   bucket_key          = "${var.bucket_key}"
   handler             = "handler.handler"
