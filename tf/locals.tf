@@ -24,17 +24,6 @@ locals {
 
   csi = replace(
     format(
-      "%s-%s-%s",
-      local.project,
-      terraform.workspace,
-      local.component,
-    ),
-    "_",
-    "",
-  )
-
-  csi_name = replace(
-    format(
       "%s-%s-%s-%s",
       local.project,
       terraform.workspace,
