@@ -50,7 +50,7 @@ jobs:
         run: |
           current=$(git branch --show-current |  tr '[:upper:]' '[:lower:]')
           branch=${current#feature/}
-          echo ${{ github.sha }} >> latestHash_${branch}.txt
+          echo -n ${{ github.sha }} >> latestHash_${branch}.txt
           aws s3 cp latestHash_${branch}.txt s3://${{ env.BUCKET_NAME }}/${{ env.BUCKET_KEY }}/
 
       - name: Set workspace
