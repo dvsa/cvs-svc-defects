@@ -33,9 +33,9 @@
     "precommit": "npm run security-checks && npm run audit && npm run lint && npm run format",
     "commit-msg": "commitlint --edit $1",
     "prepare": "husky install",
-    "tf:workspace": "cd tf && bash ./workspace.sh",
-    "tf:plan": "cd tf && terraform init && terraform plan -out defects.tfplan",
-    "tf:apply": "cd tf && terraform apply defects.tfplan"
+    "tf:workspace": "cd terraform && bash ./workspace.sh",
+    "tf:plan": "cd terraform && terraform init && terraform plan -out defects.tfplan",
+    "tf:apply": "cd terraform && terraform apply defects.tfplan"
   },
   "author": "",
   "license": "MIT",
