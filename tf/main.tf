@@ -61,7 +61,7 @@ module "service_gateway" {
     get_defects = {
       service_name        = "${local.service_name}-get"
       bucket_key          = "${var.bucket_key}"
-      handler             = "handler/get.handler"
+      handler             = "handler.handler"
       description         = "${local.service_description} Get"
     }
   }
