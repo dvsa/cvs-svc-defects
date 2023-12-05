@@ -20,7 +20,7 @@
     "test:integration": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\"",
     "test-i": "AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE=1 npm run test:integration -- --runInBand --globalSetup='./scripts/setUp.ts' --globalTeardown='./scripts/tearDown.ts'",
     "build": "node_modules/typescript/bin/tsc --rootDir ./ --outDir .build --sourceMap false && npm run build:copy",
-    "build:copy": "find src -type f \\( -name \"*.yml\" -or -name \"*.json\" \\) | cpio -pdm .build && find tests -type f \\( -name \"*.yml\" -or -name \"*.json\" \\)  | cpio -pdm .build",
+    "build:copy": "find src -type f \\( -name \"*.yml\" -or -name \"*.json\" \\) | cpio -pdm .build && find tests -type f \\( -name \"*.yml\" -or -name \"*.json\" \\)  | cpio -pdm .build | cp package*.json .build",
     "prepush": "npm run test && npm run build && npm run test-i",
     "security-checks": "git secrets --scan",
     "lint": "tslint src/**/*.ts tests/**/*.ts --out .reports/lint_issues.json",
@@ -32,7 +32,10 @@
     "postinstall": "patch-package",
     "precommit": "npm run security-checks && npm run audit && npm run lint && npm run format",
     "commit-msg": "commitlint --edit $1",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "tf:workspace": "cd terraform && bash ./workspace.sh",
+    "tf:plan": "cd terraform && terraform init && terraform plan -out defects.tfplan",
+    "tf:apply": "cd terraform && terraform apply defects.tfplan"
   },
   "author": "",
   "license": "MIT",
