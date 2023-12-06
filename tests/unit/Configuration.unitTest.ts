@@ -98,10 +98,12 @@ describe("ConfigurationUtil", () => {
       const dbConfig: IDBConfig =
         Configuration.getInstance().getDynamoDBConfig();
       it("should return the local invoke config", () => {
-        expect(Object.keys(dbConfig)).toEqual(
-          expect.arrayContaining(["params", "table", "keys"]),
-        );
-        expect(dbConfig.table).toBe("cvs-local-defects");
+        expect(Object.keys(dbConfig)).toEqual([
+          "defects",
+          "ivaDefects",
+          "keys",
+        ]);
+        expect(dbConfig.defects.table).toBe("cvs-local-defects");
       });
     });
 
@@ -110,13 +112,15 @@ describe("ConfigurationUtil", () => {
       const dbConfig: IDBConfig =
         Configuration.getInstance().getDynamoDBConfig();
       it("should return the local invoke config", () => {
-        expect(Object.keys(dbConfig)).toEqual(
-          expect.arrayContaining(["params", "table"]),
-        );
-        expect(Object.keys(dbConfig)).not.toContain("keys");
-        expect(dbConfig.table).toBe("cvs-local-global-defects");
-        expect(Object.keys(dbConfig.params)).toEqual(
-          expect.arrayContaining(["region", "endpoint"]),
+        expect(Object.keys(dbConfig)).toEqual([
+          "defects",
+          "ivaDefects",
+          "keys",
+        ]);
+        expect(Object.keys(dbConfig.defects)).not.toContain("keys");
+        expect(dbConfig.defects.table).toBe("cvs-local-global-defects");
+        expect(Object.keys(dbConfig.defects)).toEqual(
+          expect.arrayContaining(["region", "endpoint", "table"]),
         );
       });
     });
@@ -126,12 +130,9 @@ describe("ConfigurationUtil", () => {
         process.env.BRANCH = "develop";
         // Switch to mockedConfig to simplify environment mocking
         const dbConfig: IDBConfig = getMockedConfig().getDynamoDBConfig();
-        expect(Object.keys(dbConfig)).toEqual(
-          expect.arrayContaining(["params", "table"]),
-        );
+        expect(Object.keys(dbConfig)).toEqual(["defects", "ivaDefects"]);
         expect(Object.keys(dbConfig)).not.toContain("keys");
-        expect(dbConfig.table).toBe("cvs-develop-defects");
-        expect(dbConfig.params).toEqual({});
+        expect(dbConfig.defects.table).toBe("cvs-develop-defects");
       });
     });
 

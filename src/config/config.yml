@@ -5,6 +5,18 @@ functions:
       proxy: null
       function: getDefects
       event: apigateway
+  - getIvaDefectsByManual:
+      method: GET
+      path: /defects/iva/manual/{+proxy}
+      proxy: :id
+      function: getIvaDefectsByManual
+      event: apigateway
+  - getIvaDefects:
+      method: GET
+      path: /defects/iva
+      proxy: null
+      function: getIvaDefects
+      event: apigateway
 
 invoke:
   local:
@@ -15,6 +27,12 @@ invoke:
       getDefects:
         name: cvs-svc-defects
         mock: tests/resources/defects.json
+      getIvaDefectsByManual:
+        name: cvs-svc-iva-defects
+        mock: tests/resources/iva-defects.json
+      getIvaDefects:
+        name: cvs-svc-iva-defects
+        mock: tests/resources/iva-defects.json
   remote:
     params:
       apiVersion: 2015-03-31
@@ -23,20 +41,34 @@ invoke:
         name: defects-${BRANCH}
 dynamodb:
   local:
-    params:
+    defects:
       region: localhost
       endpoint: http://127.0.0.1:8003
-    table: cvs-local-defects
+      table: cvs-local-defects
+    ivaDefects:
+      region: localhost
+      endpoint: http://127.0.0.1:8003
+      table: cvs-local-iva-defects
     keys:
-      - defects
+      - Defects
+      - IVA defects
   local-global:
-    params:
+    defects:
       region: localhost
       endpoint: http://127.0.0.1:8000
-    table: cvs-local-global-defects
+      table: cvs-local-global-defects
+    ivaDefects:
+      region: localhost
+      endpoint: http://127.0.0.1:8000
+      table: cvs-local-global-iva-defects
+    keys:
+      - Defects
+      - IVA defects
   remote:
-    params: {}
-    table: cvs-${BRANCH}-defects
+    defects:
+      table: cvs-${BRANCH}-defects
+    ivaDefects:
+      table: cvs-${BRANCH}-iva-defects
 serverless:
   basePath: /${BRANCH}
   port: 3001
