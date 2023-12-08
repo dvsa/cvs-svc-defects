@@ -4,9 +4,8 @@ info:
     This is the API spec for retrieving all defects. These defects will be
     stored locally on the VSAs mobile device. Authorization details will be
     updated once we have confirmed the security scheme we are using.
-  version: 1.0.0
+  version: 1.1.0
   title: Defect Microservice
-  termsOfService: ""
   contact:
     email: mdclarke@deloitte.co.uk
   license:
@@ -26,6 +25,14 @@ paths:
       summary: Return defects
       description: Return defects
       operationId: GetDefects
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestTemplates:
+          application/json: '{"statusCode": 200}'
+        passthroughBehavior: "when_no_match"
+        type: "mock"
       responses:
         "200":
           description: All defects returned
@@ -39,16 +46,95 @@ paths:
           description: Access token does not have the required scope
         "404":
           description: Defects not found
+
+  /defects/iva:
+    get:
+      summary: Search the IVA defect manuals by Vehicle Type, EU Vehicle Category and Inspection type.
+      tags:
+        - IVA Defects
+      parameters:
+        - in: query
+          name: vehicleType
+          schema:
+            $ref: "#/components/schemas/vehicleType"
+        - in: query
+          name: euVehicleCategory
+          schema:
+            $ref: "#/components/schemas/euVehicleCategory"
+        - in: query
+          name: inspectionType
+          schema:
+            $ref: "#/components/schemas/inspectionType"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestTemplates:
+          application/json: '{"statusCode": 200}'
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+      responses:
+        "200":
+          description: All defects for the query returned
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ivaDefects"
+        "401":
+          description: Not authenticated
+        "403":
+          description: Access token does not have the required scope
+        "404":
+          description: Defects not found
+
+  /defects/iva/manual/{id}:
+    get:
+      summary: Search the IVA defect manuals by Manual ID.
+      tags:
+        - IVA Defects
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: Accept-version
+          schema:
+            type: string
+          required: true
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestTemplates:
+          application/json: '{"statusCode": 200}'
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+      responses:
+        "200":
+          description: All defects for the query returned
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ivaDefects"
+        "401":
+          description: Not authenticated
+        "403":
+          description: Access token does not have the required scope
+        "404":
+          description: Defects not found
+
 components:
-  securitySchemes:
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: "https://example.com/oauth/authorize"
-          tokenUrl: "https://example.com/oauth/token"
-          scopes:
-            read: Grants read access
+  # securitySchemes:
+  #   OAuth2:
+  #    type: oauth2
+  #    flows:
+  #       authorizationCode:
+  #         authorizationUrl: "https://example.com/oauth/authorize"
+  #         tokenUrl: "https://example.com/oauth/token"
+  #   scopes:
+  #     read: Grants read access
   schemas:
     deficiency:
       type: object
@@ -198,10 +284,81 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/imNumber"
-security:
-  - ApiKeyAuth: []
-  - OAuth2:
-      - read
-      - write
+
+    ivaDefects:
+      type: array
+      items:
+        $ref: "#/components/schemas/ivaDefect"
+
+    ivaDefect:
+      type: object
+      properties:
+        sectionNumber:
+          type: string
+        sectionDescription:
+          type: string
+        vehicleTypes:
+          type: array
+          items:
+            $ref: "#/components/schemas/vehicleType"
+        euVehicleCategories:
+          type: array
+          items:
+            $ref: "#/components/schemas/euVehicleCategory"
+        requiredStandards:
+          type: array
+          items:
+            $ref: "#/components/schemas/requiredStandard"
+
+    requiredStandard:
+      properties:
+        rsNumber:
+          type: integer
+        requiredStandard:
+          type: string
+        refCalculation:
+          type: number
+        additionalInfo:
+          type: boolean
+          default: false
+        inspectionTypes:
+          type: array
+          items:
+            $ref: "#/components/schemas/inspectionType"
+
+    vehicleType:
+      type: string
+      enum:
+        - car
+        - lgv
+        - motorcycle
+        - psv
+        - hgv
+        - trl
+
+    euVehicleCategory:
+      type: string
+      enum:
+        - m1
+        - m2
+        - m3
+        - n1
+        - n2
+        - n3
+        - o1
+        - o2
+        - o3
+        - o4
+
+    inspectionType:
+      type: string
+      enum:
+        - basic
+        - normal
+
+#security:
+# - OAuth2:
+# - read
+# - write
 servers:
   - url: "https://url/api/v1"
