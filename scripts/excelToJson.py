@@ -8,6 +8,11 @@ import numpy as np
 import pandas as pd
 from flatten_json import flatten
 
+"""
+IVA-Defects excel spreadsheet needs to exist in working directory. Change global excel_file to match actual file name.
+"""
+EXCEL_FILE = "CVS Approvals Required Standards Taxonomy for Development - Master Copy.xlsx"
+
 EXPECTED_COLUMNS = ["Section Number", "Section Description", "RS Number", "Required Standard", "Ref Calculation",
                     "Additional info", "Basic", "Normal"]
 LOG_FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
@@ -74,25 +79,27 @@ def prepare_section_json(group: pd.DataFrame, eu_vehicle_category: List[str]) ->
     required_standards = []
     for _, row in group.iterrows():
         isBasicTest = True if row['Basic'] else False
+        isNormalTest = True if row['Normal'] else False
         required_standard = {
-            "rsNumber": row['RS Number'],
-            "requiredStandard": row['Required Standard'],
-            "refCalculation": row['Ref Calculation'],
+            "rsNumber": stringify(row['RS Number']),
+            "requiredStandard": stringify(row['Required Standard']),
+            "refCalculation": stringify(row['Ref Calculation']),
             "additionalInfo": row['Additional info'],
-            "basicInspection": isBasicTest
+            "basicInspection": isBasicTest,
+            "normalInspection": isNormalTest
         }
         required_standards.append(required_standard)
 
     section_data = {
-        "sectionNumber": group['Section Number'].iloc[0],
-        "sectionDescription": group['Section Description'].iloc[0],
-        "euVehicleCategories": ' '.join(eu_vehicle_category),
+        "euVehicleCategory": eu_vehicle_category.lower(),
+        "sectionNumber": stringify(group['Section Number'].iloc[0]),
+        "sectionDescription": stringify(group['Section Description'].iloc[0]),
         "requiredStandards": required_standards
     }
     return section_data
 
 
-def generate_process_function(category_map):
+def generate_process_function():
     """
     Generate a processing function for the excel document
     """
@@ -102,26 +109,20 @@ def generate_process_function(category_map):
         and generates the json objects based on the provided manual
         """
         sheet_json_content = []
-        for sheet_name in category_map:
+        for sheet_name in xls.sheet_names:
             try:
-                df = pd.read_excel(xls, sheet_name=sheet_name, skiprows=[0]).dropna(axis=1, how='all')
-
+                df = pd.read_excel(xls, skiprows=[0], sheet_name = sheet_name,
+                                   dtype={"Ref Calculation": str, "Section Number": str, "RS Number": str}).dropna(
+                    axis=1, how='all')
                 df = remove_unnamed_columns(df)
                 missing_cols = [col for col in EXPECTED_COLUMNS if col not in df.columns]
                 for col in missing_cols:
                     df[col] = None
 
-                df['Ref Calculation'] = df['Ref Calculation'].apply(stringify)
-                df[["Additional info"]] = df[["Additional info"]].map(
+                df[["Basic","Normal","Additional info"]] = df[["Basic","Normal","Additional info"]].map(
                     lambda x: x.lower() if isinstance(x, str) else x).replace({'yes': True, 'no': False}).fillna(False)
 
-                if sheet_name in ["M2 M3", "N2 N3"]:
-                    categories = sheet_name.split()
-                else:
-                    categories = [sheet_name]
-
-
-                sheet_json_content.extend([prepare_section_json(group, categories)
+                sheet_json_content.extend([prepare_section_json(group, sheet_name)
                     for _, group in df.groupby(['Section Number', 'Section Description'])])
 
             except Exception as e:
@@ -129,7 +130,7 @@ def generate_process_function(category_map):
                 raise
 
         try:
-            with open(Path(output_dir) / "Required_Standards_Taxonomy.json", 'w', encoding='utf-8') as f:
+            with open(Path(output_dir) / "iva-defects.json", 'w', encoding='utf-8') as f:
                 json.dump(sheet_json_content, f, indent=4, cls=CustomEncoder, ensure_ascii=False)
 
         except Exception as e:
@@ -138,13 +139,13 @@ def generate_process_function(category_map):
 
     return process
 
-def process_excel_file(file_path: str, output_dir: str, category_map: Dict[str, str], max_workers: int = 5) -> None:
+def process_excel_file(file_path: str, output_dir: str, max_workers: int = 5) -> None:
     """
     Process an excel file and generate json file
     """
     Path(output_dir).mkdir(parents=True, exist_ok=True)
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-        process = generate_process_function(category_map.keys())
+        process = generate_process_function()
         future = executor.submit(process, pd.ExcelFile(file_path), output_dir)
 
         try:
@@ -156,18 +157,9 @@ def process_excel_file(file_path: str, output_dir: str, category_map: Dict[str, 
 
 
 if __name__ == "__main__":
-    excel_file = 'CVS Approvals Required Standards Taxonomy - Master Copy.xlsx'
-    out_dir = 'output_json'
-    cat_map = {
-        "M1": "Cars",
-        "M2 M3": "Buses and Coaches",
-        "N1": "Vans and LGV",
-        "N2 N3": "HGV",
-        "O1-O4": "Trailers",
-        "MSVA": "Motorcycle"
-    }
+    out_dir = '../tests/resources'
 
     try:
-        process_excel_file(excel_file, out_dir, cat_map)
+        process_excel_file(EXCEL_FILE, out_dir)
     except Exception as e:
         logging.error(f"Error: {e}", exc_info=True)
