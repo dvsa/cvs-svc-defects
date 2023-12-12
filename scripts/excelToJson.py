@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 import logging
 import numpy as np
+from typing import Union, List, Any, Dict
 import pandas as pd
 
 # IVA-Defects spreadsheet needs to exist in working directory. Change below to match actual file name.
@@ -18,7 +19,7 @@ class CustomEncoder(json.JSONEncoder):
     Custom encoder for writing to JSON to allow for numpy values
     """
 
-    def default(self, obj):
+    def default(self, obj: any) -> any:
         if isinstance(obj, (np.integer, np.int64)):
             return int(obj)
         elif isinstance(obj, (np.floating, np.float64)):
@@ -28,7 +29,7 @@ class CustomEncoder(json.JSONEncoder):
         return super().default(obj)
 
 
-def remove_unnamed_columns(df):
+def remove_unnamed_columns(df: pd.DataFrame) -> pd.DataFrame:
     """
      Remove columns starting called unnamed from a dataframe
     """
@@ -43,7 +44,7 @@ def stringify(value):
     return str(value) if not pd.isna(value) else ""
 
 
-def prepare_section_json(categoryData, eu_vehicle_category):
+def prepare_section_json(categoryData: pd.DataFrame, eu_vehicle_category: str) -> Dict[str, any]:
     """
     Prepare a JSON representation of a section in the taxonomy.
     """
@@ -70,7 +71,7 @@ def prepare_section_json(categoryData, eu_vehicle_category):
     return section_data
 
 
-def transform_dataframe(df):
+def transform_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
     Apply data transformations to the dataframe prior to dumping to JSON
     """
@@ -85,9 +86,9 @@ def transform_dataframe(df):
     return df
 
 
-def dumpJSON(xls, output_dir):
+def read_write_sheet_to_json(xls: pd.ExcelFile, output_dir: str) -> None:
     """
-    The processing function reads each sheet from an excel file, applies data transformations,
+    The processing function reads each sheet from an Excel file, applies data transformations,
     and generates the json objects based on the provided manual
     """
     sheet_json_content = []
@@ -115,12 +116,12 @@ def dumpJSON(xls, output_dir):
         raise
 
 
-def process_excel_file(file_path: str, output_dir: str, max_workers: int = 5) -> None:
+def process_excel_file(file_path: str, output_dir: str) -> None:
     """
-    Process an excel file and generate json file
+    Process an Excel file and generate json file
     """
-        try:
-        dumpJSON(pd.ExcelFile(file_path), output_dir)
+    try:
+        read_write_sheet_to_json(pd.ExcelFile(file_path), output_dir)
         logging.info("JSON files generated in the output directory.")
     except Exception as e:
         logging.error(f"Error processing sheet: {e}", exc_info=True)
