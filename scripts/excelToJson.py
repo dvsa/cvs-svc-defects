@@ -119,12 +119,11 @@ def process_excel_file(file_path: str, output_dir: str, max_workers: int = 5) ->
     """
     Process an excel file and generate json file
     """
-    try:
+        try:
         dumpJSON(pd.ExcelFile(file_path), output_dir)
+        logging.info("JSON files generated in the output directory.")
     except Exception as e:
         logging.error(f"Error processing sheet: {e}", exc_info=True)
-
-    logging.info("JSON files generated in the output directory.")
 
 
 if __name__ == "__main__":
