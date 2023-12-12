@@ -8045,6 +8045,14 @@
                 "normalInspection": true
             },
             {
+                "rsNumber": "4",
+                "requiredStandard": "Vehicles having a maximum design speed greater than 40 km/h (25 mph) may not be fitted with a toughened windscreen.",
+                "refCalculation": "45.4",
+                "additionalInfo": true,
+                "basicInspection": true,
+                "normalInspection": true
+            },
+            {
                 "rsNumber": "5",
                 "requiredStandard": "All other windows (including sunroofs and removable glass panels) and side-screens must be “Safety Glazing” (which may be made from glass, or from plastic) and display the relevant markings.",
                 "refCalculation": "45.5",
@@ -8064,21 +8072,6 @@
                 "rsNumber": "7",
                 "requiredStandard": "Driver forward vision must not be distorted by the glazing material.",
                 "refCalculation": "45.7",
-                "additionalInfo": true,
-                "basicInspection": true,
-                "normalInspection": true
-            }
-        ]
-    },
-    {
-        "euVehicleCategory": "n1",
-        "sectionNumber": "46",
-        "sectionDescription": "Safety Glass",
-        "requiredStandards": [
-            {
-                "rsNumber": "4",
-                "requiredStandard": "Vehicles having a maximum design speed greater than 40 km/h (25 mph) may not be fitted with a toughened windscreen.",
-                "refCalculation": "46.4",
                 "additionalInfo": true,
                 "basicInspection": true,
                 "normalInspection": true
