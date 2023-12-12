@@ -6,7 +6,6 @@ import {
 import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
 import { IvaDatabaseService } from "./ivaDatabaseService";
 import { HTTPError } from "../models/HTTPError";
-import { formatIvaDefects } from "../utils/formatDefects";
 
 export class IvaDefectsService {
   public readonly ivaDatabaseService: IvaDatabaseService;
@@ -38,12 +37,7 @@ export class IvaDefectsService {
         inspectionType,
       );
 
-      let formattedResults: DefectGETIVA[] = [];
-      if (results.length > 0) {
-        formattedResults = formatIvaDefects(
-          results,
-        ) as unknown as DefectGETIVA[];
-      }
+      const formattedResults: DefectGETIVA[] = [];
       return formattedResults;
     } catch (error: any) {
       if (!(error instanceof HTTPError)) {
@@ -67,12 +61,7 @@ export class IvaDefectsService {
       const results =
         await this.ivaDatabaseService.getDefectsByManualId(manualId);
 
-      let formattedResults: DefectGETIVA[] = [];
-      if (results.length > 0) {
-        formattedResults = formatIvaDefects(
-          results,
-        ) as unknown as DefectGETIVA[];
-      }
+      const formattedResults: DefectGETIVA[] = [];
       return formattedResults;
     } catch (error: any) {
       if (!(error instanceof HTTPError)) {
