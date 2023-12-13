@@ -4,7 +4,7 @@ import { Configuration } from "../utils/Configuration";
 import { PromiseResult } from "aws-sdk/lib/request";
 import {
   EUVehicleCategory,
-  InspectionType
+  InspectionType,
 } from "@dvsa/cvs-type-definitions/types/iva/defects/get";
 
 export class IvaDatabaseService {

@@ -2,7 +2,7 @@ import { Handler } from "aws-lambda";
 import { HTTPResponse } from "../models/HTTPResponse";
 import { IvaDefectsService } from "../services/ivaDefectsService";
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
-import {  EUVehicleCategory} from "@dvsa/cvs-type-definitions/types/iva/defects/get";
+import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/iva/defects/get";
 import { addHttpHeaders } from "../utils/httpHeaders";
 import { validateIvaDefectGetQuery } from "../validators/iva/ivaDefectsGetValidator";
 import { IvaDatabaseService } from "../services/ivaDatabaseService";
@@ -21,8 +21,8 @@ export const getIvaDefects: Handler = async (
 
   const euVehicleCategory = event?.queryStringParameters
     ?.euVehicleCategory as EUVehicleCategory;
-  const inspectionType = (event?.queryStringParameters
-    ?.basicInspection == "true") ;
+  const inspectionType =
+    event?.queryStringParameters?.basicInspection === "true";
 
   return ivaDefectsService
     .getIvaDefectsByEUVehicleCategory(euVehicleCategory, inspectionType)

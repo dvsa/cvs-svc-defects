@@ -5,8 +5,8 @@ import {
 import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
 import { IvaDatabaseService } from "./ivaDatabaseService";
 import { HTTPError } from "../models/HTTPError";
-import { IVADefect } from "../models/IVADefect";
-import { RequiredStandard } from "../models/RequiredStandard";
+import { IIVADefect } from "../models/IVADefect";
+import { IRequiredStandard } from "../models/RequiredStandard";
 
 export class IvaDefectsService {
   public readonly ivaDatabaseService: IvaDatabaseService;
@@ -28,12 +28,12 @@ export class IvaDefectsService {
    */
   public async getIvaDefects(
     euVehicleCategory: EUVehicleCategory | null,
-    basicInspection: boolean | false
+    basicInspection: boolean | false,
   ): Promise<DefectGETIVA[]> {
     try {
       const results = await this.ivaDatabaseService.getDefectsByCriteria(
         euVehicleCategory,
-        basicInspection
+        basicInspection,
       );
 
       const formattedResults: DefectGETIVA[] = [];
@@ -55,13 +55,13 @@ export class IvaDefectsService {
    */
   public async getIvaDefectsByEUVehicleCategory(
     manualId: string,
-    basicInspection: boolean | false
+    basicInspection: boolean | false,
   ): Promise<DefectGETIVA[]> {
     try {
       const results =
         (await this.ivaDatabaseService.getDefectsByEUVehicleCategory(
-          manualId
-        )) as IVADefect[];
+          manualId,
+        )) as IIVADefect[];
 
       const formattedResults: DefectGETIVA[] = this.formatIvaDefects(results);
       return formattedResults;
@@ -77,26 +77,26 @@ export class IvaDefectsService {
 
   public getEnumKeyByEnumValue<T extends { [index: string]: string }>(
     myEnum: T,
-    enumValue: string
+    enumValue: string,
   ): keyof T {
-    let keys = Object.keys(myEnum).filter((x) => myEnum[x] == enumValue);
+    const keys = Object.keys(myEnum).filter((x) => myEnum[x] === enumValue);
     return keys[0];
   }
 
-  public formatIvaDefects(results: IVADefect[]): DefectGETIVA[] {
-    return results.map(x => {
+  public formatIvaDefects(results: IIVADefect[]): DefectGETIVA[] {
+    return results.map((x) => {
       const vehicleCategory = this.getEnumKeyByEnumValue(
         EUVehicleCategory,
-        x.euVehicleCategory
+        x.euVehicleCategory,
       );
 
-      let mappedDefectSection: DefectGETIVA = {
+      const mappedDefectSection: DefectGETIVA = {
         euVehicleCategories: [EUVehicleCategory[vehicleCategory]],
         sectionNumber: x.sectionNumber,
         sectionDescription: x.sectionDescription,
         requiredStandards: x.requiredStandards.map((rs) => {
           const standard = {
-            rsNumber: parseInt(rs.rsNumber),
+            rsNumber: parseInt(rs.rsNumber, 10),
             requiredStandard: rs.requiredStandard,
             refCalculation: rs.refCalculation,
             additionalInfo: rs.additionalInfo,
@@ -104,7 +104,7 @@ export class IvaDefectsService {
           };
 
           return standard;
-        })
+        }),
       };
       return mappedDefectSection;
     });
