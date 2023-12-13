@@ -18,7 +18,7 @@ describe("getIvaDefects Function", () => {
     it("returns 200 with data", async () => {
       mockValidateIvaDefectGetQuery.mockReturnValueOnce(undefined);
       jest
-        .spyOn(IvaDefectsService.prototype, "getIvaDefects")
+        .spyOn(IvaDefectsService.prototype, "getIvaDefectsByEUVehicleCategory")
         .mockReturnValue(Promise.resolve(IvaDefects as any));
       const event = {};
 
@@ -38,7 +38,7 @@ describe("getIvaDefects Function", () => {
           body: JSON.stringify({ errors: ["Fake Error"] }),
         });
         jest
-          .spyOn(IvaDefectsService.prototype, "getIvaDefects")
+          .spyOn(IvaDefectsService.prototype, "getIvaDefectsByEUVehicleCategory")
           .mockReturnValue(Promise.resolve([]));
         const event = {};
 
@@ -53,7 +53,7 @@ describe("getIvaDefects Function", () => {
     it("returns 500 with error", async () => {
       mockValidateIvaDefectGetQuery.mockReturnValueOnce(undefined);
       jest
-        .spyOn(IvaDefectsService.prototype, "getIvaDefects")
+        .spyOn(IvaDefectsService.prototype, "getIvaDefectsByEUVehicleCategory")
         .mockReturnValue(
           Promise.reject(new HTTPError(500, "Internal Server Error")),
         );

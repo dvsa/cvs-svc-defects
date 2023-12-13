@@ -21,7 +21,7 @@ export const getIvaDefectsByManual: Handler = async (
   const manualId = event?.pathParameters?.id ?? "";
 
   return ivaDefectsService
-    .getIvaDefectsByManualId(manualId)
+    .getIvaDefectsByEUVehicleCategory(manualId, false)
     .then((data: any) => {
       if (!data || data.length === 0) {
         return new HTTPResponse(204, []);

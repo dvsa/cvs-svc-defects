@@ -1,11 +1,12 @@
 import {
   DefectGETIVA,
   InspectionType,
-  VehicleType,
 } from "@dvsa/cvs-type-definitions/types/iva/defects/get";
 import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
 import { IvaDatabaseService } from "./ivaDatabaseService";
 import { HTTPError } from "../models/HTTPError";
+import { IVADefect } from "../models/IVADefect";
+import { RequiredStandard } from "../models/RequiredStandard";
 
 export class IvaDefectsService {
   public readonly ivaDatabaseService: IvaDatabaseService;
@@ -22,19 +23,17 @@ export class IvaDefectsService {
    * Retrieves IVA Defects based on the optionally provided vehicleType, euVehicleCategory and inspectionType and formats the response
    * @param vehicleType the type of Vehicle e.g psv, lgv
    * @param euVehicleCategory the EU Vehicle Category, synonymous with Manual ID
-   * @param inspectionType the Inspection Type e.g basic, normal
+   * @param basicInspection the Inspection Type e.g basic, normal
    * @returns Array of IVA Defects
    */
   public async getIvaDefects(
-    vehicleType: VehicleType | null,
     euVehicleCategory: EUVehicleCategory | null,
-    inspectionType: InspectionType | null,
+    basicInspection: boolean | false
   ): Promise<DefectGETIVA[]> {
     try {
       const results = await this.ivaDatabaseService.getDefectsByCriteria(
-        vehicleType,
         euVehicleCategory,
-        inspectionType,
+        basicInspection
       );
 
       const formattedResults: DefectGETIVA[] = [];
@@ -54,14 +53,17 @@ export class IvaDefectsService {
    * @param manualId the manual ID, e.g M1, N1, MSVA
    * @returns Array of IVA Defects
    */
-  public async getIvaDefectsByManualId(
+  public async getIvaDefectsByEUVehicleCategory(
     manualId: string,
+    basicInspection: boolean | false
   ): Promise<DefectGETIVA[]> {
     try {
       const results =
-        await this.ivaDatabaseService.getDefectsByManualId(manualId);
+        (await this.ivaDatabaseService.getDefectsByEUVehicleCategory(
+          manualId
+        )) as IVADefect[];
 
-      const formattedResults: DefectGETIVA[] = [];
+      const formattedResults: DefectGETIVA[] = this.formatIvaDefects(results);
       return formattedResults;
     } catch (error: any) {
       if (!(error instanceof HTTPError)) {
@@ -71,5 +73,40 @@ export class IvaDefectsService {
       }
       throw new HTTPError(error.statusCode, error.body);
     }
+  }
+
+  public getEnumKeyByEnumValue<T extends { [index: string]: string }>(
+    myEnum: T,
+    enumValue: string
+  ): keyof T {
+    let keys = Object.keys(myEnum).filter((x) => myEnum[x] == enumValue);
+    return keys[0];
+  }
+
+  public formatIvaDefects(results: IVADefect[]): DefectGETIVA[] {
+    return results.map(x => {
+      const vehicleCategory = this.getEnumKeyByEnumValue(
+        EUVehicleCategory,
+        x.euVehicleCategory
+      );
+
+      let mappedDefectSection: DefectGETIVA = {
+        euVehicleCategories: [EUVehicleCategory[vehicleCategory]],
+        sectionNumber: x.sectionNumber,
+        sectionDescription: x.sectionDescription,
+        requiredStandards: x.requiredStandards.map((rs) => {
+          const standard = {
+            rsNumber: parseInt(rs.rsNumber),
+            requiredStandard: rs.requiredStandard,
+            refCalculation: rs.refCalculation,
+            additionalInfo: rs.additionalInfo,
+            inspectionTypes: [],
+          };
+
+          return standard;
+        })
+      };
+      return mappedDefectSection;
+    });
   }
 }
