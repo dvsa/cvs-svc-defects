@@ -6,12 +6,12 @@ import { HTTPError } from "../../../src/models/HTTPError";
 import { IvaDefectsService } from "../../../src/services/ivaDefectsService";
 import IvaDefects from "../../resources/iva-defects.json";
 
-const mockGetDefectsByManualId = jest.fn();
+const mockGetDefectsByEUVehicleCategory = jest.fn();
 const mockGetDefectsByCriteria = jest.fn();
 
 describe("IVA Defects Service", () => {
   const ivaDatabaseService = {
-    getDefectsByManualId: mockGetDefectsByManualId,
+    getDefectsByEUVehicleCategory: mockGetDefectsByEUVehicleCategory,
     getDefectsByCriteria: mockGetDefectsByCriteria,
   };
   let target = new IvaDefectsService(ivaDatabaseService as any);
@@ -23,27 +23,27 @@ describe("IVA Defects Service", () => {
 
   describe("getIvaDefectsByManualId", () => {
     it("should return unflattened JSON upon successful result", async () => {
-      mockGetDefectsByManualId.mockResolvedValueOnce(IvaDefects);
+      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(IvaDefects);
 
-      const result = await target.getIvaDefectsByManualId("M1");
+      const result = await target.getIvaDefectsByEUVehicleCategory("M1", false);
 
-      expect(mockGetDefectsByManualId).toHaveBeenCalledTimes(1);
+      expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
       expect(result?.length == 1);
     });
 
     it("should return an empty array upon successfully finding no search results", async () => {
-      mockGetDefectsByManualId.mockResolvedValueOnce([]);
-      const result = await target.getIvaDefectsByManualId("M1");
+      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce([]);
+      const result = await target.getIvaDefectsByEUVehicleCategory("M1", false);
 
-      expect(mockGetDefectsByManualId).toHaveBeenCalledTimes(1);
+      expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
       expect(result?.length == 0);
     });
 
     it("should throw a 500 http error upon encountering a generic error", async () => {
-      mockGetDefectsByManualId.mockRejectedValueOnce(new Error("Fake Error"));
+      mockGetDefectsByEUVehicleCategory.mockRejectedValueOnce(new Error("Fake Error"));
       const actualError = new HTTPError(500, "Internal Server Error");
       expect(async () => {
-        await target.getIvaDefectsByManualId("M1");
+        await target.getIvaDefectsByEUVehicleCategory("M1", false);
       }).rejects.toEqual(actualError);
     });
   });
@@ -52,7 +52,7 @@ describe("IVA Defects Service", () => {
     it("should return unflattened JSON upon successful result", async () => {
       mockGetDefectsByCriteria.mockResolvedValueOnce(IvaDefects);
 
-      const result = await target.getIvaDefects(null, null, null);
+      const result = await target.getIvaDefects(null, false);
 
       expect(mockGetDefectsByCriteria).toHaveBeenCalledTimes(1);
       expect(result?.length == 1);
@@ -62,7 +62,7 @@ describe("IVA Defects Service", () => {
       mockGetDefectsByCriteria.mockRejectedValueOnce(new Error("Fake Error"));
       const actualError = new HTTPError(500, "Internal Server Error");
       expect(async () => {
-        await target.getIvaDefects(null, null, null);
+        await target.getIvaDefects(null, false);
       }).rejects.toEqual(actualError);
     });
   });

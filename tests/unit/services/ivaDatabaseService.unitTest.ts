@@ -17,7 +17,7 @@ describe("IVA Database Service", () => {
         Items: IvaDefects,
       });
       let target = new IvaDatabaseService();
-      const result = await target.getDefectsByManualId("M1");
+      const result = await target.getDefectsByEUVehicleCategory("M1");
 
       expect(result).toStrictEqual(IvaDefects);
     });
@@ -27,7 +27,7 @@ describe("IVA Database Service", () => {
         Items: [],
       });
       let target = new IvaDatabaseService();
-      const result = await target.getDefectsByManualId("M1");
+      const result = await target.getDefectsByEUVehicleCategory("M1");
 
       expect(result).toStrictEqual([]);
     });
