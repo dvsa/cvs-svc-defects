@@ -40,7 +40,9 @@ describe("IVA Defects Service", () => {
     });
 
     it("should throw a 500 http error upon encountering a generic error", async () => {
-      mockGetDefectsByEUVehicleCategory.mockRejectedValueOnce(new Error("Fake Error"));
+      mockGetDefectsByEUVehicleCategory.mockRejectedValueOnce(
+        new Error("Fake Error"),
+      );
       const actualError = new HTTPError(500, "Internal Server Error");
       expect(async () => {
         await target.getIvaDefectsByEUVehicleCategory("M1", false);

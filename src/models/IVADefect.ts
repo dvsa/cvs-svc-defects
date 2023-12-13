@@ -1,8 +1,8 @@
-import { RequiredStandard } from "./RequiredStandard";
+import { IRequiredStandard } from "./RequiredStandard";
 
-export interface IVADefect{
-euVehicleCategory: string;
-sectionNumber: string;
-sectionDescription: string;
-requiredStandards: RequiredStandard[]
+export interface IIVADefect {
+  euVehicleCategory: string;
+  sectionNumber: string;
+  sectionDescription: string;
+  requiredStandards: IRequiredStandard[];
 }

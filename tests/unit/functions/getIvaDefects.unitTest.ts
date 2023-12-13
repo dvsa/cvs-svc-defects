@@ -38,7 +38,10 @@ describe("getIvaDefects Function", () => {
           body: JSON.stringify({ errors: ["Fake Error"] }),
         });
         jest
-          .spyOn(IvaDefectsService.prototype, "getIvaDefectsByEUVehicleCategory")
+          .spyOn(
+            IvaDefectsService.prototype,
+            "getIvaDefectsByEUVehicleCategory",
+          )
           .mockReturnValue(Promise.resolve([]));
         const event = {};
 
