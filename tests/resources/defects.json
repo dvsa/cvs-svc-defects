@@ -2010,7 +2010,7 @@
             "deficiencyId": "e",
             "deficiencySubId": null,
             "deficiencyCategory": "major",
-            "deficiencyText": "which extends beyond the outer edge of the outermost rear tyre (see note in proceedure and standards).",
+            "deficiencyText": "which extends beyond the outer edge of the outermost rear tyre (see note in procedure and standards).",
             "deficiencyTextWelsh": "sy'n ymestyn y tu hwnt i ymyl allanol y teiar cefn mwyaf allanol (gweler y nodyn yn y weithdrefn a'r safonau).",
             "stdForProhibition": false,
             "forVehicleType": ["hgv", "trl"]
@@ -2638,7 +2638,7 @@
             "deficiencyId": "b",
             "deficiencySubId": "i",
             "deficiencyCategory": "major",
-            "deficiencyText": "seriously deformed or modified impairing its effectiveness and or weakens the component (no trailer attcahed).",
+            "deficiencyText": "seriously deformed or modified impairing its effectiveness and or weakens the component (no trailer attached).",
             "deficiencyTextWelsh": "wedi'i ddadffurfio'n ddifrifol neu wedi'i addasu gan amharu ar ei effeithiolrwydd a/neu'n gwanhau'r gydran (dim trelar ynghlwm).",
             "stdForProhibition": false,
             "forVehicleType": ["psv"]
@@ -2648,7 +2648,7 @@
             "deficiencyId": "b",
             "deficiencySubId": "ii",
             "deficiencyCategory": "dangerous",
-            "deficiencyText": "seriously deformed or modified impairing its effectiveness and or weakens the component (trailer attcahed).",
+            "deficiencyText": "seriously deformed or modified impairing its effectiveness and or weakens the component (trailer attached).",
             "deficiencyTextWelsh": "wedi'i ddadffurfio'n ddifrifol neu wedi'i addasu gan amharu ar ei effeithiolrwydd a/neu'n gwanhau'r gydran (trelar ynghlwm).",
             "stdForProhibition": true,
             "forVehicleType": ["psv"]
@@ -4231,7 +4231,7 @@
             "deficiencyId": null,
             "deficiencySubId": "i",
             "deficiencyCategory": "major",
-            "deficiencyText": "seriously weakend.",
+            "deficiencyText": "seriously weakened.",
             "deficiencyTextWelsh": "wedi'i wanhau'n ddifrifol.",
             "stdForProhibition": false,
             "forVehicleType": ["hgv", "trl"]
@@ -4241,7 +4241,7 @@
             "deficiencyId": null,
             "deficiencySubId": "ii",
             "deficiencyCategory": "dangerous",
-            "deficiencyText": "seriously weakend and vehicle/trailer stability is impaired.",
+            "deficiencyText": "seriously weakened and vehicle/trailer stability is impaired.",
             "deficiencyTextWelsh": "wedi'i wanhau'n ddifrifol a bod sefydlogrwydd y cerbyd/trelar wedi'i amharu.",
             "stdForProhibition": false,
             "forVehicleType": ["hgv", "trl"]
@@ -7341,7 +7341,7 @@
         "forVehicleType": ["hgv"],
         "deficiencies": [
           {
-            "ref": "34.",
+            "ref": "34.3",
             "deficiencyId": null,
             "deficiencySubId": null,
             "deficiencyCategory": "major",
