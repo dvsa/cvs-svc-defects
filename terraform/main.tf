@@ -59,10 +59,14 @@ module "service_gateway" {
 
   lambdas = {
     get_defects = {
-      service_name        = "${local.service_name}-get"
-      bucket_key          = "${var.bucket_key}"
-      handler             = "handler.handler"
-      description         = "${local.service_description} Get"
+      service_name          = "${local.service_name}-get"
+      bucket_key            = "${var.bucket_key}"
+      handler               = "handler.handler"
+      description           = "${local.service_description} Get"
+      environment_variables = {
+        BUCKET = local.is_feature ? "develop" : terraform.workspace
+        BRANCH = terraform.workspace
+      }
     }
   }
 }
