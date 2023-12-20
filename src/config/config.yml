@@ -1,4 +1,10 @@
 functions:
+  - getDefects:
+      method: GET
+      path: /defects
+      proxy: null
+      function: getDefects
+      event: apigateway
   - getDefectsMock:
       method: GET
       path: /defects-api/defects

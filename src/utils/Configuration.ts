@@ -115,7 +115,7 @@ class Configuration {
         name,
         method: params.method.toUpperCase(),
         path,
-        function: require(`../functions/${name}`)[name],
+        function: require(`../functions/${params.function}`)[params.function],
       };
     });
   }
