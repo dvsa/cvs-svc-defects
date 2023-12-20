@@ -6,6 +6,13 @@ functions:
       function: getDefects
       event: apigateway
 
+  - getDefectsMock:
+      method: GET
+      path: /defects-api/defects
+      proxy: null
+      function: getDefects
+      event: apigateway
+
 invoke:
   local:
     params:
