@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - feature/CB2-9827
+      - feature/CB2-10178
 
 permissions:
   id-token: write

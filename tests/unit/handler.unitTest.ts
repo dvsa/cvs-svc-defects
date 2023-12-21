@@ -95,9 +95,8 @@ describe("The configuration service", () => {
       process.env.BRANCH = "local";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).toBe(2);
+      expect(functions.length).toBe(1);
       expect(functions[0].name).toBe("getDefects");
-      expect(functions[1].name).toBe("getDefectsMock");
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(configService.getConfig().dynamodb.local);
@@ -109,9 +108,8 @@ describe("The configuration service", () => {
       process.env.BRANCH = "local-global";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).toBe(2);
+      expect(functions.length).toBe(1);
       expect(functions[0].name).toBe("getDefects");
-      expect(functions[1].name).toBe("getDefectsMock");
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(
@@ -125,9 +123,8 @@ describe("The configuration service", () => {
       process.env.BRANCH = "CVSB-XXX";
       const configService = Configuration.getInstance();
       const functions = configService.getFunctions();
-      expect(functions.length).toBe(2);
+      expect(functions.length).toBe(1);
       expect(functions[0].name).toBe("getDefects");
-      expect(functions[1].name).toBe("getDefectsMock");
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(configService.getConfig().dynamodb.remote);
