@@ -22,27 +22,20 @@ export const getIvaDefects: Handler = async (
   const euVehicleCategoryQuery = event?.queryStringParameters
       ?.euVehicleCategory as EUVehicleCategory;
 
+
+/*
   if (!euVehicleCategoryQuery) {
-    return { statusCode: 400, body: "euVehicleCategory required" };
-  } else if (!Object.values(EUVehicleCategory).includes(euVehicleCategoryQuery)) {
-    return {
-      statusCode: 400,
-      body: "Invalid EU vehicle category",
-    };
-  } else {
+    return {statusCode: 400, body: "euVehicleCategory required"};
+  }else if (Object.values(EUVehicleCategory).includes(euVehicleCategoryQuery)) {
     return {
       statusCode: 204,
       body: "[]",
     };
   }
-
-
-
-  const onlyBasicInspection =
-    event?.queryStringParameters?.onlyBasicInspection === "true";
+*/
 
   return ivaDefectsService
-    .getIvaDefectsByEUVehicleCategory(euVehicleCategoryQuery, onlyBasicInspection)
+    .getIvaDefectsByEUVehicleCategory(euVehicleCategoryQuery)
     .then((data: any) => {
       return new HTTPResponse(200, data);
     })

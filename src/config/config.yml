@@ -5,12 +5,6 @@ functions:
       proxy: null
       function: getDefects
       event: apigateway
-  - getIvaDefectsByManual:
-      method: GET
-      path: /defects/iva/manual/{+proxy}
-      proxy: :id
-      function: getIvaDefectsByManual
-      event: apigateway
   - getIvaDefects:
       method: GET
       path: /defects/iva
@@ -27,9 +21,6 @@ invoke:
       getDefects:
         name: cvs-svc-defects
         mock: tests/resources/defects.json
-      getIvaDefectsByManual:
-        name: cvs-svc-iva-defects
-        mock: tests/resources/iva-defects.json
       getIvaDefects:
         name: cvs-svc-iva-defects
         mock: tests/resources/iva-defects.json

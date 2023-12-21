@@ -1,8 +1,9 @@
 import {EUVehicleCategory} from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
 import {IvaDatabaseService} from "./ivaDatabaseService";
 import {HTTPError} from "../models/HTTPError";
-import {IIVADefect} from "../models/IVADefect";
+import {SectionIVA, newDefectGETIVA, IIVADefect} from "../models/IVADefect";
 import {DefectGETIVA, InspectionType} from "@dvsa/cvs-type-definitions/types/iva/defects/get";
+import {IRequiredStandard} from "../models/RequiredStandard";
 
 
 export class IvaDefectsService {
@@ -32,7 +33,6 @@ export class IvaDefectsService {
         euVehicleCategory,
         basicInspection,
       );
-
       const formattedResults: DefectGETIVA[] = [];
       return formattedResults;
     } catch (error: any) {
@@ -48,20 +48,18 @@ export class IvaDefectsService {
   /**
    * Retrieves IVA Defects based on the provided manualId and formats the response
    * @param euVehicleCategory the manual ID, e.g M1, N1, MSVA
-   * @param onlyBasicInspection
    * @returns Array of IVA Defects
    */
   public async getIvaDefectsByEUVehicleCategory(
     euVehicleCategory: string,
-    onlyBasicInspection: boolean,
-  ): Promise<DefectGETIVA[]> {
+  ): Promise<newDefectGETIVA> {
     try {
       const results =
         (await this.ivaDatabaseService.getDefectsByEUVehicleCategory(
-            euVehicleCategory,
+            euVehicleCategory
         )) as IIVADefect[];
 
-      return this.formatIvaDefects(results, onlyBasicInspection);
+      return this.formatIvaDefects(results, euVehicleCategory);
     } catch (error: any) {
       if (!(error instanceof HTTPError)) {
         console.error(error);
@@ -80,53 +78,52 @@ export class IvaDefectsService {
     return keys[0];
   }
 
-    public formatIvaDefects(results: IIVADefect[], onlyBasicInspection: boolean): DefectGETIVA[] {
-      const res = results.map((x) => {
-            const vehicleCategory = this.getEnumKeyByEnumValue(
-                EUVehicleCategory,
-                x.euVehicleCategory,
-            );
 
-            const rsArray = [];
-            for (const rs of x.requiredStandards) {
+  public formatInspectionTypes(sections : IIVADefect[]) : SectionIVA[] {
+      const formattedSections : SectionIVA[] = sections.map((x ) => {
+           const rsArr = x.requiredStandards.map(dx =>{
+              return {
+                  rsNumber: parseInt(dx.rsNumber, 10),
+                  requiredStandard: dx.requiredStandard,
+                  refCalculation: dx.refCalculation,
+                  additionalInfo: dx.additionalInfo,
+                  inspectionTypes: dx.normalInspection && dx.basicInspection ? ["basic","normal"] as InspectionType[]:
+                      dx.basicInspection ? ["basic"] as InspectionType[]: ["normal"] as InspectionType[]
+              }
+          });
+          return {
+              sectionNumber: x.sectionNumber,
+              sectionDescription: x.sectionDescription,
+              requiredStandards: rsArr
+          } as SectionIVA
+      });
+      return formattedSections;
+  }
+public formatIvaDefects(results: IIVADefect[], euVehicleCategory : string): newDefectGETIVA {
+      const vehiclecat = this.getEnumKeyByEnumValue(EUVehicleCategory, euVehicleCategory);
+      const basicSections: IIVADefect[] = results.filter(x=> {
+          x.requiredStandards = x.requiredStandards.filter(dx => {
+              if(dx.basicInspection){
+                  return dx
+              }
+          });
+          if(x.requiredStandards.length > 0) {
+              return x;
+          }
+      });
+      const normalSections: IIVADefect[] = results.filter(y => {
+          y.requiredStandards = y.requiredStandards.filter(dy => {
+              if(dy.normalInspection || (!dy.basicInspection && !dy.normalInspection)){
+                  return dy;
+              }
+          });
+          if(y.requiredStandards.length > 0) return y;
+      });
 
-                if (onlyBasicInspection) {
-                    const inspectionTypes = rs.normalInspection && rs.basicInspection ? ["normal", "basic"] as InspectionType[] : rs.basicInspection ? ["basic"] as InspectionType[] : [];
-                    if (inspectionTypes.length > 0) {
-                        rsArray.push({
-                            rsNumber: parseInt(rs.rsNumber, 10),
-                            requiredStandard: rs.requiredStandard,
-                            refCalculation: rs.refCalculation,
-                            additionalInfo: rs.additionalInfo,
-                            inspectionTypes
-                        });
-                    }
-
-                } else if (!onlyBasicInspection) {
-                    rsArray.push({
-                        rsNumber: parseInt(rs.rsNumber, 10),
-                        requiredStandard: rs.requiredStandard,
-                        refCalculation: rs.refCalculation,
-                        additionalInfo: rs.additionalInfo,
-                        inspectionTypes: rs.normalInspection && rs.basicInspection ? ["normal", "basic"] as InspectionType[] :
-                            rs.basicInspection ? ["basic"] as InspectionType[] :
-                                rs.normalInspection ? ["normal"] as InspectionType[] : [] as InspectionType[],
-                    });
-                }
-            }
-
-            const mappedDefectSection: DefectGETIVA = {
-                    euVehicleCategories: [EUVehicleCategory[vehicleCategory]],
-                    sectionNumber: x.sectionNumber,
-                    sectionDescription: x.sectionDescription,
-                    requiredStandards: rsArray
-                };
-            if (mappedDefectSection.requiredStandards) {
-                return mappedDefectSection;
-            } else {
-                return {} as DefectGETIVA;
-            }
-        });
-      return res.filter((x) => x.requiredStandards.length > 0);
-    }
+      return {
+          euVehicleCategory: vehiclecat,
+          basic: this.formatInspectionTypes(basicSections),
+          normal: this.formatInspectionTypes(normalSections)
+      } as newDefectGETIVA
+  }
 }
