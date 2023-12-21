@@ -2,6 +2,7 @@ import {EUVehicleCategory} from "@dvsa/cvs-type-definitions/types/v3/tech-record
 import {IvaDatabaseService} from "./ivaDatabaseService";
 import {HTTPError} from "../models/HTTPError";
 import {IIVADefect, newDefectGETIVA, SectionIVA} from "../models/IVADefect";
+import {IRequiredStandard} from "../models/RequiredStandard";
 import {DefectGETIVA, InspectionType} from "@dvsa/cvs-type-definitions/types/iva/defects/get";
 
 
@@ -87,7 +88,7 @@ export class IvaDefectsService {
      * @param {any[]} standards - The array of standards to transform.
      * @returns {any[]} - The transformed array of standards.
      */
-    private transformStandards(standards: any[]): any[] {
+    private transformStandards(standards: IRequiredStandard[]): any[] {
         return standards
             .map((x) => ({
                 ...x,
@@ -122,7 +123,7 @@ export class IvaDefectsService {
      * @returns {newDefectGETIVA} - Formatted IVA Defects object
      */
     public formatIvaDefects(results: IIVADefect[], euVehicleCategory: string): newDefectGETIVA {
-        const euVehicleCategoryFromEnum = this.getEnumKeyByEnumValue(EUVehicleCategory, euVehicleCategory) || '';
+        const euVehicleCategoryFromEnum = this.getEnumKeyByEnumValue(EUVehicleCategory, euVehicleCategory);
 
         const filterSections = (filterFn: (x: any) => boolean) => results
             .filter((x) => x.requiredStandards.some(filterFn))
@@ -137,6 +138,6 @@ export class IvaDefectsService {
             normal: this.formatInspectionTypes(
                 filterSections((x) => x.normalInspection || (!x.basicInspection && !x.normalInspection))
             ),
-        };
+        } as newDefectGETIVA;
     }
 }
