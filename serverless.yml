@@ -30,12 +30,6 @@ functions:
       - http:
           path: defects
           method: get
-  getIvaDefectsByManual:
-    handler: src/handler.handler
-    events:
-      - http:
-          path: /defects/iva/manual/{id}
-          method: get
   getIvaDefects:
     handler: src/handler.handler
     events:
