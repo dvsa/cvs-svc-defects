@@ -36,37 +36,37 @@ describe("IVA Defects Service", () => {
       mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce([]);
       const result = await target.getIvaDefectsByEUVehicleCategory("M1");
 
-      expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
-      expect(result?.length == 0);
-    });
+    //     expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
+    //     expect(result?.length == 0);
+    //   });
 
-    it("should throw a 500 http error upon encountering a generic error", async () => {
-      mockGetDefectsByEUVehicleCategory.mockRejectedValueOnce(
-        new Error("Fake Error"),
-      );
-      const actualError = new HTTPError(500, "Internal Server Error");
-      expect(async () => {
-        await target.getIvaDefectsByEUVehicleCategory("M1");
-      }).rejects.toEqual(actualError);
-    });*/
+    //   it("should throw a 500 http error upon encountering a generic error", async () => {
+    //     mockGetDefectsByEUVehicleCategory.mockRejectedValueOnce(
+    //       new Error("Fake Error"),
+    //     );
+    //     const actualError = new HTTPError(500, "Internal Server Error");
+    //     expect(async () => {
+    //       await target.getIvaDefectsByEUVehicleCategory("M1");
+    //     }).rejects.toEqual(actualError);
+    //   });
   });
 
-  describe("getIvaDefects", () => {
-    /*    it("should return unflattened JSON upon successful result", async () => {
-      mockGetDefectsByCriteria.mockResolvedValueOnce(IvaDefects);
+  // describe("getIvaDefects", () => {
+  //       it("should return unflattened JSON upon successful result", async () => {
+  //     mockGetDefectsByCriteria.mockResolvedValueOnce(IvaDefects);
 
-      const result = await target.getIvaDefects(null, false);
+  //     const result = await target.getIvaDefects(null, false);
 
-      expect(mockGetDefectsByCriteria).toHaveBeenCalledTimes(1);
-      expect(result?.length == 1);
-    });
+  //     expect(mockGetDefectsByCriteria).toHaveBeenCalledTimes(1);
+  //     expect(result?.length == 1);
+  //   });
 
-    it("should throw a 500 http error upon encountering a generic error", async () => {
-      mockGetDefectsByCriteria.mockRejectedValueOnce(new Error("Fake Error"));
-      const actualError = new HTTPError(500, "Internal Server Error");
-      expect(async () => {
-        await target.getIvaDefects(null, false);
-      }).rejects.toEqual(actualError);
-    });*/
-  });
+  //   it("should throw a 500 http error upon encountering a generic error", async () => {
+  //     mockGetDefectsByCriteria.mockRejectedValueOnce(new Error("Fake Error"));
+  //     const actualError = new HTTPError(500, "Internal Server Error");
+  //     expect(async () => {
+  //       await target.getIvaDefects(null, false);
+  //     }).rejects.toEqual(actualError);
+  //   });
+  // });
 });
