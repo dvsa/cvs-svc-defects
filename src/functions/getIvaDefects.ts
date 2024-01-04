@@ -20,10 +20,9 @@ export const getIvaDefects: Handler = async (
   }
 
   const euVehicleCategoryQuery = event?.queryStringParameters
-      ?.euVehicleCategory as EUVehicleCategory;
+    ?.euVehicleCategory as EUVehicleCategory;
 
-
-/*
+  /*
   if (!euVehicleCategoryQuery) {
     return {statusCode: 400, body: "euVehicleCategory required"};
   }else if (Object.values(EUVehicleCategory).includes(euVehicleCategoryQuery)) {

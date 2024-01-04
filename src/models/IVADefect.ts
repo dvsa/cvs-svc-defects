@@ -7,24 +7,24 @@ export interface IIVADefect {
   requiredStandards: IRequiredStandard[];
 }
 
-export interface newDefectGETIVA {
+export interface INewDefectGETIVA {
   euVehicleCategory: string;
-  basic: SectionIVA[];
-  normal: SectionIVA[];
+  basic: ISectionIVA[];
+  normal: ISectionIVA[];
 }
 
 export type InspectionType = "basic" | "normal";
 
-export interface SectionIVA {
+export interface ISectionIVA {
   sectionNumber: string;
   sectionDescription: string;
-  requiredStandards: {
+  requiredStandards: Array<{
     rsNumber: number;
     requiredStandard: string;
     refCalculation: string;
     additionalInfo: boolean;
     inspectionTypes: InspectionType[];
-  }[];
+  }>;
   additionalInformation?: {
     notes: string;
   };
