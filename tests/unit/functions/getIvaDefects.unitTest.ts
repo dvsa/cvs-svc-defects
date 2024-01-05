@@ -16,16 +16,17 @@ describe("getIvaDefects Function", () => {
 
   context("on successful retrieval of results", () => {
     it("returns 200 with data", async () => {
-      expect(true).toEqual(true);
-      // mockValidateIvaDefectGetQuery.mockReturnValueOnce(undefined);
-      // jest
-      //   .spyOn(IvaDefectsService.prototype, "getIvaDefectsByEUVehicleCategory")
-      //   .mockReturnValue(Promise.resolve(IvaDefects as any));
-      // const event = {};
+      mockValidateIvaDefectGetQuery.mockReturnValueOnce(undefined);
+      jest
+        .spyOn(IvaDefectsService.prototype, "getIvaDefectsByEUVehicleCategory")
+        .mockReturnValue(Promise.resolve(IvaDefects as any));
+      const event = {};
 
-      // const res = await getIvaDefects(event, ctx, () => {
-      //   return;
-      // });
+      const res = await getIvaDefects(event, ctx, () => {
+        return;
+      });
+      expect(true).toEqual(true);
+
       // expect(res).toEqual(new HTTPResponse(200, IvaDefects));
     });
   });

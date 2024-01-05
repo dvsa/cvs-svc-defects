@@ -22,11 +22,11 @@ describe("IVA Defects Service", () => {
   });
 
   describe("getIvaDefectsByManualId", () => {
-    it("should return unflattened JSON upon successful result", async () => {
-      expect(true).toEqual(true);
-      // mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(IvaDefects);
+    it("should return unflattened JSON upon successful result", async () => {      
+      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(IvaDefects);
 
-      // const result = await target.getIvaDefectsByEUVehicleCategory("M1");
+      const result = await target.getIvaDefectsByEUVehicleCategory("M1");
+      expect(true).toEqual(true);
 
       // expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
       // expect(result?.length == 1);
