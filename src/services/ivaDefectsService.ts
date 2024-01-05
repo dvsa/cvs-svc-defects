@@ -1,12 +1,14 @@
 import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
 import { IvaDatabaseService } from "./ivaDatabaseService";
 import { HTTPError } from "../models/HTTPError";
-import { ISectionIVA, INewDefectGETIVA, IIVADefect } from "../models/IVADefect";
+import { IIVATaxonomySection } from "../models/IVADefect";
 import {
   DefectGETIVA,
   InspectionType,
+  SectionIVA,
 } from "@dvsa/cvs-type-definitions/types/iva/defects/get";
 import { IRequiredStandard } from "../models/RequiredStandard";
+import { result } from "lodash";
 
 export class IvaDefectsService {
   public readonly ivaDatabaseService: IvaDatabaseService;
@@ -20,46 +22,18 @@ export class IvaDefectsService {
   }
 
   /**
-   * Retrieves IVA Defects based on the optionally provided vehicleType, euVehicleCategory and inspectionType and formats the response
-   * @param vehicleType the type of Vehicle e.g psv, lgv
-   * @param euVehicleCategory the EU Vehicle Category, synonymous with Manual ID
-   * @param basicInspection the Inspection Type e.g basic, normal
-   * @returns Array of IVA Defects
-   */
-  public async getIvaDefects(
-    euVehicleCategory: EUVehicleCategory | null,
-    basicInspection: boolean | false,
-  ): Promise<DefectGETIVA[]> {
-    try {
-      const results = await this.ivaDatabaseService.getDefectsByCriteria(
-        euVehicleCategory,
-        basicInspection,
-      );
-      const formattedResults: DefectGETIVA[] = [];
-      return formattedResults;
-    } catch (error: any) {
-      if (!(error instanceof HTTPError)) {
-        console.error(error);
-        error.statusCode = 500;
-        error.body = "Internal Server Error";
-      }
-      throw new HTTPError(error.statusCode, error.body);
-    }
-  }
-
-  /**
    * Retrieves IVA Defects based on the provided manualId and formats the response
    * @param euVehicleCategory the manual ID, e.g M1, N1, MSVA
    * @returns Array of IVA Defects
    */
   public async getIvaDefectsByEUVehicleCategory(
     euVehicleCategory: string,
-  ): Promise<INewDefectGETIVA> {
+  ): Promise<DefectGETIVA> {
     try {
       const results =
         (await this.ivaDatabaseService.getDefectsByEUVehicleCategory(
           euVehicleCategory,
-        )) as IIVADefect[];
+        )) as IIVATaxonomySection[];
 
       return this.formatIvaDefects(results, euVehicleCategory);
     } catch (error: any) {
@@ -80,8 +54,8 @@ export class IvaDefectsService {
     return keys[0];
   }
 
-  public formatInspectionTypes(sections: IIVADefect[]): ISectionIVA[] {
-    const formattedSections: ISectionIVA[] = sections.map((x) => {
+  public formatInspectionTypes(sections: IIVATaxonomySection[]): SectionIVA[] {
+    const formattedSections: SectionIVA[] = sections.map((x) => {
       const rsArr = x.requiredStandards.map((dx) => {
         return {
           rsNumber: parseInt(dx.rsNumber, 10),
@@ -100,46 +74,105 @@ export class IvaDefectsService {
         sectionNumber: x.sectionNumber,
         sectionDescription: x.sectionDescription,
         requiredStandards: rsArr,
-      } as ISectionIVA;
+      } as SectionIVA;
     });
     return formattedSections;
   }
   public formatIvaDefects(
-    results: IIVADefect[],
+    results: IIVATaxonomySection[],
     euVehicleCategory: string,
-  ): INewDefectGETIVA {
+  ): DefectGETIVA {
     const vehiclecat = this.getEnumKeyByEnumValue(
       EUVehicleCategory,
       euVehicleCategory,
     );
-    const basicSections: IIVADefect[] = results.filter((x) => {
-      x.requiredStandards = x.requiredStandards.filter((dx) => {
-        if (dx.basicInspection) {
-          return dx;
+
+    const basicSections : IIVATaxonomySection[] = [];
+    const normalSections : IIVATaxonomySection[] = [];
+    results.forEach((x)=>{
+      const basicStandards : IRequiredStandard[] = [];
+      const normalStandards : IRequiredStandard[] = [];
+      x.requiredStandards.forEach((rs)=>{
+        if(rs.basicInspection){
+          basicStandards.push(rs)
+        }
+        if(rs.normalInspection ){
+          normalStandards.push(rs)
+        }
+        if((!rs.basicInspection && !rs.normalInspection))
+        {
+          normalStandards.push(rs)
         }
       });
-      if (x.requiredStandards.length > 0) {
-        return x;
+
+      if(normalStandards.length > 0){
+        x.requiredStandards = normalStandards;
+        normalSections.push(x);
       }
-    });
-    const normalSections: IIVADefect[] = results.filter((y) => {
-      y.requiredStandards = y.requiredStandards.filter((dy) => {
-        if (
-          dy.normalInspection ||
-          (!dy.basicInspection && !dy.normalInspection)
-        ) {
-          return dy;
-        }
-      });
-      if (y.requiredStandards.length > 0) {
-        return y;
+      if(basicStandards.length > 0){
+        x.requiredStandards = basicStandards;
+        basicSections.push(x);
       }
+
     });
 
+
+
+
+
+    // const basicSections: SectionIVA[] = []
+    // const normalSections: SectionIVA[] = []
+
+    // results.forEach(dBRow=>{
+    //   let basic: SectionIVA = {}
+
+    //   dBRow.requiredStandards.forEach(rs=>{
+    //     let basic = {
+    //       rsNumber: parseInt(rs.rsNumber, 10),
+    //       requiredStandard: rs.requiredStandard,
+    //       refCalculation: rs.refCalculation,
+    //       additionalInfo: rs.additionalInfo,
+    //       inspectionTypes:
+    //         rs.normalInspection && rs.basicInspection
+    //           ? (["basic", "normal"] as InspectionType[])
+    //           : rs.basicInspection
+    //           ? (["basic"] as InspectionType[])
+    //           : (["normal"] as InspectionType[]),
+    //     }
+    //     }      
+    //   })  
+
+    // })
+
+
+    // const basicSections: IIVATaxonomySection[] = results.filter((x) => {
+    //   x.requiredStandards = x.requiredStandards.filter((rs) => {
+    //     if (rs.basicInspection) {
+    //       return rs;
+    //     }
+    //   });
+    //   if (x.requiredStandards.length > 0) {
+    //     return x;
+    //   }
+    // });
+
+    // const normalSections: IIVATaxonomySection[] = results.filter((y) => {
+    //   y.requiredStandards = y.requiredStandards.filter((dy) => {
+    //     if (
+    //       dy.normalInspection ||
+    //       (!dy.basicInspection && !dy.normalInspection)
+    //     ) {
+    //       return dy;
+    //     }
+    //   });
+    //   if (y.requiredStandards.length > 0) {
+    //     return y;
+    //   }
+    // });
+
     return {
-      euVehicleCategory: vehiclecat,
       basic: this.formatInspectionTypes(basicSections),
       normal: this.formatInspectionTypes(normalSections),
-    } as INewDefectGETIVA;
+    } as DefectGETIVA;
   }
 }

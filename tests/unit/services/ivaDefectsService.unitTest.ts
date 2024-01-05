@@ -22,7 +22,7 @@ describe("IVA Defects Service", () => {
   });
 
   describe("getIvaDefectsByManualId", () => {
-    it("should return unflattened JSON upon successful result", async () => {      
+    it("should return unflattened JSON upon successful result", async () => {
       mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(IvaDefects);
 
       const result = await target.getIvaDefectsByEUVehicleCategory("M1");
