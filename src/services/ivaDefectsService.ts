@@ -87,38 +87,34 @@ export class IvaDefectsService {
       euVehicleCategory,
     );
 
-    const basicSections : IIVATaxonomySection[] = [];
-    const normalSections : IIVATaxonomySection[] = [];
-    results.forEach((x)=>{
-      const basicStandards : IRequiredStandard[] = [];
-      const normalStandards : IRequiredStandard[] = [];
-      x.requiredStandards.forEach((rs)=>{
-        if(rs.basicInspection){
-          basicStandards.push(rs)
+    const basicSections: IIVATaxonomySection[] = [];
+    const normalSections: IIVATaxonomySection[] = [];
+    results.forEach((x) => {
+      const basicStandards: IRequiredStandard[] = [];
+      const normalStandards: IRequiredStandard[] = [];
+      x.requiredStandards.forEach((rs) => {
+        if (rs.basicInspection) {
+          basicStandards.push(rs);
         }
-        if(rs.normalInspection ){
-          normalStandards.push(rs)
+        if (rs.normalInspection) {
+          normalStandards.push(rs);
         }
-        if((!rs.basicInspection && !rs.normalInspection))
-        {
-          normalStandards.push(rs)
+        if (!rs.basicInspection && !rs.normalInspection) {
+          normalStandards.push(rs);
         }
       });
 
-      if(normalStandards.length > 0){
+      const rsArr: IRequiredStandard[] = [];
+
+      if (normalStandards.length > 0) {
         x.requiredStandards = normalStandards;
         normalSections.push(x);
       }
-      if(basicStandards.length > 0){
+      if (basicStandards.length > 0) {
         x.requiredStandards = basicStandards;
         basicSections.push(x);
       }
-
     });
-
-
-
-
 
     // const basicSections: SectionIVA[] = []
     // const normalSections: SectionIVA[] = []
@@ -139,11 +135,10 @@ export class IvaDefectsService {
     //           ? (["basic"] as InspectionType[])
     //           : (["normal"] as InspectionType[]),
     //     }
-    //     }      
-    //   })  
+    //     }
+    //   })
 
     // })
-
 
     // const basicSections: IIVATaxonomySection[] = results.filter((x) => {
     //   x.requiredStandards = x.requiredStandards.filter((rs) => {
