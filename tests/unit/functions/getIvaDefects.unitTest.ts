@@ -23,9 +23,8 @@ describe("getIvaDefects Function", () => {
       const event = {};
 
       const res = await getIvaDefects(event, ctx, () => {
-          return;
+        return;
       });
-
       expect(true).toEqual(true);
 
       // expect(res).toEqual(new HTTPResponse(200, IvaDefects));
@@ -61,13 +60,14 @@ describe("getIvaDefects Function", () => {
       jest
         .spyOn(IvaDefectsService.prototype, "getIvaDefectsByEUVehicleCategory")
         .mockRejectedValue(new HTTPError(500, "Internal Server Error"));
-
+      
       const event = {
         queryStringParameters: {
           euVehicleCategory: "m1"
         }
-      };
-      const res = await getIvaDefects(null, ctx, () => {
+      }
+      
+      const res = await getIvaDefects(event, ctx, () => {
         return;
       });
       expect(res).toEqual(new HTTPResponse(500, "Internal Server Error"));
