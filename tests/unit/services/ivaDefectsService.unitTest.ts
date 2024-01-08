@@ -22,14 +22,14 @@ describe("IVA Defects Service", () => {
     jest.resetModules();
   });
 
-  describe("getIvaDefectsByManualId", () => {
+  describe("getIvaDefectsByEUVehicleCategory", () => {
     it("should return expected number of normal sections upon successful result", async () => {
       mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(IvaDefects);
 
       const result = await target.getIvaDefectsByEUVehicleCategory("M1");
 
       expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
-      expect(result?.normal?.length === 96);
+      expect(result?.normal?.length).toBe(629);
     });
 
     it("should return expected number of basic sections upon successful result", async () => {
@@ -38,17 +38,31 @@ describe("IVA Defects Service", () => {
       const result = await target.getIvaDefectsByEUVehicleCategory("M1");
 
       expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
-      expect(result?.basic?.length === 96);
+      expect(result?.basic?.length).toBe(96);
     });
 
     it("should return expected number of eu vehicle categories upon successful result", async () => {
       mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(IvaDefects);
 
-      const result = await target.getIvaDefectsByEUVehicleCategory(EUVehicleCategory.M1);
+      const result = await target.getIvaDefectsByEUVehicleCategory(
+        EUVehicleCategory.M1,
+      );
 
       expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
-      expect(result?.basic?.length === 1);
-      expect(result?.euVehicleCategories.at(0) === EUVehicleCategory.M1);
+      expect(result?.euVehicleCategories?.length).toBe(1);
+      expect(result?.euVehicleCategories.at(0)).toBe(EUVehicleCategory.M1);
+    });
+
+    it("should return a correctly formatted section upon successful result", async () => {
+      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(IvaDefects);
+
+      const result = await target.getIvaDefectsByEUVehicleCategory("M1");
+      const resultSection = result?.normal?.at(0);
+
+      expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
+      expect(resultSection?.sectionNumber).toBe("01");
+      expect(resultSection?.sectionDescription).toBe("Noise");
+      expect(resultSection?.requiredStandards?.length).toBe(6);
     });
 
     it("should return an empty basic array upon successfully finding no search results", async () => {
@@ -56,7 +70,7 @@ describe("IVA Defects Service", () => {
       const result = await target.getIvaDefectsByEUVehicleCategory("M1");
 
       expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
-      expect(result?.basic.length === 0);
+      expect(result?.basic.length).toBe(0);
     });
 
     it("should return an empty normal array upon successfully finding no search results", async () => {
@@ -64,15 +78,7 @@ describe("IVA Defects Service", () => {
       const result = await target.getIvaDefectsByEUVehicleCategory("M1");
 
       expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
-      expect(result?.normal.length === 0);
-    });
-
-    it("should return an empty eu vehicle category array upon successfully finding no search results", async () => {
-      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce([]);
-      const result = await target.getIvaDefectsByEUVehicleCategory("M1");
-
-      expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
-      expect(result?.euVehicleCategories.length === 0);
+      expect(result?.normal.length).toBe(0);
     });
 
     it("should throw a 500 http error upon encountering a generic error", async () => {
