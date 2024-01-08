@@ -2,7 +2,7 @@ import { Handler } from "aws-lambda";
 import { HTTPResponse } from "../models/HTTPResponse";
 import { IvaDefectsService } from "../services/ivaDefectsService";
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
-import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/iva/defects/get";
+import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/iva/defects/enums/euVehicleCategory.enum";
 import { addHttpHeaders } from "../utils/httpHeaders";
 import { validateIvaDefectGetQuery } from "../validators/iva/ivaDefectsGetValidator";
 import { IvaDatabaseService } from "../services/ivaDatabaseService";
@@ -22,16 +22,11 @@ export const getIvaDefects: Handler = async (
   const euVehicleCategoryQuery = event?.queryStringParameters
     ?.euVehicleCategory as EUVehicleCategory;
 
-  /*
   if (!euVehicleCategoryQuery) {
-    return {statusCode: 400, body: "euVehicleCategory required"};
-  }else if (Object.values(EUVehicleCategory).includes(euVehicleCategoryQuery)) {
-    return {
-      statusCode: 204,
-      body: "[]",
-    };
+    return new HTTPResponse(400, "euVehicleCategory required");
+  }else if (!Object.values(EUVehicleCategory).includes(euVehicleCategoryQuery)) {
+    return new HTTPResponse(204, "[]");
   }
-*/
 
   return ivaDefectsService
     .getIvaDefectsByEUVehicleCategory(euVehicleCategoryQuery)
