@@ -5,10 +5,10 @@ import { IIVATaxonomySection } from "../models/IVADefect";
 import {
   DefectGETIVA,
   InspectionType,
+  RequiredStandard,
   SectionIVA,
 } from "@dvsa/cvs-type-definitions/types/iva/defects/get";
 import { IRequiredStandard } from "../models/RequiredStandard";
-import { result } from "lodash";
 
 export class IvaDefectsService {
   public readonly ivaDatabaseService: IvaDatabaseService;
@@ -46,128 +46,53 @@ export class IvaDefectsService {
     }
   }
 
-  public getEnumKeyByEnumValue<T extends { [index: string]: string }>(
-    myEnum: T,
-    enumValue: string,
-  ): keyof T {
-    const keys = Object.keys(myEnum).filter((x) => myEnum[x] === enumValue);
-    return keys[0];
-  }
-
-  public formatInspectionTypes(sections: IIVATaxonomySection[]): SectionIVA[] {
-    const formattedSections: SectionIVA[] = sections.map((x) => {
-      const rsArr = x.requiredStandards.map((dx) => {
-        return {
-          rsNumber: parseInt(dx.rsNumber, 10),
-          requiredStandard: dx.requiredStandard,
-          refCalculation: dx.refCalculation,
-          additionalInfo: dx.additionalInfo,
-          inspectionTypes:
-            dx.normalInspection && dx.basicInspection
-              ? (["basic", "normal"] as InspectionType[])
-              : dx.basicInspection
-              ? (["basic"] as InspectionType[])
-              : (["normal"] as InspectionType[]),
-        };
-      });
-      return {
-        sectionNumber: x.sectionNumber,
-        sectionDescription: x.sectionDescription,
-        requiredStandards: rsArr,
-      } as SectionIVA;
-    });
-    return formattedSections;
-  }
   public formatIvaDefects(
     results: IIVATaxonomySection[],
     euVehicleCategory: string,
   ): DefectGETIVA {
-    const vehiclecat = this.getEnumKeyByEnumValue(
-      EUVehicleCategory,
-      euVehicleCategory,
-    );
-
-    const basicSections: IIVATaxonomySection[] = [];
-    const normalSections: IIVATaxonomySection[] = [];
-    results.forEach((x) => {
-      const basicStandards: IRequiredStandard[] = [];
-      const normalStandards: IRequiredStandard[] = [];
-      x.requiredStandards.forEach((rs) => {
-        if (rs.basicInspection) {
-          basicStandards.push(rs);
-        }
-        if (rs.normalInspection) {
-          normalStandards.push(rs);
-        }
-        if (!rs.basicInspection && !rs.normalInspection) {
-          normalStandards.push(rs);
-        }
-      });
-
-      const rsArr: IRequiredStandard[] = [];
-
-      if (normalStandards.length > 0) {
-        x.requiredStandards = normalStandards;
-        normalSections.push(x);
-      }
-      if (basicStandards.length > 0) {
-        x.requiredStandards = basicStandards;
-        basicSections.push(x);
-      }
-    });
-
-    // const basicSections: SectionIVA[] = []
-    // const normalSections: SectionIVA[] = []
-
-    // results.forEach(dBRow=>{
-    //   let basic: SectionIVA = {}
-
-    //   dBRow.requiredStandards.forEach(rs=>{
-    //     let basic = {
-    //       rsNumber: parseInt(rs.rsNumber, 10),
-    //       requiredStandard: rs.requiredStandard,
-    //       refCalculation: rs.refCalculation,
-    //       additionalInfo: rs.additionalInfo,
-    //       inspectionTypes:
-    //         rs.normalInspection && rs.basicInspection
-    //           ? (["basic", "normal"] as InspectionType[])
-    //           : rs.basicInspection
-    //           ? (["basic"] as InspectionType[])
-    //           : (["normal"] as InspectionType[]),
-    //     }
-    //     }
-    //   })
-
-    // })
-
-    // const basicSections: IIVATaxonomySection[] = results.filter((x) => {
-    //   x.requiredStandards = x.requiredStandards.filter((rs) => {
-    //     if (rs.basicInspection) {
-    //       return rs;
-    //     }
-    //   });
-    //   if (x.requiredStandards.length > 0) {
-    //     return x;
-    //   }
-    // });
-
-    // const normalSections: IIVATaxonomySection[] = results.filter((y) => {
-    //   y.requiredStandards = y.requiredStandards.filter((dy) => {
-    //     if (
-    //       dy.normalInspection ||
-    //       (!dy.basicInspection && !dy.normalInspection)
-    //     ) {
-    //       return dy;
-    //     }
-    //   });
-    //   if (y.requiredStandards.length > 0) {
-    //     return y;
-    //   }
-    // });
-
     return {
-      basic: this.formatInspectionTypes(basicSections),
-      normal: this.formatInspectionTypes(normalSections),
+      euVehicleCategories: [
+        EUVehicleCategory[
+          euVehicleCategory.toLocaleUpperCase() as keyof typeof EUVehicleCategory
+        ],
+      ],
+      basic: this.formatSection(results, (x) => x.basicInspection),
+      normal: this.formatSection(
+        results,
+        (x) =>
+          x.normalInspection || (!x.normalInspection && !x.basicInspection),
+      ),
     } as DefectGETIVA;
+  }
+
+  private formatSection(
+    results: IIVATaxonomySection[],
+    filterExpression: (x: IRequiredStandard) => boolean,
+  ): SectionIVA[] {
+    return results.flatMap((section) => {
+      const standards = section.requiredStandards
+        .filter(filterExpression)
+        .map((rs) => {
+          return {
+            rsNumber: parseInt(rs.rsNumber, 10),
+            requiredStandard: rs.requiredStandard,
+            refCalculation: rs.refCalculation,
+            additionalInfo: rs.additionalInfo,
+            inspectionTypes: [
+              ...(rs.basicInspection ? ["basic" as InspectionType] : []),
+              ...(rs.normalInspection ? ["normal" as InspectionType] : []),
+            ],
+          } as RequiredStandard;
+        });
+
+      if (standards.length > 0) {
+        return {
+          sectionNumber: section.sectionNumber,
+          sectionDescription: section.sectionDescription,
+          requiredStandards: standards,
+        };
+      }
+      return [];
+    });
   }
 }
