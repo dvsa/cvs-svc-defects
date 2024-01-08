@@ -24,7 +24,9 @@ export const getIvaDefects: Handler = async (
 
   if (!euVehicleCategoryQuery) {
     return new HTTPResponse(400, "euVehicleCategory required");
-  }else if (!Object.values(EUVehicleCategory).includes(euVehicleCategoryQuery)) {
+  } else if (
+    !Object.values(EUVehicleCategory).includes(euVehicleCategoryQuery)
+  ) {
     return new HTTPResponse(204, "[]");
   }
 
