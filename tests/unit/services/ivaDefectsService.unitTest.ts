@@ -6,7 +6,7 @@ import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/iva/defects/
 import { HTTPError } from "../../../src/models/HTTPError";
 import { IvaDefectsService } from "../../../src/services/ivaDefectsService";
 import IvaDefects from "../../resources/iva-defects.json";
-import { IIVATaxonomySection } from "../../../src/models/IVADefect";
+import { ITaxonomySectionIVA } from "../../../src/models/IVADefect";
 
 const mockGetDefectsByEUVehicleCategory = jest.fn();
 const mockGetDefectsByCriteria = jest.fn();
@@ -25,7 +25,7 @@ describe("IVA Defects Service", () => {
 
   describe("formatIvaDefects", () => {
     it("should return a correctly formatted section with basic required standards only", () => {
-      const taxonomySection: IIVATaxonomySection[] = [
+      const taxonomySection: ITaxonomySectionIVA[] = [
         {
           euVehicleCategory: "m1",
           sectionNumber: "01",
@@ -70,7 +70,7 @@ describe("IVA Defects Service", () => {
     });
 
     it("should return a correctly formatted section with normal and basic required standards", () => {
-      const taxonomySection: IIVATaxonomySection[] = [
+      const taxonomySection: ITaxonomySectionIVA[] = [
         {
           euVehicleCategory: "m1",
           sectionNumber: "01",
@@ -129,7 +129,7 @@ describe("IVA Defects Service", () => {
     });
 
     it("should return multiple correctly formatted sections with normal and basic required standards", () => {
-      const taxonomySection: IIVATaxonomySection[] = [
+      const taxonomySection: ITaxonomySectionIVA[] = [
         {
           euVehicleCategory: "m1",
           sectionNumber: "01",
@@ -210,7 +210,7 @@ describe("IVA Defects Service", () => {
     });
 
     it("should return an empty array when provided empty taxonomy sections", () => {
-      const taxonomySection: IIVATaxonomySection[] = [];
+      const taxonomySection: ITaxonomySectionIVA[] = [];
       const result = target.formatIvaDefects(
         taxonomySection,
         EUVehicleCategory.M1,
@@ -224,7 +224,7 @@ describe("IVA Defects Service", () => {
     });
 
     it("should return correctly formatted required standards", () => {
-      const taxonomySection: IIVATaxonomySection[] = [
+      const taxonomySection: ITaxonomySectionIVA[] = [
         {
           euVehicleCategory: "m1",
           sectionNumber: "01",

@@ -1,7 +1,7 @@
 import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
 import { IvaDatabaseService } from "./ivaDatabaseService";
 import { HTTPError } from "../models/HTTPError";
-import { IIVATaxonomySection } from "../models/IVADefect";
+import { ITaxonomySectionIVA } from "../models/IVADefect";
 import {
   DefectGETIVA,
   InspectionType,
@@ -22,33 +22,33 @@ export class IvaDefectsService {
   }
 
   /**
-   * Retrieves IVA Defects based on the provided manualId and formats the response
-   * @param euVehicleCategory the manual ID, e.g M1, N1, MSVA
-   * @returns Array of IVA Defects
+   * Retrieves IVA Defects based on the provided euVehicleCategory and formats the response
+   * @param euVehicleCategory the EU Vehicle Category, e.g M1, N1, MSVA
+   * @returns Arrays of IVA Defects, grouped by inspection type
    */
   public async getIvaDefectsByEUVehicleCategory(
-    euVehicleCategory: string,
+    euVehicleCategory: string
   ): Promise<DefectGETIVA> {
     try {
       const results =
         (await this.ivaDatabaseService.getDefectsByEUVehicleCategory(
-          euVehicleCategory,
-        )) as IIVATaxonomySection[];
+          euVehicleCategory
+        )) as ITaxonomySectionIVA[];
 
       return this.formatIvaDefects(results, euVehicleCategory);
     } catch (error: any) {
-      if (!(error instanceof HTTPError)) {
-        console.error(error);
-        error.statusCode = 500;
-        error.body = "Internal Server Error";
-      }
-      throw new HTTPError(error.statusCode, error.body);
+      const httpError =
+        error instanceof HTTPError
+          ? error
+          : new HTTPError(500, "Internal Server Error");
+      console.error(httpError);
+      throw httpError;
     }
   }
 
   public formatIvaDefects(
-    results: IIVATaxonomySection[],
-    euVehicleCategory: string,
+    results: ITaxonomySectionIVA[],
+    euVehicleCategory: string
   ): DefectGETIVA {
     return {
       euVehicleCategories: [
@@ -59,15 +59,14 @@ export class IvaDefectsService {
       basic: this.formatSection(results, (x) => x.basicInspection),
       normal: this.formatSection(
         results,
-        (x) =>
-          x.normalInspection || (!x.normalInspection && !x.basicInspection),
+        (x) => x.normalInspection || (!x.normalInspection && !x.basicInspection)
       ),
     } as DefectGETIVA;
   }
 
   private formatSection(
-    results: IIVATaxonomySection[],
-    filterExpression: (x: IRequiredStandard) => boolean,
+    results: ITaxonomySectionIVA[],
+    filterExpression: (x: IRequiredStandard) => boolean
   ): SectionIVA[] {
     return results.flatMap((section) => {
       const standards = section.requiredStandards

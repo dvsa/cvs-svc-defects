@@ -8,7 +8,7 @@ const request = supertest(url);
 describe("Defects Service", () => {
   describe("getIvaDefectsByEUVehicleCategory", () => {
     context("when database is populated", () => {
-      it("should return all defects in the database", async () => {
+      it("should return all defects in the database for a known euVehicleCategory", async () => {
         const expectedResponse = JSON.parse(JSON.stringify(ivaDefectsData))
           .map((defect: { id: any }) => {
             delete defect.id;
@@ -35,7 +35,7 @@ describe("Defects Service", () => {
           });
       });
 
-      it("should return an empty response for unknown euVehicleCategory", async () => {
+      it("should return an empty response for an unknown euVehicleCategory", async () => {
         await request
           .get("defects/iva?euVehicleCategory=f1")
           .set({ Authorization: mockToken })
