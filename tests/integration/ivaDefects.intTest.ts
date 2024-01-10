@@ -9,15 +9,12 @@ describe("Defects Service", () => {
   describe("getIvaDefectsByEUVehicleCategory", () => {
     context("when database is populated", () => {
       it("should return all defects in the database for a known euVehicleCategory", async () => {
-        const expectedResponse = JSON.parse(JSON.stringify(ivaDefectsData))
-          .map((defect: { id: any }) => {
+        const expectedResponse = JSON.parse(JSON.stringify(ivaDefectsData)).map(
+          (defect: { id: any }) => {
             delete defect.id;
             return defect;
-          })
-          .sort(
-            (first: { imNumber: number }, second: { imNumber: number }) =>
-              first.imNumber - second.imNumber,
-          );
+          },
+        );
         await request
           .get("defects/iva?euVehicleCategory=m1")
           .set({ Authorization: mockToken })
