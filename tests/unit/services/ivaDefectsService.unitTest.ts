@@ -48,31 +48,25 @@ describe("IVA Defects Service", () => {
         EUVehicleCategory.M1,
       );
 
-      expect(result).toEqual(
-        {
-          "euVehicleCategories": [
-              "m1"
-          ],
-          "basic": [
-            {
-              "requiredStandards": [
-                {
-                  "additionalInfo": true,
-                  "inspectionTypes": [
-                    "basic"
-                  ],
-                  "refCalculation": "1.1",
-                  "requiredStandard": "A test standard",
-                  "rsNumber": 1
-                }
-              ],
-              "sectionDescription": "Noise",
-              "sectionNumber": "01"
-            }
-          ],
-          "normal": []
-        }
-      );
+      expect(result).toEqual({
+        euVehicleCategories: ["m1"],
+        basic: [
+          {
+            requiredStandards: [
+              {
+                additionalInfo: true,
+                inspectionTypes: ["basic"],
+                refCalculation: "1.1",
+                requiredStandard: "A test standard",
+                rsNumber: 1,
+              },
+            ],
+            sectionDescription: "Noise",
+            sectionNumber: "01",
+          },
+        ],
+        normal: [],
+      });
     });
 
     it("should return a correctly formatted section with normal and basic required standards", () => {
@@ -99,49 +93,39 @@ describe("IVA Defects Service", () => {
         EUVehicleCategory.M1,
       );
 
-      expect(result).toEqual(
-        {
-          "euVehicleCategories": [
-              "m1"
-          ],
-          "basic": [
-            {
-              "requiredStandards": [
-                {
-                  "additionalInfo": true,
-                  "inspectionTypes": [
-                    "basic",
-                    "normal",
-                  ],
-                  "refCalculation": "1.1",
-                  "requiredStandard": "A test standard",
-                  "rsNumber": 1
-                }
-              ],
-              "sectionDescription": "Noise",
-              "sectionNumber": "01"
-            }
-          ],
-          "normal": [
-            {
-              "requiredStandards": [
-                {
-                  "additionalInfo": true,
-                  "inspectionTypes": [
-                    "basic",
-                    "normal",
-                  ],
-                  "refCalculation": "1.1",
-                  "requiredStandard": "A test standard",
-                  "rsNumber": 1
-                }
-              ],
-              "sectionDescription": "Noise",
-              "sectionNumber": "01"
-            }
-          ],
-        }
-      );
+      expect(result).toEqual({
+        euVehicleCategories: ["m1"],
+        basic: [
+          {
+            requiredStandards: [
+              {
+                additionalInfo: true,
+                inspectionTypes: ["basic", "normal"],
+                refCalculation: "1.1",
+                requiredStandard: "A test standard",
+                rsNumber: 1,
+              },
+            ],
+            sectionDescription: "Noise",
+            sectionNumber: "01",
+          },
+        ],
+        normal: [
+          {
+            requiredStandards: [
+              {
+                additionalInfo: true,
+                inspectionTypes: ["basic", "normal"],
+                refCalculation: "1.1",
+                requiredStandard: "A test standard",
+                rsNumber: 1,
+              },
+            ],
+            sectionDescription: "Noise",
+            sectionNumber: "01",
+          },
+        ],
+      });
     });
 
     it("should return multiple correctly formatted sections with normal and basic required standards", () => {
@@ -176,66 +160,51 @@ describe("IVA Defects Service", () => {
         EUVehicleCategory.M1,
       );
 
-
-      expect(result).toEqual(        {
-        "euVehicleCategories": [
-            "m1"
-        ],
-        "basic": [
+      expect(result).toEqual({
+        euVehicleCategories: ["m1"],
+        basic: [
           {
-            "requiredStandards": [
+            requiredStandards: [
               {
-                "additionalInfo": true,
-                "inspectionTypes": [
-                  "basic",
-                  "normal",
-                ],
-                "refCalculation": "1.1",
-                "requiredStandard": "A test standard",
-                "rsNumber": 1
+                additionalInfo: true,
+                inspectionTypes: ["basic", "normal"],
+                refCalculation: "1.1",
+                requiredStandard: "A test standard",
+                rsNumber: 1,
               },
               {
-                "additionalInfo": true,
-                "inspectionTypes": [
-                  "basic",
-                  "normal",
-                ],
-                "refCalculation": "1.1",
-                "requiredStandard": "Another test standard",
-                "rsNumber": 1
-              }
+                additionalInfo: true,
+                inspectionTypes: ["basic", "normal"],
+                refCalculation: "1.1",
+                requiredStandard: "Another test standard",
+                rsNumber: 1,
+              },
             ],
-            "sectionDescription": "Noise",
-            "sectionNumber": "01"
-          }
+            sectionDescription: "Noise",
+            sectionNumber: "01",
+          },
         ],
-        "normal": [
+        normal: [
           {
-            "requiredStandards": [
+            requiredStandards: [
               {
-                "additionalInfo": true,
-                "inspectionTypes": [
-                  "basic",
-                  "normal",
-                ],
-                "refCalculation": "1.1",
-                "requiredStandard": "A test standard",
-                "rsNumber": 1
+                additionalInfo: true,
+                inspectionTypes: ["basic", "normal"],
+                refCalculation: "1.1",
+                requiredStandard: "A test standard",
+                rsNumber: 1,
               },
               {
-                "additionalInfo": true,
-                "inspectionTypes": [
-                  "basic",
-                  "normal",
-                ],
-                "refCalculation": "1.1",
-                "requiredStandard": "Another test standard",
-                "rsNumber": 1
-              }
+                additionalInfo: true,
+                inspectionTypes: ["basic", "normal"],
+                refCalculation: "1.1",
+                requiredStandard: "Another test standard",
+                rsNumber: 1,
+              },
             ],
-            "sectionDescription": "Noise",
-            "sectionNumber": "01"
-          }
+            sectionDescription: "Noise",
+            sectionNumber: "01",
+          },
         ],
       });
     });
@@ -246,13 +215,11 @@ describe("IVA Defects Service", () => {
         taxonomySection,
         EUVehicleCategory.M1,
       );
-      
+
       expect(result).toEqual({
-        "euVehicleCategories": [
-            "m1"
-        ],
-        "basic": [],
-        "normal": [],
+        euVehicleCategories: ["m1"],
+        basic: [],
+        normal: [],
       });
     });
 
@@ -288,9 +255,7 @@ describe("IVA Defects Service", () => {
       expect(actual).toEqual({
         rsNumber: 1,
         requiredStandard: "A test standard",
-        inspectionTypes: [
-          "basic",
-        ],
+        inspectionTypes: ["basic"],
         refCalculation: "1.1",
         additionalInfo: true,
       });
