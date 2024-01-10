@@ -27,12 +27,12 @@ export class IvaDefectsService {
    * @returns Arrays of IVA Defects, grouped by inspection type
    */
   public async getIvaDefectsByEUVehicleCategory(
-    euVehicleCategory: string
+    euVehicleCategory: string,
   ): Promise<DefectGETIVA> {
     try {
       const results =
         (await this.ivaDatabaseService.getDefectsByEUVehicleCategory(
-          euVehicleCategory
+          euVehicleCategory,
         )) as ITaxonomySectionIVA[];
 
       return this.formatIvaDefects(results, euVehicleCategory);
@@ -54,7 +54,7 @@ export class IvaDefectsService {
    */
   public formatIvaDefects(
     results: ITaxonomySectionIVA[],
-    euVehicleCategory: string
+    euVehicleCategory: string,
   ): DefectGETIVA {
     return {
       euVehicleCategories: [
@@ -65,7 +65,8 @@ export class IvaDefectsService {
       basic: this.formatSections(results, (x) => x.basicInspection),
       normal: this.formatSections(
         results,
-        (x) => x.normalInspection || (!x.normalInspection && !x.basicInspection)
+        (x) =>
+          x.normalInspection || (!x.normalInspection && !x.basicInspection),
       ),
     } as DefectGETIVA;
   }
@@ -78,25 +79,23 @@ export class IvaDefectsService {
    */
   private formatSections(
     results: ITaxonomySectionIVA[],
-    filterExpression: (x: IRequiredStandard) => boolean
+    filterExpression: (x: IRequiredStandard) => boolean,
   ): SectionIVA[] {
     return results.flatMap((section) => {
       const standards = section.requiredStandards
         .filter(filterExpression)
-        .map(
-          (rs) => {
-            return {
-              rsNumber: parseInt(rs.rsNumber, 10),
-              requiredStandard: rs.requiredStandard,
-              refCalculation: rs.refCalculation,
-              additionalInfo: rs.additionalInfo,
-              inspectionTypes: [
-                ...(rs.basicInspection ? ["basic" as InspectionType] : []),
-                ...(rs.normalInspection ? ["normal" as InspectionType] : []),
-              ],
-            } as RequiredStandard;
-          }
-        );
+        .map((rs) => {
+          return {
+            rsNumber: parseInt(rs.rsNumber, 10),
+            requiredStandard: rs.requiredStandard,
+            refCalculation: rs.refCalculation,
+            additionalInfo: rs.additionalInfo,
+            inspectionTypes: [
+              ...(rs.basicInspection ? ["basic" as InspectionType] : []),
+              ...(rs.normalInspection ? ["normal" as InspectionType] : []),
+            ],
+          } as RequiredStandard;
+        });
 
       if (standards.length > 0) {
         return {
