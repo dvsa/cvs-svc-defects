@@ -27,7 +27,10 @@ export const getIvaDefects: Handler = async (
   } else if (
     !Object.values(EUVehicleCategory).includes(euVehicleCategoryQuery)
   ) {
-    return new HTTPResponse(400, `${euVehicleCategoryQuery} is not a recognised EU Vehicle Category`);
+    return new HTTPResponse(
+      400,
+      `${euVehicleCategoryQuery} is not a recognised EU Vehicle Category`,
+    );
   }
 
   return ivaDefectsService
