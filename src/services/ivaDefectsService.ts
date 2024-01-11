@@ -84,18 +84,27 @@ export class IvaDefectsService {
     return results.flatMap((section) => {
       const standards = section.requiredStandards
         .filter(filterExpression)
-        .map((rs) => {
-          return {
-            rsNumber: parseInt(rs.rsNumber, 10),
-            requiredStandard: rs.requiredStandard,
-            refCalculation: rs.refCalculation,
-            additionalInfo: rs.additionalInfo,
-            inspectionTypes: [
-              ...(rs.basicInspection ? ["basic" as InspectionType] : []),
-              ...(rs.normalInspection ? ["normal" as InspectionType] : []),
-            ],
-          } as RequiredStandard;
-        });
+        .map(
+          ({
+            rsNumber,
+            requiredStandard,
+            refCalculation,
+            additionalInfo,
+            basicInspection,
+            normalInspection,
+          }) => {
+            return {
+              rsNumber: parseInt(rsNumber, 10),
+              requiredStandard,
+              refCalculation,
+              additionalInfo,
+              inspectionTypes: [
+                ...(basicInspection ? ["basic" as InspectionType] : []),
+                ...(normalInspection ? ["normal" as InspectionType] : []),
+              ],
+            } as RequiredStandard;
+          },
+        );
 
       if (standards.length > 0) {
         return {
