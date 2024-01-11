@@ -267,14 +267,6 @@ components:
           type: string
         sectionDescription:
           type: string
-        vehicleTypes:
-          type: array
-          items:
-            $ref: "#/components/schemas/vehicleType"
-        euVehicleCategories:
-          type: array
-          items:
-            $ref: "#/components/schemas/euVehicleCategory"
         requiredStandards:
           type: array
           items:
