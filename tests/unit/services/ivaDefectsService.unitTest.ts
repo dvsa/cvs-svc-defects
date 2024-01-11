@@ -317,9 +317,9 @@ describe("IVA Defects Service", () => {
         new Error("Fake Error"),
       );
       const actualError = new HTTPError(500, "Internal Server Error");
-      expect(async () => {
-        await target.getIvaDefectsByEUVehicleCategory("M1");
-      }).rejects.toEqual(actualError);
+      await expect(
+        target.getIvaDefectsByEUVehicleCategory(EUVehicleCategory.M1),
+      ).rejects.toThrow(HTTPError);
     });
   });
 });
