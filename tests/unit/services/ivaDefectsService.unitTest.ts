@@ -7,19 +7,22 @@ import { HTTPError } from "../../../src/models/HTTPError";
 import { IvaDefectsService } from "../../../src/services/ivaDefectsService";
 import IvaDefects from "../../resources/iva-defects.json";
 import { ITaxonomySectionIVA } from "../../../src/models/IVADefect";
+import { IvaDatabaseService } from "../../../src/services/ivaDatabaseService";
 
 const mockGetDefectsByEUVehicleCategory = jest.fn();
-const mockGetDefectsByCriteria = jest.fn();
 
 describe("IVA Defects Service", () => {
-  const ivaDatabaseService = {
-    getDefectsByEUVehicleCategory: mockGetDefectsByEUVehicleCategory,
-    getDefectsByCriteria: mockGetDefectsByCriteria,
-  };
-  let target = new IvaDefectsService(ivaDatabaseService as any);
+  let target: IvaDefectsService;
+  let mockIvaDatabaseService: Partial<IvaDatabaseService>;
 
   beforeEach(() => {
     jest.resetAllMocks();
+    mockIvaDatabaseService = {
+      getDefectsByEUVehicleCategory: mockGetDefectsByEUVehicleCategory,
+    };
+    target = new IvaDefectsService(
+      mockIvaDatabaseService as IvaDatabaseService,
+    );
     jest.resetModules();
   });
 
