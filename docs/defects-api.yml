@@ -295,10 +295,7 @@ components:
         inspectionTypes:
           type: array
           items:
-            type: string
-            enum:
-              - basic
-              - normal
+            $ref: "#/components/schemas/inspectionType"
 
     vehicleType:
       type: string
