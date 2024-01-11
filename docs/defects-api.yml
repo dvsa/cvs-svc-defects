@@ -289,7 +289,6 @@ components:
           items:
             $ref: "#/components/schemas/inspectionType"
 
-
     euVehicleCategory:
       type: string
       enum:
