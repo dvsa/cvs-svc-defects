@@ -289,15 +289,6 @@ components:
           items:
             $ref: "#/components/schemas/inspectionType"
 
-    vehicleType:
-      type: string
-      enum:
-        - car
-        - lgv
-        - motorcycle
-        - psv
-        - hgv
-        - trl
 
     euVehicleCategory:
       type: string
