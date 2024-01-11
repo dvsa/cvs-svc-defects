@@ -1,5 +1,4 @@
 import supertest from "supertest";
-import { emptyDatabase, populateDatabase } from "../util/dbOperations";
 import ivaDefectsData from "../resources/iva-defects.json";
 import { mockToken } from "../util/mockToken";
 
@@ -7,21 +6,17 @@ const url = "http://localhost:3001/";
 const request = supertest(url);
 
 describe("Defects Service", () => {
-  describe("getIvaDefectsByManual", () => {
+  describe("getIvaDefectsByEUVehicleCategory", () => {
     context("when database is populated", () => {
-      it("should return all defects in the database", async () => {
-        const expectedResponse = JSON.parse(JSON.stringify(ivaDefectsData))
-          .map((defect: { id: any }) => {
+      it("should return all defects in the database for a known euVehicleCategory", async () => {
+        const expectedResponse = JSON.parse(JSON.stringify(ivaDefectsData)).map(
+          (defect: { id: any }) => {
             delete defect.id;
             return defect;
-          })
-          .sort(
-            (first: { imNumber: number }, second: { imNumber: number }) =>
-              first.imNumber - second.imNumber,
-          );
-
+          },
+        );
         await request
-          .get("defects/iva/manual/M1")
+          .get("defects/iva?euVehicleCategory=m1")
           .set({ Authorization: mockToken })
           .then((res: any) => {
             expect(res.statusCode).toBe(200);
@@ -29,51 +24,39 @@ describe("Defects Service", () => {
             expect(res.headers["access-control-allow-credentials"]).toBe(
               "true",
             );
-            expect(res.body.length).toBe(expectedResponse.length);
+
+            expect(res.body).not.toBeNull();
+            expect(res.body?.euVehicleCategories?.at(0)).toBe("m1");
+            expect(res.body?.basic?.length).toBe(49);
+            expect(res.body?.normal?.length).toBe(51);
           });
       });
 
-      it("should return an empty array for unknown id", async () => {
-        const expectedResponse = [];
-
+      it("should return a bad request response for an unknown euVehicleCategory", async () => {
         await request
-          .get("defects/iva/manual/fakeId")
+          .get("defects/iva?euVehicleCategory=f1")
           .set({ Authorization: mockToken })
           .then((res: any) => {
-            expect(res.statusCode).toBe(204);
+            expect(res.statusCode).toBe(400);
             expect(res.headers["access-control-allow-origin"]).toBe("*");
             expect(res.headers["access-control-allow-credentials"]).toBe(
               "true",
             );
-            expect(res.body.length).toBe(expectedResponse.length);
+            expect(res.body).toBe("f1 is not a recognised EU Vehicle Category");
           });
       });
-    });
-  });
 
-  describe("getIvaDefects", () => {
-    context("when database is populated", () => {
-      it("should return all defects in the database", async () => {
-        const expectedResponse = JSON.parse(JSON.stringify(ivaDefectsData))
-          .map((defect: { id: any }) => {
-            delete defect.id;
-            return defect;
-          })
-          .sort(
-            (first: { imNumber: number }, second: { imNumber: number }) =>
-              first.imNumber - second.imNumber,
-          );
-
+      it("should return a bad request response for a missing euVehicleCategory", async () => {
         await request
           .get("defects/iva")
           .set({ Authorization: mockToken })
           .then((res: any) => {
-            expect(res.statusCode).toBe(200);
+            expect(res.statusCode).toBe(400);
             expect(res.headers["access-control-allow-origin"]).toBe("*");
             expect(res.headers["access-control-allow-credentials"]).toBe(
               "true",
             );
-            expect(res.body.length).toBe(expectedResponse.length);
+            expect(res.body).toBe("euVehicleCategory required");
           });
       });
     });

@@ -1,12 +1,14 @@
-import {
-  DefectGETIVA,
-  InspectionType,
-  VehicleType,
-} from "@dvsa/cvs-type-definitions/types/iva/defects/get";
 import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
 import { IvaDatabaseService } from "./ivaDatabaseService";
 import { HTTPError } from "../models/HTTPError";
-import { formatIvaDefects } from "../utils/formatDefects";
+import { ITaxonomySectionIVA } from "../models/IVADefect";
+import {
+  DefectGETIVA,
+  InspectionType,
+  RequiredStandard,
+  SectionIVA,
+} from "@dvsa/cvs-type-definitions/types/iva/defects/get";
+import { IRequiredStandard } from "../models/RequiredStandard";
 
 export class IvaDefectsService {
   public readonly ivaDatabaseService: IvaDatabaseService;
@@ -20,67 +22,98 @@ export class IvaDefectsService {
   }
 
   /**
-   * Retrieves IVA Defects based on the optionally provided vehicleType, euVehicleCategory and inspectionType and formats the response
-   * @param vehicleType the type of Vehicle e.g psv, lgv
-   * @param euVehicleCategory the EU Vehicle Category, synonymous with Manual ID
-   * @param inspectionType the Inspection Type e.g basic, normal
-   * @returns Array of IVA Defects
+   * Retrieves IVA Defects based on the provided euVehicleCategory and formats the response
+   * @param euVehicleCategory the EU Vehicle Category, e.g M1, N1, MSVA
+   * @returns Arrays of IVA Defects, grouped by inspection type
    */
-  public async getIvaDefects(
-    vehicleType: VehicleType | null,
-    euVehicleCategory: EUVehicleCategory | null,
-    inspectionType: InspectionType | null,
-  ): Promise<DefectGETIVA[]> {
+  public async getIvaDefectsByEUVehicleCategory(
+    euVehicleCategory: string,
+  ): Promise<DefectGETIVA> {
     try {
-      const results = await this.ivaDatabaseService.getDefectsByCriteria(
-        vehicleType,
-        euVehicleCategory,
-        inspectionType,
-      );
+      const results =
+        (await this.ivaDatabaseService.getDefectsByEUVehicleCategory(
+          euVehicleCategory,
+        )) as ITaxonomySectionIVA[];
 
-      let formattedResults: DefectGETIVA[] = [];
-      if (results.length > 0) {
-        formattedResults = formatIvaDefects(
-          results,
-        ) as unknown as DefectGETIVA[];
-      }
-      return formattedResults;
+      return this.formatIvaDefects(results, euVehicleCategory);
     } catch (error: any) {
-      if (!(error instanceof HTTPError)) {
-        console.error(error);
-        error.statusCode = 500;
-        error.body = "Internal Server Error";
-      }
-      throw new HTTPError(error.statusCode, error.body);
+      const httpError =
+        error instanceof HTTPError
+          ? error
+          : new HTTPError(500, "Internal Server Error");
+      console.error(httpError);
+      throw httpError;
     }
   }
 
   /**
-   * Retrieves IVA Defects based on the provided manualId and formats the response
-   * @param manualId the manual ID, e.g M1, N1, MSVA
-   * @returns Array of IVA Defects
+   * Formats results from the database into the eventual structure returned by the API
+   * @param results array of ITaxonomyIVA objects as returned from DynamoDb
+   * @param euVehicleCategory the EU Vehicle Category, e.g M1, N1, MSVA
+   * @returns Arrays of IVA Defects, grouped by inspection type
    */
-  public async getIvaDefectsByManualId(
-    manualId: string,
-  ): Promise<DefectGETIVA[]> {
-    try {
-      const results =
-        await this.ivaDatabaseService.getDefectsByManualId(manualId);
+  public formatIvaDefects(
+    results: ITaxonomySectionIVA[],
+    euVehicleCategory: string,
+  ): DefectGETIVA {
+    return {
+      euVehicleCategories: [
+        EUVehicleCategory[
+          euVehicleCategory.toLocaleUpperCase() as keyof typeof EUVehicleCategory
+        ],
+      ],
+      basic: this.formatSections(results, (x) => x.basicInspection),
+      normal: this.formatSections(
+        results,
+        (x) =>
+          x.normalInspection || (!x.normalInspection && !x.basicInspection),
+      ),
+    } as DefectGETIVA;
+  }
 
-      let formattedResults: DefectGETIVA[] = [];
-      if (results.length > 0) {
-        formattedResults = formatIvaDefects(
-          results,
-        ) as unknown as DefectGETIVA[];
+  /**
+   * Formats each section of a taxonomy into the format returned by the API. Removes any sections that do not contain any required standards.
+   * @param results array of ITaxonomyIVA objects as returned from DynamoDb
+   * @param filterExpression expression used to filter required standards in each section
+   * @returns Arrays of IVA Defect taxonomy sections, with required standards filtered by the filter expression
+   */
+  private formatSections(
+    results: ITaxonomySectionIVA[],
+    filterExpression: (x: IRequiredStandard) => boolean,
+  ): SectionIVA[] {
+    return results.flatMap((section) => {
+      const standards = section.requiredStandards
+        .filter(filterExpression)
+        .map(
+          ({
+            rsNumber,
+            requiredStandard,
+            refCalculation,
+            additionalInfo,
+            basicInspection,
+            normalInspection,
+          }) => {
+            return {
+              rsNumber: parseInt(rsNumber, 10),
+              requiredStandard,
+              refCalculation,
+              additionalInfo,
+              inspectionTypes: [
+                ...(basicInspection ? ["basic" as InspectionType] : []),
+                ...(normalInspection ? ["normal" as InspectionType] : []),
+              ],
+            } as RequiredStandard;
+          },
+        );
+
+      if (standards.length > 0) {
+        return {
+          sectionNumber: section.sectionNumber,
+          sectionDescription: section.sectionDescription,
+          requiredStandards: standards,
+        };
       }
-      return formattedResults;
-    } catch (error: any) {
-      if (!(error instanceof HTTPError)) {
-        console.error(error);
-        error.statusCode = 500;
-        error.body = "Internal Server Error";
-      }
-      throw new HTTPError(error.statusCode, error.body);
-    }
+      return [];
+    });
   }
 }
