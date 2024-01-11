@@ -49,7 +49,7 @@ paths:
 
   /defects/iva:
     get:
-      summary: Search the IVA defect manuals by Vehicle Type, EU Vehicle Category and Inspection type.
+      summary: Search the IVA defect manuals by EU Vehicle Category
       tags:
         - IVA Defects
       parameters:
@@ -86,6 +86,8 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/ivaDefect"
+        "400":
+          description: Invalid or missing euVehicleCategory parameter
         "401":
           description: Not authenticated
         "403":
