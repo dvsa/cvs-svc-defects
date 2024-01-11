@@ -32,17 +32,31 @@ describe("Defects Service", () => {
           });
       });
 
-      it("should return an empty response for an unknown euVehicleCategory", async () => {
+      it("should return a bad request response for an unknown euVehicleCategory", async () => {
         await request
           .get("defects/iva?euVehicleCategory=f1")
           .set({ Authorization: mockToken })
           .then((res: any) => {
-            expect(res.statusCode).toBe(204);
+            expect(res.statusCode).toBe(400);
             expect(res.headers["access-control-allow-origin"]).toBe("*");
             expect(res.headers["access-control-allow-credentials"]).toBe(
               "true",
             );
-            expect(res.body).toBe("");
+            expect(res.body).toBe("f1 is not a recognised EU Vehicle Category");
+          });
+      });
+
+      it("should return a bad request response for a missing euVehicleCategory", async () => {
+        await request
+          .get("defects/iva")
+          .set({ Authorization: mockToken })
+          .then((res: any) => {
+            expect(res.statusCode).toBe(400);
+            expect(res.headers["access-control-allow-origin"]).toBe("*");
+            expect(res.headers["access-control-allow-credentials"]).toBe(
+              "true",
+            );
+            expect(res.body).toBe("euVehicleCategory required");
           });
       });
     });
