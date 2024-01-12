@@ -6,8 +6,6 @@ info:
     updated once we have confirmed the security scheme we are using.
   version: 1.1.0
   title: Defect Microservice
-  contact:
-    email: mdclarke@deloitte.co.uk
   license:
     name: Apache 2.0
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
