@@ -1,30 +1,110 @@
 {
   "info": {
-    "_postman_id": "6b8ca95e-cca3-42f4-90dc-a24cca6e7810",
-    "name": "defects",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "_postman_id": "ff988b5c-3204-472f-9f53-8ec3e6e66ed7",
+    "name": "Defects Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9129759"
   },
   "item": [
     {
-      "name": "Get all Defects",
+      "name": "Defects (DEV)",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [""],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
       "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": [
-            {
-              "key": "token",
-              "value": "{{bearer_token}}",
-              "type": "string"
-            }
-          ]
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
         },
+        "url": {
+          "raw": "https://{{url_develop}}/develop/defects",
+          "protocol": "https",
+          "host": ["{{url_develop}}"],
+          "path": ["develop", "defects"]
+        },
+        "description": "Reference Data: Returns a list of defects.\n\nSends request to develop branch in AWS."
+      },
+      "response": []
+    },
+    {
+      "name": "Defects IVA (DEV)",
+      "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "https://api.{{api}}.cvs.dvsacloud.uk/{{branch}}/defects",
+          "raw": "http://localhost:3001/defects/iva?euVehicleCategory=m1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["defects", "iva"],
+          "query": [
+            {
+              "key": "euVehicleCategory",
+              "value": "m1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Defects (FEAT)",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [""],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://{{feature_branch}}-{{url_develop}}/{{feature_branch}}/defects",
           "protocol": "https",
-          "host": ["api", "{{api}}", "cvs", "dvsacloud", "uk"],
-          "path": ["{{branch}}", "defects"]
+          "host": ["{{feature_branch}}-{{url_develop}}"],
+          "path": ["{{feature_branch}}", "defects"]
+        },
+        "description": "Reference Data: Returns a list of defects.\n\nSends request to feature branch in AWS."
+      },
+      "response": []
+    },
+    {
+      "name": "Defects IVA (FEAT)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://{{feature_branch}}-{{url_develop}}/{{feature_branch}}/defects/iva?euVehicleCategory=m1",
+          "protocol": "https",
+          "host": ["{{feature_branch}}-{{url_develop}}"],
+          "path": ["{{feature_branch}}", "defects", "iva"],
+          "query": [
+            {
+              "key": "euVehicleCategory",
+              "value": "m1"
+            }
+          ]
         }
       },
       "response": []

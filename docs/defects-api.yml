@@ -6,8 +6,6 @@ info:
     updated once we have confirmed the security scheme we are using.
   version: 1.1.0
   title: Defect Microservice
-  contact:
-    email: mdclarke@deloitte.co.uk
   license:
     name: Apache 2.0
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
@@ -49,28 +47,21 @@ paths:
 
   /defects/iva:
     get:
-      summary: Search the IVA defect manuals by Vehicle Type, EU Vehicle Category and Inspection type.
+      summary: Search the IVA defect manuals by EU Vehicle Category
       tags:
         - IVA Defects
       parameters:
-        - in: query
-          name: vehicleType
-          schema:
-            $ref: "#/components/schemas/vehicleType"
         - in: query
           name: euVehicleCategory
+          required: true
           schema:
             $ref: "#/components/schemas/euVehicleCategory"
-        - in: query
-          name: inspectionType
-          schema:
-            $ref: "#/components/schemas/inspectionType"
       x-amazon-apigateway-integration:
         responses:
           default:
             statusCode: "200"
         requestTemplates:
-          application/json: '{"statusCode": 200}'
+          application/json: '{"euVehicleCategory": $input.params("euVehicleCategory")}'
         passthroughBehavior: "when_no_match"
         type: "mock"
       responses:
@@ -79,45 +70,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ivaDefects"
-        "401":
-          description: Not authenticated
-        "403":
-          description: Access token does not have the required scope
-        "404":
-          description: Defects not found
-
-  /defects/iva/manual/{id}:
-    get:
-      summary: Search the IVA defect manuals by Manual ID.
-      tags:
-        - IVA Defects
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: string
-        - in: header
-          name: Accept-version
-          schema:
-            type: string
-          required: true
-      x-amazon-apigateway-integration:
-        responses:
-          default:
-            statusCode: "200"
-        requestTemplates:
-          application/json: '{"statusCode": 200}'
-        passthroughBehavior: "when_no_match"
-        type: "mock"
-      responses:
-        "200":
-          description: All defects for the query returned
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ivaDefects"
+                type: object
+                properties:
+                  euVehicleCategories:
+                    type: array
+                    items:
+                      type: string
+                  basic:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ivaDefect"
+                  normal:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ivaDefect"
+        "400":
+          description: Invalid or missing euVehicleCategory parameter
         "401":
           description: Not authenticated
         "403":
@@ -297,20 +265,13 @@ components:
           type: string
         sectionDescription:
           type: string
-        vehicleTypes:
-          type: array
-          items:
-            $ref: "#/components/schemas/vehicleType"
-        euVehicleCategories:
-          type: array
-          items:
-            $ref: "#/components/schemas/euVehicleCategory"
         requiredStandards:
           type: array
           items:
             $ref: "#/components/schemas/requiredStandard"
 
     requiredStandard:
+      type: object
       properties:
         rsNumber:
           type: integer
@@ -326,16 +287,6 @@ components:
           items:
             $ref: "#/components/schemas/inspectionType"
 
-    vehicleType:
-      type: string
-      enum:
-        - car
-        - lgv
-        - motorcycle
-        - psv
-        - hgv
-        - trl
-
     euVehicleCategory:
       type: string
       enum:
@@ -349,6 +300,14 @@ components:
         - o2
         - o3
         - o4
+        - l1e-a
+        - l1e
+        - l2e
+        - l3e
+        - l4e
+        - l5e
+        - l6e
+        - l7e
 
     inspectionType:
       type: string
