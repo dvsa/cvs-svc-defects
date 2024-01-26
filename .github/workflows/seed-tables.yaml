@@ -39,7 +39,7 @@ jobs:
 
   call_seed:
     name: 🌱 Seed Tables
-    uses: dvsa/cvs-github-actions/.github/workflows/feature-seed.yaml@CB2-10422
+    uses: dvsa/cvs-github-actions/.github/workflows/feature-seed.yaml@feature/CB2-10422
     needs: process_inputs
     with:
       repository: ${{ github.repository }}
