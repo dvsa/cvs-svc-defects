@@ -1,0 +1,47 @@
+name: 🌱 Seed Tables
+run-name: 🌱 ${{ github.actor }} is seeding ${{ inputs.branch }}
+on:
+  workflow_dispatch:
+    inputs: 
+      branch: 
+        description: The environment to seed
+        type: string
+        required: true
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  process_inputs:
+    runs-on: ubuntu-latest
+    outputs: 
+      branch: ${{ steps.branch.outputs.value }}
+      seed_tables:  ${{ steps.get_seed_tables.outputs.value }}
+    steps:
+
+      - name: ↕️ Get Branch Name
+        id: branch
+        run: |
+          BRANCH=$(echo ${{ inputs.branch }} | tr '[a-z]' '[A-Z]')
+          echo "value=feature/${BRANCH}" >> $GITHUB_OUTPUT
+          echo "feature/${BRANCH}" >> $GITHUB_STEP_SUMMARY
+
+      - name: 📥 Get Codebase
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.branch.outputs.value }}
+          
+      - name: Get Seed Tables
+        id: get_seed_tables
+        run: |
+          echo "value=$(cat .github/workflows/seed-tables.json | tr -d ' \n')" >> $GITHUB_OUTPUT
+
+  call_seed:
+    name: 🌱 Seed Tables
+    uses: dvsa/cvs-github-actions/.github/workflows/feature-seed.yaml@CB2-10422
+    needs: process_inputs
+    with:
+      repository: ${{ github.repository }}
+      branch: ${{ needs.process_inputs.outputs.branch }}
+      tables: ${{ needs.process_inputs.outputs.seed_tables }}
