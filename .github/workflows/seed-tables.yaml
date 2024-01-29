@@ -12,6 +12,17 @@ on:
         type: environment
         default: feature
 
+  workflow_call:
+    inputs: 
+      environment-name: 
+        description: The environment to seed (if different from selected branch)
+        type: string
+        required: false
+      environment:
+        description: (optional) Release Environment
+        type: string
+        default: feature
+
 permissions:
   id-token: write
   contents: write
