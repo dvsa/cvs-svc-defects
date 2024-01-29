@@ -3,10 +3,13 @@ run-name: 🌱 ${{ github.actor }} is seeding ${{ inputs.environment || github.r
 on:
   workflow_dispatch:
     inputs: 
-      environment: 
+      environment-name: 
         description: The environment to seed (if different from selected branch)
         type: string
         required: false
+      environment:
+        description: (optional) The GitHub Environment - for releases
+        type: environment
 
 permissions:
   id-token: write
@@ -27,7 +30,7 @@ jobs:
         id: environment
         uses: dvsa/cvs-github-actions/environment@feature/CB2-10422
         with:
-          environment: ${{ inputs.environment || github.ref_name }}
+          environment: ${{ inputs.environment-name || github.ref_name }}
 
       - name: 📥 Get Codebase
         uses: actions/checkout@v4
@@ -43,7 +46,7 @@ jobs:
     name: 🌱 Seed Table
     needs: prepare
     runs-on: [self-hosted, X64]
-    environment: ${{ needs.prepare.outputs.environment-type }}
+    environment: ${{ inputs.environment || needs.prepare.outputs.environment-type }}
     strategy:
       matrix:
         table: ${{ fromJson(needs.prepare.outputs.seed_tables) }}
