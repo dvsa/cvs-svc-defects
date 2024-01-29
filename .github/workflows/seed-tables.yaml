@@ -8,9 +8,9 @@ on:
         type: string
         required: false
       environment:
-        description: (optional) The GitHub Environment - for releases
+        description: (optional) Release Environment
         type: environment
-        default: feature
+        default: default
 
 permissions:
   id-token: write
