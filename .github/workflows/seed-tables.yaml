@@ -17,7 +17,7 @@ permissions:
   contents: write
 
 jobs:
-  prepare:
+  environment:
     name: 🧹 Prepare Seeds
     runs-on: ubuntu-latest
     outputs: 
@@ -45,17 +45,17 @@ jobs:
 
   seed_table:
     name: 🌱 Seed Table
-    needs: prepare
+    needs: environment
     runs-on: [self-hosted, X64]
-    environment: ${{ needs.prepare.outputs.environment-type == 'release' && inputs.environment }}
+    environment: ${{ needs.environment.outputs.environment-type == 'release' && inputs.environment || needs.environment.outputs.environment-type }}
     strategy:
       matrix:
-        table: ${{ fromJson(needs.prepare.outputs.seed_tables) }}
+        table: ${{ fromJson(needs.environment.outputs.seed_tables) }}
     steps:
       - name: 📥 Get Codebase
         uses: actions/checkout@v4
         with:
-          ref: ${{ needs.prepare.outputs.github-branch }}
+          ref: ${{ needs.environment.outputs.github-branch }}
 
       - name: 🪪 Get Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -67,10 +67,10 @@ jobs:
       - name: 🧹 Purge Table
         uses: dvsa/cvs-github-actions/table-purge@feature/CB2-10422
         with:
-          table: cvs-${{ needs.prepare.outputs.environment-name }}-${{ matrix.table }}
+          table: cvs-${{ needs.environment.outputs.environment-name }}-${{ matrix.table }}
 
       - name: 🌱 Re-Seed Table
         uses: dvsa/cvs-github-actions/table-seed@feature/CB2-10422
         with:
-          table: cvs-${{ needs.prepare.outputs.environment-name }}-${{ matrix.table }}
+          table: cvs-${{ needs.environment.outputs.environment-name }}-${{ matrix.table }}
           seed-file: tests/resources/${{ matrix.table }}.json
