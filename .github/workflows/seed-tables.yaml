@@ -10,7 +10,7 @@ on:
       environment:
         description: (optional) Release Environment
         type: environment
-        default: default
+        default: feature
 
 permissions:
   id-token: write
