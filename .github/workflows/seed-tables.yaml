@@ -10,6 +10,7 @@ on:
       environment:
         description: (optional) The GitHub Environment - for releases
         type: environment
+        default: feature
 
 permissions:
   id-token: write
@@ -46,7 +47,7 @@ jobs:
     name: 🌱 Seed Table
     needs: prepare
     runs-on: [self-hosted, X64]
-    environment: ${{ inputs.environment || needs.prepare.outputs.environment-type }}
+    environment: ${{ needs.prepare.outputs.environment-type == 'release' && inputs.environment }}
     strategy:
       matrix:
         table: ${{ fromJson(needs.prepare.outputs.seed_tables) }}
