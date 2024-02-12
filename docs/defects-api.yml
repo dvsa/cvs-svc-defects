@@ -45,11 +45,11 @@ paths:
         "404":
           description: Defects not found
 
-  /defects/iva:
+  /defects/requiredstandards:
     get:
-      summary: Search the IVA defect manuals by EU Vehicle Category
+      summary: Search the required standard taxonomy by EU Vehicle Category
       tags:
-        - IVA Defects
+        - Required standards
       parameters:
         - in: query
           name: euVehicleCategory
@@ -79,11 +79,11 @@ paths:
                   basic:
                     type: array
                     items:
-                      $ref: "#/components/schemas/ivaDefect"
+                      $ref: "#/components/schemas/requiredStandardTaxonomySection"
                   normal:
                     type: array
                     items:
-                      $ref: "#/components/schemas/ivaDefect"
+                      $ref: "#/components/schemas/requiredStandardTaxonomySection"
         "400":
           description: Invalid or missing euVehicleCategory parameter
         "401":
@@ -253,12 +253,12 @@ components:
       items:
         $ref: "#/components/schemas/imNumber"
 
-    ivaDefects:
+    requiredStandards:
       type: array
       items:
-        $ref: "#/components/schemas/ivaDefect"
+        $ref: "#/components/schemas/requiredStandardTaxonomySection"
 
-    ivaDefect:
+    requiredStandardTaxonomySection:
       type: object
       properties:
         sectionNumber:
