@@ -1,8 +1,11 @@
 const mockValidateRequiredStandardsGetQuery = jest.fn();
 
-jest.mock("../../../src/validators/required-standards/requiredStandardsGetValidator", () => ({
-  validateRequiredStandardsGetQuery: mockValidateRequiredStandardsGetQuery,
-}));
+jest.mock(
+  "../../../src/validators/required-standards/requiredStandardsGetValidator",
+  () => ({
+    validateRequiredStandardsGetQuery: mockValidateRequiredStandardsGetQuery,
+  }),
+);
 
 import { getRequiredStandards } from "../../../src/functions/getRequiredStandards";
 import mockContext, { Context } from "aws-lambda";
@@ -18,7 +21,10 @@ describe("getRequiredStandards Function", () => {
     it("returns 200 with data", async () => {
       mockValidateRequiredStandardsGetQuery.mockReturnValueOnce(undefined);
       jest
-        .spyOn(RequiredStandardsService.prototype, "getRequiredStandardsByEUVehicleCategory")
+        .spyOn(
+          RequiredStandardsService.prototype,
+          "getRequiredStandardsByEUVehicleCategory",
+        )
         .mockReturnValue(Promise.resolve(RequiredStandards as any));
       const event = {
         queryStringParameters: {
@@ -56,7 +62,10 @@ describe("getRequiredStandards Function", () => {
     it("returns 500 with error", async () => {
       mockValidateRequiredStandardsGetQuery.mockReturnValueOnce(undefined);
       jest
-        .spyOn(RequiredStandardsService.prototype, "getRequiredStandardsByEUVehicleCategory")
+        .spyOn(
+          RequiredStandardsService.prototype,
+          "getRequiredStandardsByEUVehicleCategory",
+        )
         .mockRejectedValue(new HTTPError(500, "Internal Server Error"));
 
       const event = {

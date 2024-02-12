@@ -18,7 +18,8 @@ describe("IVA Defects Service", () => {
   beforeEach(() => {
     jest.resetAllMocks();
     mockIvaDatabaseService = {
-      getRequiredStandardsByEUVehicleCategory: mockGetDefectsByEUVehicleCategory,
+      getRequiredStandardsByEUVehicleCategory:
+        mockGetDefectsByEUVehicleCategory,
     };
     target = new RequiredStandardsService(
       mockIvaDatabaseService as RequiredStandardsDatabaseService,
@@ -267,7 +268,9 @@ describe("IVA Defects Service", () => {
 
   describe("getRequiredStandardsByEUVehicleCategory", () => {
     it("should return expected number of normal sections upon successful result", async () => {
-      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(RequiredStandards);
+      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(
+        RequiredStandards,
+      );
 
       const result = await target.getRequiredStandardsByEUVehicleCategory("M1");
 
@@ -276,7 +279,9 @@ describe("IVA Defects Service", () => {
     });
 
     it("should return expected number of basic sections upon successful result", async () => {
-      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(RequiredStandards);
+      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(
+        RequiredStandards,
+      );
 
       const result = await target.getRequiredStandardsByEUVehicleCategory("M1");
 
@@ -285,7 +290,9 @@ describe("IVA Defects Service", () => {
     });
 
     it("should return expected number of eu vehicle categories upon successful result", async () => {
-      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(RequiredStandards);
+      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(
+        RequiredStandards,
+      );
 
       const result = await target.getRequiredStandardsByEUVehicleCategory(
         EUVehicleCategory.M1,

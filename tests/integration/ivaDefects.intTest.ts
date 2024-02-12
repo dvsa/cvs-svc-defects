@@ -9,12 +9,12 @@ describe("Defects Service", () => {
   describe("getRequiredStandardsByEUVehicleCategory", () => {
     context("when database is populated", () => {
       it("should return all defects in the database for a known euVehicleCategory", async () => {
-        const expectedResponse = JSON.parse(JSON.stringify(requiredStandardsData)).map(
-          (defect: { id: any }) => {
-            delete defect.id;
-            return defect;
-          },
-        );
+        const expectedResponse = JSON.parse(
+          JSON.stringify(requiredStandardsData),
+        ).map((defect: { id: any }) => {
+          delete defect.id;
+          return defect;
+        });
         await request
           .get("defects/requiredstandards?euVehicleCategory=m1")
           .set({ Authorization: mockToken })

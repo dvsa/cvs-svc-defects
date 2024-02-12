@@ -10,8 +10,11 @@ import { RequiredStandardsDatabaseService } from "../services/requiredStandardsD
 export const getRequiredStandards: Handler = async (
   event: APIGatewayProxyEvent,
 ): Promise<APIGatewayProxyResult> => {
-  const requiredStandardsDatabaseService = new RequiredStandardsDatabaseService();
-  const requiredStandardsService = new RequiredStandardsService(requiredStandardsDatabaseService);
+  const requiredStandardsDatabaseService =
+    new RequiredStandardsDatabaseService();
+  const requiredStandardsService = new RequiredStandardsService(
+    requiredStandardsDatabaseService,
+  );
 
   const defectErrors = validateRequiredStandardsGetQuery(event);
 

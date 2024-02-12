@@ -17,7 +17,9 @@ export class RequiredStandardsService {
    * Constructor for the RequiredStandardsService class
    * @param requiredStandardDatabaseService the required standard database service
    */
-  constructor(requiredStandardDatabaseService: RequiredStandardDatabaseService) {
+  constructor(
+    requiredStandardDatabaseService: RequiredStandardDatabaseService,
+  ) {
     this.requiredStandrdDatabaseService = requiredStandardDatabaseService;
   }
 

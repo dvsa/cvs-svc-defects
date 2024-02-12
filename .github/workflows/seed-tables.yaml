@@ -2,8 +2,8 @@ name: 🌱 Seed Tables
 run-name: 🌱 ${{ github.actor }} is seeding ${{ inputs.environment || github.ref_name }}
 on:
   workflow_dispatch:
-    inputs: 
-      environment-name: 
+    inputs:
+      environment-name:
         description: The environment to seed (if different from selected branch)
         type: string
         required: false
@@ -13,8 +13,8 @@ on:
         default: feature
 
   workflow_call:
-    inputs: 
-      environment-name: 
+    inputs:
+      environment-name:
         description: The environment to seed (if different from selected branch)
         type: string
         required: false
@@ -31,13 +31,12 @@ jobs:
   environment:
     name: 🧹 Prepare Seeds
     runs-on: ubuntu-latest
-    outputs: 
+    outputs:
       github-branch: ${{ steps.environment.outputs.github-branch }}
-      environment-name:  ${{ steps.environment.outputs.environment-name }}
-      environment-type:  ${{ steps.environment.outputs.environment-type }}
-      seed_tables:  ${{ steps.get_seed_tables.outputs.value }}
+      environment-name: ${{ steps.environment.outputs.environment-name }}
+      environment-type: ${{ steps.environment.outputs.environment-type }}
+      seed_tables: ${{ steps.get_seed_tables.outputs.value }}
     steps:
-
       - name: ↕️ Get Environment Details
         id: environment
         uses: dvsa/cvs-github-actions/environment@feature/CB2-10422
@@ -48,7 +47,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ steps.environment.outputs.github-branch }}
-          
+
       - name: 📥 Get Seed Tables
         id: get_seed_tables
         run: |
