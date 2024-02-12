@@ -3,11 +3,11 @@ import { IvaDatabaseService } from "./ivaDatabaseService";
 import { HTTPError } from "../models/HTTPError";
 import { ITaxonomySectionIVA } from "../models/IVADefect";
 import {
-  DefectGETIVA,
+  DefectGETRequiredStandards,
   InspectionType,
   RequiredStandard,
-  SectionIVA,
-} from "@dvsa/cvs-type-definitions/types/iva/defects/get";
+  RequiredStandardTaxonomySection,
+} from "@dvsa/cvs-type-definitions/types/required-standards/defects/get";
 import { IRequiredStandard } from "../models/RequiredStandard";
 
 export class IvaDefectsService {
@@ -28,7 +28,7 @@ export class IvaDefectsService {
    */
   public async getIvaDefectsByEUVehicleCategory(
     euVehicleCategory: string,
-  ): Promise<DefectGETIVA> {
+  ): Promise<DefectGETRequiredStandards> {
     try {
       const results =
         (await this.ivaDatabaseService.getDefectsByEUVehicleCategory(
@@ -55,7 +55,7 @@ export class IvaDefectsService {
   public formatIvaDefects(
     results: ITaxonomySectionIVA[],
     euVehicleCategory: string,
-  ): DefectGETIVA {
+  ): DefectGETRequiredStandards {
     return {
       euVehicleCategories: [
         EUVehicleCategory[
@@ -68,7 +68,7 @@ export class IvaDefectsService {
         (x) =>
           x.normalInspection || (!x.normalInspection && !x.basicInspection),
       ),
-    } as DefectGETIVA;
+    } as DefectGETRequiredStandards;
   }
 
   /**
@@ -80,7 +80,7 @@ export class IvaDefectsService {
   private formatSections(
     results: ITaxonomySectionIVA[],
     filterExpression: (x: IRequiredStandard) => boolean,
-  ): SectionIVA[] {
+  ): RequiredStandardTaxonomySection[] {
     return results.flatMap((section) => {
       const standards = section.requiredStandards
         .filter(filterExpression)
