@@ -3,8 +3,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
 import AWS from "aws-sdk";
-import IvaDefects from "../../resources/iva-defects.json";
-import { IvaDatabaseService } from "../../../src/services/ivaDatabaseService";
+import RequiredStandards from "../../resources/iva-defects.json";
+import { RequiredStandardsDatabaseService } from "../../../src/services/requiredStandardsDatabaseService";
 
 describe("IVA Database Service", () => {
   context("getDefectsByManualId", () => {
@@ -14,20 +14,20 @@ describe("IVA Database Service", () => {
 
     it("should return expected results on a successful scan", async () => {
       mockDocumentClientWithReturn({
-        Items: IvaDefects,
+        Items: RequiredStandards,
       });
-      let target = new IvaDatabaseService();
-      const result = await target.getDefectsByEUVehicleCategory("M1");
+      let target = new RequiredStandardsDatabaseService();
+      const result = await target.getRequiredStandardsByEUVehicleCategory("M1");
 
-      expect(result).toStrictEqual(IvaDefects);
+      expect(result).toStrictEqual(RequiredStandards);
     });
 
     it("should return no results on a successful scan with no matches", async () => {
       mockDocumentClientWithReturn({
         Items: [],
       });
-      let target = new IvaDatabaseService();
-      const result = await target.getDefectsByEUVehicleCategory("M1");
+      let target = new RequiredStandardsDatabaseService();
+      const result = await target.getRequiredStandardsByEUVehicleCategory("M1");
 
       expect(result).toStrictEqual([]);
     });

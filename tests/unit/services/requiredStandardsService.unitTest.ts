@@ -4,31 +4,31 @@
 
 import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/required-standards/defects/enums/euVehicleCategory.enum";
 import { HTTPError } from "../../../src/models/HTTPError";
-import { IvaDefectsService } from "../../../src/services/ivaDefectsService";
-import IvaDefects from "../../resources/iva-defects.json";
-import { ITaxonomySectionIVA } from "../../../src/models/IVADefect";
-import { IvaDatabaseService } from "../../../src/services/ivaDatabaseService";
+import { RequiredStandardsService } from "../../../src/services/requiredStandardsService";
+import RequiredStandards from "../../resources/iva-defects.json";
+import { ITaxonomySectionRequiredStandards } from "../../../src/models/IVADefect";
+import { RequiredStandardsDatabaseService } from "../../../src/services/requiredStandardsDatabaseService";
 
 const mockGetDefectsByEUVehicleCategory = jest.fn();
 
 describe("IVA Defects Service", () => {
-  let target: IvaDefectsService;
-  let mockIvaDatabaseService: Partial<IvaDatabaseService>;
+  let target: RequiredStandardsService;
+  let mockIvaDatabaseService: Partial<RequiredStandardsDatabaseService>;
 
   beforeEach(() => {
     jest.resetAllMocks();
     mockIvaDatabaseService = {
-      getDefectsByEUVehicleCategory: mockGetDefectsByEUVehicleCategory,
+      getRequiredStandardsByEUVehicleCategory: mockGetDefectsByEUVehicleCategory,
     };
-    target = new IvaDefectsService(
-      mockIvaDatabaseService as IvaDatabaseService,
+    target = new RequiredStandardsService(
+      mockIvaDatabaseService as RequiredStandardsDatabaseService,
     );
     jest.resetModules();
   });
 
-  describe("formatIvaDefects", () => {
+  describe("formatRequiredStandards", () => {
     it("should return a correctly formatted section with basic required standards only", () => {
-      const taxonomySection: ITaxonomySectionIVA[] = [
+      const taxonomySection: ITaxonomySectionRequiredStandards[] = [
         {
           euVehicleCategory: "m1",
           sectionNumber: "01",
@@ -46,7 +46,7 @@ describe("IVA Defects Service", () => {
         },
       ];
 
-      const result = target.formatIvaDefects(
+      const result = target.formatRequiredStandards(
         taxonomySection,
         EUVehicleCategory.M1,
       );
@@ -73,7 +73,7 @@ describe("IVA Defects Service", () => {
     });
 
     it("should return a correctly formatted section with normal and basic required standards", () => {
-      const taxonomySection: ITaxonomySectionIVA[] = [
+      const taxonomySection: ITaxonomySectionRequiredStandards[] = [
         {
           euVehicleCategory: "m1",
           sectionNumber: "01",
@@ -91,7 +91,7 @@ describe("IVA Defects Service", () => {
         },
       ];
 
-      const result = target.formatIvaDefects(
+      const result = target.formatRequiredStandards(
         taxonomySection,
         EUVehicleCategory.M1,
       );
@@ -132,7 +132,7 @@ describe("IVA Defects Service", () => {
     });
 
     it("should return multiple correctly formatted sections with normal and basic required standards", () => {
-      const taxonomySection: ITaxonomySectionIVA[] = [
+      const taxonomySection: ITaxonomySectionRequiredStandards[] = [
         {
           euVehicleCategory: "m1",
           sectionNumber: "01",
@@ -158,7 +158,7 @@ describe("IVA Defects Service", () => {
         },
       ];
 
-      const result = target.formatIvaDefects(
+      const result = target.formatRequiredStandards(
         taxonomySection,
         EUVehicleCategory.M1,
       );
@@ -213,8 +213,8 @@ describe("IVA Defects Service", () => {
     });
 
     it("should return an empty array when provided empty taxonomy sections", () => {
-      const taxonomySection: ITaxonomySectionIVA[] = [];
-      const result = target.formatIvaDefects(
+      const taxonomySection: ITaxonomySectionRequiredStandards[] = [];
+      const result = target.formatRequiredStandards(
         taxonomySection,
         EUVehicleCategory.M1,
       );
@@ -227,7 +227,7 @@ describe("IVA Defects Service", () => {
     });
 
     it("should return correctly formatted required standards", () => {
-      const taxonomySection: ITaxonomySectionIVA[] = [
+      const taxonomySection: ITaxonomySectionRequiredStandards[] = [
         {
           euVehicleCategory: "m1",
           sectionNumber: "01",
@@ -245,7 +245,7 @@ describe("IVA Defects Service", () => {
         },
       ];
 
-      const result = target.formatIvaDefects(
+      const result = target.formatRequiredStandards(
         taxonomySection,
         EUVehicleCategory.M1,
       );
@@ -265,29 +265,29 @@ describe("IVA Defects Service", () => {
     });
   });
 
-  describe("getIvaDefectsByEUVehicleCategory", () => {
+  describe("getRequiredStandardsByEUVehicleCategory", () => {
     it("should return expected number of normal sections upon successful result", async () => {
-      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(IvaDefects);
+      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(RequiredStandards);
 
-      const result = await target.getIvaDefectsByEUVehicleCategory("M1");
+      const result = await target.getRequiredStandardsByEUVehicleCategory("M1");
 
       expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
       expect(result?.normal?.length).toBe(629);
     });
 
     it("should return expected number of basic sections upon successful result", async () => {
-      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(IvaDefects);
+      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(RequiredStandards);
 
-      const result = await target.getIvaDefectsByEUVehicleCategory("M1");
+      const result = await target.getRequiredStandardsByEUVehicleCategory("M1");
 
       expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
       expect(result?.basic?.length).toBe(96);
     });
 
     it("should return expected number of eu vehicle categories upon successful result", async () => {
-      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(IvaDefects);
+      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(RequiredStandards);
 
-      const result = await target.getIvaDefectsByEUVehicleCategory(
+      const result = await target.getRequiredStandardsByEUVehicleCategory(
         EUVehicleCategory.M1,
       );
 
@@ -298,7 +298,7 @@ describe("IVA Defects Service", () => {
 
     it("should return an empty basic array upon successfully finding no search results", async () => {
       mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce([]);
-      const result = await target.getIvaDefectsByEUVehicleCategory("M1");
+      const result = await target.getRequiredStandardsByEUVehicleCategory("M1");
 
       expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
       expect(result?.basic.length).toBe(0);
@@ -306,7 +306,7 @@ describe("IVA Defects Service", () => {
 
     it("should return an empty normal array upon successfully finding no search results", async () => {
       mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce([]);
-      const result = await target.getIvaDefectsByEUVehicleCategory("M1");
+      const result = await target.getRequiredStandardsByEUVehicleCategory("M1");
 
       expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
       expect(result?.normal.length).toBe(0);
@@ -318,7 +318,7 @@ describe("IVA Defects Service", () => {
       );
       const actualError = new HTTPError(500, "Internal Server Error");
       await expect(
-        target.getIvaDefectsByEUVehicleCategory(EUVehicleCategory.M1),
+        target.getRequiredStandardsByEUVehicleCategory(EUVehicleCategory.M1),
       ).rejects.toThrow(HTTPError);
     });
   });

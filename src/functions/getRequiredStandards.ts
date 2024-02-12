@@ -1,19 +1,19 @@
 import { Handler } from "aws-lambda";
 import { HTTPResponse } from "../models/HTTPResponse";
-import { IvaDefectsService } from "../services/ivaDefectsService";
+import { RequiredStandardsService } from "../services/requiredStandardsService";
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/required-standards/defects/enums/euVehicleCategory.enum";
 import { addHttpHeaders } from "../utils/httpHeaders";
-import { validateIvaDefectGetQuery } from "../validators/iva/ivaDefectsGetValidator";
-import { IvaDatabaseService } from "../services/ivaDatabaseService";
+import { validateRequiredStandardsGetQuery } from "../validators/required-standards/requiredStandardsGetValidator";
+import { RequiredStandardsDatabaseService } from "../services/requiredStandardsDatabaseService";
 
-export const getIvaDefects: Handler = async (
+export const getRequiredStandards: Handler = async (
   event: APIGatewayProxyEvent,
 ): Promise<APIGatewayProxyResult> => {
-  const ivaDatabaseService = new IvaDatabaseService();
-  const ivaDefectsService = new IvaDefectsService(ivaDatabaseService);
+  const requiredStandardsDatabaseService = new RequiredStandardsDatabaseService();
+  const requiredStandardsService = new RequiredStandardsService(requiredStandardsDatabaseService);
 
-  const defectErrors = validateIvaDefectGetQuery(event);
+  const defectErrors = validateRequiredStandardsGetQuery(event);
 
   if (defectErrors) {
     return addHttpHeaders(defectErrors);
@@ -33,8 +33,8 @@ export const getIvaDefects: Handler = async (
     );
   }
 
-  return ivaDefectsService
-    .getIvaDefectsByEUVehicleCategory(euVehicleCategoryQuery)
+  return requiredStandardsService
+    .getRequiredStandardsByEUVehicleCategory(euVehicleCategoryQuery)
     .then((data: any) => {
       return new HTTPResponse(200, data);
     })

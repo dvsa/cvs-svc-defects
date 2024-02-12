@@ -1,22 +1,22 @@
 import supertest from "supertest";
-import ivaDefectsData from "../resources/iva-defects.json";
+import requiredStandardsData from "../resources/iva-defects.json";
 import { mockToken } from "../util/mockToken";
 
 const url = "http://localhost:3001/";
 const request = supertest(url);
 
 describe("Defects Service", () => {
-  describe("getIvaDefectsByEUVehicleCategory", () => {
+  describe("getRequiredStandardsByEUVehicleCategory", () => {
     context("when database is populated", () => {
       it("should return all defects in the database for a known euVehicleCategory", async () => {
-        const expectedResponse = JSON.parse(JSON.stringify(ivaDefectsData)).map(
+        const expectedResponse = JSON.parse(JSON.stringify(requiredStandardsData)).map(
           (defect: { id: any }) => {
             delete defect.id;
             return defect;
           },
         );
         await request
-          .get("defects/iva?euVehicleCategory=m1")
+          .get("defects/requiredstandards?euVehicleCategory=m1")
           .set({ Authorization: mockToken })
           .then((res: any) => {
             expect(res.statusCode).toBe(200);
@@ -34,7 +34,7 @@ describe("Defects Service", () => {
 
       it("should return a bad request response for an unknown euVehicleCategory", async () => {
         await request
-          .get("defects/iva?euVehicleCategory=f1")
+          .get("defects/requiredstandards?euVehicleCategory=f1")
           .set({ Authorization: mockToken })
           .then((res: any) => {
             expect(res.statusCode).toBe(400);
@@ -48,7 +48,7 @@ describe("Defects Service", () => {
 
       it("should return a bad request response for a missing euVehicleCategory", async () => {
         await request
-          .get("defects/iva")
+          .get("defects/requiredstandards")
           .set({ Authorization: mockToken })
           .then((res: any) => {
             expect(res.statusCode).toBe(400);

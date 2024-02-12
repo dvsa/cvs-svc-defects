@@ -30,11 +30,11 @@ functions:
       - http:
           path: defects
           method: get
-  getIvaDefects:
+  getRequiredStandards:
     handler: src/handler.handler
     events:
       - http:
-          path: /defects/iva
+          path: /defects/requiredstandards
           method: get
 
 custom:
