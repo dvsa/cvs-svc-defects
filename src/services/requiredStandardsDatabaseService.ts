@@ -21,9 +21,9 @@ export class RequiredStandardsDatabaseService {
   }
 
   /**
-   * Retrieves IVA Defects based on the provided manualID
+   * Retrieves required standards based on the provided manualID
    * @param euVehicleCategory the EU Vehicle Category, e.g M1, N1, MSVA
-   * @returns Array of Records containing raw IVA defects
+   * @returns Array of Records containing raw required standards
    */
   public async getRequiredStandardsByEUVehicleCategory(
     euVehicleCategory: string,
@@ -38,9 +38,9 @@ export class RequiredStandardsDatabaseService {
   }
 
   /**
-   * Generic method used to query all data in the IVA Defects table
+   * Generic method used to query all data in the required standards table
    * @param params the parameters to configure the scan with
-   * @returns Array of Records containing raw IVA defects
+   * @returns Array of Records containing raw required standards
    */
   private async queryAllData(
     params: any,

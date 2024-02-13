@@ -6,23 +6,23 @@ import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/required-sta
 import { HTTPError } from "../../../src/models/HTTPError";
 import { RequiredStandardsService } from "../../../src/services/requiredStandardsService";
 import RequiredStandards from "../../resources/iva-defects.json";
-import { ITaxonomySectionRequiredStandards } from "../../../src/models/IVADefect";
+import { ITaxonomySectionRequiredStandards } from "../../../src/models/ITaxonomySectionRequiredStandards";
 import { RequiredStandardsDatabaseService } from "../../../src/services/requiredStandardsDatabaseService";
 
 const mockGetDefectsByEUVehicleCategory = jest.fn();
 
-describe("IVA Defects Service", () => {
+describe("required standards  Service", () => {
   let target: RequiredStandardsService;
-  let mockIvaDatabaseService: Partial<RequiredStandardsDatabaseService>;
+  let mockRequiredStandardsDatabaseService: Partial<RequiredStandardsDatabaseService>;
 
   beforeEach(() => {
     jest.resetAllMocks();
-    mockIvaDatabaseService = {
+    mockRequiredStandardsDatabaseService = {
       getRequiredStandardsByEUVehicleCategory:
         mockGetDefectsByEUVehicleCategory,
     };
     target = new RequiredStandardsService(
-      mockIvaDatabaseService as RequiredStandardsDatabaseService,
+      mockRequiredStandardsDatabaseService as RequiredStandardsDatabaseService,
     );
     jest.resetModules();
   });

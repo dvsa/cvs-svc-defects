@@ -1,7 +1,7 @@
 import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
 import { RequiredStandardsDatabaseService as RequiredStandardDatabaseService } from "./requiredStandardsDatabaseService";
 import { HTTPError } from "../models/HTTPError";
-import { ITaxonomySectionRequiredStandards } from "../models/IVADefect";
+import { ITaxonomySectionRequiredStandards } from "../models/ITaxonomySectionRequiredStandards";
 import {
   DefectGETRequiredStandards,
   InspectionType,

@@ -6,7 +6,7 @@ import AWS from "aws-sdk";
 import RequiredStandards from "../../resources/iva-defects.json";
 import { RequiredStandardsDatabaseService } from "../../../src/services/requiredStandardsDatabaseService";
 
-describe("IVA Database Service", () => {
+describe("Required Standards Database Service", () => {
   context("getDefectsByManualId", () => {
     beforeEach(() => {
       jest.resetModules();
