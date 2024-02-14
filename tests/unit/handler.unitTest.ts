@@ -98,7 +98,7 @@ describe("The configuration service", () => {
       expect(functions.length).toBe(2);
 
       expect(functions[0].name).toBe("getDefects");
-      expect(functions[1].name).toBe("getIvaDefects");
+      expect(functions[1].name).toBe("getRequiredStandards");
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(configService.getConfig().dynamodb.local);
@@ -112,7 +112,7 @@ describe("The configuration service", () => {
       const functions = configService.getFunctions();
       expect(functions.length).toBe(2);
       expect(functions[0].name).toBe("getDefects");
-      expect(functions[1].name).toBe("getIvaDefects");
+      expect(functions[1].name).toBe("getRequiredStandards");
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(
@@ -128,7 +128,7 @@ describe("The configuration service", () => {
       const functions = configService.getFunctions();
       expect(functions.length).toBe(2);
       expect(functions[0].name).toBe("getDefects");
-      expect(functions[1].name).toBe("getIvaDefects");
+      expect(functions[1].name).toBe("getRequiredStandards");
 
       const DBConfig = configService.getDynamoDBConfig();
       expect(DBConfig).toEqual(configService.getConfig().dynamodb.remote);

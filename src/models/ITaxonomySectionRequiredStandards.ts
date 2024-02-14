@@ -1,6 +1,6 @@
 import { IRequiredStandard } from "./RequiredStandard";
 
-export interface ITaxonomySectionIVA {
+export interface ITaxonomySectionRequiredStandards {
   euVehicleCategory: string;
   sectionNumber: string;
   sectionDescription: string;

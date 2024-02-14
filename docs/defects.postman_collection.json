@@ -38,16 +38,16 @@
       "response": []
     },
     {
-      "name": "Defects IVA (DEV)",
+      "name": "Required Standards (DEV)",
       "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:3001/defects/iva?euVehicleCategory=m1",
+          "raw": "http://localhost:3001/defects/required-standards?euVehicleCategory=m1",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3001",
-          "path": ["defects", "iva"],
+          "path": ["defects", "requiredstandards"],
           "query": [
             {
               "key": "euVehicleCategory",
@@ -90,15 +90,15 @@
       "response": []
     },
     {
-      "name": "Defects IVA (FEAT)",
+      "name": "Required Standards (FEAT)",
       "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "https://{{feature_branch}}-{{url_develop}}/{{feature_branch}}/defects/iva?euVehicleCategory=m1",
+          "raw": "https://{{feature_branch}}-{{url_develop}}/{{feature_branch}}/defects/required-standards?euVehicleCategory=m1",
           "protocol": "https",
           "host": ["{{feature_branch}}-{{url_develop}}"],
-          "path": ["{{feature_branch}}", "defects", "iva"],
+          "path": ["{{feature_branch}}", "defects", "requiredstandards"],
           "query": [
             {
               "key": "euVehicleCategory",

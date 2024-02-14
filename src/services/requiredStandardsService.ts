@@ -1,41 +1,43 @@
 import { EUVehicleCategory } from "@dvsa/cvs-type-definitions/types/v3/tech-record/enums/euVehicleCategory.enum";
-import { IvaDatabaseService } from "./ivaDatabaseService";
+import { RequiredStandardsDatabaseService as RequiredStandardDatabaseService } from "./requiredStandardsDatabaseService";
 import { HTTPError } from "../models/HTTPError";
-import { ITaxonomySectionIVA } from "../models/IVADefect";
+import { ITaxonomySectionRequiredStandards } from "../models/ITaxonomySectionRequiredStandards";
 import {
-  DefectGETIVA,
+  DefectGETRequiredStandards,
   InspectionType,
   RequiredStandard,
-  SectionIVA,
-} from "@dvsa/cvs-type-definitions/types/iva/defects/get";
+  RequiredStandardTaxonomySection,
+} from "@dvsa/cvs-type-definitions/types/required-standards/defects/get";
 import { IRequiredStandard } from "../models/RequiredStandard";
 
-export class IvaDefectsService {
-  public readonly ivaDatabaseService: IvaDatabaseService;
+export class RequiredStandardsService {
+  public readonly requiredStandrdDatabaseService: RequiredStandardDatabaseService;
 
   /**
-   * Constructor for the IvaDefectsService class
-   * @param ivaDatabaseService the IVA database service
+   * Constructor for the RequiredStandardsService class
+   * @param requiredStandardDatabaseService the required standard database service
    */
-  constructor(ivaDatabaseService: IvaDatabaseService) {
-    this.ivaDatabaseService = ivaDatabaseService;
+  constructor(
+    requiredStandardDatabaseService: RequiredStandardDatabaseService,
+  ) {
+    this.requiredStandrdDatabaseService = requiredStandardDatabaseService;
   }
 
   /**
-   * Retrieves IVA Defects based on the provided euVehicleCategory and formats the response
+   * Retrieves required standards based on the provided euVehicleCategory and formats the response
    * @param euVehicleCategory the EU Vehicle Category, e.g M1, N1, MSVA
-   * @returns Arrays of IVA Defects, grouped by inspection type
+   * @returns Arrays of required standards, grouped by inspection type
    */
-  public async getIvaDefectsByEUVehicleCategory(
+  public async getRequiredStandardsByEUVehicleCategory(
     euVehicleCategory: string,
-  ): Promise<DefectGETIVA> {
+  ): Promise<DefectGETRequiredStandards> {
     try {
       const results =
-        (await this.ivaDatabaseService.getDefectsByEUVehicleCategory(
+        (await this.requiredStandrdDatabaseService.getRequiredStandardsByEUVehicleCategory(
           euVehicleCategory,
-        )) as ITaxonomySectionIVA[];
+        )) as ITaxonomySectionRequiredStandards[];
 
-      return this.formatIvaDefects(results, euVehicleCategory);
+      return this.formatRequiredStandards(results, euVehicleCategory);
     } catch (error: any) {
       const httpError =
         error instanceof HTTPError
@@ -48,14 +50,14 @@ export class IvaDefectsService {
 
   /**
    * Formats results from the database into the eventual structure returned by the API
-   * @param results array of ITaxonomyIVA objects as returned from DynamoDb
+   * @param results array of ITaxonomySectionRequiredStandards objects as returned from DynamoDb
    * @param euVehicleCategory the EU Vehicle Category, e.g M1, N1, MSVA
-   * @returns Arrays of IVA Defects, grouped by inspection type
+   * @returns Arrays of required standards, grouped by inspection type
    */
-  public formatIvaDefects(
-    results: ITaxonomySectionIVA[],
+  public formatRequiredStandards(
+    results: ITaxonomySectionRequiredStandards[],
     euVehicleCategory: string,
-  ): DefectGETIVA {
+  ): DefectGETRequiredStandards {
     return {
       euVehicleCategories: [
         EUVehicleCategory[
@@ -68,19 +70,19 @@ export class IvaDefectsService {
         (x) =>
           x.normalInspection || (!x.normalInspection && !x.basicInspection),
       ),
-    } as DefectGETIVA;
+    } as DefectGETRequiredStandards;
   }
 
   /**
    * Formats each section of a taxonomy into the format returned by the API. Removes any sections that do not contain any required standards.
-   * @param results array of ITaxonomyIVA objects as returned from DynamoDb
+   * @param results array of ITaxonomySectionRequiredStandards objects as returned from DynamoDb
    * @param filterExpression expression used to filter required standards in each section
-   * @returns Arrays of IVA Defect taxonomy sections, with required standards filtered by the filter expression
+   * @returns Arrays of required standard taxonomy sections, with required standards filtered by the filter expression
    */
   private formatSections(
-    results: ITaxonomySectionIVA[],
+    results: ITaxonomySectionRequiredStandards[],
     filterExpression: (x: IRequiredStandard) => boolean,
-  ): SectionIVA[] {
+  ): RequiredStandardTaxonomySection[] {
     return results.flatMap((section) => {
       const standards = section.requiredStandards
         .filter(filterExpression)

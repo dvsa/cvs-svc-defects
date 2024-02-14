@@ -1,13 +1,13 @@
 import { APIGatewayProxyEvent } from "aws-lambda";
-import { validateIvaDefectGetQuery } from "../../../src/validators/iva/ivaDefectsGetValidator";
+import { validateRequiredStandardsGetQuery } from "../../../src/validators/required-standards/requiredStandardsGetValidator";
 import { mockToken } from "../../util/mockToken";
 
-describe("test the iva defect by get query error validator", () => {
+describe("The required standards get query error validator", () => {
   it("should return Missing authorization header", () => {
     const event = {
       headers: {},
     };
-    const res = validateIvaDefectGetQuery(
+    const res = validateRequiredStandardsGetQuery(
       event as unknown as APIGatewayProxyEvent,
     );
     expect(res).toEqual({
@@ -22,7 +22,7 @@ describe("test the iva defect by get query error validator", () => {
         Authorization: mockToken,
       },
     };
-    const res = validateIvaDefectGetQuery(
+    const res = validateRequiredStandardsGetQuery(
       event as unknown as APIGatewayProxyEvent,
     );
     expect(res).toBeUndefined();

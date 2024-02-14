@@ -3,7 +3,7 @@ import { IDBConfig } from "../models";
 import { Configuration } from "../utils/Configuration";
 import { PromiseResult } from "aws-sdk/lib/request";
 
-export class IvaDatabaseService {
+export class RequiredStandardsDatabaseService {
   private readonly tableName: string;
   private static dbClient: DocumentClient;
 
@@ -13,19 +13,19 @@ export class IvaDatabaseService {
   constructor() {
     const config: IDBConfig = Configuration.getInstance().getDynamoDBConfig();
     this.tableName = config.ivaDefects.table;
-    if (!IvaDatabaseService.dbClient) {
-      IvaDatabaseService.dbClient = new DynamoDB.DocumentClient(
+    if (!RequiredStandardsDatabaseService.dbClient) {
+      RequiredStandardsDatabaseService.dbClient = new DynamoDB.DocumentClient(
         config.ivaDefects,
       );
     }
   }
 
   /**
-   * Retrieves IVA Defects based on the provided manualID
+   * Retrieves required standards based on the provided manualID
    * @param euVehicleCategory the EU Vehicle Category, e.g M1, N1, MSVA
-   * @returns Array of Records containing raw IVA defects
+   * @returns Array of Records containing raw required standards
    */
-  public async getDefectsByEUVehicleCategory(
+  public async getRequiredStandardsByEUVehicleCategory(
     euVehicleCategory: string,
   ): Promise<Array<Record<string, any>>> {
     return await this.queryAllData({
@@ -38,16 +38,16 @@ export class IvaDatabaseService {
   }
 
   /**
-   * Generic method used to query all data in the IVA Defects table
+   * Generic method used to query all data in the required standards table
    * @param params the parameters to configure the scan with
-   * @returns Array of Records containing raw IVA defects
+   * @returns Array of Records containing raw required standards
    */
   private async queryAllData(
     params: any,
     allData: Array<Record<string, any>> = [],
   ): Promise<Array<Record<string, any>>> {
     const data: PromiseResult<DocumentClient.QueryOutput, AWS.AWSError> =
-      await IvaDatabaseService.dbClient.scan(params).promise();
+      await RequiredStandardsDatabaseService.dbClient.scan(params).promise();
     if (data.Items && data.Items.length > 0) {
       allData = [...allData, ...data.Items];
     }
