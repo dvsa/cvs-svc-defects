@@ -45,7 +45,7 @@ paths:
         "404":
           description: Defects not found
 
-  /defects/requiredstandards:
+  /defects/required-standards:
     get:
       summary: Search the required standard taxonomy by EU Vehicle Category
       tags:

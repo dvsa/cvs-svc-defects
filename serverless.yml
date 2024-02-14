@@ -34,7 +34,7 @@ functions:
     handler: src/handler.handler
     events:
       - http:
-          path: /defects/requiredstandards
+          path: /defects/required-standards
           method: get
 
 custom:

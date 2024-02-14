@@ -7,7 +7,7 @@ functions:
       event: apigateway
   - getRequiredStandards:
       method: GET
-      path: /defects/requiredstandards
+      path: /defects/required-standards
       proxy: null
       function: getRequiredStandards
       event: apigateway

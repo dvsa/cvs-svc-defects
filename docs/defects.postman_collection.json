@@ -43,7 +43,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:3001/defects/requiredstandards?euVehicleCategory=m1",
+          "raw": "http://localhost:3001/defects/required-standards?euVehicleCategory=m1",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3001",
@@ -95,7 +95,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "https://{{feature_branch}}-{{url_develop}}/{{feature_branch}}/defects/requiredstandards?euVehicleCategory=m1",
+          "raw": "https://{{feature_branch}}-{{url_develop}}/{{feature_branch}}/defects/required-standards?euVehicleCategory=m1",
           "protocol": "https",
           "host": ["{{feature_branch}}-{{url_develop}}"],
           "path": ["{{feature_branch}}", "defects", "requiredstandards"],

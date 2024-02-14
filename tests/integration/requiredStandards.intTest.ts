@@ -16,7 +16,7 @@ describe("Defects Service", () => {
           return defect;
         });
         await request
-          .get("defects/requiredstandards?euVehicleCategory=m1")
+          .get("defects/required-standards?euVehicleCategory=m1")
           .set({ Authorization: mockToken })
           .then((res: any) => {
             expect(res.statusCode).toBe(200);
@@ -34,7 +34,7 @@ describe("Defects Service", () => {
 
       it("should return a bad request response for an unknown euVehicleCategory", async () => {
         await request
-          .get("defects/requiredstandards?euVehicleCategory=f1")
+          .get("defects/required-standards?euVehicleCategory=f1")
           .set({ Authorization: mockToken })
           .then((res: any) => {
             expect(res.statusCode).toBe(400);
@@ -48,7 +48,7 @@ describe("Defects Service", () => {
 
       it("should return a bad request response for a missing euVehicleCategory", async () => {
         await request
-          .get("defects/requiredstandards")
+          .get("defects/required-standards")
           .set({ Authorization: mockToken })
           .then((res: any) => {
             expect(res.statusCode).toBe(400);
