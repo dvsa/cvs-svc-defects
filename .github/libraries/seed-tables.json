@@ -1,0 +1,10 @@
+[
+  {
+    "table-name": "defects",
+    "seed-file": "defects.json"
+  },
+  {
+    "table-name": "iva-defects",
+    "seed-file": "iva-defects.json"
+  }
+]
