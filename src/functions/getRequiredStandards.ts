@@ -25,6 +25,8 @@ export const getRequiredStandards: Handler = async (
   const euVehicleCategoryQuery = event?.queryStringParameters
     ?.euVehicleCategory as EUVehicleCategory;
 
+  console.log(euVehicleCategoryQuery);
+
   if (!euVehicleCategoryQuery) {
     return new HTTPResponse(400, "euVehicleCategory required");
   } else if (
