@@ -120,7 +120,6 @@ export class RequiredStandardsService {
   }
 }
 
-
 /**
  * Generic function to retrieve the enum key corresponding to a given string value using a case insensitive search.
  *
