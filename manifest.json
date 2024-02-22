@@ -5,7 +5,7 @@
   "documentation": "",
   "language": "node",
   "terraform": false,
-  "monorepo": true,
+  "monorepo": false,
   "dynamo-tables": [
     {
       "table-name": "defects",
