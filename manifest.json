@@ -1,0 +1,19 @@
+{
+  "name": "defects",
+  "description": "Collection of Defects to report on",
+  "team": "",
+  "documentation": "",
+  "language": "node",
+  "terraform": false,
+  "monorepo": true,
+  "dynamo-tables": [
+    {
+      "table-name": "defects",
+      "seed-file": "defects.json"
+    },
+    {
+      "table-name": "iva-defects",
+      "seed-file": "iva-defects.json"
+    }
+  ]
+}
