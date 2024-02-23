@@ -61,12 +61,6 @@ describe("Defects Service", () => {
       });
 
       it("a validation error should be produced where there multiple duplicated query parameters", async () => {
-          const expectedResponse = JSON.parse(
-              JSON.stringify(requiredStandardsData),
-          ).map((defect: { id: any }) => {
-              delete defect.id;
-              return defect;
-          });
           await request
               .get("defects/required-standards?euVehicleCategory=m1&euVehicleCategory=m1")
               .set({Authorization: mockToken})
