@@ -59,6 +59,22 @@ describe("Defects Service", () => {
             expect(res.body).toBe("euVehicleCategory required");
           });
       });
+
+      it("a validation error should be produced where there multiple duplicated query parameters", async () => {
+          await request
+              .get("defects/required-standards?euVehicleCategory=m1&euVehicleCategory=m1")
+              .set({Authorization: mockToken})
+              .then((res: any) => {
+                  expect(res.statusCode).toBe(400);
+                  expect(res.headers["access-control-allow-origin"]).toBe("*");
+                  expect(res.headers["access-control-allow-credentials"]).toBe(
+                      "true",
+                  );
+
+                  expect(res.body).not.toBeNull();
+                  expect(res.body).toBe("Multiple EU Vehicle Categories are not allowed");
+              });
+        });
     });
   });
 });
