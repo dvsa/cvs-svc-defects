@@ -66,11 +66,10 @@ export class RequiredStandardsService {
       ],
       basic: this.formatSections(results, (x) => x.basicInspection),
       normal: this.formatSections(
-        results,
-        (x) =>
-          x.normalInspection || (!x.normalInspection && !x.basicInspection),
+          results,
+          (x) => x.normalInspection || (!x.normalInspection && !x.basicInspection)
       ),
-    } as DefectGETRequiredStandards;
+    } as unknown as DefectGETRequiredStandards;
   }
 
   /**
