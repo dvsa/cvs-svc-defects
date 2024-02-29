@@ -64,7 +64,7 @@ class Configuration {
    */
   public static getInstance(): Configuration {
     if (!this.instance) {
-      this.instance = new Configuration("../config/config.yml");
+      this.instance = new Configuration(`${this.pathPrefix}/config/config.yml`);
     }
 
     return Configuration.instance;
@@ -107,15 +107,15 @@ class Configuration {
 
     return this.config.functions.map((fn: Handler) => {
       const [name, params]: any = Object.entries(fn)[0];
-      const path: string = params.proxy
+      const resourcePath: string = params.proxy
         ? params.path.replace("{+proxy}", params.proxy)
         : params.path;
 
       return {
         name,
         method: params.method.toUpperCase(),
-        path,
-        function: require(`../functions/${name}`)[name],
+        path: resourcePath,
+        function: require(`${Configuration.pathPrefix}/functions/${name}`)[name],
       };
     });
   }
@@ -143,6 +143,11 @@ class Configuration {
     }
 
     return this.config.dynamodb[env];
+  }
+
+
+  private static get pathPrefix(): string {
+    return !process.env.BRANCH || process.env.BRANCH === "local" ? '../' : 'dist';
   }
 }
 

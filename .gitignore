@@ -43,3 +43,5 @@ report.json
 #Build directories
 .build/*
 /*.zip
+/dist/
+/artifacts/*
