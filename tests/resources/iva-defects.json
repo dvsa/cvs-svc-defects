@@ -7,7 +7,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "The exhaust must be securely mounted.",
-        "refCalculation": "1.1",
+        "refCalculation": "01.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -15,7 +15,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "The exhaust must have all components secure.",
-        "refCalculation": "1.2",
+        "refCalculation": "01.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -23,7 +23,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "The exhaust must not leak",
-        "refCalculation": "1.3",
+        "refCalculation": "01.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -31,7 +31,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "The exhaust system must be fitted with a silencer.",
-        "refCalculation": "1.4",
+        "refCalculation": "01.4",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -39,7 +39,7 @@
       {
         "rsNumber": "5",
         "requiredStandard": "The stationary noise must have a measured sound level not exceeding 99dbA. (see Notes 2 & 3).",
-        "refCalculation": "1.5",
+        "refCalculation": "01.5",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -47,7 +47,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "The vehicle as presented must be accompanied by satisfactory evidence of compliance with the required standard for “noise” with No un-permitted modifications to the exhaust system which would invalidate the evidence",
-        "refCalculation": "1.1",
+        "refCalculation": "01.1",
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": true
@@ -55,7 +55,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "The exhaust system must be securely mounted.",
-        "refCalculation": "1.2",
+        "refCalculation": "01.2",
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": true
@@ -63,7 +63,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "Exhaust system components must be secure",
-        "refCalculation": "1.3",
+        "refCalculation": "01.3",
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": true
@@ -71,7 +71,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "The exhaust system must be free from leaks.",
-        "refCalculation": "1.4",
+        "refCalculation": "01.4",
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": true
@@ -79,7 +79,7 @@
       {
         "rsNumber": "5",
         "requiredStandard": "A vehicle with permitted modifications must be accompanied by a stationary noise test report",
-        "refCalculation": "1.5",
+        "refCalculation": "01.5",
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": true
@@ -87,7 +87,7 @@
       {
         "rsNumber": "6",
         "requiredStandard": "The measured sound level must be no more than 2 dbA above the evidence supplied.",
-        "refCalculation": "1.6",
+        "refCalculation": "01.6",
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": true
@@ -102,7 +102,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "The vehicle as presented must be accompanied by satisfactory evidence of compliance with the required standard for “Emissions”.",
-        "refCalculation": "2.1",
+        "refCalculation": "02.1",
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": true
@@ -110,7 +110,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "The exhaust must not emit excessive smoke or vapour of any colour to an extent likely to obscure the vision of other road users",
-        "refCalculation": "2.2",
+        "refCalculation": "02.2",
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": true
@@ -125,7 +125,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "The engine must be idling at its normal idling speed.",
-        "refCalculation": "2A.1",
+        "refCalculation": "02A.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -133,7 +133,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "The exhaust must not emit dense blue or clearly visible black smoke for a continuous period of 5 seconds at idle speed.",
-        "refCalculation": "2A.2",
+        "refCalculation": "02A.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -141,7 +141,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "The exhaust must not emit excessive smoke or vapour of any colour during acceleration which would obscure the view of other road users.",
-        "refCalculation": "2A.3",
+        "refCalculation": "02A.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -156,7 +156,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "There must be access to the exhaust tailpipe(s) to allow the insertion of the analyser probe",
-        "refCalculation": "2B.1",
+        "refCalculation": "02B.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -164,7 +164,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "The exhaust gas must not contain carbon monoxide content exceeding the limit for a continuous period of 5 seconds",
-        "refCalculation": "2B.2",
+        "refCalculation": "02B.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -172,7 +172,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "The exhaust gas must not contain hydrocarbon content exceeding the limit for a continuous period of 5 seconds",
-        "refCalculation": "2B.3",
+        "refCalculation": "02B.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -180,7 +180,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "The emission limits must be met as prescribed in the flow charts in the IVA M1 Manual Section 02B  for CAT1 or CAT 2",
-        "refCalculation": "2B.4",
+        "refCalculation": "02B.4",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -195,7 +195,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "There must be access to the exhaust tailpipe(s) to allow the insertion of the analyser probe",
-        "refCalculation": "2C.1",
+        "refCalculation": "02C.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -203,7 +203,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "The measured emissions must not exceed the limits, as shown in the table in Section 02C of the IVA M1 Manual.",
-        "refCalculation": "2C.2",
+        "refCalculation": "02C.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -211,7 +211,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "The exhaust must not emit excessive smoke or vapour of any colour to an extent likely to obscure the vision of other road users",
-        "refCalculation": "2C.3",
+        "refCalculation": "02C.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": false
@@ -226,7 +226,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "The vehicle as presented must be accompanied by satisfactory documentary evidence with the required standard for fuel tanks for gaseous fuels ",
-        "refCalculation": "3A.1",
+        "refCalculation": "03A.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -234,7 +234,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "The vehicle must be accompanied by satisfactory evidence that the tank is designed for road use or the fuel tank is an original fitment to a mass produced vehicle, or has been previously and is un-modified.",
-        "refCalculation": "3A.2",
+        "refCalculation": "03A.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -242,7 +242,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "A Fuel tank and associated equipment must not leak",
-        "refCalculation": "3A.3",
+        "refCalculation": "03A.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -250,7 +250,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "All fuel related components must be securely mounted",
-        "refCalculation": "3A.4",
+        "refCalculation": "03A.4",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -258,7 +258,7 @@
       {
         "rsNumber": "5",
         "requiredStandard": "All metal fuel tanks must have an earth path to prevent the build up of static electricity. (this may be a separate bonding or the mounting arrangement where it does not isolate the tank)",
-        "refCalculation": "3A.5",
+        "refCalculation": "03A.5",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -266,7 +266,7 @@
       {
         "rsNumber": "6",
         "requiredStandard": "A Fuel Tank must be constructed to withstand the environment, forces and vibration it is likely to be subjected to during normal use",
-        "refCalculation": "3A.6",
+        "refCalculation": "03A.6",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -274,7 +274,7 @@
       {
         "rsNumber": "7",
         "requiredStandard": "A Fuel Tank must not be fouled by moving parts of the vehicle, or mounted so that it is likely to be subject to abrasion by adjacent parts",
-        "refCalculation": "3A.7",
+        "refCalculation": "03A.7",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -282,7 +282,7 @@
       {
         "rsNumber": "8",
         "requiredStandard": "Fuel Tanks must not be positioned near a heat source (similar in installation to that of a type approved vehicle), so that a leak could cause a fire hazard.",
-        "refCalculation": "3A.8",
+        "refCalculation": "03A.8",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -290,7 +290,7 @@
       {
         "rsNumber": "9",
         "requiredStandard": "Fuel Tanks must be positioned so as not to be vulnerable to damage from protruding parts or sharp edges in the event of a front or rear impact. ",
-        "refCalculation": "3A.9",
+        "refCalculation": "03A.9",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -298,7 +298,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "The fuel tank must be positioned so that in the event of a leak the fuel could not accumulate or find a path to the passenger compartment. (if fitted in a compartment there must be a drain which does not exit onto a heat source) ",
-        "refCalculation": "3A.10",
+        "refCalculation": "03A.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -306,7 +306,7 @@
       {
         "rsNumber": "11",
         "requiredStandard": "A Fuel Tank must not be located in, or form part of the passenger compartment, or other compartment integral with it and the bulkhead that separate the passengers from the fuel tank must be free from holes through which any escaped fuel could travel.",
-        "refCalculation": "3A.11",
+        "refCalculation": "03A.11",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -314,7 +314,7 @@
       {
         "rsNumber": "12",
         "requiredStandard": "The fuel tank must be fitted with a vent (to permit release of a pressure build up) which does not exit on to the exhaust or into the vehicle or be situated at such a height that fuel would be likely to leak when the vehicle is driven.",
-        "refCalculation": "3A.12",
+        "refCalculation": "03A.12",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -322,7 +322,7 @@
       {
         "rsNumber": "13",
         "requiredStandard": "Any fuel filler neck or vent must not allow spilt fuel to be able to fall onto the exhaust system",
-        "refCalculation": "3A.13",
+        "refCalculation": "03A.13",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -330,7 +330,7 @@
       {
         "rsNumber": "14",
         "requiredStandard": "Fuel tank filling points must not be located in the passenger compartment, luggage compartment or within an engine compartment.",
-        "refCalculation": "3A.14",
+        "refCalculation": "03A.14",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -338,7 +338,7 @@
       {
         "rsNumber": "15",
         "requiredStandard": "A fuel filler cap must positively locate to the filler neck and incorporate an adequate sealing arrangement so that a fuel leak is not possible.",
-        "refCalculation": "3A.16",
+        "refCalculation": "03A.15",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -346,7 +346,7 @@
       {
         "rsNumber": "16",
         "requiredStandard": "The fuel filler cap must either be tethered to the vehicle or be of a lockable type where the key can only be removed when the cap is locked or an automatically opening and closing, non-removable fuel filler cap (Post 05 / 2009 vehicles only)",
-        "refCalculation": "3A.16",
+        "refCalculation": "03A.16",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -354,7 +354,7 @@
       {
         "rsNumber": "17",
         "requiredStandard": "The vehicle as presented must be accompanied by satisfactory documentary evidence for Hydrogen fuel systems (including storage tanks)",
-        "refCalculation": "3A.17",
+        "refCalculation": "03A.17",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -369,7 +369,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "All vehicles must comply with one of the registration plate spaces shown in the table in Section 04 of the IVA M1 Manual",
-        "refCalculation": "4.1",
+        "refCalculation": "04.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -377,7 +377,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "The registration plate space must permit the mounting of a plate in a position as close to vertical as possible taking into account the shape of the bodywork",
-        "refCalculation": "4.2",
+        "refCalculation": "04.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -385,7 +385,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "An external body surface or a purpose-designed mounting system securely attached to the vehicle must be provided, to hold the plate in a fixed position. ",
-        "refCalculation": "4.3",
+        "refCalculation": "04.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -393,7 +393,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "The whole of the yellow shaded portion of the “IVA Test plate\" must be capable of being easily seen from every point along the test line",
-        "refCalculation": "4.4",
+        "refCalculation": "04.4",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -408,7 +408,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "The safe control of the vehicle must not be impaired due to a design or construction feature or characteristic of the steering system",
-        "refCalculation": "5.1",
+        "refCalculation": "05.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -416,7 +416,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "The steering must act primarily on the front wheels.",
-        "refCalculation": "5.2",
+        "refCalculation": "05.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -424,7 +424,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "The steering system must operate smoothly from lock to lock and without undue stiffness with and without power assistance (if fitted).",
-        "refCalculation": "5.3",
+        "refCalculation": "05.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -432,7 +432,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "The steering angle must not be limited by any part of the steering, transmission or suspension system unless the components have been specifically designed for this purpose",
-        "refCalculation": "5.4",
+        "refCalculation": "05.4",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -440,7 +440,7 @@
       {
         "rsNumber": "5",
         "requiredStandard": "If the vehicle is fitted with power assisted steering, the steering must still operate with the assistance disabled",
-        "refCalculation": "5.5",
+        "refCalculation": "05.5",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -448,7 +448,7 @@
       {
         "rsNumber": "6",
         "requiredStandard": "The steered wheels and tyres must not foul, or be likely to foul other parts of the vehicle under normal operating conditions.",
-        "refCalculation": "5.6",
+        "refCalculation": "05.6",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -456,7 +456,7 @@
       {
         "rsNumber": "7",
         "requiredStandard": "Steering components must not foul, or be likely to foul other parts of the vehicle under normal operating conditions.",
-        "refCalculation": "5.7",
+        "refCalculation": "05.7",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -464,7 +464,7 @@
       {
         "rsNumber": "8",
         "requiredStandard": "When the vehicle is driven at speeds above 10mph, there must be a degree of steering “self centring” evident.",
-        "refCalculation": "5.8",
+        "refCalculation": "05.8",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -479,7 +479,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "All driver and passenger doors fitted to the sides of the vehicle must have a latch mechanism with both intermediate and fully latched positions. Alternatively, doors must be fitted with a safety bolt and an audible warning device, which activates when the vehicle is being driven if the bolt is not in the “secured” position",
-        "refCalculation": "6.1",
+        "refCalculation": "06.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -487,7 +487,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "All driver and passenger hinged doors must have a latch mechanism that will withstand a load which is likely to be applied in normal driving conditions, in both intermediate and fully latched positions, unless fitted with a safety bolt and audible warning device where it will only need to meet this requirement in the secured (locked) position ",
-        "refCalculation": "6.2",
+        "refCalculation": "06.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -495,7 +495,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "Hinge-mounted side doors (excluding gullwing and bus type folding doors) must hinge from the front of the door in relation to the direction of forward travel",
-        "refCalculation": "6.3",
+        "refCalculation": "06.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -503,7 +503,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "Gullwing or suicide doors fitted to the sides of the vehicle must be: -\na)  fitted with a device that automatically moves the door to the closed or intermediate latched position if unlatched when the vehicle is moving forward, \nor- \nb) fitted with a safety bolt and an audible warning device, that activates when the vehicle is being driven if the bolt is not in the “secured” position",
-        "refCalculation": "6.4",
+        "refCalculation": "06.4",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -511,7 +511,7 @@
       {
         "rsNumber": "5",
         "requiredStandard": "5. All doors intended for passenger use must provide an adequate opening to enable safe access to and from the vehicle.",
-        "refCalculation": "6.5",
+        "refCalculation": "06.5",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -519,7 +519,7 @@
       {
         "rsNumber": "6",
         "requiredStandard": "Where a vehicle is fitted with doors all the edges of the apertures (with the door open) that are contactable with a 100mm diameter sphere must be at least blunted.",
-        "refCalculation": "6.6",
+        "refCalculation": "06.6",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -527,7 +527,7 @@
       {
         "rsNumber": "7",
         "requiredStandard": "All front passenger doors must be fitted with internal operating controls which are accessible from the adjacent seating position.",
-        "refCalculation": "6.7",
+        "refCalculation": "06.7",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -535,7 +535,7 @@
       {
         "rsNumber": "8",
         "requiredStandard": "All aperture covers must secure in the fully closed position.",
-        "refCalculation": "6.8",
+        "refCalculation": "06.8",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -550,7 +550,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "The vehicle must be fitted with a horn (see Note 1).",
-        "refCalculation": "7.1",
+        "refCalculation": "07.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -558,7 +558,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "The horn must be secure",
-        "refCalculation": "7.2",
+        "refCalculation": "07.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -566,7 +566,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "The horn must emit a continuous uniform sound.",
-        "refCalculation": "7.3",
+        "refCalculation": "07.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -574,7 +574,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "The horn must perform to an equivalent level of an EC Type Approved vehicle",
-        "refCalculation": "7.4",
+        "refCalculation": "07.4",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -589,7 +589,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "The vehicle must have an offside exterior mirror fitted.",
-        "refCalculation": "8.1",
+        "refCalculation": "08.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -597,7 +597,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "An interior mirror must be fitted",
-        "refCalculation": "8.2",
+        "refCalculation": "08.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -605,7 +605,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "The vehicle must have an nearside exterior mirror fitted (if the interior rear view mirror gives no view to the rear or the rear window is less than 70% light transmittance)  ",
-        "refCalculation": "8.3",
+        "refCalculation": "08.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -613,7 +613,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "All obligatory mirrors/CMS must be securely mounted to the vehicle, to ensure that the field of view does not change",
-        "refCalculation": "8.4",
+        "refCalculation": "08.4",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -621,7 +621,7 @@
       {
         "rsNumber": "5",
         "requiredStandard": "All mirrors must be adjustable",
-        "refCalculation": "8.5",
+        "refCalculation": "08.5",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -629,7 +629,7 @@
       {
         "rsNumber": "6",
         "requiredStandard": "Obligatory mirrors/CMS must be mounted so as to prevent the driver misinterpreting the image because of vibration",
-        "refCalculation": "8.6",
+        "refCalculation": "08.6",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -637,7 +637,7 @@
       {
         "rsNumber": "7",
         "requiredStandard": "All mirrors must have an acceptable approval marking or have equivalent characteristics to a mirror approved for use on a vehicle of the same category as follows:\n• The reflective surface must be encased in a protective housing\n• surfaces contactable by a 165mm sphere (interior) or a 100mm sphere (exterior) must have a radius of curvature of at least 2.5mm – except for fixing holes or recesses less than 12mm wide, which must be blunted\n",
-        "refCalculation": "8.7",
+        "refCalculation": "08.7",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -645,7 +645,7 @@
       {
         "rsNumber": "8",
         "requiredStandard": "An interior mirror must be a minimum of 40mm high by 80mm long ",
-        "refCalculation": "8.8",
+        "refCalculation": "08.8",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -653,7 +653,7 @@
       {
         "rsNumber": "9",
         "requiredStandard": "An exterior mirror must be a minimum of 40mm high and 70mm long, and be able to incorporate a measurement parallel to the height of the rectangle at least 70mm in length within the lens",
-        "refCalculation": "8.9",
+        "refCalculation": "08.9",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -661,7 +661,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "The interior mirror must be adjustable from the normal driving position (see Note 7).",
-        "refCalculation": "8.1",
+        "refCalculation": "08.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -669,7 +669,7 @@
       {
         "rsNumber": "11",
         "requiredStandard": "The mirror fitted to the driver’s side of a vehicle must be adjustable from the driving seat while the door is closed, although the window may be open (see Note 7). The mirror may, however, be locked in position from the outside. Alternatively, if knocked out of alignment, it must be capable of being returned to its former position without the need for adjustment.",
-        "refCalculation": "8.11",
+        "refCalculation": "08.11",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -677,7 +677,7 @@
       {
         "rsNumber": "12",
         "requiredStandard": "An obligatory mirror or CMS must provide the required field of view\n",
-        "refCalculation": "8.12",
+        "refCalculation": "08.12",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -685,7 +685,7 @@
       {
         "rsNumber": "13",
         "requiredStandard": "CMS must be approved to the requirements of UNECE Regulation 46.04 paragraph 6.2.2; documentary evidence will be required.",
-        "refCalculation": "8.13",
+        "refCalculation": "08.13",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -700,7 +700,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "The vehicle as presented must be accompanied by satisfactory evidence of compliance with the required standard for “ Braking “",
-        "refCalculation": "9.1",
+        "refCalculation": "09.1",
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": true
@@ -715,7 +715,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "The vehicle must be fitted with a service braking system that is completely independent of the control of the parking brake, capable of functioning on all wheels by a single means of operation, which will gradually increase or reduce the braking force through action of the control",
-        "refCalculation": "9A.1",
+        "refCalculation": "09A.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -723,7 +723,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "The ‘service’ braking system must be capable of being operated from the driving seat, whilst keeping both hands on the steering wheel. This does not apply to the controls for use by a disabled driver, providing the adaptation allows him/her to control the steering at all times while operating either braking system",
-        "refCalculation": "9A.2",
+        "refCalculation": "09A.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -731,7 +731,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "The ‘service’ braking system must be capable of being operated to slow down the vehicle when it is moving in a forward or reverse direction",
-        "refCalculation": "9A.3",
+        "refCalculation": "09A.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -739,7 +739,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "The vehicle must be fitted with a split (dual) circuit brake system with each part of the system operating on at least two wheels (one on each side), capable of operating in the event of a failure of the service brake or its power assistance",
-        "refCalculation": "9A.4 ",
+        "refCalculation": "09A.4",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -747,7 +747,7 @@
       {
         "rsNumber": "5",
         "requiredStandard": "The vehicle must be fitted with a secondary system, capable of operating in the event of a failure of the service brake or its power assistance ",
-        "refCalculation": "9A.5",
+        "refCalculation": "09A.5",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -755,7 +755,7 @@
       {
         "rsNumber": "6",
         "requiredStandard": "The ‘parking’ braking system must be capable of being operated from the driving seat, whilst keeping one hand on the steering wheel\n",
-        "refCalculation": "9A.6",
+        "refCalculation": "09A.6",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -763,7 +763,7 @@
       {
         "rsNumber": "7",
         "requiredStandard": "The ‘parking’ braking system must be capable of being operated and released whether the vehicle is stationary or moving.",
-        "refCalculation": "9A.7",
+        "refCalculation": "09A.7",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -771,7 +771,7 @@
       {
         "rsNumber": "8",
         "requiredStandard": "The ‘parking’ braking system must be capable of being operated on all wheels of at least one axle enabling the vehicle to be held on an up or down gradient even in the absence of the driver",
-        "refCalculation": "9A.8",
+        "refCalculation": "09A.8",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -779,7 +779,7 @@
       {
         "rsNumber": "9",
         "requiredStandard": "The ‘parking’ braking system must be capable of being operated using a control which is independent of the service brake, and once applied capable of being maintained in the ‘on’ position solely by mechanical means",
-        "refCalculation": "9A.9",
+        "refCalculation": "09A.9",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -794,7 +794,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "The brake control must be capable of being operated easily from the driving position without obstruction or abnormal hand/foot position and that the pedal (where fitted) has an anti-slip provision",
-        "refCalculation": "9B.1",
+        "refCalculation": "09B.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -802,7 +802,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "All service brake controls must operate in the same direction as the forces created when the vehicle is in forward direction",
-        "refCalculation": "9B.2",
+        "refCalculation": "09B.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -810,7 +810,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "A brake control, actuating linkage or associated component must be fully accessible for maintenance purposes.",
-        "refCalculation": "9B.3",
+        "refCalculation": "09B.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -818,7 +818,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "A brake control, actuating linkage or associated component must be complete, so that it functions correctly",
-        "refCalculation": "9B.4",
+        "refCalculation": "09B.4",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -826,7 +826,7 @@
       {
         "rsNumber": "5",
         "requiredStandard": "A brake control, actuating linkage or associated component must be of adequate strength so as not to be likely to fail prematurely.",
-        "refCalculation": "9B.5",
+        "refCalculation": "09B.5",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -834,7 +834,7 @@
       {
         "rsNumber": "6",
         "requiredStandard": "A brake control, actuating linkage or associated component must be made of a material sufficiently durable so as not to be likely to fail prematurely",
-        "refCalculation": "9B.6",
+        "refCalculation": "09B.6",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -842,7 +842,7 @@
       {
         "rsNumber": "7",
         "requiredStandard": "A brake control, actuating linkage or associated component must not be obstructed in its travel nor foul parts of the vehicle.",
-        "refCalculation": "9B.7",
+        "refCalculation": "09B.7",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -850,7 +850,7 @@
       {
         "rsNumber": "8",
         "requiredStandard": "A brake control, actuating linkage or associated component mounting/bracket must be of adequate strength so as not to be likely to fail prematurely",
-        "refCalculation": "9B.8",
+        "refCalculation": "09B.8",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -858,7 +858,7 @@
       {
         "rsNumber": "9",
         "requiredStandard": "A brake control, actuating linkage or associated component mounting/bracket must be secure to the vehicle structure",
-        "refCalculation": "9B.9",
+        "refCalculation": "09B.9",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -866,7 +866,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "A brake control, actuating linkage or associated component mounting/bracket securing method must be of adequate strength so as not to be likely to fail prematurely",
-        "refCalculation": "9B.10",
+        "refCalculation": "09B.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -874,7 +874,7 @@
       {
         "rsNumber": "11",
         "requiredStandard": "A brake control, actuating linkage or associated component pivot bearing/bush must be of adequate strength so as not to be likely to fail prematurely",
-        "refCalculation": "9B.11",
+        "refCalculation": "09B.11",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -882,7 +882,7 @@
       {
         "rsNumber": "12",
         "requiredStandard": "A brake control, actuating linkage or associated component pivot bearing/bush must be secure such that it is unlikely to become displaced\n",
-        "refCalculation": "9B.12",
+        "refCalculation": "09B.12",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -890,7 +890,7 @@
       {
         "rsNumber": "13",
         "requiredStandard": "Any brake control, actuating linkage or associated component pivot/linkage pins must be present and secure",
-        "refCalculation": "9B.13",
+        "refCalculation": "09B.13",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -898,7 +898,7 @@
       {
         "rsNumber": "14",
         "requiredStandard": "Any brake control, actuating linkage or associated component locking/retaining devices must be present and secure.",
-        "refCalculation": "9B.14",
+        "refCalculation": "09B.14",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -906,7 +906,7 @@
       {
         "rsNumber": "15",
         "requiredStandard": "With the brake control fully applied there must be sufficient reserve travel",
-        "refCalculation": "9B.15",
+        "refCalculation": "09B.15",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -914,7 +914,7 @@
       {
         "rsNumber": "16",
         "requiredStandard": "The brake control must not creep down while it is held under pressure",
-        "refCalculation": "9B.16",
+        "refCalculation": "09B.16",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -922,7 +922,7 @@
       {
         "rsNumber": "17",
         "requiredStandard": "There must not be an indication of ‘sponginess’ when the brake control is operated, indicating air in the system",
-        "refCalculation": "9B.17",
+        "refCalculation": "09B.17",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -930,7 +930,7 @@
       {
         "rsNumber": "18",
         "requiredStandard": "When the brake control is applied (following vacuum depletion) and the engine started a dip must be felt, indicating that vacuum assistance is working satisfactorily",
-        "refCalculation": "9B.18",
+        "refCalculation": "09B.18",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -938,7 +938,7 @@
       {
         "rsNumber": "19",
         "requiredStandard": "On a full power hydraulic braking system a warning device must be fitted, operative, and visible or audible to the driver, including in darkness",
-        "refCalculation": "9B.19",
+        "refCalculation": "09B.19",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -946,7 +946,7 @@
       {
         "rsNumber": "20",
         "requiredStandard": "All brake mechanical components must be secure, with relevant securing bolts, locking devices, retaining device etc present and secure",
-        "refCalculation": "9B.20",
+        "refCalculation": "09B.20",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -954,7 +954,7 @@
       {
         "rsNumber": "21",
         "requiredStandard": "A brake assembly on a FRONT axle of a vehicle must incorporate an automatic means of compensating for friction material wear.",
-        "refCalculation": "9B.21",
+        "refCalculation": "09B.21",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -962,7 +962,7 @@
       {
         "rsNumber": "22",
         "requiredStandard": "A brake assembly on a REAR axle of a vehicle must incorporate an automatic or manual means of compensating for friction material wear",
-        "refCalculation": "9B.22",
+        "refCalculation": "09B.22",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -970,7 +970,7 @@
       {
         "rsNumber": "23",
         "requiredStandard": "The brake friction surfaces must have sufficient capacity to dissipate heat and prevent fade",
-        "refCalculation": "9B.23",
+        "refCalculation": "09B.23",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -978,7 +978,7 @@
       {
         "rsNumber": "24",
         "requiredStandard": "It must be possible to easily check the wear on service brake linings, from the outside or underside of the vehicle",
-        "refCalculation": "9B.24",
+        "refCalculation": "09B.24",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -986,7 +986,7 @@
       {
         "rsNumber": "25",
         "requiredStandard": "All braking controls must apply and release the relevant brakes at a rate comparable to that of an approved system",
-        "refCalculation": "9B.25",
+        "refCalculation": "09B.25",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -994,7 +994,7 @@
       {
         "rsNumber": "26",
         "requiredStandard": "It must not be possible to manually adjust braking rates between axles ",
-        "refCalculation": "9B.26",
+        "refCalculation": "09B.26",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1002,7 +1002,7 @@
       {
         "rsNumber": "27",
         "requiredStandard": "Vehicles fitted with adjustable twin master cylinders that have been rendered inoperable by mechanical means to comply with RS26 must have a label affixed on the master cylinder or the immediate vicinity with legible text as detailed in note 6 of section 9B of the IVA M1 inspection manual",
-        "refCalculation": "9B.27",
+        "refCalculation": "09B.27",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1010,7 +1010,7 @@
       {
         "rsNumber": "28",
         "requiredStandard": "The service braking system must act on braking surfaces permanently connected to the wheels through components of adequate strength.",
-        "refCalculation": "9B.28",
+        "refCalculation": "09B.28",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1025,7 +1025,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "A parking brake lever, actuating linkage, cable or associated component must be complete so that it functions correctly",
-        "refCalculation": "9C.1",
+        "refCalculation": "09C.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1033,7 +1033,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "A parking brake lever, actuating linkage, cable or associated component must be of adequate strength so as not to be likely to fail prematurely",
-        "refCalculation": "9C.2",
+        "refCalculation": "09C.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1041,7 +1041,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "A parking brake lever, actuating linkage, cable or associated component must be made of a material sufficiently durable so as not to be likely to fail prematurely",
-        "refCalculation": "9C.3",
+        "refCalculation": "09C.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1049,7 +1049,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "A parking brake lever, actuating linkage, cable or associated component must not be obstructed in its travel nor foul parts of the vehicle",
-        "refCalculation": "9C.4",
+        "refCalculation": "09C.4",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1057,7 +1057,7 @@
       {
         "rsNumber": "5",
         "requiredStandard": "A parking brake lever, actuating linkage, cable or associated component mounting / bracket must be secure to the vehicle structure",
-        "refCalculation": "9C.5",
+        "refCalculation": "09C.5",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1065,7 +1065,7 @@
       {
         "rsNumber": "6",
         "requiredStandard": "A parking brake lever, actuating linkage, cable or associated component mounting / bracket securing method must be of adequate strength so as not to be likely to fail prematurely",
-        "refCalculation": "9C.6",
+        "refCalculation": "09C.6",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1073,7 +1073,7 @@
       {
         "rsNumber": "7",
         "requiredStandard": "A parking brake lever, actuating linkage, cable or associated component pivot bearing / bush must be of adequate strength so as not to be likely to fail prematurely",
-        "refCalculation": "9C.7",
+        "refCalculation": "09C.7",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1081,7 +1081,7 @@
       {
         "rsNumber": "8",
         "requiredStandard": "A parking brake lever, actuating linkage, cable or associated component pivot bearing / bush must be secure such that it is unlikely to become displaced",
-        "refCalculation": "9C.8",
+        "refCalculation": "09C.8",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1089,7 +1089,7 @@
       {
         "rsNumber": "9",
         "requiredStandard": "A parking brake lever, actuating linkage, cable or associated component pivot / linkage pins must be present and secure",
-        "refCalculation": "9C.9",
+        "refCalculation": "09C.9",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1097,7 +1097,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "A parking brake lever, actuating linkage, cable or associated component locking / retaining devices must be present and secure",
-        "refCalculation": "9C.10",
+        "refCalculation": "09C.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1105,7 +1105,7 @@
       {
         "rsNumber": "11",
         "requiredStandard": "The parking brake ratchet pawl must engage positively with the ratchet teeth",
-        "refCalculation": "9C.11",
+        "refCalculation": "09C.11",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1113,7 +1113,7 @@
       {
         "rsNumber": "12",
         "requiredStandard": "A hand lever operated parking brake must not disengage when the lever is knocked on each side and on the top.",
-        "refCalculation": "9C.12",
+        "refCalculation": "09C.12",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1121,7 +1121,7 @@
       {
         "rsNumber": "13",
         "requiredStandard": "A lever operated brake must when fully applied must have reserve travel and locking positions (see note 1)",
-        "refCalculation": "9C.13",
+        "refCalculation": "09C.13",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1129,7 +1129,7 @@
       {
         "rsNumber": "14",
         "requiredStandard": "An electrically operated parking brake switch must be protected from inadvertent use. As an alternative, with the ignition off, the switch must be capable of applying the brake, but must not be capable of releasing the brake",
-        "refCalculation": "9C.14",
+        "refCalculation": "09C.14",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1137,7 +1137,7 @@
       {
         "rsNumber": "15",
         "requiredStandard": "The parking brake mechanism must incorporate a means of manual or automatic adjustment to compensate for wear.",
-        "refCalculation": "9C.15",
+        "refCalculation": "09C.15",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1152,7 +1152,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "A hydraulic and vacuum component must be complete, so that it functions correctly",
-        "refCalculation": "9D.1",
+        "refCalculation": "09D.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1160,7 +1160,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "A hydraulic and vacuum component must be of adequate strength so as not to be likely to fail prematurely",
-        "refCalculation": "9D.2",
+        "refCalculation": "09D.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1168,7 +1168,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "A hydraulic and vacuum component must be made of a material sufficiently durable so that it is unlikely to fail prematurely",
-        "refCalculation": "9D.3",
+        "refCalculation": "09D.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1176,7 +1176,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "A hydraulic and vacuum component mounting/bracket must be secure to the vehicle structure or other components",
-        "refCalculation": "9D.4",
+        "refCalculation": "09D.4",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1184,7 +1184,7 @@
       {
         "rsNumber": "5",
         "requiredStandard": "A hydraulic and vacuum component mounting/bracket must be of adequate strength so as not to be likely to fail prematurely",
-        "refCalculation": "9D.5",
+        "refCalculation": "09D.5",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1192,7 +1192,7 @@
       {
         "rsNumber": "6",
         "requiredStandard": "A hydraulic and vacuum component mounting/bracket securing method must be of adequate strength and unlikely to fail prematurely",
-        "refCalculation": "9D.6",
+        "refCalculation": "09D.6",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1200,7 +1200,7 @@
       {
         "rsNumber": "7",
         "requiredStandard": "A brake pipe or hose must not be fouled by moving parts",
-        "refCalculation": "9D.7",
+        "refCalculation": "09D.7",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1208,7 +1208,7 @@
       {
         "rsNumber": "8",
         "requiredStandard": "A brake pipe or hose must not be kinked, stretched, or twisted",
-        "refCalculation": "9D.8",
+        "refCalculation": "09D.8",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1216,7 +1216,7 @@
       {
         "rsNumber": "9",
         "requiredStandard": "A brake pipe or hose must be adequately clipped or otherwise supported",
-        "refCalculation": "9D.9",
+        "refCalculation": "09D.9",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1224,7 +1224,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "A brake pipe or hose must have suitable joint fittings",
-        "refCalculation": "9D.10",
+        "refCalculation": "09D.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1232,7 +1232,7 @@
       {
         "rsNumber": "11",
         "requiredStandard": "A brake pipe or hose must not be exposed to excessive heat",
-        "refCalculation": "9D.11",
+        "refCalculation": "09D.11",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1240,7 +1240,7 @@
       {
         "rsNumber": "12",
         "requiredStandard": "A hydraulic/vacuum component must not be subject to a corrosive environment and likely to fail prematurely",
-        "refCalculation": "9D.12",
+        "refCalculation": "09D.12",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1248,7 +1248,7 @@
       {
         "rsNumber": "13",
         "requiredStandard": "Components must not leak",
-        "refCalculation": "9D.13",
+        "refCalculation": "09D.13",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1256,7 +1256,7 @@
       {
         "rsNumber": "14",
         "requiredStandard": "A fluid reservoir filling port must be easily accessible",
-        "refCalculation": "9D.14",
+        "refCalculation": "09D.14",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1264,7 +1264,7 @@
       {
         "rsNumber": "15",
         "requiredStandard": "A fluid reservoir cap must be present and secure",
-        "refCalculation": "9D.15",
+        "refCalculation": "09D.15",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1272,7 +1272,7 @@
       {
         "rsNumber": "16",
         "requiredStandard": "It must be possible to check the fluid relative to the manufacturer’s specified minimum level on all brake fluid reservoirs by the actual fluid level being visible through a transparent section of the reservoir, with the minimum level marked permanently on to this section. As an alternative, a red warning lamp (see figure 3 in Section 09D of the M1 manual) must be capable of illuminating when the reservoir fluid falls to the minimum level. ",
-        "refCalculation": "9D.16",
+        "refCalculation": "09D.16",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1280,7 +1280,7 @@
       {
         "rsNumber": "17",
         "requiredStandard": "An indelible label must be affixed in a visible position within 100mm of the filling ports of the fluid reservoirs to ensure that it is possible for the end user of the vehicle to identify the brake fluid used in the brake system. DOT fluid references and/or symbolsor text in table 1 of the IVA inspection manual are considered acceptable.",
-        "refCalculation": "9D.17",
+        "refCalculation": "09D.17",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1288,7 +1288,7 @@
       {
         "rsNumber": "18",
         "requiredStandard": "Where a warning lamp is provided as the only means of checking the fluid level without opening the reservoir, it must be secure, operational, visible during daylight and darkness from the driving position, and fitted with a “test facility” that enables its operation to be checked from the driving position without opening the reservoir",
-        "refCalculation": "9D.18",
+        "refCalculation": "09D.18",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1296,7 +1296,7 @@
       {
         "rsNumber": "19",
         "requiredStandard": "The hydraulic system must be fitted with a red warning lamp, sensitive to line pressure and capable of signalling the failure of any part of the hydraulic system as soon as the brake is applied and remaining lit as long as the failure exists (with the ignition switched on). As an alternative, the warning lamp must be sensitive to the reservoir fluid level, providing the reservoir is directly connected to supply the pressure side of the master cylinder when the piston is in the “brakes off” position, so that a failure of either part of a split system would result in a continuous draining of the reservoir fluid when the control is released ",
-        "refCalculation": "9D.19",
+        "refCalculation": "09D.19",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1304,7 +1304,7 @@
       {
         "rsNumber": "20",
         "requiredStandard": "The hydraulic system failure warning lamp must be secure, operational, visible during daylight and darkness from the driving position, identifiable (i.e. labelled in a recognised form – see diagram 1 in the M1 manual for an example) and fitted with a “test facility” that enables its operation to be checked from the driving position without opening the reservoir.",
-        "refCalculation": "9D.20",
+        "refCalculation": "09D.20",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1312,7 +1312,7 @@
       {
         "rsNumber": "21",
         "requiredStandard": "If the vehicle is fitted with an anti-lock braking system, all components must be present, undamaged, secure, connected and operational so that the system is likely to function as intended",
-        "refCalculation": "9D.21",
+        "refCalculation": "09D.21",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1320,7 +1320,7 @@
       {
         "rsNumber": "22",
         "requiredStandard": "If the vehicle is fitted with an anti-lock braking system an operational warning lamp must be fitted to monitor the system, visible from the driving position, which operates when the anti-lock is energised, and extinguishes at the latest when the vehicle speed reaches 10km/h",
-        "refCalculation": "9D.22",
+        "refCalculation": "09D.22",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1335,7 +1335,7 @@
       {
         "rsNumber": "1",
         "requiredStandard": "A low braking effort must not be recorded from any wheel, indicating clearly that the brake is not functioning correctly.",
-        "refCalculation": "9E.1",
+        "refCalculation": "09E.1",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1343,7 +1343,7 @@
       {
         "rsNumber": "2",
         "requiredStandard": "The service brake performance must be at least 60%, (of the CLW or DGW as determined to be the highest) or more than half the road wheels lock.",
-        "refCalculation": "9E.2",
+        "refCalculation": "09E.2",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1351,7 +1351,7 @@
       {
         "rsNumber": "3",
         "requiredStandard": "The secondary brake performance must be at least 25%,(of the CLW or DGW as determined to be the highest) for: • each half of the split system or • the park brake if used as secondary. (see Note 7)",
-        "refCalculation": "9E.3",
+        "refCalculation": "09E.3",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1359,7 +1359,7 @@
       {
         "rsNumber": "4",
         "requiredStandard": "A significant braking effort must not be recorded from a road wheel without application of the brakes, indicating brake bind",
-        "refCalculation": "9E.4",
+        "refCalculation": "09E.4",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1367,7 +1367,7 @@
       {
         "rsNumber": "5",
         "requiredStandard": "There must be no evidence of severe brake grab or judder as the brake is applied.",
-        "refCalculation": "9E.5",
+        "refCalculation": "09E.5",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1375,7 +1375,7 @@
       {
         "rsNumber": "6",
         "requiredStandard": "The braking efforts at the road wheels must increase progressively at about the same rate when the service brake is applied gradually.",
-        "refCalculation": "9E.6",
+        "refCalculation": "09E.6",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1383,7 +1383,7 @@
       {
         "rsNumber": "7",
         "requiredStandard": "The braking efforts at the road wheels must reduce at about the same rate when the service brake is released gradually.",
-        "refCalculation": "9E.7",
+        "refCalculation": "09E.7",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1391,7 +1391,7 @@
       {
         "rsNumber": "8",
         "requiredStandard": "The brake pedal must return to the fully off position",
-        "refCalculation": "9E.8",
+        "refCalculation": "09E.8",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1399,7 +1399,7 @@
       {
         "rsNumber": "9",
         "requiredStandard": "The brake effort of one wheel must not be less than 70% of the effort recorded from the other wheel on any steering axle (an axle that provides the main source of directional control of the vehicle)",
-        "refCalculation": "9E.9",
+        "refCalculation": "09E.9",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1407,7 +1407,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "The braking ratio of the axles, for all values of total brake force must be less than the friction force ratio (taking into account weight transfer) between axles in running order",
-        "refCalculation": "9E.10",
+        "refCalculation": "09E.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1415,7 +1415,7 @@
       {
         "rsNumber": "11",
         "requiredStandard": "The calculated service efficiency with the servo depleted must be at least 25% (see Note 2).",
-        "refCalculation": "9E.11",
+        "refCalculation": "09E.11",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1423,7 +1423,7 @@
       {
         "rsNumber": "12",
         "requiredStandard": "Where a vehicle is fitted with a full power hydraulic system, the calculated service brake efficiency after four full applications must be at least 25%. (See Note 3).",
-        "refCalculation": "9E.12",
+        "refCalculation": "09E.12",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1431,7 +1431,7 @@
       {
         "rsNumber": "13",
         "requiredStandard": "A low braking effort must not be recorded from any wheel, indicating clearly that the parking brake is not functioning correctly",
-        "refCalculation": "9E.13",
+        "refCalculation": "09E.13",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1439,7 +1439,7 @@
       {
         "rsNumber": "14",
         "requiredStandard": "The parking brake performance must be at least 18%, (of the CLW or DGW as determined to be the highest) unless more than half of the wheels lock as operated by the park brake.",
-        "refCalculation": "9E.14",
+        "refCalculation": "09E.14",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1447,7 +1447,7 @@
       {
         "rsNumber": "15",
         "requiredStandard": "The service brake performance must be a minimum of 60%",
-        "refCalculation": "9E.15",
+        "refCalculation": "09E.15",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1455,7 +1455,7 @@
       {
         "rsNumber": "16",
         "requiredStandard": "The parking brake performance must be a minimum of 18%",
-        "refCalculation": "9E.16",
+        "refCalculation": "09E.16",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1463,7 +1463,7 @@
       {
         "rsNumber": "17",
         "requiredStandard": " When the service brake is applied the brake must be capable of progressive operation.",
-        "refCalculation": "9E.17",
+        "refCalculation": "09E.17",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1471,7 +1471,7 @@
       {
         "rsNumber": "18",
         "requiredStandard": "When the service brake is applied there must not be severe grab or judder",
-        "refCalculation": "9E.18",
+        "refCalculation": "09E.18",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1479,7 +1479,7 @@
       {
         "rsNumber": "19",
         "requiredStandard": "When the service brake is applied the vehicle should not deviate to the left or right",
-        "refCalculation": "9E.19",
+        "refCalculation": "09E.19",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1487,7 +1487,7 @@
       {
         "rsNumber": "20",
         "requiredStandard": "When the service brake is applied the pedal must return to the fully off position.",
-        "refCalculation": "9E.20",
+        "refCalculation": "09E.20",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1495,7 +1495,7 @@
       {
         "rsNumber": "21",
         "requiredStandard": "All wheels of the rear axle(s) must not lock prior to both wheels of the front axle.",
-        "refCalculation": "9E.21",
+        "refCalculation": "09E.21",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1503,7 +1503,7 @@
       {
         "rsNumber": "22",
         "requiredStandard": "The transmission parking brake efficiency must be at least 18%",
-        "refCalculation": "9E.22",
+        "refCalculation": "09E.22",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1511,7 +1511,7 @@
       {
         "rsNumber": "23",
         "requiredStandard": "All wheels of the rear axle(s) must not lock prior to both wheels of the front axle.",
-        "refCalculation": "9E.23",
+        "refCalculation": "09E.23",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1629,7 +1629,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "Shelves and other similar items fitted below the highest part of the instrument panel must have no protruding edges on their supports and that all parts facing into the vehicle have a surface at least 25mm high, and with edges rounded to a radius of curvature of not less than 3.2mm, and covered with a non-rigid material. \n",
-        "refCalculation": "12.1",
+        "refCalculation": "12.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -1889,7 +1889,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "The head restraint must be securely attached to the seat. ",
-        "refCalculation": "15.1",
+        "refCalculation": "15.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -2008,7 +2008,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "Where contactable with the 100mm sphere a glass/fibre reinforced plastic panel edge must have a radius of curvature of at least 1.5mm.",
-        "refCalculation": "16.1",
+        "refCalculation": "16.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -2088,7 +2088,7 @@
       {
         "rsNumber": "20",
         "requiredStandard": "All handles must be enclosed in a protective surround or be recessed, unless they cannot in any circumstance project beyond the extreme outer edge of the vehicle. ",
-        "refCalculation": "16.2",
+        "refCalculation": "16.20",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -2310,7 +2310,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "Capital letters and numerals must be used for the VIN",
-        "refCalculation": "18.1",
+        "refCalculation": "18.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -2674,7 +2674,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "Stop lamps must only illuminate when the service brake is applied, and must extinguish when the service brake is released",
-        "refCalculation": "22.1",
+        "refCalculation": "22.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -2770,7 +2770,7 @@
       {
         "rsNumber": "20",
         "requiredStandard": "End outline marker lamps must emit only red light to the rear / white light to the front",
-        "refCalculation": "22.2",
+        "refCalculation": "22.20",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -3143,7 +3143,7 @@
       {
         "rsNumber": "20",
         "requiredStandard": "For British American headlamps (checked on dipped beam) the upper edge of the ‘hot spot’ must not be above the horizontal 0% line.",
-        "refCalculation": "25.2",
+        "refCalculation": "25.20",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -3317,7 +3317,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "An optional rear fog lamp must form a matched pair with the obligatory lamp",
-        "refCalculation": "28.1",
+        "refCalculation": "28.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -3554,7 +3554,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "The seat belt must sit correctly across the wearers torso so as to provide effective restraint in the event of a frontal impact ",
-        "refCalculation": "31.1",
+        "refCalculation": "31.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -3814,7 +3814,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "The windscreen washer system must be able to withstand the load applied when the nozzles are blocked and the system is operated for 3 – 5 seconds",
-        "refCalculation": "35.1",
+        "refCalculation": "35.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -3901,7 +3901,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "For a LPG combustion heater system a warning label/pictogram must be fitted in a prominent position by the heater controls",
-        "refCalculation": "36.1",
+        "refCalculation": "36.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -4058,7 +4058,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "A vehicle which is capable of towing must have a technically permissible towing mass which conforms with the information below: -\nWhere a vehicle is capable of towing a trailer fitted with a service braking system, the technically permissible maximum towable mass of the vehicle must not exceed either of: \n• the technically permissible mass of the towing vehicle, (OR,  for off- road vehicles 1.5 times that mass \n• 3500Kg\n\nWhere a vehicle is only capable of towing a trailer which is not fitted with a service braking system, then the technically permissible towable mass of the vehicle must not exceed either of;\n• half of the mass of the towing vehicle in running order,\n• 750kg\n",
-        "refCalculation": "44.1",
+        "refCalculation": "44.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -4208,7 +4208,7 @@
       {
         "rsNumber": "10",
         "requiredStandard": "The load capacity of the temporary-use spare unit must be at least equal to one half of the highest of the maximum axle loads of the vehicle",
-        "refCalculation": "46.1",
+        "refCalculation": "46.10",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true
@@ -4371,7 +4371,7 @@
       {
         "rsNumber": "5",
         "requiredStandard": "All metal enclosures with internal high voltage must have an earth path for protection against electrical shock (this may be a separate bonding or the mounting arrangement where it does not isolate the enclosure).",
-        "refCalculation": "69.4",
+        "refCalculation": "69.5",
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": true
@@ -4474,7 +4474,7 @@
       {
         "rsNumber": "7",
         "requiredStandard": "All steering, suspension, brake and fuel system components must not be leaking. ",
-        "refCalculation": "GC07",
+        "refCalculation": "GC.7",
         "additionalInfo": true,
         "basicInspection": true,
         "normalInspection": true

@@ -58,16 +58,20 @@ export class RequiredStandardsService {
     results: ITaxonomySectionRequiredStandards[],
     euVehicleCategory: string,
   ): DefectGETRequiredStandards {
-    const categoryEnumKey = getEnumKeyByValue(EUVehicleCategory, euVehicleCategory);
+    const categoryEnumKey = getEnumKeyByValue(
+      EUVehicleCategory,
+      euVehicleCategory,
+    );
 
     return {
       euVehicleCategories: [
-        categoryEnumKey ? EUVehicleCategory[categoryEnumKey] : undefined
+        categoryEnumKey ? EUVehicleCategory[categoryEnumKey] : undefined,
       ],
       basic: this.formatSections(results, (x) => x.basicInspection),
       normal: this.formatSections(
-          results,
-          (x) => x.normalInspection || (!x.normalInspection && !x.basicInspection)
+        results,
+        (x) =>
+          x.normalInspection || (!x.normalInspection && !x.basicInspection),
       ),
     } as unknown as DefectGETRequiredStandards;
   }
@@ -126,7 +130,10 @@ export class RequiredStandardsService {
  * @param value
  * @returns {keyof E | null}
  */
-const getEnumKeyByValue = <E extends Record<string, string>>(enumObj: E, value: string): keyof E | null => (Object.keys(enumObj).find(
-    (key) => enumObj[key].toLowerCase() === value.toLowerCase()
-) as keyof E | null);
-
+const getEnumKeyByValue = <E extends Record<string, string>>(
+  enumObj: E,
+  value: string,
+): keyof E | null =>
+  Object.keys(enumObj).find(
+    (key) => enumObj[key].toLowerCase() === value.toLowerCase(),
+  ) as keyof E | null;
