@@ -42,3 +42,4 @@ report.json
 
 #Build directories
 .build/*
+/handler.zip
