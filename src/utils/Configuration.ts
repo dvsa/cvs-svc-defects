@@ -147,7 +147,7 @@ class Configuration {
 
 
   private static get pathPrefix(): string {
-    return !process.env.BRANCH || process.env.BRANCH === "local" ? '../' : 'dist';
+    return !process.env.BRANCH || process.env.BRANCH === "local" ? '../' : './';
   }
 }
 
