@@ -29,7 +29,7 @@
     "sonar-scanner": "sonar-scanner",
     "audit": "npm audit --prod",
     "predeploy": "npm install && npm run prepush",
-    "package": "npm run clean && ts-node package-service.ts && zip handler.zip handler.js && rm handler.js",
+    "package": "npm run clean && ts-node package-service.ts && zip ${ZIP_NAME}.zip handler.js && rm handler.js",
     "postinstall": "patch-package",
     "precommit": "npm run security-checks && npm run audit && npm run lint && npm run format",
     "commit-msg": "commitlint --edit $1",
