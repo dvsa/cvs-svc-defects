@@ -15,9 +15,12 @@ export const getRequiredStandards: Handler = async (
   const requiredStandardsService = new RequiredStandardsService(
     requiredStandardsDatabaseService,
   );
+  const euVehicleCategories = event.multiValueQueryStringParameters?.euVehicleCategory;
 
   const defectErrors = validateRequiredStandardsGetQuery(event);
-
+  if (euVehicleCategories && euVehicleCategories.length > 1) {
+    return new HTTPResponse(400, "Multiple EU Vehicle Categories are not allowed");
+  }
   if (defectErrors) {
     return addHttpHeaders(defectErrors);
   }

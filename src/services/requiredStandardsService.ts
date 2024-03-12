@@ -58,19 +58,18 @@ export class RequiredStandardsService {
     results: ITaxonomySectionRequiredStandards[],
     euVehicleCategory: string,
   ): DefectGETRequiredStandards {
+    const categoryEnumKey = getEnumKeyByValue(EUVehicleCategory, euVehicleCategory);
+
     return {
       euVehicleCategories: [
-        EUVehicleCategory[
-          euVehicleCategory.toLocaleUpperCase() as keyof typeof EUVehicleCategory
-        ],
+        categoryEnumKey ? EUVehicleCategory[categoryEnumKey] : undefined
       ],
       basic: this.formatSections(results, (x) => x.basicInspection),
       normal: this.formatSections(
-        results,
-        (x) =>
-          x.normalInspection || (!x.normalInspection && !x.basicInspection),
+          results,
+          (x) => x.normalInspection || (!x.normalInspection && !x.basicInspection)
       ),
-    } as DefectGETRequiredStandards;
+    } as unknown as DefectGETRequiredStandards;
   }
 
   /**
@@ -119,3 +118,15 @@ export class RequiredStandardsService {
     });
   }
 }
+
+/**
+ * Generic function to retrieve the enum key corresponding to a given string value using a case insensitive search.
+ *
+ * @param enumObj
+ * @param value
+ * @returns {keyof E | null}
+ */
+const getEnumKeyByValue = <E extends Record<string, string>>(enumObj: E, value: string): keyof E | null => (Object.keys(enumObj).find(
+    (key) => enumObj[key].toLowerCase() === value.toLowerCase()
+) as keyof E | null);
+
