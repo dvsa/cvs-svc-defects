@@ -3,7 +3,7 @@
   "description": "",
   "team": "",
   "documentation": "",
-  "language": "node",
+  "language": "typescript",
   "terraform": false,
   "monorepo": false,
   "dynamo_tables": []
