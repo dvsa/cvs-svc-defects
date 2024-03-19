@@ -45,7 +45,7 @@ custom:
       - dev
       - test
     start:
-      port: 8003
+      httpPort: 8003
       inMemory: true
       migrate: true
       seed: true
