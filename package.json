@@ -12,12 +12,12 @@
     "url": "https://github.com/dvsa/cvs-svc-defects.git"
   },
   "scripts": {
-    "start": "BRANCH=local SLS_DEBUG=* serverless offline start",
+    "start": "BRANCH=local SLS_DEBUG=* serverless offline start --noPrependStageInUrl",
     "tools-setup": "sls dynamodb install",
     "test": "npm run test:unit:coverage",
     "test:unit": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*.unitTest.ts\"",
     "test:unit:coverage": "npm run test:unit -- --coverage --runInBand",
-    "test:integration": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\"",
+    "test:integration": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\" --detectOpenHandles --forceExit",
     "test-i": "AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE=1 npm run test:integration -- --runInBand --globalSetup='./scripts/setUp.ts' --globalTeardown='./scripts/tearDown.ts'",
     "build": "node_modules/typescript/bin/tsc --rootDir ./ --outDir .build --sourceMap false && npm run build:copy",
     "build:copy": "find src -type f \\( -name \"*.yml\" -or -name \"*.json\" \\) | cpio -pdm .build && find tests -type f \\( -name \"*.yml\" -or -name \"*.json\" \\)  | cpio -pdm .build",
@@ -60,7 +60,6 @@
     "patch-package": "^6.5.1",
     "prettier": "3.0.3",
     "serverless": "^2.43.1",
-    "serverless-dynamodb-local": "0.2.40",
     "serverless-offline": "^5.12.0",
     "serverless-plugin-tracing": "^2.0.0",
     "serverless-plugin-typescript": "^2.1.4",
@@ -80,7 +79,8 @@
     "js-yaml": "3.14.1",
     "node-yaml": "4.0.1",
     "path-parser": "^6.1.0",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "serverless-dynamodb": "0.2.50"
   },
   "jestSonar": {
     "reportPath": ".reports",

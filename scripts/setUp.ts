@@ -10,7 +10,6 @@ const DYNAMO_LOCAL_ERROR_THREAD = `Exception in thread "main"`;
 const setupServer = (process: any) => {
   return new Promise((resolve, reject) => {
     process.stdout.setEncoding("utf-8").on("data", (stream: any) => {
-      console.log(stream);
       if (stream.includes(SERVER_OK)) {
         resolve(process);
       }
@@ -36,7 +35,6 @@ const setupServer = (process: any) => {
 const server = spawn("npm", ["run", "start"], {});
 
 module.exports = async () => {
-  console.log(`\nSetting up Integration tests...\n\n`);
   try {
     const instance = await setupServer(server);
     // @ts-ignore
