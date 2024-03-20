@@ -13,6 +13,8 @@ provider:
   runtime: nodejs18.x
   tracing:
     apiGateway: true
+  region: eu-west-1
+  stage: dev
   iam:
     role:
       statements:
@@ -25,12 +27,16 @@ provider:
 
 functions:
   getDefects:
+    environment:
+      BRANCH: local
     handler: src/handler.handler
     events:
       - http:
           path: defects
           method: get
   getRequiredStandards:
+    environment:
+      BRANCH: local
     handler: src/handler.handler
     events:
       - http:
@@ -45,7 +51,7 @@ custom:
       - dev
       - test
     start:
-      httpPort: 8003
+      port: 8003
       inMemory: true
       migrate: true
       seed: true
