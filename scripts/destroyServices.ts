@@ -6,6 +6,7 @@ let PID_SERVER_IN_CONTAINER;
 let PID_DB_IN_CONTAINER;
 
 export const killTestSetup = async () => {
+  console.log("Trying to kill test setups in the CI 🦾 ...");
   try {
     const { stdout: serverStream } = await shell(
       `${process.cwd()}/scripts/getServerPid.sh`,

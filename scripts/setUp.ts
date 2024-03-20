@@ -1,4 +1,4 @@
-import { exec, spawn } from "child_process";
+import { exec } from "child_process";
 
 // We hook to serverless offline when firing its process
 const SERVER_OK = `Offline [HTTP] listening on http://localhost:3001`;
@@ -10,6 +10,7 @@ const DYNAMO_LOCAL_ERROR_THREAD = `Exception in thread "main"`;
 const setupServer = (process: any) => {
   return new Promise((resolve, reject) => {
     process.stdout.setEncoding("utf-8").on("data", (stream: any) => {
+      console.log(stream);
       if (stream.includes(SERVER_OK)) {
         resolve(process);
       }
@@ -32,11 +33,11 @@ const setupServer = (process: any) => {
   });
 };
 
-const server = exec('npm run start &', (error) => {
+const server = exec("npm run start &", (error) => {
   if (error) {
     console.error(`error starting server: ${error}`);
   }
-}); 
+});
 
 module.exports = async () => {
   console.log(`\nSetting up Integration tests...\n\n`);
