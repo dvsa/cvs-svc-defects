@@ -35,6 +35,7 @@ const setupServer = (process: any) => {
 const server = spawn("npm", ["run", "start"], {});
 
 module.exports = async () => {
+  console.log(`\nSetting up Integration tests...\n\n`);
   try {
     const instance = await setupServer(server);
     // @ts-ignore
