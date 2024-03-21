@@ -25,16 +25,12 @@ provider:
 
 functions:
   getDefects:
-    environment:
-      BRANCH: local
     handler: src/handler.handler
     events:
       - http:
           path: defects
           method: get
   getRequiredStandards:
-    environment:
-      BRANCH: local
     handler: src/handler.handler
     events:
       - http:

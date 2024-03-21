@@ -1,4 +1,4 @@
-import { exec } from "child_process";
+import { spawn } from "child_process";
 
 // We hook to serverless offline when firing its process
 const SERVER_OK = `Server ready: http://localhost:3001 🚀`;
@@ -35,11 +35,7 @@ const setupServer = (process: any) => {
   });
 };
 
-const server = exec("npm run start &", (error) => {
-  if (error) {
-    console.error(`error starting server: ${error}`);
-  }
-});
+const server = spawn("npm", ["run", "start"], {});
 
 module.exports = async () => {
   console.log(`\nSetting up Integration tests...\n\n`);
