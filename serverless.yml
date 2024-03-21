@@ -2,7 +2,7 @@ service: cvs-svc-defect
 # from 3.0 warnings will be thrown as errors
 configValidationMode: warn
 plugins:
-  - serverless-dynamodb
+  - serverless-dynamodb-local
   - serverless-plugin-typescript
   - serverless-plugin-tracing
   - serverless-offline
@@ -13,8 +13,6 @@ provider:
   runtime: nodejs18.x
   tracing:
     apiGateway: true
-  region: eu-west-1
-  stage: dev
   iam:
     role:
       statements:
@@ -27,16 +25,12 @@ provider:
 
 functions:
   getDefects:
-    environment:
-      BRANCH: local
     handler: src/handler.handler
     events:
       - http:
           path: defects
           method: get
   getRequiredStandards:
-    environment:
-      BRANCH: local
     handler: src/handler.handler
     events:
       - http:
@@ -46,7 +40,7 @@ functions:
 custom:
   serverless-offline:
     port: 3001
-  serverless-dynamodb:
+  dynamodb:
     stages:
       - dev
       - test

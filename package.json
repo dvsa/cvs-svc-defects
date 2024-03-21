@@ -12,12 +12,12 @@
     "url": "https://github.com/dvsa/cvs-svc-defects.git"
   },
   "scripts": {
-    "start": "BRANCH=local SLS_DEBUG=* serverless offline start --noPrependStageInUrl",
+    "start": "BRANCH=local SLS_DEBUG=* serverless offline start",
     "tools-setup": "sls dynamodb install",
     "test": "npm run test:unit:coverage",
     "test:unit": "BRANCH=local SLS_DEBUG=* jest --testMatch=\"**/*.unitTest.ts\"",
     "test:unit:coverage": "npm run test:unit -- --coverage --runInBand",
-    "test:integration": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\" --detectOpenHandles",
+    "test:integration": "BRANCH=local jest --testMatch=\"**/*.intTest.ts\"",
     "test-i": "AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE=1 npm run test:integration -- --runInBand --globalSetup='./scripts/setUp.ts' --globalTeardown='./scripts/tearDown.ts'",
     "build": "node_modules/typescript/bin/tsc --rootDir ./ --outDir .build --sourceMap false && npm run build:copy",
     "build:copy": "find src -type f \\( -name \"*.yml\" -or -name \"*.json\" \\) | cpio -pdm .build && find tests -type f \\( -name \"*.yml\" -or -name \"*.json\" \\)  | cpio -pdm .build",
@@ -29,6 +29,7 @@
     "audit": "npm audit --prod",
     "predeploy": "npm install && npm run prepush",
     "package": "mkdir ${ZIP_NAME} && cp package.json package-lock.json ${ZIP_NAME}/ && cp -r .build/src/* ${ZIP_NAME}/ && cd ${ZIP_NAME} && npm ci --omit=dev --ignore-scripts && rm package.json package-lock.json && zip -qr ../${ZIP_NAME}.zip .",
+    "postinstall": "patch-package",
     "precommit": "npm run security-checks && npm run audit && npm run lint && npm run format",
     "commit-msg": "commitlint --edit $1",
     "prepare": "husky install"
@@ -56,8 +57,10 @@
     "jest-sonar-reporter": "^2.0.0",
     "lambda-tester": "^4.0.1",
     "lodash": "^4.17.21",
+    "patch-package": "^6.5.1",
     "prettier": "3.0.3",
     "serverless": "^2.43.1",
+    "serverless-dynamodb-local": "0.2.40",
     "serverless-offline": "^5.12.0",
     "serverless-plugin-tracing": "^2.0.0",
     "serverless-plugin-typescript": "^2.1.4",
@@ -77,8 +80,7 @@
     "js-yaml": "3.14.1",
     "node-yaml": "4.0.1",
     "path-parser": "^6.1.0",
-    "reflect-metadata": "^0.1.13",
-    "serverless-dynamodb": "0.2.50"
+    "reflect-metadata": "^0.1.13"
   },
   "jestSonar": {
     "reportPath": ".reports",
