@@ -11,7 +11,6 @@ functions:
       proxy: null
       function: getRequiredStandards
       event: apigateway
-
 invoke:
   local:
     params:
@@ -63,3 +62,10 @@ dynamodb:
 serverless:
   basePath: /${BRANCH}
   port: 3001
+Resources:
+  Schedule:
+    Type: AWS::Scheduler::Schedule
+    Properties:
+      ScheduleExpression: rate(1 minute)
+      FlexibleTimeWindow:
+        Mode: "OFF"
