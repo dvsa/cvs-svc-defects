@@ -2,10 +2,10 @@ service: cvs-svc-defect
 # from 3.0 warnings will be thrown as errors
 configValidationMode: warn
 plugins:
-  - serverless-dynamodb-local
+  - serverless-dynamodb
+  - serverless-offline
   - serverless-plugin-typescript
   - serverless-plugin-tracing
-  - serverless-offline
 
 provider:
   lambdaHashingVersion: 20201221
@@ -25,12 +25,16 @@ provider:
 
 functions:
   getDefects:
+    environment:
+      BRANCH: local
     handler: src/handler.handler
     events:
       - http:
           path: defects
           method: get
   getRequiredStandards:
+    environment:
+      BRANCH: local
     handler: src/handler.handler
     events:
       - http:
@@ -39,8 +43,8 @@ functions:
 
 custom:
   serverless-offline:
-    port: 3001
-  dynamodb:
+    httpPort: 3001
+  serverless-dynamodb:
     stages:
       - dev
       - test
