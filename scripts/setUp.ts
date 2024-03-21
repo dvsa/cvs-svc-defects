@@ -35,11 +35,11 @@ const setupServer = (process: any) => {
   });
 };
 
-const server = exec('npm run start &', (error) => {
+const server = exec("npm run start &", (error) => {
   if (error) {
     console.error(`error starting server: ${error}`);
   }
-}); 
+});
 
 module.exports = async () => {
   console.log(`\nSetting up Integration tests...\n\n`);
