@@ -8992,6 +8992,14 @@
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": false
+      },
+      {
+        "rsNumber": "14",
+        "requiredStandard": "The vehicle as presented must be accompanied by satisfactory documentary evidence for Hydrogen fuel systems (including storage tanks) (see Note 3)",
+        "refCalculation": "03A.14",
+        "additionalInfo": true,
+        "basicInspection": false,
+        "normalInspection": false
       }
     ]
   },
@@ -9002,7 +9010,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "Where required the vehicle as presented must be accompanied by satisfactory evidence of compliance regarding the protective system (See notes 1 & 2)",
+        "requiredStandard": "Where required the vehicle as presented must be accompanied by satisfactory evidence of compliance regarding the protective system (See Notes 1 & 2)",
         "refCalculation": "03B.1",
         "additionalInfo": true,
         "basicInspection": false,
@@ -9686,7 +9694,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "The vehicle must be fitted with lamps or retro reflective material only capable of showing a white light to the front except for:\n\n• an amber light from a direction indicator\n• a yellow light from a front fog lamp\n• an amber light from a side marker light\n• emergency vehicles only, a blue light from a warning lamp or beacon. \n• light from destination board\n",
+        "requiredStandard": "The vehicle must be fitted with lamps or retro reflective material only capable of showing a white light to the front except for:\n\n• an amber light from a direction indicator\n• a yellow light from a front fog lamp\n• an amber light from a side marker light\n• emergency vehicles only, a blue light from a warning lamp or beacon\n• a red light from a rearmost side marker or rear position lamp \n• light from destination board\n",
         "refCalculation": "20.1",
         "additionalInfo": true,
         "basicInspection": false,
@@ -9726,7 +9734,7 @@
       },
       {
         "rsNumber": "6",
-        "requiredStandard": "When every door or other movable part is in the fixed open position (any position in which the component will remain, with or without a fixed stay) the\n• front and rear position lamps\n• front and rear indicators\n• rear retro reflectors\nmust fulfil one of the following conditions: \na. half (50%) of the apparent surface of the lamp / reflector is visible from directly in front of / behind (as appropriate) the vehicle, or\nb. additional fully visible lamp (s) / reflector (s) satisfying all requirements for the above lamps are activated / visible, or\nc. a notice in the vehicle must inform the user that in certain positions of the movable components, other road users should be warned of the presence of the vehicle on the road (e.g. by laying out a warning triangle).(see note 1)\n",
+        "requiredStandard": "When every door, tailgate, boot lid, or other movable part is in the fixed open position (any movable component, with or without a light-signalling device installed on it, in any fixed position (see Note 2) different from the ‘normal position of use’) each of the:\n• front and rear position lamps\n• front and rear indicators\n• rear retro reflectors\nmust fulfil one of the following conditions: \na. half (50%) of the apparent surface of the lamp / reflector is visible from directly in front of / behind (as appropriate) the vehicle, or\nb. additional fully visible lamp (s) / reflector (s) satisfying all requirements for the above lamps are activated / visible, or\nc. a notice in the vehicle must inform the user that in certain positions of the movable components, other road users should be warned of the presence of the vehicle on the road (e.g. by laying out a warning triangle).(see note 1)\n",
         "refCalculation": "20.6",
         "additionalInfo": true,
         "basicInspection": false,
@@ -10549,7 +10557,7 @@
       },
       {
         "rsNumber": "6",
-        "requiredStandard": "The reversing lamps must operate by selection of reverse gear or be fitted with a telltale warning device.",
+        "requiredStandard": "They must operate by selection of reverse gear",
         "refCalculation": "29.6",
         "additionalInfo": true,
         "basicInspection": false,
@@ -11382,7 +11390,7 @@
       },
       {
         "rsNumber": "3",
-        "requiredStandard": "All emergency exits must be marked inside and outside the vehicle by an inscription that reads ‘Emergency Exit’.",
+        "requiredStandard": " All emergency exits must be marked inside and outside the vehicle by Pictograms or an inscription that reads ‘Emergency Exit’ (see Notes 3 & 5). ",
         "refCalculation": "52D.3",
         "additionalInfo": true,
         "basicInspection": false,
@@ -12360,7 +12368,7 @@
       },
       {
         "rsNumber": "5",
-        "requiredStandard": "The interior emergency control for the power operated emergency door, must be placed at a height of not less than1600 mm above the first step.",
+        "requiredStandard": "The interior emergency control for the power operated emergency door, must be placed at a height of not less than 1600 mm above the first step.",
         "refCalculation": "52J.5c",
         "additionalInfo": true,
         "basicInspection": false,
@@ -13314,7 +13322,7 @@
       },
       {
         "rsNumber": "5",
-        "requiredStandard": "The spacing of all passenger seats must meet the following minimum requirements: -\nIn the case of seats facing in the same direction, the distance between the front of a seat backrest and the back of the backrest of the seat preceding it shall when measured horizontally and at all heights above the floor between the level of the top surface of the seat cushion and a point 620mm above the floor be not less than: -\n650mm for Class I, A, B, & Class IIIS vehicles.\n680mm for Class II & III vehicles.",
+        "requiredStandard": " The spacing of all passenger seats must meet the following minimum requirements (See Figure 3 & Note 4):\nIn the case of seats facing in the same direction, the distance between the front of a seat backrest and the back of the backrest of the seat preceding it shall when measured horizontally and at all heights above the floor between the level of the top surface of the seat cushion and a point 620mm above the floor be not less than: -\n650mm for Class I, A, B, & Class IIIS vehicles.\n680mm for Class II & III vehicles.",
         "refCalculation": "52P.5a",
         "additionalInfo": true,
         "basicInspection": false,
@@ -14489,7 +14497,7 @@
   {
     "euVehicleCategory": "m2",
     "sectionNumber": "69",
-    "sectionDescription": "Electric Vehicles",
+    "sectionDescription": "Electrical Safety",
     "requiredStandards": [
       {
         "rsNumber": "1",
@@ -14509,7 +14517,7 @@
       },
       {
         "rsNumber": "3",
-        "requiredStandard": "Vehicles fitted with an external charging point shall be clearly marked on or near the connection point with an indelible label affixed in a visible location.",
+        "requiredStandard": "Any enclosure carrying high voltage shall be clearly marked with an indelible label affixed in a visible location.",
         "refCalculation": "69.3",
         "additionalInfo": true,
         "basicInspection": false,
@@ -14517,7 +14525,7 @@
       },
       {
         "rsNumber": "4",
-        "requiredStandard": "Any enclosure carrying high voltage shall be clearly marked with an indelible label affixed in a visible location.",
+        "requiredStandard": "All visible high voltage cables must be orange in colour.",
         "refCalculation": "69.4",
         "additionalInfo": true,
         "basicInspection": false,
@@ -14525,16 +14533,8 @@
       },
       {
         "rsNumber": "5",
-        "requiredStandard": "All visible high voltage cables must be orange in colour.",
-        "refCalculation": "69.5",
-        "additionalInfo": true,
-        "basicInspection": false,
-        "normalInspection": false
-      },
-      {
-        "rsNumber": "6",
         "requiredStandard": "All metal enclosures with internal high voltage must have an earth path for protection against electrical shock (this may be a separate bonding or the mounting arrangement where it does not isolate the enclosure)",
-        "refCalculation": "69.6",
+        "refCalculation": "69.5",
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": false
@@ -14814,6 +14814,14 @@
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": false
+      },
+      {
+        "rsNumber": "14",
+        "requiredStandard": "The vehicle as presented must be accompanied by satisfactory documentary evidence for Hydrogen fuel systems (including storage tanks) (see Note 3)",
+        "refCalculation": "03A.14",
+        "additionalInfo": true,
+        "basicInspection": false,
+        "normalInspection": false
       }
     ]
   },
@@ -14824,7 +14832,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "Where required the vehicle as presented must be accompanied by satisfactory evidence of compliance regarding the protective system (See notes 1 & 2)",
+        "requiredStandard": "Where required the vehicle as presented must be accompanied by satisfactory evidence of compliance regarding the protective system (See Notes 1 & 2)",
         "refCalculation": "03B.1",
         "additionalInfo": true,
         "basicInspection": false,
@@ -15508,7 +15516,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "The vehicle must be fitted with lamps or retro reflective material only capable of showing a white light to the front except for:\n\n• an amber light from a direction indicator\n• a yellow light from a front fog lamp\n• an amber light from a side marker light\n• emergency vehicles only, a blue light from a warning lamp or beacon. \n• light from destination board\n",
+        "requiredStandard": "The vehicle must be fitted with lamps or retro reflective material only capable of showing a white light to the front except for:\n\n• an amber light from a direction indicator\n• a yellow light from a front fog lamp\n• an amber light from a side marker light\n• emergency vehicles only, a blue light from a warning lamp or beacon\n• a red light from a rearmost side marker or rear position lamp \n• light from destination board\n",
         "refCalculation": "20.1",
         "additionalInfo": true,
         "basicInspection": false,
@@ -15548,7 +15556,7 @@
       },
       {
         "rsNumber": "6",
-        "requiredStandard": "When every door or other movable part is in the fixed open position (any position in which the component will remain, with or without a fixed stay) the\n• front and rear position lamps\n• front and rear indicators\n• rear retro reflectors\nmust fulfil one of the following conditions: \na. half (50%) of the apparent surface of the lamp / reflector is visible from directly in front of / behind (as appropriate) the vehicle, or\nb. additional fully visible lamp (s) / reflector (s) satisfying all requirements for the above lamps are activated / visible, or\nc. a notice in the vehicle must inform the user that in certain positions of the movable components, other road users should be warned of the presence of the vehicle on the road (e.g. by laying out a warning triangle).(see note 1)\n",
+        "requiredStandard": "When every door, tailgate, boot lid, or other movable part is in the fixed open position (any movable component, with or without a light-signalling device installed on it, in any fixed position (see Note 2) different from the ‘normal position of use’) each of the:\n• front and rear position lamps\n• front and rear indicators\n• rear retro reflectors\nmust fulfil one of the following conditions: \na. half (50%) of the apparent surface of the lamp / reflector is visible from directly in front of / behind (as appropriate) the vehicle, or\nb. additional fully visible lamp (s) / reflector (s) satisfying all requirements for the above lamps are activated / visible, or\nc. a notice in the vehicle must inform the user that in certain positions of the movable components, other road users should be warned of the presence of the vehicle on the road (e.g. by laying out a warning triangle).(see note 1)\n",
         "refCalculation": "20.6",
         "additionalInfo": true,
         "basicInspection": false,
@@ -16371,7 +16379,7 @@
       },
       {
         "rsNumber": "6",
-        "requiredStandard": "The reversing lamps must operate by selection of reverse gear or be fitted with a telltale warning device.",
+        "requiredStandard": "They must operate by selection of reverse gear",
         "refCalculation": "29.6",
         "additionalInfo": true,
         "basicInspection": false,
@@ -17204,7 +17212,7 @@
       },
       {
         "rsNumber": "3",
-        "requiredStandard": "All emergency exits must be marked inside and outside the vehicle by an inscription that reads ‘Emergency Exit’.",
+        "requiredStandard": " All emergency exits must be marked inside and outside the vehicle by Pictograms or an inscription that reads ‘Emergency Exit’ (see Notes 3 & 5). ",
         "refCalculation": "52D.3",
         "additionalInfo": true,
         "basicInspection": false,
@@ -18182,7 +18190,7 @@
       },
       {
         "rsNumber": "5",
-        "requiredStandard": "The interior emergency control for the power operated emergency door, must be placed at a height of not less than1600 mm above the first step.",
+        "requiredStandard": "The interior emergency control for the power operated emergency door, must be placed at a height of not less than 1600 mm above the first step.",
         "refCalculation": "52J.5c",
         "additionalInfo": true,
         "basicInspection": false,
@@ -19136,7 +19144,7 @@
       },
       {
         "rsNumber": "5",
-        "requiredStandard": "The spacing of all passenger seats must meet the following minimum requirements: -\nIn the case of seats facing in the same direction, the distance between the front of a seat backrest and the back of the backrest of the seat preceding it shall when measured horizontally and at all heights above the floor between the level of the top surface of the seat cushion and a point 620mm above the floor be not less than: -\n650mm for Class I, A, B, & Class IIIS vehicles.\n680mm for Class II & III vehicles.",
+        "requiredStandard": " The spacing of all passenger seats must meet the following minimum requirements (See Figure 3 & Note 4):\nIn the case of seats facing in the same direction, the distance between the front of a seat backrest and the back of the backrest of the seat preceding it shall when measured horizontally and at all heights above the floor between the level of the top surface of the seat cushion and a point 620mm above the floor be not less than: -\n650mm for Class I, A, B, & Class IIIS vehicles.\n680mm for Class II & III vehicles.",
         "refCalculation": "52P.5a",
         "additionalInfo": true,
         "basicInspection": false,
@@ -20311,7 +20319,7 @@
   {
     "euVehicleCategory": "m3",
     "sectionNumber": "69",
-    "sectionDescription": "Electric Vehicles",
+    "sectionDescription": "Electrical Safety",
     "requiredStandards": [
       {
         "rsNumber": "1",
@@ -20331,7 +20339,7 @@
       },
       {
         "rsNumber": "3",
-        "requiredStandard": "Vehicles fitted with an external charging point shall be clearly marked on or near the connection point with an indelible label affixed in a visible location.",
+        "requiredStandard": "Any enclosure carrying high voltage shall be clearly marked with an indelible label affixed in a visible location.",
         "refCalculation": "69.3",
         "additionalInfo": true,
         "basicInspection": false,
@@ -20339,7 +20347,7 @@
       },
       {
         "rsNumber": "4",
-        "requiredStandard": "Any enclosure carrying high voltage shall be clearly marked with an indelible label affixed in a visible location.",
+        "requiredStandard": "All visible high voltage cables must be orange in colour.",
         "refCalculation": "69.4",
         "additionalInfo": true,
         "basicInspection": false,
@@ -20347,16 +20355,8 @@
       },
       {
         "rsNumber": "5",
-        "requiredStandard": "All visible high voltage cables must be orange in colour.",
-        "refCalculation": "69.5",
-        "additionalInfo": true,
-        "basicInspection": false,
-        "normalInspection": false
-      },
-      {
-        "rsNumber": "6",
         "requiredStandard": "All metal enclosures with internal high voltage must have an earth path for protection against electrical shock (this may be a separate bonding or the mounting arrangement where it does not isolate the enclosure)",
-        "refCalculation": "69.6",
+        "refCalculation": "69.5",
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": false
