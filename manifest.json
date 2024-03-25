@@ -6,5 +6,10 @@
   "language": "node",
   "terraform": false,
   "monorepo": false,
-  "dynamo_tables": []
+  "dynamo_tables": [
+    {
+      "defects": "defects.json",
+      "iva-defects": "iva-defects.json"
+    }
+  ]
 }
