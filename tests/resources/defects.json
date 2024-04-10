@@ -941,8 +941,8 @@
             "deficiencyId": "b",
             "deficiencySubId": "ii",
             "deficiencyCategory": "major",
-            "deficiencyText": "CO content greater than: 3.5% for a vehicle first used from 1 August 1986 to 1 August 1994 and any LPG/CNG fuelled vehicles used from 1 August 1975.",
-            "deficiencyTextWelsh": "Cynnwys CO yn fwy na: 3.5% ar gyfer cerbyd a ddefnyddiwyd gyntaf rhwng 1 Awst 1986 ac 1 Awst 1994 ac unrhyw gerbydau tanwydd LPG/CNG a ddefnyddiwyd o 1 Awst 1975.",
+            "deficiencyText": "CO content greater than: 3.5% for a vehicle first used from 1 August 1986 to 1 August 1994 and any LPG/CNG/LNG fuelled vehicles used from 1 August 1975.",
+            "deficiencyTextWelsh": "Cynnwys CO yn fwy na: 3.5% ar gyfer cerbyd a ddefnyddiwyd gyntaf rhwng 1 Awst 1986 ac 1 Awst 1994 ac unrhyw gerbydau tanwydd LPG/CNG/LNG a ddefnyddiwyd o 1 Awst 1975.",
             "stdForProhibition": false,
             "forVehicleType": ["psv"]
           },
