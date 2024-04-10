@@ -1,5 +1,6 @@
+import { BatchWriteCommand, BatchWriteCommandOutput, DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
 import { DefectsDAO } from "../../src/models/DefectsDAO";
-import AWS from "aws-sdk";
+import { mockClient } from "aws-sdk-client-mock";
 
 describe("DefectsDAO", () => {
   context("GeneratePartialParams", () => {
@@ -17,7 +18,8 @@ describe("DefectsDAO", () => {
       jest.resetModules();
     });
     it("correctly processes an array of inputs", async () => {
-      mockDocumentClientWithReturn("Success");
+      const mockDynamoClient = mockClient(DynamoDBDocumentClient);
+      mockDynamoClient.on(BatchWriteCommand).resolves("Success" as unknown as BatchWriteCommandOutput);
       const dao = new DefectsDAO();
       const output = await dao.createMultiple([{ input: "something" }]);
       expect(output).toBe("Success");
@@ -29,7 +31,8 @@ describe("DefectsDAO", () => {
       jest.resetModules();
     });
     it("correctly processes an array of inputs", async () => {
-      mockDocumentClientWithReturn("Success");
+      const mockDynamoClient = mockClient(DynamoDBDocumentClient);
+      mockDynamoClient.on(BatchWriteCommand).resolves("Success" as unknown as BatchWriteCommandOutput);
       const dao = new DefectsDAO();
       const output = await dao.deleteMultiple(["something"]);
       expect(output).toBe("Success");
@@ -37,12 +40,12 @@ describe("DefectsDAO", () => {
   });
 });
 
-function mockDocumentClientWithReturn(retVal: any) {
-  AWS.DynamoDB.DocumentClient.prototype.batchWrite = jest
-    .fn()
-    .mockImplementation(() => {
-      return {
-        promise: () => Promise.resolve(retVal),
-      };
-    });
-}
+// function mockDocumentClientWithReturn(retVal: any) {
+//   AWS.DynamoDB.DocumentClient.prototype.batchWrite = jest
+//     .fn()
+//     .mockImplementation(() => {
+//       return {
+//         promise: () => Promise.resolve(retVal),
+//       };
+//     });
+// }

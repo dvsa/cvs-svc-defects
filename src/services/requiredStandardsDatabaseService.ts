@@ -1,11 +1,12 @@
-import DynamoDB, { DocumentClient } from "aws-sdk/clients/dynamodb";
+import { DynamoDBClient, QueryOutput } from "@aws-sdk/client-dynamodb";
+import { DynamoDBDocumentClient, ScanCommand } from "@aws-sdk/lib-dynamodb";
+import { ServiceException } from "@smithy/smithy-client";
 import { IDBConfig } from "../models";
 import { Configuration } from "../utils/Configuration";
-import { PromiseResult } from "aws-sdk/lib/request";
 
 export class RequiredStandardsDatabaseService {
   private readonly tableName: string;
-  private static dbClient: DocumentClient;
+  private static dbClient: DynamoDBDocumentClient;
 
   /**
    * Constructor for the IvaDatabaseService class, configures and instantiates DynamoDB config
@@ -14,9 +15,8 @@ export class RequiredStandardsDatabaseService {
     const config: IDBConfig = Configuration.getInstance().getDynamoDBConfig();
     this.tableName = config.ivaDefects.table;
     if (!RequiredStandardsDatabaseService.dbClient) {
-      RequiredStandardsDatabaseService.dbClient = new DynamoDB.DocumentClient(
-        config.ivaDefects,
-      );
+      const client = new DynamoDBClient(config.ivaDefects);
+      RequiredStandardsDatabaseService.dbClient = DynamoDBDocumentClient.from(client);
     }
   }
 
@@ -46,8 +46,8 @@ export class RequiredStandardsDatabaseService {
     params: any,
     allData: Array<Record<string, any>> = [],
   ): Promise<Array<Record<string, any>>> {
-    const data: PromiseResult<DocumentClient.QueryOutput, AWS.AWSError> =
-      await RequiredStandardsDatabaseService.dbClient.scan(params).promise();
+    const data: QueryOutput | ServiceException =
+      await RequiredStandardsDatabaseService.dbClient.send(new ScanCommand(params));
     if (data.Items && data.Items.length > 0) {
       allData = [...allData, ...data.Items];
     }
