@@ -16,7 +16,8 @@ export class RequiredStandardsDatabaseService {
     this.tableName = config.ivaDefects.table;
     if (!RequiredStandardsDatabaseService.dbClient) {
       const client = new DynamoDBClient(config.ivaDefects);
-      RequiredStandardsDatabaseService.dbClient = DynamoDBDocumentClient.from(client);
+      RequiredStandardsDatabaseService.dbClient =
+        DynamoDBDocumentClient.from(client);
     }
   }
 
@@ -47,7 +48,9 @@ export class RequiredStandardsDatabaseService {
     allData: Array<Record<string, any>> = [],
   ): Promise<Array<Record<string, any>>> {
     const data: QueryOutput | ServiceException =
-      await RequiredStandardsDatabaseService.dbClient.send(new ScanCommand(params));
+      await RequiredStandardsDatabaseService.dbClient.send(
+        new ScanCommand(params),
+      );
     if (data.Items && data.Items.length > 0) {
       allData = [...allData, ...data.Items];
     }

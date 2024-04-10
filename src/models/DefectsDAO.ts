@@ -1,7 +1,11 @@
 import { Configuration } from "../utils/Configuration";
 import AWSXRay from "aws-xray-sdk";
 import { DynamoDBClient, ScanOutput } from "@aws-sdk/client-dynamodb";
-import { BatchWriteCommand, DynamoDBDocumentClient, ScanCommand } from "@aws-sdk/lib-dynamodb";
+import {
+  BatchWriteCommand,
+  DynamoDBDocumentClient,
+  ScanCommand,
+} from "@aws-sdk/lib-dynamodb";
 import { ServiceException } from "@smithy/smithy-client";
 import { IDBConfig } from ".";
 
