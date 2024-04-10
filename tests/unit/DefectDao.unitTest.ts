@@ -47,13 +47,3 @@ describe("DefectsDAO", () => {
     });
   });
 });
-
-// function mockDocumentClientWithReturn(retVal: any) {
-//   AWS.DynamoDB.DocumentClient.prototype.batchWrite = jest
-//     .fn()
-//     .mockImplementation(() => {
-//       return {
-//         promise: () => Promise.resolve(retVal),
-//       };
-//     });
-// }
