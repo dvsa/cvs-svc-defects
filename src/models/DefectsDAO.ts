@@ -21,6 +21,7 @@ export class DefectsDAO {
       if (process.env._X_AMZN_TRACE_ID) {
         client = AWSXRay.captureAWSv3Client(new DynamoDBClient(config.defects));
       } else {
+        console.log("Serverless Offline detected; skipping AWS X-Ray setup");
         client = new DynamoDBClient(config.defects);
       }
       DefectsDAO.dbClient = DynamoDBDocumentClient.from(client);
