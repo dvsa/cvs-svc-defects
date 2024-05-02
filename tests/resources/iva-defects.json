@@ -1659,11 +1659,11 @@
       },
       {
         "rsNumber": "1",
-        "requiredStandard": "A vehicle MUST be fitted with either a mechanical anti – theft  device or an electronic immobiliser",
+        "requiredStandard": "A vehicle MUST be fitted with either a mechanical anti – theft device or an electronic immobiliser",
         "refCalculation": "13A.1",
         "additionalInfo": true,
         "basicInspection": true,
-        "normalInspection": true
+        "normalInspection": false
       },
       {
         "rsNumber": "2",
@@ -1742,7 +1742,7 @@
         "refCalculation": "13B.1",
         "additionalInfo": true,
         "basicInspection": true,
-        "normalInspection": true
+        "normalInspection": false
       },
       {
         "rsNumber": "2",
@@ -1750,7 +1750,7 @@
         "refCalculation": "13B.2",
         "additionalInfo": true,
         "basicInspection": true,
-        "normalInspection": true
+        "normalInspection": false
       }
     ]
   },
@@ -2491,7 +2491,7 @@
       },
       {
         "rsNumber": "6",
-        "requiredStandard": "a.  half (50%) of the apparent surface of the lamp or reflector is visible from directly in front of / behind (as appropriate) the vehicle",
+        "requiredStandard": "When every door, tailgate, boot lid, or other movable part is in the fixed open position (any movable component, with or without a light-signalling device installed on it, in any fixed position (see Note 4) different from the ‘normal position of use’) each of the:\n\n• front and rear position lamps\n• front and rear indicators\n• rear retro reflectors\n\nmust fulfil one of the following conditions:\n\na.  half (50%) of the apparent surface of the lamp or reflector is visible from directly in front of / behind (as appropriate) the vehicle",
         "refCalculation": "20.6a",
         "additionalInfo": true,
         "basicInspection": true,
@@ -2499,7 +2499,7 @@
       },
       {
         "rsNumber": "6",
-        "requiredStandard": "b. additional fully visible lamp (s) / reflectors satisfying all requirements for the above lamps / reflectors are activated / visible",
+        "requiredStandard": "When every door, tailgate, boot lid, or other movable part is in the fixed open position (any movable component, with or without a light-signalling device installed on it, in any fixed position (see Note 4) different from the ‘normal position of use’) each of the:\n\n• front and rear position lamps\n• front and rear indicators\n• rear retro reflectors\n\nmust fulfil one of the following conditions:\n\nb. additional fully visible lamp (s) / reflectors satisfying all requirements for the above lamps / reflectors are activated / visible",
         "refCalculation": "20.6b",
         "additionalInfo": true,
         "basicInspection": true,
@@ -2507,7 +2507,7 @@
       },
       {
         "rsNumber": "6",
-        "requiredStandard": "c. a notice in the vehicle must inform the user that in certain positions of the movable components, other road users should be warned of the presence of the vehicle on the road (e.g. by laying out a warning triangle)",
+        "requiredStandard": "When every door, tailgate, boot lid, or other movable part is in the fixed open position (any movable component, with or without a light-signalling device installed on it, in any fixed position (see Note 4) different from the ‘normal position of use’) each of the:\n\n• front and rear position lamps\n• front and rear indicators\n• rear retro reflectors\n\nmust fulfil one of the following conditions:\n\nc. a notice in the vehicle must inform the user that in certain positions of the movable components, other road users should be warned of the presence of the vehicle on the road (e.g. by laying out a warning triangle)",
         "refCalculation": "20.6c",
         "additionalInfo": true,
         "basicInspection": true,
@@ -3970,7 +3970,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "The vehicle as presented must be accompanied by satisfactory evidence of compliance with the required standard for \"Fuel Consumption C02\"",
+        "requiredStandard": "The vehicle as presented must be accompanied by satisfactory evidence of compliance with the required standard for \"Fuel Consumption/CO2\"",
         "refCalculation": "39.1",
         "additionalInfo": true,
         "basicInspection": false,
