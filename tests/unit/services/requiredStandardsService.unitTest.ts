@@ -275,7 +275,7 @@ describe("required standards  Service", () => {
       const result = await target.getRequiredStandardsByEUVehicleCategory("M1");
 
       expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
-      expect(result?.normal?.length).toBe(629);
+      expect(result?.normal?.length).toBe(635);
     });
 
     it("should return expected number of basic sections upon successful result", async () => {
