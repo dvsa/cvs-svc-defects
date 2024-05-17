@@ -1525,7 +1525,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "The HT ignition system must be fitted with radio interference suppression equipment",
+        "requiredStandard": "The HT ignition system must be fitted with radio interference Suppression equipment",
         "refCalculation": "10.1",
         "additionalInfo": true,
         "basicInspection": true,
@@ -1533,7 +1533,7 @@
       },
       {
         "rsNumber": "2",
-        "requiredStandard": "The trade name or mark and trade description must be present on the interference suppression equipment",
+        "requiredStandard": "The trade name or mark and trade description must be present on the interference Suppression equipment",
         "refCalculation": "10.2",
         "additionalInfo": true,
         "basicInspection": true,
@@ -1541,7 +1541,7 @@
       },
       {
         "rsNumber": "3",
-        "requiredStandard": "There must be a maximum of 120mm separation between trade markings on suppression cables",
+        "requiredStandard": "There must be a maximum of 120mm separation between trade markings on Suppression cables",
         "refCalculation": "10.3",
         "additionalInfo": true,
         "basicInspection": true,
@@ -1730,7 +1730,7 @@
       },
       {
         "rsNumber": "2",
-        "requiredStandard": "The vehicle as presented must be accompanied by evidence of compliance where an panic alarm is fitted",
+        "requiredStandard": "The vehicle as presented must be accompanied by evidence of compliance where a panic alarm is fitted",
         "refCalculation": "13B.2",
         "additionalInfo": true,
         "basicInspection": false,
@@ -1746,7 +1746,7 @@
       },
       {
         "rsNumber": "2",
-        "requiredStandard": "The vehicle as presented must be accompanied by evidence of compliance where an panic alarm is fitted",
+        "requiredStandard": "The vehicle as presented must be accompanied by evidence of compliance where a panic alarm is fitted",
         "refCalculation": "13B.2",
         "additionalInfo": true,
         "basicInspection": true,
@@ -2451,7 +2451,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "1. The vehicle must be fitted with lamps or retro reflective material only capable of showing a white light to the front except for:\n• an amber light from a direction indicator\n• an amber light from a hazard beacon/warning lamp\n• a yellow light from a front fog lamp\n• a yellow light from a front end outline marker lamp\n• an amber light from a side marker light\n• a red light from a rearmost side marker or rear position lamp\n• emergency vehicles only, a blue light from a warning lamp or beacon",
+        "requiredStandard": "1. The vehicle must be fitted with lamps or retro reflective material only capable of showing a white light to the front except for:\n• an amber light from a direction indicator\n• an amber light from a hazard beacon/warning lamp\n• a yellow light from a front fog lamp\n• a yellow light from a front end outline marker lamp\n• an amber light from a side marker light\n• a red light from a rearmost side marker or rear position lamp\n• ambulances only, a red light from a warning lamp\n• emergency vehicles only, a blue light from a warning lamp or beacon",
         "refCalculation": "20.1",
         "additionalInfo": true,
         "basicInspection": true,
@@ -4120,7 +4120,7 @@
       },
       {
         "rsNumber": "7",
-        "requiredStandard": "Window missing",
+        "requiredStandard": "Window(s) missing",
         "refCalculation": "45.7",
         "additionalInfo": true,
         "basicInspection": true,
@@ -4143,7 +4143,7 @@
       },
       {
         "rsNumber": "2",
-        "requiredStandard": "Each tyre must be manufactured so that it displays permanently the following service information: -                                             a. nominal size \nb. construction type (e.g. radial, cross ply or bias belt) ",
+        "requiredStandard": "Each tyre must be manufactured so that it displays permanently the following service information: -                                                                                       a. nominal size \nb. construction type (e.g. radial, cross ply or bias belt) ",
         "refCalculation": "46.2",
         "additionalInfo": true,
         "basicInspection": true,
@@ -6031,7 +6031,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "The HT ignition system must be fitted with radio interference suppression equipment",
+        "requiredStandard": "The HT ignition system must be fitted with radio interference Suppression equipment",
         "refCalculation": "10.1",
         "additionalInfo": true,
         "basicInspection": true,
@@ -6039,7 +6039,7 @@
       },
       {
         "rsNumber": "2",
-        "requiredStandard": "The trade name or mark and trade description must be present on the interference suppression equipment",
+        "requiredStandard": "The trade name or mark and trade description must be present on the interference Suppression equipment",
         "refCalculation": "10.2",
         "additionalInfo": true,
         "basicInspection": true,
@@ -6047,7 +6047,7 @@
       },
       {
         "rsNumber": "3",
-        "requiredStandard": "There must be a maximum of 120mm separation between trade markings on suppression cables",
+        "requiredStandard": "There must be a maximum of 120mm separation between trade markings on Suppression cables",
         "refCalculation": "10.3",
         "additionalInfo": true,
         "basicInspection": true,
@@ -6141,7 +6141,7 @@
       },
       {
         "rsNumber": "2",
-        "requiredStandard": "The vehicle as presented must be accompanied by evidence of compliance where an panic alarm is fitted",
+        "requiredStandard": "The vehicle as presented must be accompanied by evidence of compliance where a panic alarm is fitted",
         "refCalculation": "13B.2",
         "additionalInfo": true,
         "basicInspection": true,
@@ -9251,7 +9251,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "Where an anti theft device incorporates a mechanical part that acts upon a system used to control the vehicle; it must Deactivate before the engine can be started",
+        "requiredStandard": "Where an anti theft device incorporates a mechanical part that acts upon a system used to control the vehicle; it must deactivate before the engine can be started",
         "refCalculation": "13.1a",
         "additionalInfo": true,
         "basicInspection": false,
@@ -9299,7 +9299,7 @@
       },
       {
         "rsNumber": "4",
-        "requiredStandard": "If fitted to the Vehicle, an Panic Alarm must be accompanied by evidence of compliance  ",
+        "requiredStandard": "If fitted to the Vehicle, a Panic Alarm must be accompanied by evidence of compliance  ",
         "refCalculation": "13.4",
         "additionalInfo": true,
         "basicInspection": false,
@@ -13322,7 +13322,7 @@
       },
       {
         "rsNumber": "5",
-        "requiredStandard": "The spacing of all passenger seats must meet the following minimum requirements:\nIn the case of seats facing in the same direction, the distance between the front of a seat backrest and the back of the backrest of the seat preceding it shall when measured horizontally and at all heights above the floor between the level of the top surface of the seat cushion and a point 620mm above the floor be not less than: -\n650mm for Class I, A, B, & Class IIIS vehicles\n680mm for Class II & III vehicles",
+        "requiredStandard": "The spacing of all passenger seats must meet the following minimum requirements:\nIn the case of seats facing in the same direction, the distance between the front of a seat backrest and the back of the backrest of the seat preceding it shall when measured horizontally and at all heights above the floor between the level of the top surface of the seat cushion and a point 620mm above the floor be not less than: \n650mm for Class I, A, B, & Class IIIS vehicles\n680mm for Class II & III vehicles",
         "refCalculation": "52P.5a",
         "additionalInfo": true,
         "basicInspection": false,
@@ -13332,22 +13332,6 @@
         "rsNumber": "5",
         "requiredStandard": "The spacing of all passenger seats must meet the following minimum requirements:\nWhere transverse seats face one another the minimum distance between the front faces of the seat backrests of facing seats, as measured across the highest points of the seat cushions, shall be not less than 1300 mm",
         "refCalculation": "52P.5b",
-        "additionalInfo": true,
-        "basicInspection": false,
-        "normalInspection": false
-      },
-      {
-        "rsNumber": "5",
-        "requiredStandard": "Where a seat faces a partition or table or similar structure the requirements are shown in figure 4 in Section 52P of the IVA M2 & M3 Inspection Manual",
-        "refCalculation": "52P.5c",
-        "additionalInfo": true,
-        "basicInspection": false,
-        "normalInspection": false
-      },
-      {
-        "rsNumber": "5",
-        "requiredStandard": "For a seat behind a seat and/or a seat facing the gangway, a minimum clear foot space of at least 300 mm depth and at least the width specified in RS 1 in Section 52P of the IVA M2 & M3 Inspection Manual must be provided as shown in Figure 5 in that section",
-        "refCalculation": "52P.5d",
         "additionalInfo": true,
         "basicInspection": false,
         "normalInspection": false
@@ -15105,7 +15089,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "Where an anti theft device incorporates a mechanical part that acts upon a system used to control the vehicle; it must Deactivate before the engine can be started",
+        "requiredStandard": "Where an anti theft device incorporates a mechanical part that acts upon a system used to control the vehicle; it must deactivate before the engine can be started",
         "refCalculation": "13.1a",
         "additionalInfo": true,
         "basicInspection": false,
@@ -15153,7 +15137,7 @@
       },
       {
         "rsNumber": "4",
-        "requiredStandard": "If fitted to the Vehicle, an Panic Alarm must be accompanied by evidence of compliance  ",
+        "requiredStandard": "If fitted to the Vehicle, a Panic Alarm must be accompanied by evidence of compliance  ",
         "refCalculation": "13.4",
         "additionalInfo": true,
         "basicInspection": false,
@@ -19191,22 +19175,6 @@
         "normalInspection": false
       },
       {
-        "rsNumber": "5",
-        "requiredStandard": "Where a seat faces a partition or table or similar structure the requirements are shown in figure 4 in Section 52P of the IVA M2 & M3 Inspection Manual",
-        "refCalculation": "52P.5c",
-        "additionalInfo": true,
-        "basicInspection": false,
-        "normalInspection": false
-      },
-      {
-        "rsNumber": "5",
-        "requiredStandard": "For a seat behind a seat and/or a seat facing the gangway, a minimum clear foot space of at least 300 mm depth and at least the width specified in RS 1 in Section 52P of the IVA M2 & M3 Inspection Manual must be provided as shown in Figure 5 in that section",
-        "refCalculation": "52P.5d",
-        "additionalInfo": true,
-        "basicInspection": false,
-        "normalInspection": false
-      },
-      {
         "rsNumber": "6",
         "requiredStandard": "For Class B vehicles with a technically permissible maximum mass not exceeding 3,5 tonnes and up to 12 passengers seats, where a seat faces a partition or table or similar structure there must be adequate space for passenger access",
         "refCalculation": "52P.6",
@@ -21262,7 +21230,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "Where an anti theft device incorporates a mechanical part that acts upon a system used to control the vehicle; It must Deactivate before the engine can be started",
+        "requiredStandard": "Where an anti theft device incorporates a mechanical part that acts upon a system used to control the vehicle; It must deactivate before the engine can be started",
         "refCalculation": "13.1a",
         "additionalInfo": true,
         "basicInspection": false,
@@ -21310,7 +21278,7 @@
       },
       {
         "rsNumber": "4",
-        "requiredStandard": "If fitted to the Vehicle, an Panic Alarm must be accompanied by evidence of compliance ",
+        "requiredStandard": "If fitted to the Vehicle, a panic Alarm must be accompanied by evidence of compliance ",
         "refCalculation": "13.4",
         "additionalInfo": true,
         "basicInspection": false,
@@ -23413,7 +23381,7 @@
   {
     "euVehicleCategory": "n2",
     "sectionNumber": "43",
-    "sectionDescription": "Spray Supression",
+    "sectionDescription": "Spray Suppression",
     "requiredStandards": [
       {
         "rsNumber": "1",
@@ -23505,7 +23473,7 @@
       },
       {
         "rsNumber": "12",
-        "requiredStandard": "Where the vehicle body forms the mudguards, (and energy absorption systems are fitted). they must have their inner faces made from or be fitted with a spray suppression material",
+        "requiredStandard": "Where the vehicle body forms the mudguards, (and energy absorption systems are fitted). they must have their inner faces made from or be fitted with a spray Suppression material",
         "refCalculation": "43.12",
         "additionalInfo": true,
         "basicInspection": false,
@@ -23561,7 +23529,7 @@
       },
       {
         "rsNumber": "19",
-        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray suppression system is installed outer valances must be located above each wheel of multiple axles where a rain flap is fitted between each wheel",
+        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray Suppression system is installed outer valances must be located above each wheel of multiple axles where a rain flap is fitted between each wheel",
         "refCalculation": "43.19",
         "additionalInfo": true,
         "basicInspection": false,
@@ -23569,7 +23537,7 @@
       },
       {
         "rsNumber": "20",
-        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray suppression system is installed. outer valances must have the entire inner surface fitted with an energy-absorption spray-suppression material",
+        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray Suppression system is installed. outer valances must have the entire inner surface fitted with an energy-absorption spray-Suppression material",
         "refCalculation": "43.20",
         "additionalInfo": true,
         "basicInspection": false,
@@ -23577,7 +23545,7 @@
       },
       {
         "rsNumber": "21",
-        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray suppression system is installed outer valances must be a minimum of 100mm high",
+        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray Suppression system is installed outer valances must be a minimum of 100mm high",
         "refCalculation": "43.21",
         "additionalInfo": true,
         "basicInspection": false,
@@ -23585,7 +23553,7 @@
       },
       {
         "rsNumber": "22",
-        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray suppression system is installed outer valances must have no openings in them or between the outer valance and the inner part of the mud guard enabling spray to emerge",
+        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray Suppression system is installed outer valances must have no openings in them or between the outer valance and the inner part of the mud guard enabling spray to emerge",
         "refCalculation": "43.22",
         "additionalInfo": true,
         "basicInspection": false,
@@ -23593,7 +23561,7 @@
       },
       {
         "rsNumber": "23",
-        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray suppression system is installed outer valances must be continuous where rain flaps are not fitted behind each wheel, they must extend between the outer edge of the rain flap and a vertical plane passing through the front edge of the tyre",
+        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray Suppression system is installed outer valances must be continuous where rain flaps are not fitted behind each wheel, they must extend between the outer edge of the rain flap and a vertical plane passing through the front edge of the tyre",
         "refCalculation": "43.23",
         "additionalInfo": true,
         "basicInspection": false,
@@ -23601,7 +23569,7 @@
       },
       {
         "rsNumber": "24",
-        "requiredStandard": "Outer Valances must have air/water separator spray-suppression devices fitted to the lower edges",
+        "requiredStandard": "Outer Valances must have air/water separator spray-Suppression devices fitted to the lower edges",
         "refCalculation": "43.24",
         "additionalInfo": true,
         "basicInspection": false,
@@ -23697,7 +23665,7 @@
       },
       {
         "rsNumber": "36",
-        "requiredStandard": "Where energy absorption Spray Suppression systems are installed, rain flaps must have the whole face made of spray suppression material",
+        "requiredStandard": "Where energy absorption Spray Suppression systems are installed, rain flaps must have the whole face made of spray Suppression material",
         "refCalculation": "43.36",
         "additionalInfo": true,
         "basicInspection": false,
@@ -24394,7 +24362,7 @@
       },
       {
         "rsNumber": "12",
-        "requiredStandard": "The distance from the centre of the coupling pin to the rear of the bodywork must not exceed 420 mm except:                                                                                                                  b. or up to 1320 mm if the unobstructed height is at least 1150 mm",
+        "requiredStandard": "The distance from the centre of the coupling pin to the rear of the bodywork must not exceed 420 mm except:                                                                                                                                                                                                                                    b. or up to 1320 mm if the unobstructed height is at least 1150 mm",
         "refCalculation": "50.12b",
         "additionalInfo": true,
         "basicInspection": false,
@@ -24402,7 +24370,7 @@
       },
       {
         "rsNumber": "12",
-        "requiredStandard": "The distance from the centre of the coupling pin to the rear of the bodywork must not exceed 420 mm except:                                                                                                                  c. Car transporters with at least two loading levels when the trailer / vehicle is not separated during normal operation may have the coupling set further back than the 420 mm",
+        "requiredStandard": "The distance from the centre of the coupling pin to the rear of the bodywork must not exceed 420 mm except:                                                                                                                                                                                                                                  c. Car transporters with at least two loading levels when the trailer / vehicle is not separated during normal operation may have the coupling set further back than the 420 mm",
         "refCalculation": "50.12c",
         "additionalInfo": true,
         "basicInspection": false,
@@ -25433,7 +25401,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "Where an anti theft device incorporates a mechanical part that acts upon a system used to control the vehicle; It must Deactivate before the engine can be started",
+        "requiredStandard": "Where an anti theft device incorporates a mechanical part that acts upon a system used to control the vehicle; It must deactivate before the engine can be started",
         "refCalculation": "13.1a",
         "additionalInfo": true,
         "basicInspection": false,
@@ -25481,7 +25449,7 @@
       },
       {
         "rsNumber": "4",
-        "requiredStandard": "If fitted to the Vehicle, an Panic Alarm must be accompanied by evidence of compliance ",
+        "requiredStandard": "If fitted to the Vehicle, a panic Alarm must be accompanied by evidence of compliance ",
         "refCalculation": "13.4",
         "additionalInfo": true,
         "basicInspection": false,
@@ -27584,7 +27552,7 @@
   {
     "euVehicleCategory": "n3",
     "sectionNumber": "43",
-    "sectionDescription": "Spray Supression",
+    "sectionDescription": "Spray Suppression",
     "requiredStandards": [
       {
         "rsNumber": "1",
@@ -27676,7 +27644,7 @@
       },
       {
         "rsNumber": "12",
-        "requiredStandard": "Where the vehicle body forms the mudguards, (and energy absorption systems are fitted). they must have their inner faces made from or be fitted with a spray suppression material",
+        "requiredStandard": "Where the vehicle body forms the mudguards, (and energy absorption systems are fitted). they must have their inner faces made from or be fitted with a spray Suppression material",
         "refCalculation": "43.12",
         "additionalInfo": true,
         "basicInspection": false,
@@ -27732,7 +27700,7 @@
       },
       {
         "rsNumber": "19",
-        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray suppression system is installed outer valances must be located above each wheel of multiple axles where a rain flap is fitted between each wheel",
+        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray Suppression system is installed outer valances must be located above each wheel of multiple axles where a rain flap is fitted between each wheel",
         "refCalculation": "43.19",
         "additionalInfo": true,
         "basicInspection": false,
@@ -27740,7 +27708,7 @@
       },
       {
         "rsNumber": "20",
-        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray suppression system is installed. outer valances must have the entire inner surface fitted with an energy-absorption spray-suppression material",
+        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray Suppression system is installed. outer valances must have the entire inner surface fitted with an energy-absorption spray-Suppression material",
         "refCalculation": "43.20",
         "additionalInfo": true,
         "basicInspection": false,
@@ -27748,7 +27716,7 @@
       },
       {
         "rsNumber": "21",
-        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray suppression system is installed outer valances must be a minimum of 100mm high",
+        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray Suppression system is installed outer valances must be a minimum of 100mm high",
         "refCalculation": "43.21",
         "additionalInfo": true,
         "basicInspection": false,
@@ -27756,7 +27724,7 @@
       },
       {
         "rsNumber": "22",
-        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray suppression system is installed outer valances must have no openings in them or between the outer valance and the inner part of the mud guard enabling spray to emerge",
+        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray Suppression system is installed outer valances must have no openings in them or between the outer valance and the inner part of the mud guard enabling spray to emerge",
         "refCalculation": "43.22",
         "additionalInfo": true,
         "basicInspection": false,
@@ -27764,7 +27732,7 @@
       },
       {
         "rsNumber": "23",
-        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray suppression system is installed outer valances must be continuous where rain flaps are not fitted behind each wheel, they must extend between the outer edge of the rain flap and a vertical plane passing through the front edge of the tyre",
+        "requiredStandard": "Where the body forms the mudguard over non steered or self steering wheels, and a energy absorption spray Suppression system is installed outer valances must be continuous where rain flaps are not fitted behind each wheel, they must extend between the outer edge of the rain flap and a vertical plane passing through the front edge of the tyre",
         "refCalculation": "43.23",
         "additionalInfo": true,
         "basicInspection": false,
@@ -27772,7 +27740,7 @@
       },
       {
         "rsNumber": "24",
-        "requiredStandard": "Outer Valances must have air/water separator spray-suppression devices fitted to the lower edges",
+        "requiredStandard": "Outer Valances must have air/water separator spray-Suppression devices fitted to the lower edges",
         "refCalculation": "43.24",
         "additionalInfo": true,
         "basicInspection": false,
@@ -27868,7 +27836,7 @@
       },
       {
         "rsNumber": "36",
-        "requiredStandard": "Where energy absorption Spray Suppression systems are installed, rain flaps must have the whole face made of spray suppression material",
+        "requiredStandard": "Where energy absorption Spray Suppression systems are installed, rain flaps must have the whole face made of spray Suppression material",
         "refCalculation": "43.36",
         "additionalInfo": true,
         "basicInspection": false,
@@ -28565,7 +28533,7 @@
       },
       {
         "rsNumber": "12",
-        "requiredStandard": "The distance from the centre of the coupling pin to the rear of the bodywork must not exceed 420 mm except:                                                                                                                  b. or up to 1320 mm if the unobstructed height is at least 1150 mm",
+        "requiredStandard": "The distance from the centre of the coupling pin to the rear of the bodywork must not exceed 420 mm except:                                                                                                                                                                                                                                    b. or up to 1320 mm if the unobstructed height is at least 1150 mm",
         "refCalculation": "50.12b",
         "additionalInfo": true,
         "basicInspection": false,
@@ -28573,7 +28541,7 @@
       },
       {
         "rsNumber": "12",
-        "requiredStandard": "The distance from the centre of the coupling pin to the rear of the bodywork must not exceed 420 mm except:                                                                                                                  c. Car transporters with at least two loading levels when the trailer / vehicle is not separated during normal operation may have the coupling set further back than the 420 mm",
+        "requiredStandard": "The distance from the centre of the coupling pin to the rear of the bodywork must not exceed 420 mm except:                                                                                                                                                                                                                                  c. Car transporters with at least two loading levels when the trailer / vehicle is not separated during normal operation may have the coupling set further back than the 420 mm",
         "refCalculation": "50.12c",
         "additionalInfo": true,
         "basicInspection": false,
@@ -30216,7 +30184,7 @@
       },
       {
         "rsNumber": "6",
-        "requiredStandard": "If a trailer is fitted with one or more loadable axles, satisfactory evidence must be provided stating that under all driving conditions, the axle will lower to the ground automatically when the front axle or the nearest axle of a group of axles is loaded  ",
+        "requiredStandard": "If a trailer is fitted with one or more loadable axles, satisfactory evidence must be provided stating that under all driving conditions, the axle will lower to the ground automatically when the front axle or the nearest axle of a group of axles is loaded    ",
         "refCalculation": "48B.6",
         "additionalInfo": true,
         "basicInspection": false,
@@ -30255,7 +30223,7 @@
       },
       {
         "rsNumber": "4",
-        "requiredStandard": "If a trailer is fitted with one or more loadable axles, satisfactory evidence must be provided stating that under all driving conditions, the axle will lower to the ground automatically when the front axle or the nearest axle of a group of axles is loaded    ",
+        "requiredStandard": "If a trailer is fitted with one or more loadable axles, satisfactory evidence must be provided stating that under all driving conditions, the axle will lower to the ground automatically when the front axle or the nearest axle of a group of axles is loaded      ",
         "refCalculation": "48C.4",
         "additionalInfo": true,
         "basicInspection": false,
@@ -31884,7 +31852,7 @@
       },
       {
         "rsNumber": "6",
-        "requiredStandard": "If a trailer is fitted with one or more loadable axles, satisfactory evidence must be provided stating that under all driving conditions, the axle will lower to the ground automatically when the front axle or the nearest axle of a group of axles is loaded  ",
+        "requiredStandard": "If a trailer is fitted with one or more loadable axles, satisfactory evidence must be provided stating that under all driving conditions, the axle will lower to the ground automatically when the front axle or the nearest axle of a group of axles is loaded    ",
         "refCalculation": "48B.6",
         "additionalInfo": true,
         "basicInspection": false,
@@ -31923,7 +31891,7 @@
       },
       {
         "rsNumber": "4",
-        "requiredStandard": "If a trailer is fitted with one or more loadable axles, satisfactory evidence must be provided stating that under all driving conditions, the axle will lower to the ground automatically when the front axle or the nearest axle of a group of axles is loaded    ",
+        "requiredStandard": "If a trailer is fitted with one or more loadable axles, satisfactory evidence must be provided stating that under all driving conditions, the axle will lower to the ground automatically when the front axle or the nearest axle of a group of axles is loaded      ",
         "refCalculation": "48C.4",
         "additionalInfo": true,
         "basicInspection": false,
@@ -33784,7 +33752,7 @@
       },
       {
         "rsNumber": "11",
-        "requiredStandard": "Where the trailer body forms the mudguards, (and energy absorption systems are fitted) suppression must cover the zone above the tyre or tyres from the front edge of the tyre to the rain flap located behind the wheel  \n",
+        "requiredStandard": "Where the trailer body forms the mudguards, (and energy absorption systems are fitted) Suppression must cover the zone above the tyre or tyres from the front edge of the tyre to the rain flap located behind the wheel  \n",
         "refCalculation": "43.11",
         "additionalInfo": true,
         "basicInspection": false,
@@ -33792,7 +33760,7 @@
       },
       {
         "rsNumber": "12",
-        "requiredStandard": "Where the trailer body forms the mudguards, (and energy absorption systems are fitted) must have their inner faces made from or be fitted with a spray suppression material",
+        "requiredStandard": "Where the trailer body forms the mudguards, (and energy absorption systems are fitted) must have their inner faces made from or be fitted with a spray Suppression material",
         "refCalculation": "43.12",
         "additionalInfo": true,
         "basicInspection": false,
@@ -33856,7 +33824,7 @@
       },
       {
         "rsNumber": "20",
-        "requiredStandard": "Where the body forms the mudguard over non-steered or self-steering wheels, outer valances must have the entire inner surface fitted with an energy-absorption spray-suppression material",
+        "requiredStandard": "Where the body forms the mudguard over non-steered or self-steering wheels, outer valances must have the entire inner surface fitted with an energy-absorption spray-Suppression material",
         "refCalculation": "43.20",
         "additionalInfo": true,
         "basicInspection": false,
@@ -33888,7 +33856,7 @@
       },
       {
         "rsNumber": "24",
-        "requiredStandard": "Outer Valances must have air/water separator spray-suppression devices fitted to the lower edges",
+        "requiredStandard": "Outer Valances must have air/water separator spray-Suppression devices fitted to the lower edges",
         "refCalculation": "43.24",
         "additionalInfo": true,
         "basicInspection": false,
@@ -33984,7 +33952,7 @@
       },
       {
         "rsNumber": "36",
-        "requiredStandard": "Where energy absorption Spray Suppression systems are installed, rain flaps must have the whole face made of spray suppression material.",
+        "requiredStandard": "Where energy absorption Spray Suppression systems are installed, rain flaps must have the whole face made of spray Suppression material.",
         "refCalculation": "43.36",
         "additionalInfo": true,
         "basicInspection": false,
@@ -34324,7 +34292,7 @@
       },
       {
         "rsNumber": "6",
-        "requiredStandard": "If a trailer is fitted with one or more loadable axles, satisfactory evidence must be provided stating that under all driving conditions, the axle will lower to the ground automatically when the front axle or the nearest axle of a group of axles is loaded      ",
+        "requiredStandard": "If a trailer is fitted with one or more loadable axles, satisfactory evidence must be provided stating that under all driving conditions, the axle will lower to the ground automatically when the front axle or the nearest axle of a group of axles is loaded          ",
         "refCalculation": "48B.6",
         "additionalInfo": true,
         "basicInspection": false,
@@ -36247,7 +36215,7 @@
       },
       {
         "rsNumber": "11",
-        "requiredStandard": "Where the trailer body forms the mudguards, (and energy absorption systems are fitted) suppression must cover the zone above the tyre or tyres from the front edge of the tyre to the rain flap located behind the wheel  \n",
+        "requiredStandard": "Where the trailer body forms the mudguards, (and energy absorption systems are fitted) Suppression must cover the zone above the tyre or tyres from the front edge of the tyre to the rain flap located behind the wheel  \n",
         "refCalculation": "43.11",
         "additionalInfo": true,
         "basicInspection": false,
@@ -36255,7 +36223,7 @@
       },
       {
         "rsNumber": "12",
-        "requiredStandard": "Where the trailer body forms the mudguards, (and energy absorption systems are fitted) must have their inner faces made from or be fitted with a spray suppression material",
+        "requiredStandard": "Where the trailer body forms the mudguards, (and energy absorption systems are fitted) must have their inner faces made from or be fitted with a spray Suppression material",
         "refCalculation": "43.12",
         "additionalInfo": true,
         "basicInspection": false,
@@ -36319,7 +36287,7 @@
       },
       {
         "rsNumber": "20",
-        "requiredStandard": "Where the body forms the mudguard over non-steered or self-steering wheels, outer valances must have the entire inner surface fitted with an energy-absorption spray-suppression material",
+        "requiredStandard": "Where the body forms the mudguard over non-steered or self-steering wheels, outer valances must have the entire inner surface fitted with an energy-absorption spray-Suppression material",
         "refCalculation": "43.20",
         "additionalInfo": true,
         "basicInspection": false,
@@ -36351,7 +36319,7 @@
       },
       {
         "rsNumber": "24",
-        "requiredStandard": "Outer Valances must have air/water separator spray-suppression devices fitted to the lower edges",
+        "requiredStandard": "Outer Valances must have air/water separator spray-Suppression devices fitted to the lower edges",
         "refCalculation": "43.24",
         "additionalInfo": true,
         "basicInspection": false,
@@ -36447,7 +36415,7 @@
       },
       {
         "rsNumber": "36",
-        "requiredStandard": "Where energy absorption Spray Suppression systems are installed, rain flaps must have the whole face made of spray suppression material.",
+        "requiredStandard": "Where energy absorption Spray Suppression systems are installed, rain flaps must have the whole face made of spray Suppression material.",
         "refCalculation": "43.36",
         "additionalInfo": true,
         "basicInspection": false,
@@ -36787,7 +36755,7 @@
       },
       {
         "rsNumber": "6",
-        "requiredStandard": "If a trailer is fitted with one or more loadable axles, satisfactory evidence must be provided stating that under all driving conditions, the axle will lower to the ground automatically when the front axle or the nearest axle of a group of axles is loaded      ",
+        "requiredStandard": "If a trailer is fitted with one or more loadable axles, satisfactory evidence must be provided stating that under all driving conditions, the axle will lower to the ground automatically when the front axle or the nearest axle of a group of axles is loaded          ",
         "refCalculation": "48B.6",
         "additionalInfo": true,
         "basicInspection": false,
@@ -38285,7 +38253,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "The HT ignition system is not fitted with radio interference suppression equipment",
+        "requiredStandard": "The HT ignition system is not fitted with radio interference Suppression equipment",
         "refCalculation": "17.1",
         "additionalInfo": true,
         "basicInspection": false,
@@ -41433,7 +41401,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "The HT ignition system is not fitted with radio interference suppression equipment",
+        "requiredStandard": "The HT ignition system is not fitted with radio interference Suppression equipment",
         "refCalculation": "17.1",
         "additionalInfo": true,
         "basicInspection": false,
@@ -44581,7 +44549,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "The HT ignition system is not fitted with radio interference suppression equipment",
+        "requiredStandard": "The HT ignition system is not fitted with radio interference Suppression equipment",
         "refCalculation": "17.1",
         "additionalInfo": true,
         "basicInspection": false,
@@ -47729,7 +47697,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "The HT ignition system is not fitted with radio interference suppression equipment",
+        "requiredStandard": "The HT ignition system is not fitted with radio interference Suppression equipment",
         "refCalculation": "17.1",
         "additionalInfo": true,
         "basicInspection": false,
@@ -50877,7 +50845,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "The HT ignition system is not fitted with radio interference suppression equipment",
+        "requiredStandard": "The HT ignition system is not fitted with radio interference Suppression equipment",
         "refCalculation": "17.1",
         "additionalInfo": true,
         "basicInspection": false,
@@ -54025,7 +53993,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "The HT ignition system is not fitted with radio interference suppression equipment",
+        "requiredStandard": "The HT ignition system is not fitted with radio interference Suppression equipment",
         "refCalculation": "17.1",
         "additionalInfo": true,
         "basicInspection": false,
@@ -57165,7 +57133,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "The HT ignition system is not fitted with radio interference suppression equipment",
+        "requiredStandard": "The HT ignition system is not fitted with radio interference Suppression equipment",
         "refCalculation": "17.1",
         "additionalInfo": true,
         "basicInspection": false,
@@ -60313,7 +60281,7 @@
     "requiredStandards": [
       {
         "rsNumber": "1",
-        "requiredStandard": "The HT ignition system is not fitted with radio interference suppression equipment",
+        "requiredStandard": "The HT ignition system is not fitted with radio interference Suppression equipment",
         "refCalculation": "17.1",
         "additionalInfo": true,
         "basicInspection": false,
