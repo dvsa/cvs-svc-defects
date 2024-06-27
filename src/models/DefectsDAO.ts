@@ -1,39 +1,36 @@
-import { default as unwrappedAWS } from "aws-sdk";
 import { Configuration } from "../utils/Configuration";
-import { PromiseResult } from "aws-sdk/lib/request";
-import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
+import AWSXRay from "aws-xray-sdk";
+import { DynamoDBClient, ScanOutput } from "@aws-sdk/client-dynamodb";
+import {
+  BatchWriteCommand,
+  DynamoDBDocumentClient,
+  ScanCommand,
+} from "@aws-sdk/lib-dynamodb";
+import { ServiceException } from "@smithy/smithy-client";
 import { IDBConfig } from ".";
-import { error } from "console";
-
-/* workaround AWSXRay.captureAWS(...) call obscures types provided by the AWS sdk.
-https://github.com/aws/aws-xray-sdk-node/issues/14
-*/
-/* tslint:disable */
-let AWS: { DynamoDB: { DocumentClient: new (arg0: any) => DocumentClient } };
-if (process.env._X_AMZN_TRACE_ID) {
-  AWS = require("aws-xray-sdk").captureAWS(require("aws-sdk"));
-} else {
-  console.log("Serverless Offline detected; skipping AWS X-Ray setup");
-  AWS = require("aws-sdk");
-}
-/* tslint:enable */
 
 export class DefectsDAO {
   private readonly tableName: string;
-  private static dbClient: DocumentClient;
+  private static dbClient: DynamoDBDocumentClient;
 
   constructor() {
     const config: IDBConfig = Configuration.getInstance().getDynamoDBConfig();
     this.tableName = config.defects.table;
     if (!DefectsDAO.dbClient) {
-      DefectsDAO.dbClient = new AWS.DynamoDB.DocumentClient(config.defects);
+      let client;
+      if (process.env._X_AMZN_TRACE_ID) {
+        client = AWSXRay.captureAWSv3Client(new DynamoDBClient(config.defects));
+      } else {
+        console.log("Serverless Offline detected; skipping AWS X-Ray setup");
+        client = new DynamoDBClient(config.defects);
+      }
+      DefectsDAO.dbClient = DynamoDBDocumentClient.from(client);
     }
   }
 
-  public getAll(): Promise<
-    PromiseResult<DocumentClient.ScanOutput, AWS.AWSError>
-  > {
-    return DefectsDAO.dbClient.scan({ TableName: this.tableName }).promise();
+  public async getAll(): Promise<ScanOutput | ServiceException> {
+    const command = new ScanCommand({ TableName: this.tableName });
+    return await DefectsDAO.dbClient.send(command);
   }
 
   public generatePartialParams(): any {
@@ -44,7 +41,7 @@ export class DefectsDAO {
     };
   }
 
-  public createMultiple(defectItems: any[]): Promise<any> {
+  public async createMultiple(defectItems: any[]): Promise<any> {
     const params = this.generatePartialParams();
 
     defectItems.map((defectItem: any) => {
@@ -54,11 +51,11 @@ export class DefectsDAO {
         },
       });
     });
-
-    return DefectsDAO.dbClient.batchWrite(params).promise();
+    const command = new BatchWriteCommand(params);
+    return await DefectsDAO.dbClient.send(command);
   }
 
-  public deleteMultiple(primaryKeysToBeDeleted: string[]): Promise<any> {
+  public async deleteMultiple(primaryKeysToBeDeleted: string[]): Promise<any> {
     const params = this.generatePartialParams();
 
     primaryKeysToBeDeleted.forEach((key) => {
@@ -70,7 +67,7 @@ export class DefectsDAO {
         },
       });
     });
-
-    return DefectsDAO.dbClient.batchWrite(params).promise();
+    const command = new BatchWriteCommand(params);
+    return await DefectsDAO.dbClient.send(command);
   }
 }

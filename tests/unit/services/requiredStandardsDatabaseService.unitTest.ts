@@ -1,10 +1,7 @@
-/* eslint-disable import/first */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-
-import AWS from "aws-sdk";
 import RequiredStandards from "../../resources/iva-defects.json";
 import { RequiredStandardsDatabaseService } from "../../../src/services/requiredStandardsDatabaseService";
+import { DynamoDBDocumentClient, ScanCommand } from "@aws-sdk/lib-dynamodb";
+import { mockClient } from "aws-sdk-client-mock";
 
 describe("Required Standards Database Service", () => {
   context("getDefectsByManualId", () => {
@@ -13,7 +10,8 @@ describe("Required Standards Database Service", () => {
     });
 
     it("should return expected results on a successful scan", async () => {
-      mockDocumentClientWithReturn({
+      const mockDynamoClient = mockClient(DynamoDBDocumentClient);
+      mockDynamoClient.on(ScanCommand).resolves({
         Items: RequiredStandards,
       });
       let target = new RequiredStandardsDatabaseService();
@@ -23,7 +21,8 @@ describe("Required Standards Database Service", () => {
     });
 
     it("should return no results on a successful scan with no matches", async () => {
-      mockDocumentClientWithReturn({
+      const mockDynamoClient = mockClient(DynamoDBDocumentClient);
+      mockDynamoClient.on(ScanCommand).resolves({
         Items: [],
       });
       let target = new RequiredStandardsDatabaseService();
@@ -33,13 +32,3 @@ describe("Required Standards Database Service", () => {
     });
   });
 });
-
-function mockDocumentClientWithReturn(retVal: any) {
-  AWS.DynamoDB.DocumentClient.prototype.scan = jest
-    .fn()
-    .mockImplementation(() => {
-      return {
-        promise: () => Promise.resolve(retVal),
-      };
-    });
-}
