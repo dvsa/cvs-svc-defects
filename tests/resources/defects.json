@@ -13725,7 +13725,7 @@
             "deficiencyCategory": "dangerous",
             "deficiencyText": "the use of the vehicle or trailer on the road would involve an immediate danger of injury to any person.",
             "deficiencyTextWelsh": "byddai defnyddio'r cerbyd neu'r trelar ar y ffordd yn golygu perygl uniongyrchol o anaf i unrhyw berson.",
-            "stdForProhibition": true,
+            "stdForProhibition": false,
             "forVehicleType": ["hgv", "trl"]
           }
         ]
@@ -13743,7 +13743,7 @@
             "deficiencyCategory": "dangerous",
             "deficiencyText": "the use of the vehicle on the road would involve an immediate danger of injury to any other person.",
             "deficiencyTextWelsh": "byddai defnyddio'r cerbyd  ar y ffordd yn golygu perygl uniongyrchol o anaf i unrhyw berson arall.",
-            "stdForProhibition": true,
+            "stdForProhibition": false,
             "forVehicleType": ["psv"]
           }
         ]
