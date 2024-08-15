@@ -4,8 +4,8 @@
   "description": "Microservice that stores and serves the defects data",
   "main": "src/handler.js",
   "engines": {
-    "node": "18.*",
-    "npm": "9.*"
+    "node": "^18.*",
+    "npm": "^10.*"
   },
   "repository": {
     "type": "git",
@@ -72,8 +72,8 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.549.0",
-    "@aws-sdk/lib-dynamodb": "^3.549.0",
+    "@aws-sdk/client-dynamodb": "^3.631.0",
+    "@aws-sdk/lib-dynamodb": "^3.552.0",
     "@smithy/smithy-client": "^2.5.0",
     "@dvsa/cvs-type-definitions": "6.0.1",
     "aws-lambda": "1.0.7",
