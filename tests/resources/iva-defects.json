@@ -3379,7 +3379,7 @@
       },
       {
         "rsNumber": "5",
-        "requiredStandard": "Reversing lamps must operate by selection of reverse gear, or be fitted with a tell-tale warning device",
+        "requiredStandard": "Reversing lamps must operate by selection of reverse gear.",
         "refCalculation": "29.5",
         "additionalInfo": true,
         "basicInspection": true,
@@ -7487,7 +7487,7 @@
       },
       {
         "rsNumber": "5",
-        "requiredStandard": "The reversing lamps must operate by selection of reverse gear or be fitted with a telltale warning device",
+        "requiredStandard": "The reversing lamps must operate by selection of reverse gear.",
         "refCalculation": "29.5",
         "additionalInfo": true,
         "basicInspection": true,
