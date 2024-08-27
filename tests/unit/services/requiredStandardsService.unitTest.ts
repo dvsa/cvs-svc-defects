@@ -272,8 +272,7 @@ describe("required standards  Service", () => {
         RequiredStandards,
       );
 
-      const result =
-        await target.getRequiredStandardsByEUVehicleCategory("test");
+      const result = await target.getRequiredStandardsByEUVehicleCategory("test");
 
       expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
       expect(result?.normal?.length).toBe(635);
@@ -284,8 +283,7 @@ describe("required standards  Service", () => {
         RequiredStandards,
       );
 
-      const result =
-        await target.getRequiredStandardsByEUVehicleCategory("test");
+      const result = await target.getRequiredStandardsByEUVehicleCategory("test");
 
       expect(mockGetDefectsByEUVehicleCategory).toHaveBeenCalledTimes(1);
       expect(result?.basic?.length).toBe(96);

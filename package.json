@@ -72,8 +72,8 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.632.0",
-    "@aws-sdk/lib-dynamodb": "^3.632.0",
+    "@aws-sdk/client-dynamodb": "^3.637.0",
+    "@aws-sdk/lib-dynamodb": "^3.637.0",
     "@smithy/smithy-client": "^2.5.0",
     "@dvsa/cvs-type-definitions": "6.0.1",
     "aws-lambda": "1.0.7",
