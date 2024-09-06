@@ -8934,30 +8934,6 @@
           "axleNumber": null
         },
         "notes": true
-      },
-      "hgv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": true
-      },
-      "trl": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": true
       }
     },
     "items": [
@@ -9063,7 +9039,7 @@
       {
         "itemNumber": 1,
         "itemDescription": "Any oil leak which can deposit",
-        "itemDescriptionWelsh": "Unrhyw ollyngiad olew a all adneuo ",
+        "itemDescriptionWelsh": "Unrhyw ollyngiad olew a all adneuo",
         "forVehicleType": ["hgv", "trl"],
         "deficiencies": [
           {
