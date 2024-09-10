@@ -8921,33 +8921,9 @@
     "imNumber": 44,
     "imDescription": "Oil and Waste Leaks",
     "imDescriptionWelsh": "Gollyngiadau Olew a Gwastraff",
-    "forVehicleType": ["psv", "hgv", "trl"],
+    "forVehicleType": ["psv"],
     "additionalInfo": {
       "psv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": true
-      },
-      "hgv": {
-        "location": {
-          "vertical": null,
-          "horizontal": null,
-          "lateral": null,
-          "longitudinal": null,
-          "rowNumber": null,
-          "seatNumber": null,
-          "axleNumber": null
-        },
-        "notes": true
-      },
-      "trl": {
         "location": {
           "vertical": null,
           "horizontal": null,
@@ -9024,7 +9000,42 @@
             "forVehicleType": ["psv"]
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "imNumber": 44,
+    "imDescription": "Oil Leaks",
+    "imDescriptionWelsh": "Olew yn Gollwng",
+    "forVehicleType": ["hgv", "trl"],
+    "additionalInfo": {
+      "hgv": {
+        "location": {
+          "vertical": null,
+          "horizontal": null,
+          "lateral": null,
+          "longitudinal": null,
+          "rowNumber": null,
+          "seatNumber": null,
+          "axleNumber": null
+        },
+        "notes": true
       },
+      "trl": {
+        "location": {
+          "vertical": null,
+          "horizontal": null,
+          "lateral": null,
+          "longitudinal": null,
+          "rowNumber": null,
+          "seatNumber": null,
+          "axleNumber": null
+        },
+        "notes": true
+      }
+    },
+    "items": [
       {
         "itemNumber": 1,
         "itemDescription": "Any oil leak which can deposit",
