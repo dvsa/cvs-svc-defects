@@ -12137,7 +12137,7 @@
           "seatNumber": null,
           "axleNumber": null
         },
-        "notes": false
+        "notes": true
       },
       "hgv": {
         "location": {
@@ -12149,7 +12149,7 @@
           "seatNumber": null,
           "axleNumber": null
         },
-        "notes": false
+        "notes": true
       },
       "trl": {
         "location": {
@@ -12161,7 +12161,7 @@
           "seatNumber": null,
           "axleNumber": null
         },
-        "notes": false
+        "notes": true
       }
     },
     "items": [
@@ -12312,7 +12312,7 @@
           "seatNumber": null,
           "axleNumber": null
         },
-        "notes": false
+        "notes": true
       },
       "hgv": {
         "location": {
