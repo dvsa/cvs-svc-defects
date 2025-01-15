@@ -1,5 +1,6 @@
 import { HTTPError } from "../models/HTTPError";
 import { DefectsDAO } from "../models/DefectsDAO";
+import { IRestrictionsDates } from "../models/RestrictionDates";
 
 export class DefectsService {
   public readonly defectsDAO: DefectsDAO;
@@ -15,18 +16,37 @@ export class DefectsService {
         if (data.Count === 0) {
           throw new HTTPError(404, "No resources match the search criteria.");
         }
-
-        return data.Items.map((defect: any) => {
-          delete defect.id;
-          return defect;
-        }).sort(
-          (
-            first: { imNumber: number },
-            second: { imNumber: number },
-          ): number => {
-            return first.imNumber - second.imNumber;
-          },
-        );
+        const currentDate: number = new Date().valueOf();
+        return data.Items.filter((value: any) => {
+          const {
+            restrictionsDates,
+          }: { restrictionsDates: IRestrictionsDates } = value;
+          if (restrictionsDates) {
+            const afterStartDate: boolean = !restrictionsDates?.startDate
+              ? true
+              : currentDate >= new Date(restrictionsDates.startDate).valueOf();
+            const beforeStopDate: boolean = !restrictionsDates?.stopDate
+              ? true
+              : currentDate <= new Date(restrictionsDates.stopDate).valueOf();
+            return afterStartDate && beforeStopDate;
+          }
+          return true;
+        })
+          .map((defect: any) => {
+            if (defect?.restrictionsDates) {
+              delete defect.restrictionsDates;
+            }
+            delete defect.id;
+            return defect;
+          })
+          .sort(
+            (
+              first: { imNumber: number },
+              second: { imNumber: number },
+            ): number => {
+              return first.imNumber - second.imNumber;
+            },
+          );
       })
       .catch((error) => {
         if (!(error instanceof HTTPError)) {
