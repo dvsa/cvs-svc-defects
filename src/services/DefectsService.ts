@@ -1,6 +1,6 @@
 import { HTTPError } from "../models/HTTPError";
 import { DefectsDAO } from "../models/DefectsDAO";
-import { IRestrictionsDates } from "../models/RestrictionDates";
+import { IConfig, IDateConstraints } from "../models/Config";
 
 export class DefectsService {
   public readonly defectsDAO: DefectsDAO;
@@ -16,21 +16,23 @@ export class DefectsService {
         if (data.Count === 0) {
           throw new HTTPError(404, "No resources match the search criteria.");
         }
+
         const currentDate: number = new Date().valueOf();
+        data.Items.sort((a: any, b: any) => a.id - b.id);
+        const arrayOfIdsToBeRemoved: number[] = data.Items.shift()
+          .config.filter((value: IDateConstraints) => {
+            const beforeStartDate: boolean = !value?.startDate
+              ? false
+              : currentDate < new Date(value.startDate).valueOf();
+            const afterStopDate: boolean = !value?.stopDate
+              ? false
+              : currentDate > new Date(value.stopDate).valueOf();
+            return beforeStartDate || afterStopDate;
+          })
+          .map((value: IConfig): number => value.id);
+
         return data.Items.filter((value: any) => {
-          const {
-            restrictionsDates,
-          }: { restrictionsDates: IRestrictionsDates } = value;
-          if (restrictionsDates) {
-            const afterStartDate: boolean = !restrictionsDates?.startDate
-              ? true
-              : currentDate >= new Date(restrictionsDates.startDate).valueOf();
-            const beforeStopDate: boolean = !restrictionsDates?.stopDate
-              ? true
-              : currentDate <= new Date(restrictionsDates.stopDate).valueOf();
-            return afterStartDate && beforeStopDate;
-          }
-          return true;
+          return !arrayOfIdsToBeRemoved.includes(value.id);
         })
           .map((defect: any) => {
             if (defect?.restrictionsDates) {
@@ -50,7 +52,7 @@ export class DefectsService {
       })
       .catch((error) => {
         if (!(error instanceof HTTPError)) {
-          console.error(error);
+          console.log(error);
           error.statusCode = 500;
           error.body = "Internal Server Error";
         }

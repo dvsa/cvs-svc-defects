@@ -6,226 +6,125 @@ describe("when calling service method getDefectList", () => {
   describe("when database is on", () => {
     context("when defectsDAO getAll resolves promise with data", () => {
       it("should return a defect item", async () => {
+        const dateAndTime = new Date();
+        const timeDifference = 300 * 1000;
         const defects = {
           Items: [
             {
-              id: 1,
-              restrictionsDates: {
-                startDate: null,
-                stopDate: "2025-01-14T23:59:59.999Z",
-              },
-              imNumber: 1,
-              imDescription: "Registration Plate",
-              imDescriptionWelsh: "Plât Cofrestru",
-              forVehicleType: ["psv", "hgv"],
-              additionalInfo: {
-                psv: {
-                  location: {
-                    vertical: null,
-                    horizontal: null,
-                    lateral: null,
-                    longitudinal: ["front", "rear"],
-                    rowNumber: null,
-                    seatNumber: null,
-                    axleNumber: null,
-                  },
-                  notes: false,
-                },
-                hgv: {
-                  location: {
-                    vertical: null,
-                    horizontal: null,
-                    lateral: null,
-                    longitudinal: ["front", "rear"],
-                    rowNumber: null,
-                    seatNumber: null,
-                    axleNumber: null,
-                  },
-                  notes: false,
-                },
-                trl: {},
-              },
-              items: [
+              config: [
+                // all the comment before each object in this
+                // array are applied against current date of 2025-01-15T00:00:00.000Z
+                // current is equal or later than start date keeps it
                 {
-                  itemNumber: 1,
-                  itemDescription: "A registration plate:",
-                  itemDescriptionWelsh: "Plât cofrestru:",
-                  forVehicleType: ["psv", "hgv"],
-                  deficiencies: [
-                    {
-                      ref: "1.1.a",
-                      deficiencyId: "a",
-                      deficiencySubId: null,
-                      deficiencyCategory: "major",
-                      deficiencyText: "missing.",
-                      deficiencyTextWelsh: "ar goll.",
-                      stdForProhibition: false,
-                      forVehicleType: ["psv", "hgv"],
-                    },
-                    {
-                      ref: "1.1.b",
-                      deficiencyId: "b",
-                      deficiencySubId: null,
-                      deficiencyCategory: "major",
-                      deficiencyText: "insecure.",
-                      deficiencyTextWelsh: "yn anniogel.",
-                      stdForProhibition: false,
-                      forVehicleType: ["psv", "hgv"],
-                    },
-                  ],
+                  startDate: dateAndTime.toISOString(),
+                  stopDate: null,
+                  id: 1, // 63
                 },
+                // current is before start date removes it
                 {
-                  itemNumber: 2,
-                  itemDescription: "A registration mark:",
-                  itemDescriptionWelsh: "Marc cofrestru",
-                  forVehicleType: ["psv", "hgv"],
-                  deficiencies: [
-                    {
-                      ref: "1.2.a",
-                      deficiencyId: "a",
-                      deficiencySubId: null,
-                      deficiencyCategory: "major",
-                      deficiencyText: "missing.",
-                      deficiencyTextWelsh: "ar goll.",
-                      stdForProhibition: false,
-                      forVehicleType: ["psv", "hgv"],
-                    },
-                    {
-                      ref: "1.2.b",
-                      deficiencyId: "b",
-                      deficiencySubId: null,
-                      deficiencyCategory: "major",
-                      deficiencyText: "illegible.",
-                      deficiencyTextWelsh: "annarllenadwy.",
-                      stdForProhibition: false,
-                      forVehicleType: ["psv", "hgv"],
-                    },
-                    {
-                      ref: "1.2.c",
-                      deficiencyId: "c",
-                      deficiencySubId: null,
-                      deficiencyCategory: "major",
-                      deficiencyText:
-                        "not in accordance with the requirements.",
-                      deficiencyTextWelsh: "ddim yn unol â'r gofynion.",
-                      stdForProhibition: false,
-                      forVehicleType: ["psv", "hgv"],
-                    },
-                  ],
+                  startDate: new Date(
+                    dateAndTime.getTime() + timeDifference,
+                  ).toISOString(),
+                  stopDate: null,
+                  id: 2, // 64
+                },
+                // current is before stop date keeps it
+                {
+                  startDate: null,
+                  stopDate: new Date(
+                    dateAndTime.getTime() + timeDifference,
+                  ).toISOString(),
+                  id: 3, // 65
+                },
+                // current is after stop date removes it
+                {
+                  startDate: null,
+                  stopDate: new Date(
+                    dateAndTime.getTime() - timeDifference,
+                  ).toISOString(),
+                  id: 4, // 66
+                },
+                // current is after start date and before stop date keep it
+                {
+                  startDate: new Date(
+                    dateAndTime.getTime() - timeDifference,
+                  ).toISOString(),
+                  stopDate: new Date(
+                    dateAndTime.getTime() + timeDifference,
+                  ).toISOString(),
+                  id: 5, // 67
+                },
+                // current is before start date and before stop date remove it
+                {
+                  startDate: new Date(
+                    dateAndTime.getTime() - timeDifference,
+                  ).toISOString(),
+                  stopDate: new Date(
+                    dateAndTime.getTime() - timeDifference,
+                  ).toISOString(),
+                  id: 6, // 68
+                },
+                // current is after start date and after stop date remove it
+                {
+                  startDate: new Date(
+                    dateAndTime.getTime() + timeDifference,
+                  ).toISOString(),
+                  stopDate: new Date(
+                    dateAndTime.getTime() + timeDifference,
+                  ).toISOString(),
+                  id: 7, // 69
+                },
+                // neither exist keep it
+                {
+                  startDate: null,
+                  stopDate: null,
+                  id: 8, // 70
                 },
               ],
             },
             {
               id: 1,
-              restrictionsDates: {
-                startDate: "2025-01-15T00:00:00.000Z",
-                stopDate: null,
-              },
-              imNumber: 1,
-              imDescription: "Registration Plate",
-              imDescriptionWelsh: "Plât Cofrestru",
-              forVehicleType: ["psv", "hgv"],
-              additionalInfo: {
-                psv: {
-                  location: {
-                    vertical: null,
-                    horizontal: null,
-                    lateral: null,
-                    longitudinal: ["front", "rear"],
-                    rowNumber: null,
-                    seatNumber: null,
-                    axleNumber: null,
-                  },
-                  notes: false,
-                },
-                hgv: {
-                  location: {
-                    vertical: null,
-                    horizontal: null,
-                    lateral: null,
-                    longitudinal: ["front", "rear"],
-                    rowNumber: null,
-                    seatNumber: null,
-                    axleNumber: null,
-                  },
-                  notes: false,
-                },
-                trl: {},
-              },
-              items: [
-                {
-                  itemNumber: 1,
-                  itemDescription: "A registration plate:",
-                  itemDescriptionWelsh: "Plât cofrestru:",
-                  forVehicleType: ["psv", "hgv"],
-                  deficiencies: [
-                    {
-                      ref: "1.1.a",
-                      deficiencyId: "a",
-                      deficiencySubId: null,
-                      deficiencyCategory: "major",
-                      deficiencyText: "missing.",
-                      deficiencyTextWelsh: "ar goll.",
-                      stdForProhibition: false,
-                      forVehicleType: ["psv", "hgv"],
-                    },
-                    {
-                      ref: "1.1.b",
-                      deficiencyId: "b",
-                      deficiencySubId: null,
-                      deficiencyCategory: "major",
-                      deficiencyText: "insecure.",
-                      deficiencyTextWelsh: "yn anniogel.",
-                      stdForProhibition: false,
-                      forVehicleType: ["psv", "hgv"],
-                    },
-                  ],
-                },
-                {
-                  itemNumber: 2,
-                  itemDescription: "A registration mark:",
-                  itemDescriptionWelsh: "Marc cofrestru",
-                  forVehicleType: ["psv", "hgv"],
-                  deficiencies: [
-                    {
-                      ref: "1.2.a",
-                      deficiencyId: "a",
-                      deficiencySubId: null,
-                      deficiencyCategory: "major",
-                      deficiencyText: "missing.",
-                      deficiencyTextWelsh: "ar goll.",
-                      stdForProhibition: false,
-                      forVehicleType: ["psv", "hgv"],
-                    },
-                    {
-                      ref: "1.2.b",
-                      deficiencyId: "b",
-                      deficiencySubId: null,
-                      deficiencyCategory: "major",
-                      deficiencyText: "illegible.",
-                      deficiencyTextWelsh: "annarllenadwy.",
-                      stdForProhibition: false,
-                      forVehicleType: ["psv", "hgv"],
-                    },
-                    {
-                      ref: "1.2.c",
-                      deficiencyId: "c",
-                      deficiencySubId: null,
-                      deficiencyCategory: "major",
-                      deficiencyText:
-                        "not in accordance with the requirements. (There is a changed value here)",
-                      deficiencyTextWelsh: "ddim yn unol â'r gofynion.",
-                      stdForProhibition: false,
-                      forVehicleType: ["psv", "hgv"],
-                    },
-                  ],
-                },
-              ],
+              idNumber: 1,
+              shouldItExist: "keep",
+            },
+            {
+              id: 2,
+              idNumber: 2,
+              shouldItExist: "remove",
+            },
+            {
+              id: 3,
+              idNumber: 3,
+              shouldItExist: "keep",
+            },
+            {
+              id: 4,
+              idNumber: 4,
+              shouldItExist: "remove",
+            },
+            {
+              id: 5,
+              idNumber: 5,
+              shouldItExist: "keep",
+            },
+            {
+              id: 6,
+              idNumber: 6,
+              shouldItExist: "remove",
+            },
+            {
+              id: 7,
+              idNumber: 7,
+              shouldItExist: "remove",
+            },
+            {
+              id: 8,
+              idNumber: 8,
+              shouldItExist: "keep",
             },
           ],
-          Count: 2,
+          Count: 9,
         };
-        const { id, restrictionsDates, ...expectedDefect } = defects.Items[1];
         const MockDefectsDAO = jest.fn().mockImplementation(() => {
           return {
             getAll: () => {
@@ -233,17 +132,24 @@ describe("when calling service method getDefectList", () => {
             },
           };
         });
+        console.log(
+          "config",
+          JSON.stringify(
+            defects.Items[0]?.config?.map((value: any) => ({
+              ...value,
+              id: value.id + 62,
+            })),
+          ),
+        );
         jest.useFakeTimers();
-        jest.setSystemTime(new Date(2025, 0, 15, 0, 0, 0, 0));
+        jest.setSystemTime(dateAndTime);
+        const expectedDefects = defects.Items.filter(
+          (value: any) => value.shouldItExist === "keep",
+        ).map(({ id: id, ...defect }) => defect);
         const mockDefectsDAO = new MockDefectsDAO();
         const service: DefectsService = new DefectsService(mockDefectsDAO);
         const returnedRecords = await service.getDefectList();
-        expect(returnedRecords).not.toBe(undefined);
-        expect(returnedRecords).not.toBe({});
-        expect(returnedRecords?.[1]).toEqual(undefined);
-        expect(returnedRecords?.length).toEqual(1);
-        expect(returnedRecords).toEqual([expectedDefect]);
-        expect(returnedRecords.length).toBe(1);
+        expect(returnedRecords).toEqual(expectedDefects);
       });
     });
 
