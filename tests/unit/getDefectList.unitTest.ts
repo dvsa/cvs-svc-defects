@@ -6,82 +6,11 @@ describe("when calling service method getDefectList", () => {
   describe("when database is on", () => {
     context("when defectsDAO getAll resolves promise with data", () => {
       it("should return a defect item", async () => {
-        const dateAndTime = new Date();
-        const timeDifference = 300 * 1000;
+        let dateAndTime = new Date();
+        dateAndTime = new Date(dateAndTime.getTime() + 900 * 1000);
+        const timeDifference = 600 * 1000;
         const defects = {
           Items: [
-            {
-              config: [
-                // all the comment before each object in this
-                // array are applied against current date of 2025-01-15T00:00:00.000Z
-                // current is equal or later than start date keeps it
-                {
-                  startDate: dateAndTime.toISOString(),
-                  stopDate: null,
-                  id: 1, // 63
-                },
-                // current is before start date removes it
-                {
-                  startDate: new Date(
-                    dateAndTime.getTime() + timeDifference,
-                  ).toISOString(),
-                  stopDate: null,
-                  id: 2, // 64
-                },
-                // current is before stop date keeps it
-                {
-                  startDate: null,
-                  stopDate: new Date(
-                    dateAndTime.getTime() + timeDifference,
-                  ).toISOString(),
-                  id: 3, // 65
-                },
-                // current is after stop date removes it
-                {
-                  startDate: null,
-                  stopDate: new Date(
-                    dateAndTime.getTime() - timeDifference,
-                  ).toISOString(),
-                  id: 4, // 66
-                },
-                // current is after start date and before stop date keep it
-                {
-                  startDate: new Date(
-                    dateAndTime.getTime() - timeDifference,
-                  ).toISOString(),
-                  stopDate: new Date(
-                    dateAndTime.getTime() + timeDifference,
-                  ).toISOString(),
-                  id: 5, // 67
-                },
-                // current is before start date and before stop date remove it
-                {
-                  startDate: new Date(
-                    dateAndTime.getTime() - timeDifference,
-                  ).toISOString(),
-                  stopDate: new Date(
-                    dateAndTime.getTime() - timeDifference,
-                  ).toISOString(),
-                  id: 6, // 68
-                },
-                // current is after start date and after stop date remove it
-                {
-                  startDate: new Date(
-                    dateAndTime.getTime() + timeDifference,
-                  ).toISOString(),
-                  stopDate: new Date(
-                    dateAndTime.getTime() + timeDifference,
-                  ).toISOString(),
-                  id: 7, // 69
-                },
-                // neither exist keep it
-                {
-                  startDate: null,
-                  stopDate: null,
-                  id: 8, // 70
-                },
-              ],
-            },
             {
               id: 1,
               idNumber: 1,
@@ -132,15 +61,6 @@ describe("when calling service method getDefectList", () => {
             },
           };
         });
-        console.log(
-          "config",
-          JSON.stringify(
-            defects.Items[0]?.config?.map((value: any) => ({
-              ...value,
-              id: value.id + 62,
-            })),
-          ),
-        );
         jest.useFakeTimers();
         jest.setSystemTime(dateAndTime);
         const expectedDefects = defects.Items.filter(
@@ -148,6 +68,77 @@ describe("when calling service method getDefectList", () => {
         ).map(({ id: id, ...defect }) => defect);
         const mockDefectsDAO = new MockDefectsDAO();
         const service: DefectsService = new DefectsService(mockDefectsDAO);
+        // @ts-ignore
+        jest.spyOn(service, "getConfig").mockImplementation(async () => [
+          // all the comment before each object in this
+          // array are applied against current date of 2025-01-15T00:00:00.000Z
+          // current is equal or later than start date keeps it
+          {
+            startDate: dateAndTime.toISOString(),
+            stopDate: null,
+            id: 1, // 63
+          },
+          // current is before start date removes it
+          {
+            startDate: new Date(
+              dateAndTime.getTime() + timeDifference,
+            ).toISOString(),
+            stopDate: null,
+            id: 2, // 64
+          },
+          // current is before stop date keeps it
+          {
+            startDate: null,
+            stopDate: new Date(
+              dateAndTime.getTime() + timeDifference,
+            ).toISOString(),
+            id: 3, // 65
+          },
+          // current is after stop date removes it
+          {
+            startDate: null,
+            stopDate: new Date(
+              dateAndTime.getTime() - timeDifference,
+            ).toISOString(),
+            id: 4, // 66
+          },
+          // current is after start date and before stop date keep it
+          {
+            startDate: new Date(
+              dateAndTime.getTime() - timeDifference,
+            ).toISOString(),
+            stopDate: new Date(
+              dateAndTime.getTime() + timeDifference,
+            ).toISOString(),
+            id: 5, // 67
+          },
+          // current is before start date and before stop date remove it
+          {
+            startDate: new Date(
+              dateAndTime.getTime() - timeDifference,
+            ).toISOString(),
+            stopDate: new Date(
+              dateAndTime.getTime() - timeDifference,
+            ).toISOString(),
+            id: 6, // 68
+          },
+          // current is after start date and after stop date remove it
+          {
+            startDate: new Date(
+              dateAndTime.getTime() + timeDifference,
+            ).toISOString(),
+            stopDate: new Date(
+              dateAndTime.getTime() + timeDifference,
+            ).toISOString(),
+            id: 7, // 69
+          },
+          // neither exist keep it
+          {
+            startDate: null,
+            stopDate: null,
+            id: 8, // 70
+          },
+        ]);
         const returnedRecords = await service.getDefectList();
         expect(returnedRecords).toEqual(expectedDefects);
       });

@@ -69,9 +69,11 @@
     "ts-node": "^10.9.1",
     "tslint": "^5.20.1",
     "tslint-jsdoc-rules": "^0.2.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@aws-sdk/client-appconfigdata": "^3.637.0",
+    "@aws-lambda-powertools/parameters": "2.11.0",
     "@aws-sdk/client-dynamodb": "^3.637.0",
     "@aws-sdk/lib-dynamodb": "^3.637.0",
     "@smithy/smithy-client": "^2.5.0",
@@ -81,7 +83,8 @@
     "js-yaml": "3.14.1",
     "node-yaml": "4.0.1",
     "path-parser": "^6.1.0",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "@types/aws-lambda": "^8.10.145"
   },
   "jestSonar": {
     "reportPath": ".reports",
