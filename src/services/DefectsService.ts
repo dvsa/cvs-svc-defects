@@ -23,7 +23,6 @@ export class DefectsService {
           (await this.getConfig()) as IDateConstraints[];
 
         const currentDate: number = new Date().valueOf();
-        data.Items.sort((a: any, b: any) => a.id - b.id);
         const arrayOfIdsToBeRemoved: number[] = configFromAppConfig
           .filter((value: IDateConstraints) => {
             const beforeStartDate: boolean = value?.startDate
@@ -43,9 +42,6 @@ export class DefectsService {
           return !arrayOfIdsToBeRemoved.includes(value.id);
         })
           .map((defect: any) => {
-            if (defect?.restrictionsDates) {
-              delete defect.restrictionsDates;
-            }
             delete defect.id;
             return defect;
           })
@@ -88,7 +84,7 @@ export class DefectsService {
     // @ts-ignore
     // tslint:disable-next-line:radix
     const MAX_AGE: number = Number.parseInt(
-      process.env.FEATURE_FLAGS_MAX_AGE ?? 5 * 60,
+      process.env.FEATURE_FLAGS_MAX_AGE ?? (5 * 60).toString(),
     );
     const ENVIRONMENT_NAME = process.env.BRANCH ?? "local";
     const APP_NAME: string =
