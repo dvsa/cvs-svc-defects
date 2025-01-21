@@ -52,7 +52,7 @@ describe("when calling service method getDefectList", () => {
                   deficiencies: [
                     {
                       ref: "1.1.a",
-                      deficiencyId: "keep",
+                      deficiencyId: "keep1",
                       deficiencySubId: null,
                       deficiencyCategory: "major",
                       deficiencyText: "missing.",
@@ -63,7 +63,7 @@ describe("when calling service method getDefectList", () => {
                     },
                     {
                       ref: "1.1.a",
-                      deficiencyId: "remove",
+                      deficiencyId: "remove2",
                       deficiencySubId: null,
                       deficiencyCategory: "major",
                       deficiencyText: "missing.",
@@ -74,7 +74,7 @@ describe("when calling service method getDefectList", () => {
                     },
                     {
                       ref: "1.1.a",
-                      deficiencyId: "keep",
+                      deficiencyId: "keep3",
                       deficiencySubId: null,
                       deficiencyCategory: "major",
                       deficiencyText: "missing.",
@@ -85,7 +85,7 @@ describe("when calling service method getDefectList", () => {
                     },
                     {
                       ref: "1.1.a",
-                      deficiencyId: "remove",
+                      deficiencyId: "remove4",
                       deficiencySubId: null,
                       deficiencyCategory: "major",
                       deficiencyText: "missing.",
@@ -96,7 +96,7 @@ describe("when calling service method getDefectList", () => {
                     },
                     {
                       ref: "1.1.a",
-                      deficiencyId: "keep",
+                      deficiencyId: "keep5",
                       deficiencySubId: null,
                       deficiencyCategory: "major",
                       deficiencyText: "missing.",
@@ -108,7 +108,7 @@ describe("when calling service method getDefectList", () => {
                     },
                     {
                       ref: "1.1.a",
-                      deficiencyId: "remove",
+                      deficiencyId: "remove6",
                       deficiencySubId: null,
                       deficiencyCategory: "major",
                       deficiencyText: "missing.",
@@ -120,7 +120,7 @@ describe("when calling service method getDefectList", () => {
                     },
                     {
                       ref: "1.1.a",
-                      deficiencyId: "remove",
+                      deficiencyId: "remove7",
                       deficiencySubId: null,
                       deficiencyCategory: "major",
                       deficiencyText: "missing.",
@@ -197,16 +197,97 @@ describe("when calling service method getDefectList", () => {
         const expectedDefects: IDefectParent[] = defects?.Items;
         delete expectedDefects[0]?.id;
 
-        expectedDefects[0]?.items[0].deficiencies.filter((deficiency) => {
-          return deficiency?.deficiencyId === "remove";
-        }).map((deficiency) => {
-          if (deficiency?.effectiveFrom) {
-            delete deficiency.effectiveFrom;
+        expectedDefects[0].items[0].deficiencies = [{
+            ref: "1.1.a",
+            deficiencyId: "keep1",
+            deficiencySubId: null,
+            deficiencyCategory: "major",
+            deficiencyText: "missing.",
+            deficiencyTextWelsh: "ar goll.",
+            stdForProhibition: false,
+            forVehicleType: ["psv", "hgv"],
+            // effectiveFrom: "2022-01-02" // current is after
+          },
+          // {
+          //   ref: "1.1.a",
+          //   deficiencyId: "remove2",
+          //   deficiencySubId: null,
+          //   deficiencyCategory: "major",
+          //   deficiencyText: "missing.",
+          //   deficiencyTextWelsh: "ar goll.",
+          //   stdForProhibition: false,
+          //   forVehicleType: ["psv", "hgv"],
+          //   effectiveFrom: "2022-01-03" // current is before
+          // },
+          {
+            ref: "1.1.a",
+            deficiencyId: "keep3",
+            deficiencySubId: null,
+            deficiencyCategory: "major",
+            deficiencyText: "missing.",
+            deficiencyTextWelsh: "ar goll.",
+            stdForProhibition: false,
+            forVehicleType: ["psv", "hgv"],
+            // effectiveTo: "2022-01-02" // current is before
+          },
+          // {
+          //   ref: "1.1.a",
+          //   deficiencyId: "remove4",
+          //   deficiencySubId: null,
+          //   deficiencyCategory: "major",
+          //   deficiencyText: "missing.",
+          //   deficiencyTextWelsh: "ar goll.",
+          //   stdForProhibition: false,
+          //   forVehicleType: ["psv", "hgv"],
+          //   effectiveTo: "2022-01-01" // current is after
+          // },
+          {
+            ref: "1.1.a",
+            deficiencyId: "keep5",
+            deficiencySubId: null,
+            deficiencyCategory: "major",
+            deficiencyText: "missing.",
+            deficiencyTextWelsh: "ar goll.",
+            stdForProhibition: false,
+            forVehicleType: ["psv", "hgv"],
+            // effectiveFrom: "2022-01-01", // current is after
+            // effectiveTo: "2022-01-05" // current is before
+          },
+          // {
+          //   ref: "1.1.a",
+          //   deficiencyId: "remove6",
+          //   deficiencySubId: null,
+          //   deficiencyCategory: "major",
+          //   deficiencyText: "missing.",
+          //   deficiencyTextWelsh: "ar goll.",
+          //   stdForProhibition: false,
+          //   forVehicleType: ["psv", "hgv"],
+          //   effectiveFrom: "2022-01-01", // current is after
+          //   effectiveTo: "2022-01-02" // current is equal
+          // },
+          // {
+          //   ref: "1.1.a",
+          //   deficiencyId: "remove7",
+          //   deficiencySubId: null,
+          //   deficiencyCategory: "major",
+          //   deficiencyText: "missing.",
+          //   deficiencyTextWelsh: "ar goll.",
+          //   stdForProhibition: false,
+          //   forVehicleType: ["psv", "hgv"],
+          //   effectiveFrom: "2022-01-05", // current is before
+          //   effectiveTo: "2022-01-05" // current is before
+          // },
+          {
+            ref: "1.1.b",
+            deficiencyId: "b",
+            deficiencySubId: null,
+            deficiencyCategory: "major",
+            deficiencyText: "insecure.",
+            deficiencyTextWelsh: "yn anniogel.",
+            stdForProhibition: false,
+            forVehicleType: ["psv", "hgv"]
           }
-          if (deficiency?.effectiveTo) {
-            delete deficiency.effectiveTo;
-          }
-        });
+        ];
 
         const mockDefectsDAO = new MockDefectsDAO();
         const service: DefectsService = new DefectsService(mockDefectsDAO);
