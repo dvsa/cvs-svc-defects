@@ -1,55 +1,186 @@
 import { DefectsService } from "../../src/services/DefectsService";
 import { HTTPError } from "../../src/models/HTTPError";
 import { cloneDeep } from "lodash";
+import { IDefectParent } from "../../src/models/Defects";
 
 describe("when calling service method getDefectList", () => {
   describe("when database is on", () => {
     context("when defectsDAO getAll resolves promise with data", () => {
       it("should return a defect item", async () => {
-        let dateAndTime = new Date();
-        dateAndTime = new Date(dateAndTime.getTime() + 900 * 1000);
-        const timeDifference = 600 * 1000;
-        const defects = {
+        const passedInDate: string = "2022-01-02";
+        const defects: { Count: number, Items: IDefectParent[] } = {
           Items: [
             {
-              id: 63,
-              idNumber: 63,
-              shouldItExist: "keep",
-            },
-            {
-              id: 64,
-              idNumber: 64,
-              shouldItExist: "remove",
-            },
-            {
-              id: 65,
-              idNumber: 65,
-              shouldItExist: "keep",
-            },
-            {
-              id:66,
-              idNumber:66,
-              shouldItExist: "remove",
-            },
-            {
-              id: 67,
-              idNumber: 67,
-              shouldItExist: "keep",
-            },
-            {
-              id: 68,
-              idNumber: 68,
-              shouldItExist: "remove",
-            },
-            {
-              id: 69,
-              idNumber: 69,
-              shouldItExist: "remove",
-            },
-            {
-              id: 70,
-              idNumber: 70,
-              shouldItExist: "keep",
+              id: 1,
+              imNumber: 1,
+              imDescription: "Registration Plate",
+              imDescriptionWelsh: "Plât Cofrestru",
+              forVehicleType: ["psv", "hgv"],
+              additionalInfo: {
+                psv: {
+                  location: {
+                    vertical: null,
+                    horizontal: null,
+                    lateral: null,
+                    longitudinal: ["front", "rear"],
+                    rowNumber: null,
+                    seatNumber: null,
+                    axleNumber: null
+                  },
+                  notes: false
+                },
+                hgv: {
+                  location: {
+                    vertical: null,
+                    horizontal: null,
+                    lateral: null,
+                    longitudinal: ["front", "rear"],
+                    rowNumber: null,
+                    seatNumber: null,
+                    axleNumber: null
+                  },
+                  notes: false
+                },
+                trl: {}
+              },
+              items: [
+                {
+                  itemNumber: 1,
+                  itemDescription: "A registration plate:",
+                  itemDescriptionWelsh: "Plât cofrestru:",
+                  forVehicleType: ["psv", "hgv"],
+                  deficiencies: [
+                    {
+                      ref: "1.1.a",
+                      deficiencyId: "keep",
+                      deficiencySubId: null,
+                      deficiencyCategory: "major",
+                      deficiencyText: "missing.",
+                      deficiencyTextWelsh: "ar goll.",
+                      stdForProhibition: false,
+                      forVehicleType: ["psv", "hgv"],
+                      effectiveFrom: "2022-01-02" // current is after
+                    },
+                    {
+                      ref: "1.1.a",
+                      deficiencyId: "remove",
+                      deficiencySubId: null,
+                      deficiencyCategory: "major",
+                      deficiencyText: "missing.",
+                      deficiencyTextWelsh: "ar goll.",
+                      stdForProhibition: false,
+                      forVehicleType: ["psv", "hgv"],
+                      effectiveFrom: "2022-01-03" // current is before
+                    },
+                    {
+                      ref: "1.1.a",
+                      deficiencyId: "keep",
+                      deficiencySubId: null,
+                      deficiencyCategory: "major",
+                      deficiencyText: "missing.",
+                      deficiencyTextWelsh: "ar goll.",
+                      stdForProhibition: false,
+                      forVehicleType: ["psv", "hgv"],
+                      effectiveTo: "2022-01-02" // current is before
+                    },
+                    {
+                      ref: "1.1.a",
+                      deficiencyId: "remove",
+                      deficiencySubId: null,
+                      deficiencyCategory: "major",
+                      deficiencyText: "missing.",
+                      deficiencyTextWelsh: "ar goll.",
+                      stdForProhibition: false,
+                      forVehicleType: ["psv", "hgv"],
+                      effectiveTo: "2022-01-01" // current is after
+                    },
+                    {
+                      ref: "1.1.a",
+                      deficiencyId: "keep",
+                      deficiencySubId: null,
+                      deficiencyCategory: "major",
+                      deficiencyText: "missing.",
+                      deficiencyTextWelsh: "ar goll.",
+                      stdForProhibition: false,
+                      forVehicleType: ["psv", "hgv"],
+                      effectiveFrom: "2022-01-01", // current is after
+                      effectiveTo: "2022-01-05" // current is before
+                    },
+                    {
+                      ref: "1.1.a",
+                      deficiencyId: "remove",
+                      deficiencySubId: null,
+                      deficiencyCategory: "major",
+                      deficiencyText: "missing.",
+                      deficiencyTextWelsh: "ar goll.",
+                      stdForProhibition: false,
+                      forVehicleType: ["psv", "hgv"],
+                      effectiveFrom: "2022-01-01", // current is after
+                      effectiveTo: "2022-01-02" // current is equal
+                    },
+                    {
+                      ref: "1.1.a",
+                      deficiencyId: "remove",
+                      deficiencySubId: null,
+                      deficiencyCategory: "major",
+                      deficiencyText: "missing.",
+                      deficiencyTextWelsh: "ar goll.",
+                      stdForProhibition: false,
+                      forVehicleType: ["psv", "hgv"],
+                      effectiveFrom: "2022-01-05", // current is before
+                      effectiveTo: "2022-01-05" // current is before
+                    },
+                    {
+                      ref: "1.1.b",
+                      deficiencyId: "b",
+                      deficiencySubId: null,
+                      deficiencyCategory: "major",
+                      deficiencyText: "insecure.",
+                      deficiencyTextWelsh: "yn anniogel.",
+                      stdForProhibition: false,
+                      forVehicleType: ["psv", "hgv"]
+                    }
+                  ]
+                },
+                {
+                  itemNumber: 2,
+                  itemDescription: "A registration mark:",
+                  itemDescriptionWelsh: "Marc cofrestru",
+                  forVehicleType: ["psv", "hgv"],
+                  deficiencies: [
+                    {
+                      ref: "1.2.a",
+                      deficiencyId: "a",
+                      deficiencySubId: null,
+                      deficiencyCategory: "major",
+                      deficiencyText: "missing.",
+                      deficiencyTextWelsh: "ar goll.",
+                      stdForProhibition: false,
+                      forVehicleType: ["psv", "hgv"]
+                    },
+                    {
+                      ref: "1.2.b",
+                      deficiencyId: "b",
+                      deficiencySubId: null,
+                      deficiencyCategory: "major",
+                      deficiencyText: "illegible.",
+                      deficiencyTextWelsh: "annarllenadwy.",
+                      stdForProhibition: false,
+                      forVehicleType: ["psv", "hgv"]
+                    },
+                    {
+                      ref: "1.2.c",
+                      deficiencyId: "c",
+                      deficiencySubId: null,
+                      deficiencyCategory: "major",
+                      deficiencyText: "not in accordance with the requirements.",
+                      deficiencyTextWelsh: "ddim yn unol â'r gofynion.",
+                      stdForProhibition: false,
+                      forVehicleType: ["psv", "hgv"]
+                    }
+                  ]
+                }
+              ]
             },
           ],
           Count: 9,
@@ -62,83 +193,23 @@ describe("when calling service method getDefectList", () => {
           };
         });
         jest.useFakeTimers();
-        jest.setSystemTime(dateAndTime);
-        const expectedDefects = defects.Items.filter(
-          (value: any) => value.shouldItExist === "keep",
-        ).map(({ id: id, ...defect }) => defect);
+        jest.setSystemTime(new Date(passedInDate));
+        const expectedDefects: IDefectParent[] = defects?.Items;
+        delete expectedDefects[0]?.id;
+
+        expectedDefects[0]?.items[0].deficiencies.filter((deficiency) => {
+          return deficiency?.deficiencyId === "remove";
+        }).map((deficiency) => {
+          if (deficiency?.effectiveFrom) {
+            delete deficiency.effectiveFrom;
+          }
+          if (deficiency?.effectiveTo) {
+            delete deficiency.effectiveTo;
+          }
+        });
+
         const mockDefectsDAO = new MockDefectsDAO();
         const service: DefectsService = new DefectsService(mockDefectsDAO);
-        // @ts-ignore
-        jest.spyOn(service, "getConfig").mockImplementation(async () => [
-          // all the comment before each object in this
-          // array are applied against current date of 2025-01-15T00:00:00.000Z
-          // current is equal or later than start date keeps it
-          {
-            startDate: dateAndTime.toISOString(),
-            stopDate: null,
-            id: 63, // 63
-          },
-          // current is before start date removes it
-          {
-            startDate: new Date(
-              dateAndTime.getTime() + timeDifference,
-            ).toISOString(),
-            stopDate: null,
-            id: 64, // 64
-          },
-          // current is before stop date keeps it
-          {
-            startDate: null,
-            stopDate: new Date(
-              dateAndTime.getTime() + timeDifference,
-            ).toISOString(),
-            id: 65, // 65
-          },
-          // current is after stop date removes it
-          {
-            startDate: null,
-            stopDate: new Date(
-              dateAndTime.getTime() - timeDifference,
-            ).toISOString(),
-            id:66, // 66
-          },
-          // current is after start date and before stop date keep it
-          {
-            startDate: new Date(
-              dateAndTime.getTime() - timeDifference,
-            ).toISOString(),
-            stopDate: new Date(
-              dateAndTime.getTime() + timeDifference,
-            ).toISOString(),
-            id: 67, // 67
-          },
-          // current is before start date and before stop date remove it
-          {
-            startDate: new Date(
-              dateAndTime.getTime() - timeDifference,
-            ).toISOString(),
-            stopDate: new Date(
-              dateAndTime.getTime() - timeDifference,
-            ).toISOString(),
-            id: 68, // 68
-          },
-          // current is after start date and after stop date remove it
-          {
-            startDate: new Date(
-              dateAndTime.getTime() + timeDifference,
-            ).toISOString(),
-            stopDate: new Date(
-              dateAndTime.getTime() + timeDifference,
-            ).toISOString(),
-            id: 69, // 69
-          },
-          // neither exist keep it
-          {
-            startDate: null,
-            stopDate: null,
-            id: 70, // 70
-          },
-        ]);
         const returnedRecords = await service.getDefectList();
         expect(returnedRecords).toEqual(expectedDefects);
       });

@@ -1,7 +1,7 @@
 import { HTTPError } from "../models/HTTPError";
 import { DefectsDAO } from "../models/DefectsDAO";
-import { IDateConstraints } from "../models/DateConstraints";
-import { getAppConfig } from "@aws-lambda-powertools/parameters/appconfig";
+import { IDefectChild, IDefectParent } from "../models/Defects";
+import { ScanOutput } from "@aws-sdk/client-dynamodb";
 
 export class DefectsService {
   public readonly defectsDAO: DefectsDAO;
@@ -10,58 +10,56 @@ export class DefectsService {
     this.defectsDAO = defectsDAO;
   }
 
-  public getDefectList() {
-    return this.defectsDAO
-      .getAll()
-      .then(async (data: any) => {
-        if (data.Count === 0) {
-          throw new HTTPError(404, "No resources match the search criteria.");
-        }
+  public async getDefectList(dateToUse?: string): Promise<IDefectParent[]>  {
+    let defectDBResult: ScanOutput;
+    try {
+      defectDBResult = await this.defectsDAO.getAll() as ScanOutput;
+    } catch (e) {
+      const error = e as { statusCode: number, body: string; };
+      if (!(error instanceof HTTPError)) {
+        console.error(error);
+        error.statusCode = 500;
+        error.body = "Internal Server Error";
+      }
+      throw new HTTPError(error.statusCode, error.body);
+    }
 
-        // @ts-ignore
-        const configFromAppConfig =
-          (await this.getConfig()) as IDateConstraints[];
+    const arrayOfDefectParent: IDefectParent[] = defectDBResult.Items as unknown as IDefectParent[];
+    if (defectDBResult.Count === 0) {
+      throw new HTTPError(404, "No resources match the search criteria.");
+    }
 
-        const currentDate: number = new Date().valueOf();
-        const arrayOfIdsToBeRemoved: number[] = configFromAppConfig
-          .filter((value: IDateConstraints) => {
-            const beforeStartDate: boolean = value?.startDate
-              ? new Date(value.startDate).valueOf() > currentDate
+    const currentDate: number = dateToUse ? new Date(dateToUse).valueOf() : new Date().valueOf();
+    return arrayOfDefectParent.map((defectParent: IDefectParent & { id?: number }) => {
+        defectParent.items.forEach((item) => {
+          item.deficiencies.filter((definceny: IDefectChild) => {
+            const beforeStartDate: boolean = definceny?.effectiveFrom
+              ? new Date(definceny.effectiveFrom).valueOf() > currentDate
               : false;
-            const afterStopDate: boolean = value?.stopDate
-              ? new Date(value.stopDate).valueOf() < currentDate
+            const afterStopDate: boolean = definceny?.effectiveTo
+              ? new Date(definceny.effectiveTo).valueOf() < currentDate
               : false;
             return beforeStartDate || afterStopDate;
-          })
-          .map((value: IDateConstraints): number => value.id);
-
-        // const beforeStartDate: boolean = value?.startDate ? (((currentDate - new Date(value.startDate).valueOf() >> 31) & 1) === 1)  : false;
-        // const afterStopDate: boolean = value?.stopDate ? (((new Date(value.stopDate).valueOf() - currentDate >> 31) & 1) === 1)  : false;
-
-        return data.Items.filter((value: any) => {
-          return !arrayOfIdsToBeRemoved.includes(value.id);
-        })
-          .map((defect: any) => {
-            delete defect.id;
-            return defect;
-          })
-          .sort(
-            (
-              first: { imNumber: number },
-              second: { imNumber: number },
-            ): number => {
-              return first.imNumber - second.imNumber;
-            },
-          );
+          }).map((deficiency: IDefectChild) => {
+            if (deficiency?.effectiveFrom) {
+              delete deficiency.effectiveFrom;
+            }
+            if (deficiency?.effectiveTo) {
+              delete deficiency.effectiveTo;
+            }
+          });
+        });
+        delete defectParent.id;
+        return defectParent;
       })
-      .catch((error) => {
-        if (!(error instanceof HTTPError)) {
-          console.error(error);
-          error.statusCode = 500;
-          error.body = "Internal Server Error";
-        }
-        throw new HTTPError(error.statusCode, error.body);
-      });
+      .sort(
+        (
+          first: IDefectParent,
+          second: IDefectParent,
+        ): number => {
+          return first.imNumber - second.imNumber;
+        },
+      );
   }
 
   public insertDefectList(defectItems: any) {
@@ -78,33 +76,6 @@ export class DefectsService {
           throw new HTTPError(500, "Internal Server Error");
         }
       });
-  }
-
-  private async getConfig(): Promise<IDateConstraints[] | undefined> {
-    // @ts-ignore
-    // tslint:disable-next-line:radix
-    const MAX_AGE: number = Number.parseInt(
-      process.env.FEATURE_FLAGS_MAX_AGE ?? (5 * 60).toString(),
-    );
-    const ENVIRONMENT_NAME = process.env.BRANCH ?? "local";
-    const APP_NAME: string =
-      process.env.FEATURE_FLAGS_APP_NAME ?? "cvs-app-config";
-    const REQUEST_TIMEOUT = process.env.REQUEST_TIMEOUT ?? 10000;
-    try {
-      return (await getAppConfig("SpikeTesting-15861-configurationObject", {
-        application: APP_NAME,
-        environment: ENVIRONMENT_NAME,
-        maxAge: MAX_AGE,
-        requestTimeout: REQUEST_TIMEOUT,
-        transform: "json",
-      })) as IDateConstraints[];
-    } catch (error) {
-      // matching previous but probably bad implementation
-      if (error) {
-        console.error(error);
-        throw new HTTPError(500, "Internal ServerError");
-      }
-    }
   }
 
   public deleteDefectList(defectItemKeys: string[]) {
