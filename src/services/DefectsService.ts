@@ -56,7 +56,7 @@ export class DefectsService {
       })
       .catch((error) => {
         if (!(error instanceof HTTPError)) {
-          console.log(error);
+          console.error(error);
           error.statusCode = 500;
           error.body = "Internal Server Error";
         }
