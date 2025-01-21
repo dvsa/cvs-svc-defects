@@ -12,43 +12,43 @@ describe("when calling service method getDefectList", () => {
         const defects = {
           Items: [
             {
-              id: 1,
-              idNumber: 1,
+              id: 63,
+              idNumber: 63,
               shouldItExist: "keep",
             },
             {
-              id: 2,
-              idNumber: 2,
+              id: 64,
+              idNumber: 64,
               shouldItExist: "remove",
             },
             {
-              id: 3,
-              idNumber: 3,
+              id: 65,
+              idNumber: 65,
               shouldItExist: "keep",
             },
             {
-              id: 4,
-              idNumber: 4,
+              id:66,
+              idNumber:66,
               shouldItExist: "remove",
             },
             {
-              id: 5,
-              idNumber: 5,
+              id: 67,
+              idNumber: 67,
               shouldItExist: "keep",
             },
             {
-              id: 6,
-              idNumber: 6,
+              id: 68,
+              idNumber: 68,
               shouldItExist: "remove",
             },
             {
-              id: 7,
-              idNumber: 7,
+              id: 69,
+              idNumber: 69,
               shouldItExist: "remove",
             },
             {
-              id: 8,
-              idNumber: 8,
+              id: 70,
+              idNumber: 70,
               shouldItExist: "keep",
             },
           ],
@@ -76,7 +76,7 @@ describe("when calling service method getDefectList", () => {
           {
             startDate: dateAndTime.toISOString(),
             stopDate: null,
-            id: 1, // 63
+            id: 63, // 63
           },
           // current is before start date removes it
           {
@@ -84,7 +84,7 @@ describe("when calling service method getDefectList", () => {
               dateAndTime.getTime() + timeDifference,
             ).toISOString(),
             stopDate: null,
-            id: 2, // 64
+            id: 64, // 64
           },
           // current is before stop date keeps it
           {
@@ -92,7 +92,7 @@ describe("when calling service method getDefectList", () => {
             stopDate: new Date(
               dateAndTime.getTime() + timeDifference,
             ).toISOString(),
-            id: 3, // 65
+            id: 65, // 65
           },
           // current is after stop date removes it
           {
@@ -100,7 +100,7 @@ describe("when calling service method getDefectList", () => {
             stopDate: new Date(
               dateAndTime.getTime() - timeDifference,
             ).toISOString(),
-            id: 4, // 66
+            id:66, // 66
           },
           // current is after start date and before stop date keep it
           {
@@ -110,7 +110,7 @@ describe("when calling service method getDefectList", () => {
             stopDate: new Date(
               dateAndTime.getTime() + timeDifference,
             ).toISOString(),
-            id: 5, // 67
+            id: 67, // 67
           },
           // current is before start date and before stop date remove it
           {
@@ -120,7 +120,7 @@ describe("when calling service method getDefectList", () => {
             stopDate: new Date(
               dateAndTime.getTime() - timeDifference,
             ).toISOString(),
-            id: 6, // 68
+            id: 68, // 68
           },
           // current is after start date and after stop date remove it
           {
@@ -130,13 +130,13 @@ describe("when calling service method getDefectList", () => {
             stopDate: new Date(
               dateAndTime.getTime() + timeDifference,
             ).toISOString(),
-            id: 7, // 69
+            id: 69, // 69
           },
           // neither exist keep it
           {
             startDate: null,
             stopDate: null,
-            id: 8, // 70
+            id: 70, // 70
           },
         ]);
         const returnedRecords = await service.getDefectList();
