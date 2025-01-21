@@ -144,6 +144,17 @@ class Configuration {
 
     return this.config.dynamodb[env];
   }
+
+  /**
+   * Function to allow for testing of defect date fields
+   */
+  public getCurrentDateOverrideString(): string {
+    if (process.env.CURRENT_DATE_OVERRIDE) {
+      console.log("Current date override is set to: ", process.env.CURRENT_DATE_OVERRIDE);
+      return process.env.CURRENT_DATE_OVERRIDE;
+    }
+    return "";
+  }
 }
 
 export { Configuration, IFunctionEvent };

@@ -2,15 +2,18 @@ import { HTTPError } from "../models/HTTPError";
 import { DefectsDAO } from "../models/DefectsDAO";
 import { IDefectChild, IDefectParent } from "../models/Defects";
 import { ScanOutput } from "@aws-sdk/client-dynamodb";
+import { Configuration } from "../utils/Configuration";
 
 export class DefectsService {
   public readonly defectsDAO: DefectsDAO;
+  private readonly config: Configuration;
 
   constructor(defectsDAO: DefectsDAO) {
     this.defectsDAO = defectsDAO;
+    this.config = Configuration.getInstance();
   }
 
-  public async getDefectList(dateToUse?: string): Promise<IDefectParent[]>  {
+  public async getDefectList(): Promise<IDefectParent[]>  {
     let defectDBResult: ScanOutput;
     try {
       defectDBResult = await this.defectsDAO.getAll() as ScanOutput;
@@ -28,7 +31,7 @@ export class DefectsService {
     if (defectDBResult.Count === 0) {
       throw new HTTPError(404, "No resources match the search criteria.");
     }
-
+    const dateToUse: string = this.config.getCurrentDateOverrideString();
     const currentDate: number = dateToUse ? new Date(dateToUse).valueOf() : new Date().valueOf();
     return arrayOfDefectParent.map((defectParent: IDefectParent & { id?: number }) => {
         defectParent.items.forEach((item) => {
