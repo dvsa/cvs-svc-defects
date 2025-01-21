@@ -3,7 +3,6 @@ import { DefectsService } from "../../src/services/DefectsService";
 import mockContext, { Context } from "aws-lambda";
 import { HTTPResponse } from "../../src/models/HTTPResponse";
 import { HTTPError } from "../../src/models/HTTPError";
-import { IDefectParent, IItem } from '../../src/models/Defects';
 
 describe("getDefects Function", () => {
   const ctx = mockContext as Context;
