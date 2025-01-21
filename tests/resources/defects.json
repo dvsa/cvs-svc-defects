@@ -1,10 +1,6 @@
 [
   {
     "id": 1,
-    "restrictionsDates": {
-      "startDate": null,
-      "stopDate": "2025-01-14T23:59:59.999Z"
-    },
     "imNumber": 1,
     "imDescription": "Registration Plate",
     "imDescriptionWelsh": "Plât Cofrestru",
@@ -107,10 +103,6 @@
   },
   {
     "id": 0,
-    "restrictionsDates": {
-      "startDate": "2025-01-15T00:00:00.000Z",
-      "stopDate": null
-    },
     "imNumber": 1,
     "imDescription": "Registration Plate",
     "imDescriptionWelsh": "Plât Cofrestru",
