@@ -46,11 +46,9 @@ export class DefectsService {
           });
           item.deficiencies.map((deficiency: IDefectChild) => {
               if (deficiency?.effectiveFrom) {
-                // @ts-ignore
                 delete deficiency.effectiveFrom;
               }
               if (deficiency?.effectiveTo) {
-                // @ts-ignore
                 delete deficiency.effectiveTo;
               }
           });
