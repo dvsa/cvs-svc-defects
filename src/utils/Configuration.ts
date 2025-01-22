@@ -148,12 +148,12 @@ class Configuration {
   /**
    * Function to allow for testing of defect date fields
    */
-  public getCurrentDateOverrideString(): string {
+  public getCurrentDateOverride(): number | null {
     if (process.env.CURRENT_DATE_OVERRIDE) {
       console.log("Current date override is set to: ", process.env.CURRENT_DATE_OVERRIDE);
-      return process.env.CURRENT_DATE_OVERRIDE;
+      return new Date(process.env.CURRENT_DATE_OVERRIDE  + "T00:00:00.000Z").valueOf();
     }
-    return "";
+    return null;
   }
 }
 

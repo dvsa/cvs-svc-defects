@@ -31,25 +31,28 @@ export class DefectsService {
     if (defectDBResult.Count === 0) {
       throw new HTTPError(404, "No resources match the search criteria.");
     }
-    const dateToUse: string = this.config.getCurrentDateOverrideString();
-    const currentDate: number = dateToUse ? new Date(dateToUse).valueOf() : new Date().valueOf();
-    return arrayOfDefectParent.map((defectParent: IDefectParent & { id?: number }) => {
-        defectParent.items.forEach((item) => {
-          item.deficiencies.filter((definceny: IDefectChild) => {
-            const beforeStartDate: boolean = definceny?.effectiveFrom
-              ? new Date(definceny.effectiveFrom).valueOf() > currentDate
-              : false;
-            const afterStopDate: boolean = definceny?.effectiveTo
-              ? new Date(definceny.effectiveTo).valueOf() < currentDate
-              : false;
-            return beforeStartDate || afterStopDate;
-          }).map((deficiency: IDefectChild) => {
-            if (deficiency?.effectiveFrom) {
-              delete deficiency.effectiveFrom;
-            }
-            if (deficiency?.effectiveTo) {
-              delete deficiency.effectiveTo;
-            }
+    const dateToUse: number | null = this.config.getCurrentDateOverride();
+    const currentDate: number = dateToUse ?? new Date().valueOf();
+    return arrayOfDefectParent.map((defectParent: IDefectParent) => {
+        defectParent.items.map((item) => {
+          item.deficiencies = item.deficiencies.filter((deficiency: IDefectChild) => {
+            const currenAfterEffectiveFrom: boolean = deficiency?.effectiveFrom
+              ? currentDate >= new Date(deficiency.effectiveFrom + "T00:00:00.000Z").valueOf()
+              : true;
+            const currentBeforeEffectiveTo: boolean = deficiency?.effectiveTo
+              ? currentDate < new Date(deficiency.effectiveTo + "T00:00:00.000Z").valueOf()
+              : true;
+            return currenAfterEffectiveFrom && currentBeforeEffectiveTo;
+          });
+          item.deficiencies.map((deficiency: IDefectChild) => {
+              if (deficiency?.effectiveFrom) {
+                // @ts-ignore
+                delete deficiency.effectiveFrom;
+              }
+              if (deficiency?.effectiveTo) {
+                // @ts-ignore
+                delete deficiency.effectiveTo;
+              }
           });
         });
         delete defectParent.id;
