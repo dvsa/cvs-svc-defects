@@ -121,5 +121,5 @@ export class DefectsService {
     if (value?.effectiveTo !== undefined) {
       delete value.effectiveTo;
     }
-  };
+  }
 }

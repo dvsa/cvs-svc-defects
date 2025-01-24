@@ -9,29 +9,33 @@ describe("getDefects Function", () => {
 
   context("on success of downstream services", () => {
     it("returns 200 with data", async () => {
-      jest
-        .spyOn(DefectsService.prototype, "getDefectList")
-        .mockReturnValue(Promise.resolve([{
-          imNumber: 0,
-          imDescription: undefined,
-          imDescriptionWelsh: undefined,
-          forVehicleType: undefined,
-          additionalInfo: undefined,
-          items: [],
-        }]));
+      jest.spyOn(DefectsService.prototype, "getDefectList").mockReturnValue(
+        Promise.resolve([
+          {
+            imNumber: 0,
+            imDescription: undefined,
+            imDescriptionWelsh: undefined,
+            forVehicleType: undefined,
+            additionalInfo: undefined,
+            items: [],
+          },
+        ]),
+      );
       const res = await getDefects(null, ctx, () => {
         return;
       });
-      expect(res).toEqual(new HTTPResponse(200,
-        [{
-          imNumber: 0,
-          imDescription: undefined,
-          imDescriptionWelsh: undefined,
-          forVehicleType: undefined,
-          additionalInfo: undefined,
-          items: [],
-        }]
-      ));
+      expect(res).toEqual(
+        new HTTPResponse(200, [
+          {
+            imNumber: 0,
+            imDescription: undefined,
+            imDescriptionWelsh: undefined,
+            forVehicleType: undefined,
+            additionalInfo: undefined,
+            items: [],
+          },
+        ]),
+      );
     });
   });
 
