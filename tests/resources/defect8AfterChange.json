@@ -1,0 +1,530 @@
+{
+  "additionalInfo": {
+    "hgv": {
+      "location": {
+        "axleNumber": null,
+        "horizontal": null,
+        "lateral": ["nearside", "offside", "centre"],
+        "longitudinal": ["front", "rear"],
+        "rowNumber": null,
+        "seatNumber": null,
+        "vertical": null
+      },
+      "notes": false
+    },
+    "trl": {
+      "location": {
+        "axleNumber": null,
+        "horizontal": null,
+        "lateral": ["nearside", "offside", "centre"],
+        "longitudinal": ["front", "rear"],
+        "rowNumber": null,
+        "seatNumber": null,
+        "vertical": null
+      },
+      "notes": false
+    }
+  },
+  "forVehicleType": ["hgv", "trl"],
+  "imDescription": "Sideguards, Rear Under-Run Devices & Bumper Bars",
+  "imDescriptionWelsh": "Gardiau ochr, Dyfeisiau Tan-Red yn y Cefn a Bariau Bymper",
+  "imNumber": 9,
+  "items": [
+    {
+      "deficiencies": [
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "a",
+          "deficiencySubId": "i",
+          "deficiencyText": "insecure.",
+          "deficiencyTextWelsh": "yn anniogel.",
+          "forVehicleType": ["hgv", "trl"],
+          "ref": "9.1.a.i",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "dangerous",
+          "deficiencyId": "a",
+          "deficiencySubId": "ii",
+          "deficiencyText": "insecure to the extent that detachment is imminent.",
+          "deficiencyTextWelsh": "yn ansicr i'r graddau y mae datgysylltiad ar fin digwydd.",
+          "forVehicleType": ["hgv", "trl"],
+          "ref": "9.1.a.ii",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "b",
+          "deficiencySubId": null,
+          "deficiencyText": "has a jagged or projecting edge likely to cause injury.",
+          "deficiencyTextWelsh": "ag ymyl miniog neu bargodol sy'n debygol o achosi anaf.",
+          "forVehicleType": ["hgv", "trl"],
+          "ref": "9.1.b",
+          "stdForProhibition": false
+        }
+      ],
+      "forVehicleType": ["hgv", "trl"],
+      "itemDescription": "A bumper bar or bracket which is:",
+      "itemDescriptionWelsh": "Bar bymper neu fraced sydd:",
+      "itemNumber": 1
+    },
+    {
+      "deficiencies": [
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": null,
+          "deficiencySubId": null,
+          "deficiencyText": "to a vehicle required to have them fitted.",
+          "deficiencyTextWelsh": "i gerbyd sydd ei angen i'w gosod.",
+          "forVehicleType": ["trl"],
+          "ref": "9.2",
+          "stdForProhibition": false
+        }
+      ],
+      "forVehicleType": ["trl"],
+      "itemDescription": "A sideguard not fitted",
+      "itemDescriptionWelsh": "Giard ochr heb ei osod",
+      "itemNumber": 2
+    },
+    {
+      "deficiencies": [
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "a",
+          "deficiencySubId": null,
+          "deficiencyText": "to a vehicle required to have them fitted.",
+          "deficiencyTextWelsh": "i gerbyd sydd ei angen i'w gosod.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.2.a",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "b",
+          "deficiencySubId": "i",
+          "deficiencyText": "insecure.",
+          "deficiencyTextWelsh": "yn anniogel.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.2.b.i",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "dangerous",
+          "deficiencyId": "b",
+          "deficiencySubId": "ii",
+          "deficiencyText": "insecure to the extent that detachment is imminent.",
+          "deficiencyTextWelsh": "yn ansicr i'r graddau y mae datgysylltiad ar fin digwydd.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.2.b.ii",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "dangerous",
+          "deficiencyId": "c",
+          "deficiencySubId": null,
+          "deficiencyText": "cracked, fractured, corroded or damaged so that its effectiveness is reduced.",
+          "deficiencyTextWelsh": "wedi cracio, torri asgwrn, wedi cyrydu neu wedi'i ddifrodi fel bod ei effeithiolrwydd yn cael ei leihau.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.2.c",
+          "stdForProhibition": true
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "d",
+          "deficiencySubId": null,
+          "deficiencyText": "with exposed surfaces which are not smooth (e.g. projecting brackets, jagged edges, bolt heads that are not dome shaped).",
+          "deficiencyTextWelsh": "gydag arwynebau agored nad ydynt yn llyfn (e.e. cromfachau ymestynnol, ymylon miniog, pennau bolltau nad ydynt ar ffurf cromen).",
+          "forVehicleType": ["hgv"],
+          "ref": "9.2.d",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "e",
+          "deficiencySubId": null,
+          "deficiencyText": "with external corners or edges that are sharp.",
+          "deficiencyTextWelsh": "gyda chorneli allanol neu ymylon miniog.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.2.e",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "f",
+          "deficiencySubId": null,
+          "deficiencyText": "with incorrect dimensions.",
+          "deficiencyTextWelsh": "gyda dimensiynau anghywir.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.2.f",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "g",
+          "deficiencySubId": null,
+          "deficiencyText": "that is not continuous along the vehicle length in other than accepted circumstances.",
+          "deficiencyTextWelsh": "nad yw'n barhaus ar hyd hyd y cerbyd ac eithrio amgylchiadau a dderbynnir.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.2.g",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "h",
+          "deficiencySubId": null,
+          "deficiencyText": "that increases the overall width of the vehicle.",
+          "deficiencyTextWelsh": "sy'n cynyddu lled cyffredinol y cerbyd.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.2.h",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "i",
+          "deficiencySubId": null,
+          "deficiencyText": "with more than 550mm height from the ground to the lowest edge of the guard. (vehicle unladen or semi-trailer load platform horizontal).",
+          "deficiencyTextWelsh": "gyda mwy na 550mm o uchder o'r ddaear i ymyl isaf y gard. (llwyfan llwyth heb ei lwytho cerbyd neu lled-ôl-gerbyd llorweddol).",
+          "forVehicleType": ["hgv"],
+          "ref": "9.2.i",
+          "stdForProhibition": false
+        }
+      ],
+      "forVehicleType": ["hgv"],
+      "itemDescription": "A sideguard or bracket:",
+      "itemDescriptionWelsh": "Gard ochr neu fraced:",
+      "itemNumber": 2
+    },
+    {
+      "deficiencies": [
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": null,
+          "deficiencySubId": null,
+          "deficiencyText": "not fitted to a vehicle required to have one fitted.",
+          "deficiencyTextWelsh": "heb ei osod ar gerbyd mae angen gosod un.",
+          "forVehicleType": ["trl"],
+          "ref": "9.3.a",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "b",
+          "deficiencySubId": "i",
+          "deficiencyText": "insecure.",
+          "deficiencyTextWelsh": "yn anniogel.",
+          "forVehicleType": ["trl"],
+          "ref": "9.3.b.i",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "dangerous",
+          "deficiencyId": "b",
+          "deficiencySubId": "ii",
+          "deficiencyText": "insecure to the extent that detachment is imminent.",
+          "deficiencyTextWelsh": "yn ansicr i'r graddau y mae datgysylltiad ar fin digwydd.",
+          "forVehicleType": ["trl"],
+          "ref": "9.3.b.ii",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "dangerous",
+          "deficiencyId": "c",
+          "deficiencySubId": null,
+          "deficiencyText": "cracked, fractured, corroded or damaged so that its effectiveness is reduced.",
+          "deficiencyTextWelsh": "wedi cracio, torri asgwrn, wedi cyrydu neu wedi'i ddifrodi fel bod ei effeithiolrwydd yn cael ei leihau.",
+          "forVehicleType": ["trl"],
+          "ref": "9.3.c",
+          "stdForProhibition": true
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "d",
+          "deficiencySubId": null,
+          "deficiencyText": "with exposed surfaces which are not smooth (e.g. projecting brackets, jagged edges, bolt heads that are not dome shaped).",
+          "deficiencyTextWelsh": "gydag arwynebau agored nad ydynt yn llyfn (e.e. cromfachau ymestynnol, ymylon miniog, pennau bolltau nad ydynt ar ffurf cromen).",
+          "forVehicleType": ["trl"],
+          "ref": "9.3.d",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "e",
+          "deficiencySubId": null,
+          "deficiencyText": "with external corners or edges that are sharp.",
+          "deficiencyTextWelsh": "gyda chorneli allanol neu ymylon miniog.",
+          "forVehicleType": ["trl"],
+          "ref": "9.3.e",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "f",
+          "deficiencySubId": null,
+          "deficiencyText": "with incorrect dimensions.",
+          "deficiencyTextWelsh": "gyda dimensiynau anghywir.",
+          "forVehicleType": ["trl"],
+          "ref": "9.3.f",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "g",
+          "deficiencySubId": null,
+          "deficiencyText": "that is not continuous along the vehicle length in other than accepted circumstances.",
+          "deficiencyTextWelsh": "nad yw'n barhaus ar hyd hyd y cerbyd ac eithrio amgylchiadau a dderbynnir.",
+          "forVehicleType": ["trl"],
+          "ref": "9.3.g",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "h",
+          "deficiencySubId": null,
+          "deficiencyText": "that increases the overall width of the vehicle.",
+          "deficiencyTextWelsh": "sy'n cynyddu lled cyffredinol y cerbyd.",
+          "forVehicleType": ["trl"],
+          "ref": "9.3.h",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "i",
+          "deficiencySubId": null,
+          "deficiencyText": "with more than 550mm height from the ground to the lowest edge of the guard. (vehicle unladen or semi-trailer load platform horizontal).",
+          "deficiencyTextWelsh": "gyda mwy na 550mm o uchder o'r ddaear i ymyl isaf y gard. (llwyfan llwyth heb ei lwytho cerbyd neu lled-ôl-gerbyd llorweddol).",
+          "forVehicleType": ["trl"],
+          "ref": "9.3.i",
+          "stdForProhibition": false
+        }
+      ],
+      "forVehicleType": ["trl"],
+      "itemDescription": "A sideguard or bracket:",
+      "itemDescriptionWelsh": "Gard ochr neu fraced:",
+      "itemNumber": 3
+    },
+    {
+      "deficiencies": [
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "a",
+          "deficiencySubId": null,
+          "deficiencyText": "not fitted to a vehicle required to have one fitted.",
+          "deficiencyTextWelsh": "heb ei osod ar gerbyd mae angen gosod un.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.3.a",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "b",
+          "deficiencySubId": "i",
+          "deficiencyText": "insecure.",
+          "deficiencyTextWelsh": "yn anniogel.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.3.b.i",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "dangerous",
+          "deficiencyId": "b",
+          "deficiencySubId": "ii",
+          "deficiencyText": "insecure to the extent that detachment is imminent.",
+          "deficiencyTextWelsh": "yn ansicr i'r graddau y mae datgysylltiad ar fin digwydd.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.3.a.ii",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "dangerous",
+          "deficiencyId": "c",
+          "deficiencySubId": null,
+          "deficiencyText": "cracked, fractured, corroded or damaged so that its effectiveness is reduced.",
+          "deficiencyTextWelsh": "wedi cracio, torri asgwrn, wedi cyrydu neu wedi'i ddifrodi fel bod ei effeithiolrwydd yn cael ei leihau.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.3.c",
+          "stdForProhibition": true
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "d",
+          "deficiencySubId": null,
+          "deficiencyText": "that has a jagged edge.",
+          "deficiencyTextWelsh": "sydd ag ymyl miniog.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.3.d",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "e",
+          "deficiencySubId": null,
+          "deficiencyText": "with more than 550mm ground clearance (unladen).",
+          "deficiencyTextWelsh": "gyda mwy na 550mm o gliriad tir (heb lwyth).",
+          "forVehicleType": ["hgv"],
+          "ref": "9.3.e",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "f",
+          "deficiencySubId": null,
+          "deficiencyText": "which extends beyond the outer edge of the outermost rear tyre (see note in procedure and standards).",
+          "deficiencyTextWelsh": "sy'n ymestyn y tu hwnt i ymyl allanol y teiar cefn mwyaf allanol (gweler y nodyn yn y weithdrefn a'r safonau).",
+          "forVehicleType": ["hgv"],
+          "ref": "9.3.f",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "g",
+          "deficiencySubId": null,
+          "deficiencyText": "with the outer end of the device more than 100mm inboard of the outer edge of the outermost rear tyre (or more than 300mm inboard where a demountable body is fitted).",
+          "deficiencyTextWelsh": "gyda phen allanol y dyfais yn fwy na 100mm i mewn i ymyl allanol y teiar cefn mwyaf allanol (neu fwy na 300mm i mewn i fwrdd lle mae corff symudadwy wedi'i osod).",
+          "forVehicleType": ["hgv"],
+          "ref": "9.3.g",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "h",
+          "deficiencySubId": null,
+          "deficiencyText": "extends beyond the outermost width of the vehicle which is fitted with a tail lift.",
+          "deficiencyTextWelsh": "yn ymestyn y tu hwnt i led allanol y cerbyd sydd â lifft ôl.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.3.h",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "i",
+          "deficiencySubId": null,
+          "deficiencyText": "incomplete.",
+          "deficiencyTextWelsh": "anghyflawn.",
+          "forVehicleType": ["hgv"],
+          "ref": "9.3.i",
+          "stdForProhibition": false
+        }
+      ],
+      "forVehicleType": ["hgv"],
+      "itemDescription": "Rear Under-Run Device",
+      "itemDescriptionWelsh": "Dyfais Dan-redeg Cefn:",
+      "itemNumber": 3
+    },
+    {
+      "deficiencies": [
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": null,
+          "deficiencySubId": null,
+          "deficiencyText": "not fitted to a vehicle required to have one fitted.",
+          "deficiencyTextWelsh": "heb ei osod ar gerbyd mae angen gosod un.",
+          "forVehicleType": ["trl"],
+          "ref": "9.4",
+          "stdForProhibition": false
+        }
+      ],
+      "forVehicleType": ["trl"],
+      "itemDescription": "Rear Under-Run Device",
+      "itemDescriptionWelsh": "Dyfais Dan-redeg Cefn:",
+      "itemNumber": 4
+    },
+    {
+      "deficiencies": [
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "a",
+          "deficiencySubId": "i",
+          "deficiencyText": "insecure.",
+          "deficiencyTextWelsh": "yn anniogel.",
+          "forVehicleType": ["trl"],
+          "ref": "9.5.a.i",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "dangerous",
+          "deficiencyId": "a",
+          "deficiencySubId": "ii",
+          "deficiencyText": "insecure to the extent that detachment is imminent.",
+          "deficiencyTextWelsh": "yn ansicr i'r graddau y mae datgysylltiad ar fin digwydd.",
+          "forVehicleType": ["trl"],
+          "ref": "9.5.a.ii",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "dangerous",
+          "deficiencyId": "b",
+          "deficiencySubId": null,
+          "deficiencyText": "cracked, fractured, corroded or damaged so that its effectiveness is reduced.",
+          "deficiencyTextWelsh": "wedi cracio, torri asgwrn, wedi cyrydu neu wedi'i ddifrodi fel bod ei effeithiolrwydd yn cael ei leihau.",
+          "forVehicleType": ["trl"],
+          "ref": "9.5.b",
+          "stdForProhibition": true
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "c",
+          "deficiencySubId": null,
+          "deficiencyText": "that has a jagged edge.",
+          "deficiencyTextWelsh": "sydd ag ymyl miniog.",
+          "forVehicleType": ["trl"],
+          "ref": "9.5.c",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "d",
+          "deficiencySubId": null,
+          "deficiencyText": "with more than 550mm ground clearance (unladen).",
+          "deficiencyTextWelsh": "gyda mwy na 550mm o gliriad tir (heb lwyth).",
+          "forVehicleType": ["trl"],
+          "ref": "9.5.d",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "e",
+          "deficiencySubId": null,
+          "deficiencyText": "which extends beyond the outer edge of the outermost rear tyre (see note in procedure and standards).",
+          "deficiencyTextWelsh": "sy'n ymestyn y tu hwnt i ymyl allanol y teiar cefn mwyaf allanol (gweler y nodyn yn y weithdrefn a'r safonau).",
+          "forVehicleType": ["trl"],
+          "ref": "9.5.e",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "f",
+          "deficiencySubId": null,
+          "deficiencyText": "with the outer end of the device more than 100mm inboard of the outer edge of the outermost rear tyre (or more than 300mm inboard where a demountable body is fitted).",
+          "deficiencyTextWelsh": "gyda phen allanol y dyfais yn fwy na 100mm i mewn i ymyl allanol y teiar cefn mwyaf allanol (neu fwy na 300mm i mewn i fwrdd lle mae corff symudadwy wedi'i osod).",
+          "forVehicleType": ["trl"],
+          "ref": "9.5.f",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "g",
+          "deficiencySubId": null,
+          "deficiencyText": "extends beyond the outermost width of the vehicle which is fitted with a tail lift.",
+          "deficiencyTextWelsh": "yn ymestyn y tu hwnt i led allanol y cerbyd sydd â lifft ôl.",
+          "forVehicleType": ["trl"],
+          "ref": "9.5.g",
+          "stdForProhibition": false
+        },
+        {
+          "deficiencyCategory": "major",
+          "deficiencyId": "h",
+          "deficiencySubId": null,
+          "deficiencyText": "incomplete.",
+          "deficiencyTextWelsh": "anghyflawn.",
+          "forVehicleType": ["trl"],
+          "ref": "9.5.h",
+          "stdForProhibition": false
+        }
+      ],
+      "forVehicleType": ["trl"],
+      "itemDescription": "Rear Under-Run device:",
+      "itemDescriptionWelsh": "Dyfais Dan-redeg Cefn:",
+      "itemNumber": 5
+    }
+  ]
+}

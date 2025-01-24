@@ -7,8 +7,6 @@ export interface IDefectChild {
   deficiencyText?: string;
   deficiencyTextWelsh?: string;
   forVehicleType?: string[];
-  effectiveFrom?: string;
-  effectiveTo?: string;
 }
 
 export interface IItem {
@@ -27,4 +25,9 @@ export interface IDefectParent {
   forVehicleType?: string[];
   additionalInfo?: any;
   items: IItem[];
+}
+
+export interface IDateRestrictions {
+  effectiveFrom?: string;
+  effectiveTo?: string;
 }

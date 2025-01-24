@@ -1,6 +1,11 @@
 import { HTTPError } from "../models/HTTPError";
 import { DefectsDAO } from "../models/DefectsDAO";
-import { IDefectChild, IDefectParent } from "../models/Defects";
+import {
+  IDateRestrictions,
+  IDefectChild,
+  IDefectParent,
+  IItem,
+} from "../models/Defects";
 import { ScanOutput } from "@aws-sdk/client-dynamodb";
 import { Configuration } from "../utils/Configuration";
 
@@ -13,12 +18,12 @@ export class DefectsService {
     this.config = Configuration.getInstance();
   }
 
-  public async getDefectList(): Promise<IDefectParent[]>  {
+  public async getDefectList(): Promise<IDefectParent[]> {
     let defectDBResult: ScanOutput;
     try {
-      defectDBResult = await this.defectsDAO.getAll() as ScanOutput;
+      defectDBResult = (await this.defectsDAO.getAll()) as ScanOutput;
     } catch (e) {
-      const error = e as { statusCode: number, body: string; };
+      const error = e as { statusCode: number; body: string };
       if (!(error instanceof HTTPError)) {
         console.error(error);
         error.statusCode = 500;
@@ -27,43 +32,37 @@ export class DefectsService {
       throw new HTTPError(error.statusCode, error.body);
     }
 
-    const arrayOfDefectParent: IDefectParent[] = defectDBResult.Items as unknown as IDefectParent[];
+    const arrayOfDefectParent: IDefectParent[] =
+      defectDBResult.Items as unknown as IDefectParent[];
     if (defectDBResult.Count === 0) {
       throw new HTTPError(404, "No resources match the search criteria.");
     }
     const dateToUse: number | null = this.config.getCurrentDateOverride();
     const currentDate: number = dateToUse ?? new Date().valueOf();
-    return arrayOfDefectParent.map((defectParent: IDefectParent) => {
-        defectParent.items.map((item) => {
-          item.deficiencies = item.deficiencies.filter((deficiency: IDefectChild) => {
-            const currenAfterEffectiveFrom: boolean = deficiency?.effectiveFrom
-              ? currentDate >= new Date(deficiency.effectiveFrom + "T00:00:00.000Z").valueOf()
-              : true;
-            const currentBeforeEffectiveTo: boolean = deficiency?.effectiveTo
-              ? currentDate < new Date(deficiency.effectiveTo + "T00:00:00.000Z").valueOf()
-              : true;
-            return currenAfterEffectiveFrom && currentBeforeEffectiveTo;
-          });
-          item.deficiencies.map((deficiency: IDefectChild) => {
-              if (deficiency?.effectiveFrom) {
-                delete deficiency.effectiveFrom;
-              }
-              if (deficiency?.effectiveTo) {
-                delete deficiency.effectiveTo;
-              }
-          });
+    return arrayOfDefectParent
+      .map((defectParent: IDefectParent) => {
+        defectParent.items = defectParent.items.filter(
+          this.filterEffectiveDates<IDefectChild & IDateRestrictions>(
+            currentDate,
+          ),
+        );
+        defectParent.items.map((item: IItem & IDateRestrictions) => {
+          item.deficiencies = item.deficiencies.filter(
+            this.filterEffectiveDates<IDefectChild & IDateRestrictions>(
+              currentDate,
+            ),
+          );
+          item.deficiencies.map(
+            this.removeEffectiveDates<IDefectChild & IDateRestrictions>,
+          );
+          this.removeEffectiveDates<IItem & IDateRestrictions>(item);
         });
         delete defectParent.id;
         return defectParent;
       })
-      .sort(
-        (
-          first: IDefectParent,
-          second: IDefectParent,
-        ): number => {
-          return first.imNumber - second.imNumber;
-        },
-      );
+      .sort((first: IDefectParent, second: IDefectParent): number => {
+        return first.imNumber - second.imNumber;
+      });
   }
 
   public insertDefectList(defectItems: any) {
@@ -97,4 +96,30 @@ export class DefectsService {
         }
       });
   }
+
+  public filterEffectiveDates<T extends IDateRestrictions>(
+    currentDate: number,
+  ): (value: T) => boolean {
+    return (value: T): boolean => {
+      const currenAfterEffectiveFrom: boolean = value?.effectiveFrom
+        ? currentDate >=
+          new Date(value.effectiveFrom + "T00:00:00.000Z").valueOf()
+        : true;
+
+      const currentBeforeEffectiveTo: boolean = value?.effectiveTo
+        ? currentDate < new Date(value.effectiveTo + "T00:00:00.000Z").valueOf()
+        : true;
+
+      return currenAfterEffectiveFrom && currentBeforeEffectiveTo;
+    };
+  }
+
+  public removeEffectiveDates = <T extends IDateRestrictions>(value: T) => {
+    if (value?.effectiveFrom !== undefined) {
+      delete value.effectiveFrom;
+    }
+    if (value?.effectiveTo !== undefined) {
+      delete value.effectiveTo;
+    }
+  };
 }
