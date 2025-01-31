@@ -149,6 +149,56 @@ describe("ConfigurationUtil", () => {
     });
   });
 
+  context("when calling the getCurrentDateOverride()", () => {
+    beforeEach(() => {
+      jest.resetModules();
+    });
+
+    context("CURRENT_DATE_OVERRIDE environment variable", () => {
+      it("should return null due to no CURRENT_DATE_OVERRIDE", () => {
+        process.env.CURRENT_DATE_OVERRIDE = undefined;
+        Configuration.getInstance().getCurrentDateOverride();
+      });
+
+      it("should return null due to invalid date", () => {
+        process.env.CURRENT_DATE_OVERRIDE = "2022-01-01T00:00:00.000Z";
+        expect(Configuration.getInstance().getCurrentDateOverride()).toEqual(
+          null,
+        );
+      });
+
+      it("should return CURRENT_DATE_OVERRIDE with time set to T00:00:00.000Z as valueOf 1640995200000", () => {
+        process.env.CURRENT_DATE_OVERRIDE = "2022-01-01";
+        expect(Configuration.getInstance().getCurrentDateOverride()).toEqual(
+          1640995200000,
+        );
+      });
+    });
+
+    context("the BRANCH environment variable is 'develop'", () => {
+      it("should return the remote invoke config", () => {
+        process.env.BRANCH = "develop";
+        // Switch to mockedConfig to simplify environment mocking
+        const dbConfig: IDBConfig = getMockedConfig().getDynamoDBConfig();
+        expect(Object.keys(dbConfig)).toEqual(["defects", "ivaDefects"]);
+        expect(Object.keys(dbConfig)).not.toContain("keys");
+        expect(dbConfig.defects.table).toBe("cvs-develop-defects");
+      });
+    });
+
+    context("the BRANCH environment variable is not defined", () => {
+      it("should throw error", () => {
+        process.env.BRANCH = "";
+        expect.assertions(1);
+        try {
+          getMockedConfig().getDynamoDBConfig();
+        } catch (e) {
+          expect((e as Error).message).toEqual(ERRORS.NoBranch);
+        }
+      });
+    });
+  });
+
   afterAll(() => {
     process.env.BRANCH = branch;
   });

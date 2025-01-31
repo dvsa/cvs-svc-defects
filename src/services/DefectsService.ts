@@ -1,41 +1,66 @@
 import { HTTPError } from "../models/HTTPError";
 import { DefectsDAO } from "../models/DefectsDAO";
+import { IDefectChild, IDefectParent, IItem } from "../models/Defects";
+import { ScanOutput } from "@aws-sdk/client-dynamodb";
+import { Configuration } from "../utils/Configuration";
+import {
+  filterEffectiveDates,
+  removeEffectiveDates,
+} from "../utils/DateRestrictions";
+import { IDateRestrictions } from "../models/DateRestrictions";
 
 export class DefectsService {
   public readonly defectsDAO: DefectsDAO;
+  private readonly config: Configuration;
 
   constructor(defectsDAO: DefectsDAO) {
     this.defectsDAO = defectsDAO;
+    this.config = Configuration.getInstance();
   }
 
-  public getDefectList() {
-    return this.defectsDAO
-      .getAll()
-      .then((data: any) => {
-        if (data.Count === 0) {
-          throw new HTTPError(404, "No resources match the search criteria.");
-        }
+  public async getDefectList(): Promise<IDefectParent[]> {
+    let defectDBResult: ScanOutput;
+    try {
+      defectDBResult = (await this.defectsDAO.getAll()) as ScanOutput;
+    } catch (e) {
+      const error = e as { statusCode: number; body: string };
+      if (!(error instanceof HTTPError)) {
+        console.error(error);
+        error.statusCode = 500;
+        error.body = "Internal Server Error";
+      }
+      throw new HTTPError(error.statusCode, error.body);
+    }
 
-        return data.Items.map((defect: any) => {
-          delete defect.id;
-          return defect;
-        }).sort(
-          (
-            first: { imNumber: number },
-            second: { imNumber: number },
-          ): number => {
-            return first.imNumber - second.imNumber;
-          },
+    const arrayOfDefectParent: IDefectParent[] =
+      defectDBResult.Items as unknown as IDefectParent[];
+    if (defectDBResult.Count === 0) {
+      throw new HTTPError(404, "No resources match the search criteria.");
+    }
+
+    const dateToUse: number | null = this.config.getCurrentDateOverride();
+    const currentDate: number = dateToUse ?? new Date().valueOf();
+    arrayOfDefectParent
+      .map((defectParent: IDefectParent) => {
+        defectParent.items = defectParent.items.filter(
+          filterEffectiveDates<IDefectChild & IDateRestrictions>(currentDate),
         );
+        defectParent.items.map((item: IItem & IDateRestrictions) => {
+          item.deficiencies = item.deficiencies.filter(
+            filterEffectiveDates<IDefectChild & IDateRestrictions>(currentDate),
+          );
+          item.deficiencies.map(
+            removeEffectiveDates<IDefectChild & IDateRestrictions>,
+          );
+          removeEffectiveDates<IItem & IDateRestrictions>(item);
+        });
+        delete defectParent.id;
+        return defectParent;
       })
-      .catch((error) => {
-        if (!(error instanceof HTTPError)) {
-          console.error(error);
-          error.statusCode = 500;
-          error.body = "Internal Server Error";
-        }
-        throw new HTTPError(error.statusCode, error.body);
+      .sort((first: IDefectParent, second: IDefectParent): number => {
+        return first.imNumber - second.imNumber;
       });
+    return arrayOfDefectParent;
   }
 
   public insertDefectList(defectItems: any) {

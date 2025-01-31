@@ -144,6 +144,27 @@ class Configuration {
 
     return this.config.dynamodb[env];
   }
+
+  /**
+   * Function to allow for testing of defect date fields
+   */
+  public getCurrentDateOverride(): number | null {
+    const validString: boolean = /^\d{4}-\d{2}-\d{2}$/.test(
+      process.env.CURRENT_DATE_OVERRIDE ?? "",
+    );
+    if (process.env.CURRENT_DATE_OVERRIDE && validString) {
+      console.log(
+        "Current date override is set to: ",
+        process.env.CURRENT_DATE_OVERRIDE,
+        validString ? " It is Valid" : " It is not valid",
+      );
+
+      return new Date(
+        process.env.CURRENT_DATE_OVERRIDE + "T00:00:00.000Z",
+      ).valueOf();
+    }
+    return null;
+  }
 }
 
 export { Configuration, IFunctionEvent };

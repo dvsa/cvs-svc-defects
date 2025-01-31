@@ -9,9 +9,16 @@ import {
   RequiredStandardTaxonomySection,
 } from "@dvsa/cvs-type-definitions/types/required-standards/defects/get";
 import { IRequiredStandard } from "../models/RequiredStandard";
+import {
+  filterEffectiveDates,
+  removeEffectiveDates,
+} from "../utils/DateRestrictions";
+import { IDateRestrictions } from "../models/DateRestrictions";
+import { Configuration } from "../utils/Configuration";
 
 export class RequiredStandardsService {
   public readonly requiredStandrdDatabaseService: RequiredStandardDatabaseService;
+  private readonly config: Configuration;
 
   /**
    * Constructor for the RequiredStandardsService class
@@ -21,6 +28,7 @@ export class RequiredStandardsService {
     requiredStandardDatabaseService: RequiredStandardDatabaseService,
   ) {
     this.requiredStandrdDatabaseService = requiredStandardDatabaseService;
+    this.config = Configuration.getInstance();
   }
 
   /**
@@ -36,6 +44,19 @@ export class RequiredStandardsService {
         (await this.requiredStandrdDatabaseService.getRequiredStandardsByEUVehicleCategory(
           euVehicleCategory,
         )) as ITaxonomySectionRequiredStandards[];
+
+      const dateToUse: number | null = this.config.getCurrentDateOverride();
+      const currentDate: number = dateToUse ?? new Date().valueOf();
+      results.map((taxonomy) => {
+        taxonomy.requiredStandards = taxonomy.requiredStandards.filter(
+          filterEffectiveDates<IRequiredStandard & IDateRestrictions>(
+            currentDate,
+          ),
+        );
+        taxonomy.requiredStandards.map(
+          removeEffectiveDates<IRequiredStandard & IDateRestrictions>,
+        );
+      });
 
       return this.formatRequiredStandards(results, euVehicleCategory);
     } catch (error: any) {
