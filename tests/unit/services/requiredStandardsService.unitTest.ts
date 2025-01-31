@@ -8,6 +8,8 @@ import { RequiredStandardsService } from "../../../src/services/requiredStandard
 import RequiredStandards from "../../resources/iva-defects.json";
 import { ITaxonomySectionRequiredStandards } from "../../../src/models/ITaxonomySectionRequiredStandards";
 import { RequiredStandardsDatabaseService } from "../../../src/services/requiredStandardsDatabaseService";
+import { IRequiredStandard } from "../../../src/models/RequiredStandard";
+import { cloneDeep } from "lodash";
 
 const mockGetDefectsByEUVehicleCategory = jest.fn();
 
@@ -267,6 +269,129 @@ describe("required standards  Service", () => {
   });
 
   describe("getRequiredStandardsByEUVehicleCategory", () => {
+    const taxonomySectionMock: ITaxonomySectionRequiredStandards[] = [
+      {
+        euVehicleCategory: "m1",
+        sectionNumber: "01",
+        sectionDescription: "Noise",
+        requiredStandards: [
+          {
+            rsNumber: "1",
+            requiredStandard: "A test standard 1",
+            refCalculation: "1.1",
+            additionalInfo: true,
+            basicInspection: true,
+            normalInspection: false,
+            effectiveFrom: "2020-01-01",
+            effectiveTo: "2021-01-02",
+          },
+          {
+            rsNumber: "1",
+            requiredStandard: "A test standard Text to be applied after",
+            refCalculation: "1.1",
+            additionalInfo: true,
+            basicInspection: true,
+            normalInspection: false,
+            effectiveFrom: "2021-01-02",
+            effectiveTo: null,
+          },
+        ] as unknown as IRequiredStandard[],
+      },
+    ];
+
+    it("should return a correctly formatted section with basic required standards only and filtered correctly for date 2021-01-01", async () => {
+      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(
+        cloneDeep(taxonomySectionMock),
+      );
+
+      jest.useFakeTimers();
+      jest.setSystemTime(new Date("2021-01-01"));
+      expect(
+        await target.getRequiredStandardsByEUVehicleCategory("m1"),
+      ).toEqual({
+        euVehicleCategories: ["m1"],
+        basic: [
+          {
+            requiredStandards: [
+              {
+                additionalInfo: true,
+                inspectionTypes: ["basic"],
+                refCalculation: "1.1",
+                requiredStandard: "A test standard 1",
+                rsNumber: 1,
+              },
+            ],
+            sectionDescription: "Noise",
+            sectionNumber: "01",
+          },
+        ],
+        normal: [],
+      });
+    });
+
+    it("should return a correctly formatted section with basic required standards only and filtered correctly for date 2021-01-02", async () => {
+      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(
+        cloneDeep(taxonomySectionMock),
+      );
+
+      jest.useFakeTimers();
+      jest.setSystemTime(new Date("2021-01-02"));
+      expect(
+        await target.getRequiredStandardsByEUVehicleCategory("m1"),
+      ).toEqual({
+        euVehicleCategories: ["m1"],
+        basic: [
+          {
+            requiredStandards: [
+              {
+                additionalInfo: true,
+                inspectionTypes: ["basic"],
+                refCalculation: "1.1",
+                requiredStandard: "A test standard Text to be applied after",
+                rsNumber: 1,
+              },
+            ],
+            sectionDescription: "Noise",
+            sectionNumber: "01",
+          },
+        ],
+        normal: [],
+      });
+    });
+
+    it("should return a correctly formatted section with basic required standards only and filtered correctly for overridden date 2025-03-01", async () => {
+      mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(
+        cloneDeep(taxonomySectionMock),
+      );
+
+      jest.useFakeTimers();
+      jest.setSystemTime(new Date("2021-01-01"));
+      process.env.CURRENT_DATE_OVERRIDE = "2025-03-01";
+      jest.useFakeTimers();
+      jest.setSystemTime(new Date("2021-01-02"));
+      expect(
+        await target.getRequiredStandardsByEUVehicleCategory("m1"),
+      ).toEqual({
+        euVehicleCategories: ["m1"],
+        basic: [
+          {
+            requiredStandards: [
+              {
+                additionalInfo: true,
+                inspectionTypes: ["basic"],
+                refCalculation: "1.1",
+                requiredStandard: "A test standard Text to be applied after",
+                rsNumber: 1,
+              },
+            ],
+            sectionDescription: "Noise",
+            sectionNumber: "01",
+          },
+        ],
+        normal: [],
+      });
+    });
+
     it("should return expected number of normal sections upon successful result", async () => {
       mockGetDefectsByEUVehicleCategory.mockResolvedValueOnce(
         RequiredStandards,

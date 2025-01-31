@@ -26,8 +26,3 @@ export interface IDefectParent {
   additionalInfo?: any;
   items: IItem[];
 }
-
-export interface IDateRestrictions {
-  effectiveFrom?: string;
-  effectiveTo?: string;
-}

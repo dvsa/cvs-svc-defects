@@ -1,13 +1,13 @@
 import { HTTPError } from "../models/HTTPError";
 import { DefectsDAO } from "../models/DefectsDAO";
-import {
-  IDateRestrictions,
-  IDefectChild,
-  IDefectParent,
-  IItem,
-} from "../models/Defects";
+import { IDefectChild, IDefectParent, IItem } from "../models/Defects";
 import { ScanOutput } from "@aws-sdk/client-dynamodb";
 import { Configuration } from "../utils/Configuration";
+import {
+  filterEffectiveDates,
+  removeEffectiveDates,
+} from "../utils/DateRestrictions";
+import { IDateRestrictions } from "../models/DateRestrictions";
 
 export class DefectsService {
   public readonly defectsDAO: DefectsDAO;
@@ -37,25 +37,22 @@ export class DefectsService {
     if (defectDBResult.Count === 0) {
       throw new HTTPError(404, "No resources match the search criteria.");
     }
+
     const dateToUse: number | null = this.config.getCurrentDateOverride();
     const currentDate: number = dateToUse ?? new Date().valueOf();
-    return arrayOfDefectParent
+    arrayOfDefectParent
       .map((defectParent: IDefectParent) => {
         defectParent.items = defectParent.items.filter(
-          this.filterEffectiveDates<IDefectChild & IDateRestrictions>(
-            currentDate,
-          ),
+          filterEffectiveDates<IDefectChild & IDateRestrictions>(currentDate),
         );
         defectParent.items.map((item: IItem & IDateRestrictions) => {
           item.deficiencies = item.deficiencies.filter(
-            this.filterEffectiveDates<IDefectChild & IDateRestrictions>(
-              currentDate,
-            ),
+            filterEffectiveDates<IDefectChild & IDateRestrictions>(currentDate),
           );
           item.deficiencies.map(
-            this.removeEffectiveDates<IDefectChild & IDateRestrictions>,
+            removeEffectiveDates<IDefectChild & IDateRestrictions>,
           );
-          this.removeEffectiveDates<IItem & IDateRestrictions>(item);
+          removeEffectiveDates<IItem & IDateRestrictions>(item);
         });
         delete defectParent.id;
         return defectParent;
@@ -63,6 +60,7 @@ export class DefectsService {
       .sort((first: IDefectParent, second: IDefectParent): number => {
         return first.imNumber - second.imNumber;
       });
+    return arrayOfDefectParent;
   }
 
   public insertDefectList(defectItems: any) {
@@ -95,31 +93,5 @@ export class DefectsService {
           throw new HTTPError(500, "Internal ServerError");
         }
       });
-  }
-
-  public filterEffectiveDates<T extends IDateRestrictions>(
-    currentDate: number,
-  ): (value: T) => boolean {
-    return (value: T): boolean => {
-      const currenAfterEffectiveFrom: boolean = value?.effectiveFrom
-        ? currentDate >=
-          new Date(value.effectiveFrom + "T00:00:00.000Z").valueOf()
-        : true;
-
-      const currentBeforeEffectiveTo: boolean = value?.effectiveTo
-        ? currentDate < new Date(value.effectiveTo + "T00:00:00.000Z").valueOf()
-        : true;
-
-      return currenAfterEffectiveFrom && currentBeforeEffectiveTo;
-    };
-  }
-
-  public removeEffectiveDates = <T extends IDateRestrictions>(value: T) => {
-    if (value?.effectiveFrom !== undefined) {
-      delete value.effectiveFrom;
-    }
-    if (value?.effectiveTo !== undefined) {
-      delete value.effectiveTo;
-    }
   }
 }
